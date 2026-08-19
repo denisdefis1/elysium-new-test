@@ -1,3 +1,3 @@
-google-ads
-python-dotenv
-mcp
+google-ads==31.3.0
+python-dotenv==1.2.1
+mcp==2.0.0
