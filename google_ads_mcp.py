@@ -1,11 +1,14 @@
 import os
+import asyncio
+
 from dotenv import load_dotenv
 from google.ads.googleads.client import GoogleAdsClient
-from mcp.server.fastmcp import FastMCP
+from mcp.server.mcpserver import MCPServer
 
 load_dotenv()
 
-mcp = FastMCP("Elysium Google Ads")
+mcp = MCPServer("Elysium Google Ads")
+
 
 def get_client():
     config = {
@@ -16,11 +19,14 @@ def get_client():
         "login_customer_id": os.environ["GOOGLE_ADS_LOGIN_CUSTOMER_ID"],
         "use_proto_plus": True,
     }
+
     return GoogleAdsClient.load_from_dict(config)
 
+
 @mcp.tool()
-def get_customer_info() -> str:
+async def get_customer_info() -> str:
     """Get basic information about the Google Ads customer."""
+
     client = get_client()
     customer_id = os.environ["GOOGLE_ADS_CUSTOMER_ID"]
 
@@ -51,9 +57,11 @@ def get_customer_info() -> str:
 
     return "Customer not found."
 
+
 @mcp.tool()
-def get_campaigns() -> str:
+async def get_campaigns() -> str:
     """Get all Google Ads campaigns and their current status."""
+
     client = get_client()
     customer_id = os.environ["GOOGLE_ADS_CUSTOMER_ID"]
 
@@ -84,5 +92,6 @@ def get_campaigns() -> str:
 
     return "\n".join(results) if results else "No campaigns found."
 
+
 if __name__ == "__main__":
-    mcp.run(transport="stdio")
+    asyncio.run(mcp.run_stdio_async())
