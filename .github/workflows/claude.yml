@@ -63,4 +63,6 @@ jobs:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           additional_permissions: |
             actions: read
-          claude_args: '--mcp-config .mcp.json'
+          claude_args: |
+            --mcp-config .mcp.json
+            --allowedTools mcp__google-ads__get_customer_info,mcp__google-ads__get_campaigns
