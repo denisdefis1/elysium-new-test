@@ -84,7 +84,7 @@
         "F",
         "G"
       ],
-      "keyword_count_approx": 129,
+      "keyword_count_approx": 126,
       "priority": "PRIMARY",
       "notes": "RU-language keywords only. Covers direct purchase RU queries across Pools A, B, D, E, F, G filtered to language=RU. 141 verified RU keywords. Split into focused ad groups by sub-intent.",
       "ad_groups": [
@@ -162,7 +162,7 @@
         "F",
         "G"
       ],
-      "keyword_count_approx": 82,
+      "keyword_count_approx": 79,
       "priority": "PRIMARY",
       "notes": "EN-language keywords only. Pools A, B, C, D, E, F, G filtered to language=EN. 83 verified EN keywords. Israel primary geo. Covers purchase, luxury, penthouse, residence, investment, district EN queries.",
       "ad_groups": [
