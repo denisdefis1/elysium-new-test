@@ -517,11 +517,11 @@ function renderS05(keywords, competitors, negatives) {
   const compData = (competitors && competitors.competitors) ? competitors.competitors : [];
   const negData  = (negatives  && negatives.categories)  ? negatives             : {categories:[], total:0};
 
-  // Filter keywords per campaign
-  const k1kw = kwData.filter(k => ['A','B','D','E','F','G'].includes(k.pool) && k.language === 'RU');
-  const k2kw = kwData.filter(k => ['A','B','C','D','E','F','G'].includes(k.pool) && k.language === 'EN');
-  const k3kw = kwData.filter(k => k.pool === 'B');
-  const k4kw = compData.flatMap(c => c.keywords.map(kw => ({keyword: kw.keyword, competitor: c.name})));
+  // Filter keywords per campaign — exclude EXCLUDED_* statuses from all campaigns
+  const isActive = k => !k.status || !k.status.startsWith('EXCLUDED');
+  const k1kw = kwData.filter(k => isActive(k) && ['A','B','D','E','F','G'].includes(k.pool) && k.language === 'RU');
+  const k2kw = kwData.filter(k => isActive(k) && ['A','B','C','D','E','F','G'].includes(k.pool) && k.language === 'EN');
+  const k3kw = compData.flatMap(c => c.keywords.map(kw => ({keyword: kw.keyword, competitor: c.name})));
 
   // ── LOW-LEVEL HELPERS (string concatenation, no nested template literals) ──
 
@@ -638,16 +638,7 @@ function renderS05(keywords, competitors, negatives) {
     descsHtml(RSA_K2_DESCS)
   );
 
-  const k3Ads = rsaBox(
-    '📌 Позиция 1: «Бутик-резиденция в Тбилиси»',
-    'RSA · 15 заголовков · 4 описания · Язык: RU',
-    subhead('Заголовки — 15 шт., макс. 30 символов (📌 = закреплено в позиции 1)') +
-    headsPinned(RSA_K3_HEADS) + gap +
-    subhead('Описания — 4 шт., макс. 90 символов') +
-    descsHtml(RSA_K3_DESCS)
-  );
-
-  const k4Ads =
+  const k3Ads =
     rsaBox(
       '🇷🇺 RSA 1 — RU',
       'RSA · 15 заголовков · 4 описания · Без закреплённой позиции',
@@ -705,17 +696,11 @@ function renderS05(keywords, competitors, negatives) {
       kwSection(k2kw,'Пулы A B C D E F G · Язык EN'),
       negSection, k2Ads)}
 
-    ${campWrap('3','К3 — Премиум RU',
-      k3kw.length + ' ключевых слов · Пул B · Язык: RU · Аудитория: IL · UA · BY',
-      'rgba(196,168,100,0.3)','rgba(196,168,100,0.04)',
-      kwSection(k3kw,'Пул B · Все языки'),
-      negSection, k3Ads)}
-
-    ${campWrap('4','К4 — Конкуренты',
-      k4kw.length + ' ключевых слов · ' + compData.length + ' конкурирующих проектов · Языки: RU + EN · Аудитория: IL · UA · BY',
+    ${campWrap('3','К3 — Конкуренты',
+      k3kw.length + ' ключевых слов · ' + compData.length + ' конкурирующих проектов · Языки: RU + EN · Аудитория: IL · UA · BY',
       'rgba(220,100,60,0.3)','rgba(220,100,60,0.04)',
-      kwSectionComp(k4kw),
-      negSection, k4Ads)}
+      kwSectionComp(k3kw),
+      negSection, k3Ads)}
   `;
 }
 
