@@ -163,7 +163,7 @@ function renderS01() {
         </div>
       </div>
     </div>
-  \`;
+  `;
 }
 
 function fact(label, value) {
@@ -233,7 +233,7 @@ function renderS02() {
         <strong>Excluded from targeting:</strong> Germany · Georgia (local residents).
       </div>
     </div>
-  \`;
+  `;
 }
 
 /* ---- S03 Geo & Language ---- */
@@ -296,7 +296,7 @@ function renderS03() {
         These require larger budgets and will be evaluated after Phase 1 CPL data is available (6–8 weeks post-launch).
       </div>
     </div>
-  \`;
+  `;
 }
 
 /* ---- S04 Search Intent ---- */
@@ -383,7 +383,7 @@ function renderS04() {
         Park Home Vake · Gergeti Rise · CityZen · Next Tbilisi · Mtatsminda Panorama.
       </div>
     </div>
-  \`;
+  `;
 }
 
 /* ---- S05 Keyword Architecture ---- */
@@ -400,7 +400,7 @@ function renderS05(negatives) {
         ${campNote ? '<div style="margin-top:8px;font-size:11px;color:var(--text-tertiary)">' + campNote + '</div>' : ''}
       </div>
     </div>
-  \`;
+  `;
 
   const kwBlock = (examples, count, intent) => `
     <div style="margin-top:16px">
@@ -410,7 +410,7 @@ function renderS05(negatives) {
         ${examples.map(kw => '<code style="background:var(--bg-hover);padding:3px 8px;border-radius:4px;font-size:11px;color:var(--text-secondary)">' + kw + '</code>').join('')}
       </div>
     </div>
-  \`;
+  `;
 
   const adsBlock = (rsaName, p1, sectionRef) => `
     <div style="margin-top:16px;padding:14px 16px;background:var(--bg-surface);border:1px solid var(--border-subtle);border-radius:8px">
@@ -419,7 +419,7 @@ function renderS05(negatives) {
       <div style="font-size:12px;color:var(--text-tertiary);margin-bottom:8px">📌 Pinned Headline 1: <span style="color:var(--accent-gold)">${p1}</span></div>
       <div style="font-size:11px;color:var(--text-tertiary)">→ Full RSA copy (15 headlines · 4 descriptions) in <strong>Section 09 — Ads & Messaging</strong></div>
     </div>
-  \`;
+  `;
 
   const campaignBlock = (num, nameRu, nameEn, lang, geo, kwContent, negContent, adsContent) => `
     <div style="border:1px solid var(--border-medium);border-radius:10px;overflow:hidden;margin-bottom:32px">
@@ -440,7 +440,7 @@ function renderS05(negatives) {
         ${adsContent}
       </div>
     </div>
-  \`;
+  `;
 
   return `
     <div class="section-block-header">
@@ -502,7 +502,7 @@ function renderS05(negatives) {
       'Competitors',
       'RU + EN',
       'IL · UA · BY',
-      \`<div style="margin-top:16px">
+      `<div style="margin-top:16px">
         <div style="font-size:10px;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:8px">Keywords · ~87 keywords · Pool I · CHECK_REQUIRED</div>
         <div style="font-size:12px;color:var(--text-secondary);margin-bottom:8px">Buyers actively searching for competing premium projects in Tbilisi. Both RU and EN queries. All keywords require manual review before enabling.</div>
         <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px">
@@ -512,17 +512,17 @@ function renderS05(negatives) {
           <span class="note-box-icon">⚠</span>
           <div style="font-size:12px">All 87 keywords are <strong>CHECK_REQUIRED</strong>. Launch priority: Park Home Vake → Gergeti Rise → CityZen → Next Tbilisi → Mtatsminda Panorama.</div>
         </div>
-      </div>\`,
+      </div>`,
       negBlock('Additional: exclude irrelevant competitor brand terms that have no Tbilisi geo signal.'),
-      \`<div style="margin-top:16px;padding:14px 16px;background:var(--bg-surface);border:1px solid var(--border-subtle);border-radius:8px">
+      `<div style="margin-top:16px;padding:14px 16px;background:var(--bg-surface);border:1px solid var(--border-subtle);border-radius:8px">
         <div style="font-size:10px;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:8px">Ads (RSA) — 2 ads</div>
         <div style="font-size:13px;color:var(--text-primary);margin-bottom:6px">К4 RU + К4 EN (separate RSAs per language)</div>
         <div style="font-size:12px;color:var(--text-tertiary);margin-bottom:4px">📌 RU P1: <span style="color:var(--accent-gold)">«Не комплекс — бутик-резиденция»</span></div>
         <div style="font-size:12px;color:var(--text-tertiary);margin-bottom:8px">📌 EN P1: <span style="color:var(--accent-gold)">"Boutique — Not a Complex"</span></div>
         <div style="font-size:11px;color:var(--text-tertiary)">→ Full RSA copy in <strong>Section 09 — Ads & Messaging</strong></div>
-      </div>\`
+      </div>`
     )}
-  \`;
+  `;
 }
 
 /* ---- S06 Структура кампаний ---- */
@@ -586,7 +586,7 @@ function renderS06(campaigns) {
         <div>CPC expectations are based on Google Keyword Planner data, not guarantees. Actual CPL will be established after 4–6 weeks of live data.</div>
       </div>
     </div>
-  \`;
+  `;
 }
 
 /* renderCampaignCard — backend only, not rendered in client view */
@@ -656,7 +656,7 @@ function renderS07() {
         <div style="padding:10px 14px;background:var(--bg-hover);border-radius:6px"><div style="color:var(--text-tertiary);margin-bottom:4px">Leads/mo target</div><div style="color:var(--text-primary);font-weight:500">10–20 (Month 1–3)</div></div>
       </div>
     </div>
-  \`;
+  `;
 }
 
 function doItem(text) {
