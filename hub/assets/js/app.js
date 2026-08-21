@@ -187,19 +187,19 @@ function updateHeaderNav() {
 
 function buildGoogleSidebar() {
   const sections = [
-    ['00','Overview'],
-    ['01','Product & Positioning'],
-    ['02','Target Audience'],
-    ['03','Search Strategy'],
-    ['04','Campaign Structure'],
-    ['05','Campaign Details'],
-    ['06','Budget & Bidding'],
-    ['07','Measurement'],
-    ['09','Ads & Messaging'],
+    ['00','Обзор стратегии'],
+    ['01','Продукт и позиционирование'],
+    ['02','Целевая аудитория'],
+    ['03','Поисковая стратегия'],
+    ['04','Структура кампаний'],
+    ['05','Детали кампаний'],
+    ['06','Бюджет и ставки'],
+    ['07','Измерение и оптимизация'],
+    ['09','Объявления и тексты'],
   ];
 
   sidebar.innerHTML = `
-    <div class="sidebar-label">Google Ads — Sections</div>
+    <div class="sidebar-label">Google Ads — Разделы</div>
     <nav class="sidebar-nav" id="sidebar-nav">
       ${sections.map(([num, title]) => `
         <a class="sidebar-nav-link" href="#s${num}" data-section="s${num}">

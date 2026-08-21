@@ -6,6 +6,130 @@
 import { poolBadge, statusBadge, langBadge, fmtVol, fmtCpc, volClass, ciClass, buildKeywordTable, escHtml } from './ui.js';
 
 /* ============================================================
+   RSA DATA — module-level constants (used by S05 and S09)
+   ============================================================ */
+
+const RSA_K1_HEADS = [
+  {text:'Апартаменты от 130 м²',            pin:'P1'},
+  {text:'Купить квартиру в Тбилиси',         pin:null},
+  {text:'Дом введён в эксплуатацию',         pin:null},
+  {text:'Квартира в Грузии — от 130 м²',     pin:null},
+  {text:'14 квартир. Готово к продаже.',      pin:null},
+  {text:'Свободная планировка',               pin:null},
+  {text:'Без несущих стен — ваш проект',      pin:null},
+  {text:'Панорамный вид из каждой',           pin:null},
+  {text:'Подземный паркинг включён',          pin:null},
+  {text:'Открыта к просмотру',                pin:null},
+  {text:'Цены и планировки — по запросу',     pin:null},
+  {text:'Записаться на показ',                pin:null},
+  {text:'2 квартиры на каждом этаже',         pin:null},
+  {text:'Автономный дом — генератор',         pin:null},
+  {text:'Запросите цену напрямую',            pin:null},
+];
+const RSA_K1_DESCS = [
+  'Апартаменты от 130 м² в Тбилиси. Свободная планировка. Дом введён в эксплуатацию.',
+  'Только 14 квартир. Без несущих стен. Подземный паркинг. Открыта к просмотру.',
+  'Панорамный вид из каждой квартиры. 2 квартиры на этаже. Цены — по запросу.',
+  'Запишитесь на личный показ — получите планировки, цены и полную информацию.',
+];
+
+const RSA_K2_HEADS = [
+  {text:'Apartments from 130 m²',       pin:'P1'},
+  {text:'Buy Apartment in Tbilisi',      pin:null},
+  {text:'Boutique Residence Tbilisi',    pin:null},
+  {text:'Building Commissioned & Ready', pin:null},
+  {text:'Open for Private Viewing',      pin:null},
+  {text:'Luxury Tbilisi Real Estate',    pin:null},
+  {text:'Free Floor Plan — No Walls',    pin:null},
+  {text:'Panoramic Views — Every Unit',  pin:null},
+  {text:'Privacy. Security. Silence.',   pin:null},
+  {text:'Underground Parking Included',  pin:null},
+  {text:'Generator & Water Reserve',     pin:null},
+  {text:'Book a Private Viewing',        pin:null},
+  {text:'Plans & Prices on Request',     pin:null},
+  {text:'2 Apartments per Floor Only',   pin:null},
+  {text:'Boutique — Not a Complex',      pin:null},
+];
+const RSA_K2_DESCS = [
+  'Boutique Residence in Tbilisi. 14 apartments from 130 m². Building commissioned.',
+  'Free floor plan. No load-bearing walls. Panoramic city views from every residence.',
+  'Full infrastructure independence. Generator. 70-ton water reserve. 24/7 security.',
+  'Book a private viewing. Request plans, pricing, and full project details.',
+];
+
+const RSA_K3_HEADS = [
+  {text:'Бутик-резиденция в Тбилиси',     pin:'P1'},
+  {text:'Не комплекс. 14 резиденций.',     pin:null},
+  {text:'Резиденция, а не квартира',        pin:null},
+  {text:'2 резиденции на этаже',            pin:null},
+  {text:'Без несущих стен',                 pin:null},
+  {text:'Свободная планировка',             pin:null},
+  {text:'Панорамный вид из каждой',         pin:null},
+  {text:'Элитная недвижимость Тбилиси',    pin:null},
+  {text:'Приватный формат жизни',           pin:null},
+  {text:'Полная автономность дома',         pin:null},
+  {text:'Дом введён в эксплуатацию',        pin:null},
+  {text:'Открыта к просмотру',              pin:null},
+  {text:'Подземный паркинг',                pin:null},
+  {text:'Записаться на показ',              pin:null},
+  {text:'Информация о проекте',             pin:null},
+];
+const RSA_K3_DESCS = [
+  'Бутик-резиденция в Тбилиси. Только 14 резиденций. Не комплекс — другой формат.',
+  'Свободная планировка. Без несущих стен. 2 резиденции на этаже. Панорамный вид.',
+  'Тишина. Приватность. Полная автономность дома. Генератор, резервуар, паркинг.',
+  'Запишитесь на показ — узнайте цены, планировки и все детали проекта лично.',
+];
+
+const RSA_K4_RU_HEADS = [
+  'Не комплекс — бутик-резиденция',
+  'Дом введён в эксплуатацию',
+  'Всего 2 квартиры на этаже',
+  'Сравните с ELYSIUM',
+  'Бутик-резиденция в Тбилиси',
+  'Только 14 квартир в доме',
+  'Свободная планировка',
+  'Без несущих стен',
+  'Панорамный вид из каждой',
+  'Автономная инфраструктура',
+  'Подземный паркинг включён',
+  'Открыта к просмотру',
+  'Сравните до покупки',
+  'Полная независимость от сетей',
+  'Записаться на показ',
+];
+const RSA_K4_RU_DESCS = [
+  'Дом уже введён в эксплуатацию. Всего 2 резиденции на этаже — больше приватности.',
+  'Свободная планировка без несущих стен. Панорамный вид из каждой резиденции.',
+  '14 резиденций вместо большого жилого комплекса. Сравните ELYSIUM лично.',
+  'Запишитесь на показ и оцените ELYSIUM перед покупкой премиальной недвижимости.',
+];
+
+const RSA_K4_EN_HEADS = [
+  'Boutique — Not a Complex',
+  'Building Commissioned & Ready',
+  'Only 2 Apartments per Floor',
+  'ELYSIUM Boutique Residence',
+  '14 Apartments from 130 m²',
+  'Panoramic Views — Every Unit',
+  'Free Floor Plan — No Walls',
+  'Privacy. Security. Silence.',
+  'Underground Parking Included',
+  'Generator & Water Reserve',
+  'Open for Private Viewing',
+  'Full Infrastructure Backup',
+  'Book a Private Viewing',
+  'Request Full Project Info',
+  'Compare Before You Choose',
+];
+const RSA_K4_EN_DESCS = [
+  'Building commissioned. Only 2 apartments per floor. Boutique — not a complex.',
+  'Free floor plan. Panoramic views from every residence. Privacy & silence.',
+  'Underground parking. Generator. 70-ton water reserve. Full infrastructure backup.',
+  'Book a private viewing. Compare ELYSIUM with any premium Tbilisi project.',
+];
+
+/* ============================================================
    GOOGLE ADS STRATEGY
    ============================================================ */
 
@@ -18,7 +142,7 @@ export function renderGoogleStrategy(container, data) {
     <div class="section-block" id="s02">${renderS02()}</div>
     <div class="section-block" id="s03">${renderS03()}</div>
     <div class="section-block" id="s04">${renderS04()}</div>
-    <div class="section-block" id="s05">${renderS05(negatives)}</div>
+    <div class="section-block" id="s05">${renderS05(keywords, competitors, negatives)}</div>
     <div class="section-block" id="s06">${renderS06(campaigns)}</div>
     <div class="section-block" id="s07">${renderS07()}</div>
     <div class="section-block" id="s09">${renderS09()}</div>
@@ -386,142 +510,212 @@ function renderS04() {
   `;
 }
 
-/* ---- S05 Keyword Architecture ---- */
-function renderS05(negatives) {
-  const negBlock = (campNote) => `
-    <div style="margin-top:16px">
-      <div style="font-size:10px;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:10px">Negative Keywords</div>
-      <div style="display:flex;flex-direction:column;gap:6px;font-size:12px">
-        <div style="display:flex;gap:10px;align-items:baseline"><span style="color:var(--error);min-width:110px">🚫 Rental</span><span style="color:var(--text-tertiary);font-size:11px"><code style="background:var(--bg-hover);padding:1px 5px;border-radius:3px">аренда</code> <code style="background:var(--bg-hover);padding:1px 5px;border-radius:3px">снять</code> <code style="background:var(--bg-hover);padding:1px 5px;border-radius:3px">rent</code> <code style="background:var(--bg-hover);padding:1px 5px;border-radius:3px">airbnb</code> <code style="background:var(--bg-hover);padding:1px 5px;border-radius:3px">посуточно</code></span></div>
-        <div style="display:flex;gap:10px;align-items:baseline"><span style="color:var(--error);min-width:110px">🚫 Wrong city</span><span style="color:var(--text-tertiary);font-size:11px"><code style="background:var(--bg-hover);padding:1px 5px;border-radius:3px">батуми</code> <code style="background:var(--bg-hover);padding:1px 5px;border-radius:3px">кутаиси</code> <code style="background:var(--bg-hover);padding:1px 5px;border-radius:3px">batumi</code> <code style="background:var(--bg-hover);padding:1px 5px;border-radius:3px">kutaisi</code></span></div>
-        <div style="display:flex;gap:10px;align-items:baseline"><span style="color:var(--error);min-width:110px">🚫 US Georgia</span><span style="color:var(--text-tertiary);font-size:11px"><code style="background:var(--bg-hover);padding:1px 5px;border-radius:3px">atlanta</code> <code style="background:var(--bg-hover);padding:1px 5px;border-radius:3px">buckhead</code> <code style="background:var(--bg-hover);padding:1px 5px;border-radius:3px">savannah</code></span></div>
-        <div style="display:flex;gap:10px;align-items:baseline"><span style="color:var(--error);min-width:110px">🚫 Wrong type</span><span style="color:var(--text-tertiary);font-size:11px"><code style="background:var(--bg-hover);padding:1px 5px;border-radius:3px">студия</code> <code style="background:var(--bg-hover);padding:1px 5px;border-radius:3px">studio</code> <code style="background:var(--bg-hover);padding:1px 5px;border-radius:3px">hotel</code> <code style="background:var(--bg-hover);padding:1px 5px;border-radius:3px">hostel</code></span></div>
-        <div style="display:flex;gap:10px;align-items:baseline"><span style="color:var(--error);min-width:110px">🚫 Seller intent</span><span style="color:var(--text-tertiary);font-size:11px"><code style="background:var(--bg-hover);padding:1px 5px;border-radius:3px">продам</code> <code style="background:var(--bg-hover);padding:1px 5px;border-radius:3px">sell my</code> <code style="background:var(--bg-hover);padding:1px 5px;border-radius:3px">for sale by owner</code></span></div>
-        ${campNote ? '<div style="margin-top:8px;font-size:11px;color:var(--text-tertiary)">' + campNote + '</div>' : ''}
-      </div>
-    </div>
-  `;
+/* ---- S05 Детали кампаний ---- */
+function renderS05(keywords, competitors, negatives) {
+  // Guard against null data
+  const kwData   = (keywords   && keywords.keywords)     ? keywords.keywords     : [];
+  const compData = (competitors && competitors.competitors) ? competitors.competitors : [];
+  const negData  = (negatives  && negatives.categories)  ? negatives             : {categories:[], total:0};
 
-  const kwBlock = (examples, count, intent) => `
-    <div style="margin-top:16px">
-      <div style="font-size:10px;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:8px">Keywords · ${count}</div>
-      <div style="font-size:12px;color:var(--text-secondary);margin-bottom:8px">${intent}</div>
-      <div style="display:flex;flex-wrap:wrap;gap:6px">
-        ${examples.map(kw => '<code style="background:var(--bg-hover);padding:3px 8px;border-radius:4px;font-size:11px;color:var(--text-secondary)">' + kw + '</code>').join('')}
-      </div>
-    </div>
-  `;
+  // Filter keywords per campaign
+  const k1kw = kwData.filter(k => ['A','B','D','E','F','G'].includes(k.pool) && k.language === 'RU');
+  const k2kw = kwData.filter(k => ['A','B','C','D','E','F','G'].includes(k.pool) && k.language === 'EN');
+  const k3kw = kwData.filter(k => k.pool === 'B');
+  const k4kw = compData.flatMap(c => c.keywords.map(kw => ({keyword: kw.keyword, competitor: c.name})));
 
-  const adsBlock = (rsaName, p1, sectionRef) => `
-    <div style="margin-top:16px;padding:14px 16px;background:var(--bg-surface);border:1px solid var(--border-subtle);border-radius:8px">
-      <div style="font-size:10px;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:8px">Ads (RSA)</div>
-      <div style="font-size:13px;color:var(--text-primary);margin-bottom:4px">${rsaName}</div>
-      <div style="font-size:12px;color:var(--text-tertiary);margin-bottom:8px">📌 Pinned Headline 1: <span style="color:var(--accent-gold)">${p1}</span></div>
-      <div style="font-size:11px;color:var(--text-tertiary)">→ Full RSA copy (15 headlines · 4 descriptions) in <strong>Section 09 — Ads & Messaging</strong></div>
-    </div>
-  `;
+  // ── LOW-LEVEL HELPERS (string concatenation, no nested template literals) ──
 
-  const campaignBlock = (num, nameRu, nameEn, lang, geo, kwContent, negContent, adsContent) => `
-    <div style="border:1px solid var(--border-medium);border-radius:10px;overflow:hidden;margin-bottom:32px">
-      <div style="padding:18px 24px;background:var(--bg-elevated);border-bottom:1px solid var(--border-subtle);display:flex;justify-content:space-between;align-items:flex-start;gap:16px">
-        <div>
-          <div style="font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-tertiary);margin-bottom:4px">Campaign ${num}</div>
-          <div style="font-size:18px;font-weight:500;color:var(--text-primary);margin-bottom:2px">${nameRu}</div>
-          <div style="font-size:11px;color:var(--text-tertiary);font-family:var(--font-mono)">${nameEn}</div>
-        </div>
-        <div style="text-align:right;flex-shrink:0">
-          <div style="font-size:22px;font-weight:300;color:var(--accent-gold)">$125<span style="font-size:12px">/mo</span></div>
-          <div style="font-size:11px;color:var(--text-tertiary);margin-top:2px">${lang} · ${geo}</div>
-        </div>
-      </div>
-      <div style="padding:20px 24px;display:flex;flex-direction:column;gap:0">
-        ${kwContent}
-        ${negContent}
-        ${adsContent}
-      </div>
-    </div>
-  `;
+  const chip = kw =>
+    '<code style="background:var(--bg-hover);padding:3px 8px;border-radius:4px;font-size:11px;color:var(--text-secondary);font-family:var(--font-mono)">' + kw + '</code>';
+
+  const chipNeg = w =>
+    '<code style="background:rgba(255,80,80,0.1);color:#FF8A80;border-radius:4px;padding:2px 7px;font-size:11px;font-family:var(--font-mono)">−' + w + '</code>';
+
+  const pinBadge = pin =>
+    '<span style="font-size:9px;background:rgba(196,168,130,0.25);color:var(--accent-gold);border-radius:3px;padding:1px 4px;margin-right:4px;font-family:var(--font-mono)">' + pin + '</span>';
+
+  const headsPinned = arr =>
+    '<div class="rsa-headlines">' +
+    arr.map(h => '<span class="rsa-headline">' + (h.pin ? pinBadge(h.pin) : '') + h.text + '</span>').join('') +
+    '</div>';
+
+  const headsPlain = arr =>
+    '<div class="rsa-headlines">' +
+    arr.map(h => '<span class="rsa-headline">' + h + '</span>').join('') +
+    '</div>';
+
+  const descsHtml = arr =>
+    '<div class="rsa-descriptions">' +
+    arr.map(d => '<div class="rsa-desc">' + d + '</div>').join('') +
+    '</div>';
+
+  const subhead = label =>
+    '<div style="font-size:11px;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:8px">' + label + '</div>';
+
+  const gap = '<div style="height:12px"></div>';
+
+  // ── NEGATIVES SECTION (shared across all campaigns) ──
+  const catLabels = {O:'Аренда', N:'Другие города Грузии', M:'Штат Джорджия США', L:'Отели', K:'Нерелевантные', P:'Намерение продать'};
+
+  const negSection =
+    '<div style="background:rgba(255,80,80,0.04);border:1px solid rgba(255,80,80,0.2);border-radius:8px;padding:16px 20px">' +
+    '<div style="font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:#FF5252;margin-bottom:12px;font-weight:600">🚫 Минус-слова — ' + negData.total.toLocaleString('ru-RU') + ' слов · 6 категорий · применяются глобально</div>' +
+    '<div style="display:flex;flex-direction:column;gap:8px">' +
+    negData.categories.map(cat => {
+      const isComplete = cat.examples.length >= cat.count;
+      const lbl = catLabels[cat.pool] || cat.label;
+      const countStr = cat.count.toLocaleString('ru-RU') + ' слов' + (isComplete ? ' · полный список' : ' · ' + cat.examples.length + ' примеров');
+      return '<details style="border:1px solid var(--border-subtle);border-radius:6px;overflow:hidden">' +
+        '<summary style="padding:8px 12px;cursor:pointer;background:var(--bg-hover);display:flex;justify-content:space-between;align-items:center;font-size:12px">' +
+        '<span style="color:var(--text-primary)">' + lbl + '</span>' +
+        '<span style="color:var(--text-tertiary);font-size:11px">' + countStr + '</span>' +
+        '</summary>' +
+        '<div style="padding:10px 12px;display:flex;flex-wrap:wrap;gap:5px">' + cat.examples.map(chipNeg).join('') + '</div>' +
+        '</details>';
+    }).join('') +
+    '</div>' +
+    '<div style="margin-top:10px;font-size:11px;color:var(--text-tertiary)">Показаны все доступные примеры из backend-базы. Для категорий с тысячами вариаций приводятся наиболее репрезентативные запросы.</div>' +
+    '</div>';
+
+  // ── KEYWORD SECTIONS ──
+  const kwSection = (kwArr, poolLabel) => {
+    const count = kwArr.length;
+    const chips = kwArr.map(k => chip(k.keyword)).join('');
+    return '<div>' +
+      '<div style="font-size:10px;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:8px">Ключевые слова — ' + count +
+      ' <span style="margin-left:8px;font-size:10px;color:var(--accent-gold);background:rgba(196,168,100,0.1);border-radius:3px;padding:1px 6px">' + poolLabel + '</span></div>' +
+      '<details>' +
+      '<summary style="cursor:pointer;display:inline-flex;align-items:center;gap:6px;background:rgba(196,168,100,0.1);border:1px solid rgba(196,168,100,0.25);border-radius:6px;padding:6px 12px;font-size:12px;color:var(--accent-gold);margin-bottom:10px">' +
+      'Показать все ' + count + ' ключевых слов' +
+      '</summary>' +
+      '<div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:8px">' + chips + '</div>' +
+      '</details>' +
+      '</div>';
+  };
+
+  const kwSectionComp = kwArr => {
+    const count = kwArr.length;
+    const chips = kwArr.map(k =>
+      '<code title="' + k.competitor + '" style="background:var(--bg-hover);padding:3px 8px;border-radius:4px;font-size:11px;color:var(--text-secondary);font-family:var(--font-mono)">' + k.keyword + '</code>'
+    ).join('');
+    return '<div>' +
+      '<div style="font-size:10px;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:8px">Ключевые слова — ' + count +
+      ' <span style="margin-left:8px;font-size:10px;color:var(--accent-gold);background:rgba(196,168,100,0.1);border-radius:3px;padding:1px 6px">' + compData.length + ' конкурирующих проектов · CHECK_REQUIRED</span></div>' +
+      '<div class="note-box warning" style="margin-bottom:8px"><span class="note-box-icon">⚠</span>' +
+      '<div style="font-size:11px">Все ' + count + ' ключевых слов имеют статус CHECK_REQUIRED. Ручная проверка перед запуском. Приоритет: Park Home Vake → Gergeti Rise → CityZen → Next Tbilisi.</div></div>' +
+      '<details>' +
+      '<summary style="cursor:pointer;display:inline-flex;align-items:center;gap:6px;background:rgba(196,168,100,0.1);border:1px solid rgba(196,168,100,0.25);border-radius:6px;padding:6px 12px;font-size:12px;color:var(--accent-gold);margin-bottom:10px">' +
+      'Показать все ' + count + ' ключевых слов' +
+      '</summary>' +
+      '<div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:8px">' + chips + '</div>' +
+      '</details>' +
+      '</div>';
+  };
+
+  // ── RSA AD BOXES ──
+  const rsaBox = (label, langNote, inner) =>
+    '<div style="background:var(--bg-surface);border:1px solid var(--border-subtle);border-radius:8px;padding:16px 20px">' +
+    '<div style="font-size:12px;font-weight:500;color:var(--text-primary);margin-bottom:2px">' + label + '</div>' +
+    '<div style="font-size:11px;color:var(--text-tertiary);margin-bottom:12px">' + langNote + '</div>' +
+    inner +
+    '</div>';
+
+  const k1Ads = rsaBox(
+    '📌 Позиция 1: «Апартаменты от 130 м²»',
+    'RSA · 15 заголовков · 4 описания · Язык: RU',
+    subhead('Заголовки — 15 шт., макс. 30 символов (📌 = закреплено в позиции 1)') +
+    headsPinned(RSA_K1_HEADS) + gap +
+    subhead('Описания — 4 шт., макс. 90 символов') +
+    descsHtml(RSA_K1_DESCS)
+  );
+
+  const k2Ads = rsaBox(
+    '📌 Позиция 1: "Apartments from 130 m²"',
+    'RSA · 15 заголовков · 4 описания · Язык: EN',
+    subhead('Заголовки — 15 шт., макс. 30 символов (📌 = закреплено в позиции 1)') +
+    headsPinned(RSA_K2_HEADS) + gap +
+    subhead('Описания — 4 шт., макс. 90 символов') +
+    descsHtml(RSA_K2_DESCS)
+  );
+
+  const k3Ads = rsaBox(
+    '📌 Позиция 1: «Бутик-резиденция в Тбилиси»',
+    'RSA · 15 заголовков · 4 описания · Язык: RU',
+    subhead('Заголовки — 15 шт., макс. 30 символов (📌 = закреплено в позиции 1)') +
+    headsPinned(RSA_K3_HEADS) + gap +
+    subhead('Описания — 4 шт., макс. 90 символов') +
+    descsHtml(RSA_K3_DESCS)
+  );
+
+  const k4Ads =
+    rsaBox(
+      '🇷🇺 RSA 1 — RU',
+      'RSA · 15 заголовков · 4 описания · Без закреплённой позиции',
+      subhead('Заголовки — 15 шт., макс. 30 символов') +
+      headsPlain(RSA_K4_RU_HEADS) + gap +
+      subhead('Описания — 4 шт., макс. 90 символов') +
+      descsHtml(RSA_K4_RU_DESCS)
+    ) +
+    gap +
+    rsaBox(
+      '🇬🇧 RSA 2 — EN',
+      'RSA · 15 заголовков · 4 описания · Без закреплённой позиции',
+      subhead('Заголовки — 15 шт., макс. 30 символов') +
+      headsPlain(RSA_K4_EN_HEADS) + gap +
+      subhead('Описания — 4 шт., макс. 90 символов') +
+      descsHtml(RSA_K4_EN_DESCS)
+    );
+
+  // ── CAMPAIGN WRAPPER ──
+  const secHead = label =>
+    '<div style="font-size:13px;font-weight:500;color:var(--text-primary);margin-bottom:10px;padding-bottom:6px;border-bottom:1px solid var(--border-subtle)">' + label + '</div>';
+
+  const campWrap = (num, title, subtitle, borderClr, bgClr, kw, neg, ads) =>
+    '<div style="border:1px solid ' + borderClr + ';border-radius:10px;overflow:hidden;margin-bottom:32px">' +
+    '<div style="padding:18px 24px;background:' + bgClr + ';border-bottom:1px solid ' + borderClr + '">' +
+    '<div style="font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-tertiary);margin-bottom:4px">Кампания ' + num + '</div>' +
+    '<div style="font-size:18px;font-weight:500;color:var(--text-primary);margin-bottom:2px">' + title + '</div>' +
+    '<div style="font-size:11px;color:var(--text-tertiary);font-family:var(--font-mono)">' + subtitle + '</div>' +
+    '</div>' +
+    '<div style="padding:20px 24px;display:flex;flex-direction:column;gap:20px">' +
+    '<div>' + secHead('Ключевые слова') + kw + '</div>' +
+    '<div>' + secHead('Минус-слова') + neg + '</div>' +
+    '<div>' + secHead('Объявления (RSA)') + ads + '</div>' +
+    '</div>' +
+    '</div>';
 
   return `
     <div class="section-block-header">
       <div class="section-block-num">05</div>
       <div class="section-block-title-wrap">
-        <div class="section-block-title">Campaign Details</div>
-        <div class="section-block-desc">Keywords · Negative keywords · Ads — per campaign</div>
+        <div class="section-block-title">Детали кампаний</div>
+        <div class="section-block-desc">Ключевые слова · Минус-слова · Объявления — по каждой кампании</div>
       </div>
     </div>
 
-    ${campaignBlock(
-      '1',
-      'К1 — Покупка RU',
-      'Purchase RU',
-      'RU',
-      'IL · UA · BY',
-      kwBlock(
-        ['купить квартиру в тбилиси','купить апартаменты тбилиси','апартаменты в тбилиси купить','недвижимость тбилиси купить','квартира в грузии купить','новостройка тбилиси','квартира ваке тбилиси','апартаменты вера тбилиси','инвестиции в недвижимость грузии'],
-        '~141 keywords · Pools A B E F G · RU language',
-        'Direct Russian-language purchase intent. Pools: A (Purchase), B (Premium RU), E (Investment), F (New Build), G (Districts). Exact match first, then Phrase.'
-      ),
-      negBlock(''),
-      adsBlock('К1 Purchase RU RSA', '«Апартаменты от 130 м²»', '09')
-    )}
+    ${campWrap('1','К1 — Покупка RU',
+      k1kw.length + ' ключевых слов · Пулы A, B, D, E, F, G · Язык: RU · Аудитория: IL · UA · BY',
+      'var(--border-medium)','var(--bg-elevated)',
+      kwSection(k1kw,'Пулы A B D E F G · Язык RU'),
+      negSection, k1Ads)}
 
-    ${campaignBlock(
-      '2',
-      'К2 — Purchase EN',
-      'Purchase EN',
-      'EN',
-      'IL · UA · BY',
-      kwBlock(
-        ['buy apartment in tbilisi','apartments for sale tbilisi','luxury apartment tbilisi','boutique apartment tbilisi','penthouse in tbilisi','investment property georgia','new apartment tbilisi','large apartment tbilisi'],
-        '~83 keywords · Pools A B C D E F G · EN language',
-        'English-language purchase intent. Covers all EN segments: purchase, luxury, boutique residence, penthouse, investment, new build. Israel primary geo.'
-      ),
-      negBlock(''),
-      adsBlock('К2 Purchase EN RSA', '"Apartments from 130 m²"', '09')
-    )}
+    ${campWrap('2','К2 — Покупка EN',
+      k2kw.length + ' ключевых слов · Пулы A, B, C, D, E, F, G · Язык: EN · Аудитория: IL · UA · BY',
+      'var(--border-medium)','var(--bg-elevated)',
+      kwSection(k2kw,'Пулы A B C D E F G · Язык EN'),
+      negSection, k2Ads)}
 
-    ${campaignBlock(
-      '3',
-      'К3 — Премиум RU',
-      'Premium RU',
-      'RU',
-      'IL · UA · BY',
-      kwBlock(
-        ['элитная квартира тбилиси','элитная недвижимость тбилиси','премиум недвижимость тбилиси','бутик резиденция тбилиси','элитная квартира грузия','роскошная квартира тбилиси'],
-        '~19 keywords · Pool B · RU language',
-        'Russian-language luxury and premium segment. Audience self-selects — high qualification rate. Separate from К1 to allow dedicated premium messaging.'
-      ),
-      negBlock(''),
-      adsBlock('К3 Premium RU RSA', '«Бутик-резиденция в Тбилиси»', '09')
-    )}
+    ${campWrap('3','К3 — Премиум RU',
+      k3kw.length + ' ключевых слов · Пул B · Язык: RU · Аудитория: IL · UA · BY',
+      'rgba(196,168,100,0.3)','rgba(196,168,100,0.04)',
+      kwSection(k3kw,'Пул B · Все языки'),
+      negSection, k3Ads)}
 
-    ${campaignBlock(
-      '4',
-      'К4 — Конкуренты',
-      'Competitors',
-      'RU + EN',
-      'IL · UA · BY',
-      `<div style="margin-top:16px">
-        <div style="font-size:10px;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:8px">Keywords · ~87 keywords · Pool I · CHECK_REQUIRED</div>
-        <div style="font-size:12px;color:var(--text-secondary);margin-bottom:8px">Buyers actively searching for competing premium projects in Tbilisi. Both RU and EN queries. All keywords require manual review before enabling.</div>
-        <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px">
-          \${'park home vake,cityzen tbilisi,next tbilisi,gergeti rise residence,крцаниси резиденция,mtatsminda panorama,king david residence,greenhill tbilisi'.split(',').map(kw => '<code style="background:var(--bg-hover);padding:3px 8px;border-radius:4px;font-size:11px;color:var(--text-secondary)">' + kw + '</code>').join('')}
-        </div>
-        <div class="note-box warning" style="margin:0">
-          <span class="note-box-icon">⚠</span>
-          <div style="font-size:12px">All 87 keywords are <strong>CHECK_REQUIRED</strong>. Launch priority: Park Home Vake → Gergeti Rise → CityZen → Next Tbilisi → Mtatsminda Panorama.</div>
-        </div>
-      </div>`,
-      negBlock('Additional: exclude irrelevant competitor brand terms that have no Tbilisi geo signal.'),
-      `<div style="margin-top:16px;padding:14px 16px;background:var(--bg-surface);border:1px solid var(--border-subtle);border-radius:8px">
-        <div style="font-size:10px;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:8px">Ads (RSA) — 2 ads</div>
-        <div style="font-size:13px;color:var(--text-primary);margin-bottom:6px">К4 RU + К4 EN (separate RSAs per language)</div>
-        <div style="font-size:12px;color:var(--text-tertiary);margin-bottom:4px">📌 RU P1: <span style="color:var(--accent-gold)">«Не комплекс — бутик-резиденция»</span></div>
-        <div style="font-size:12px;color:var(--text-tertiary);margin-bottom:8px">📌 EN P1: <span style="color:var(--accent-gold)">"Boutique — Not a Complex"</span></div>
-        <div style="font-size:11px;color:var(--text-tertiary)">→ Full RSA copy in <strong>Section 09 — Ads & Messaging</strong></div>
-      </div>`
-    )}
+    ${campWrap('4','К4 — Конкуренты',
+      k4kw.length + ' ключевых слов · ' + compData.length + ' конкурирующих проектов · Языки: RU + EN · Аудитория: IL · UA · BY',
+      'rgba(220,100,60,0.3)','rgba(220,100,60,0.04)',
+      kwSectionComp(k4kw),
+      negSection, k4Ads)}
   `;
 }
 
@@ -735,130 +929,17 @@ function negReason(status) {
 function renderS09() {
   /* ── RSA DATA ─────────────────────────────────────────────── */
 
-  // Кампания 1 — Покупка RU (прямой спрос на покупку, русский язык)
-  const k1Heads = [
-    {text:'Апартаменты от 130 м²',            pin:'P1'},
-    {text:'Купить квартиру в Тбилиси',         pin:null},
-    {text:'Дом введён в эксплуатацию',         pin:null},
-    {text:'Квартира в Грузии — от 130 м²',     pin:null},
-    {text:'14 квартир. Готово к продаже.',      pin:null},
-    {text:'Свободная планировка',               pin:null},
-    {text:'Без несущих стен — ваш проект',      pin:null},
-    {text:'Панорамный вид из каждой',           pin:null},
-    {text:'Подземный паркинг включён',          pin:null},
-    {text:'Открыта к просмотру',                pin:null},
-    {text:'Цены и планировки — по запросу',     pin:null},
-    {text:'Записаться на показ',                pin:null},
-    {text:'2 квартиры на каждом этаже',         pin:null},
-    {text:'Автономный дом — генератор',         pin:null},
-    {text:'Запросите цену напрямую',            pin:null},
-  ];
-  const k1Descs = [
-    'Апартаменты от 130 м² в Тбилиси. Свободная планировка. Дом введён в эксплуатацию.',
-    'Только 14 квартир. Без несущих стен. Подземный паркинг. Открыта к просмотру.',
-    'Панорамный вид из каждой квартиры. 2 квартиры на этаже. Цены — по запросу.',
-    'Запишитесь на личный показ — получите планировки, цены и полную информацию.',
-  ];
-
-  // Кампания 2 — Покупка EN (прямой спрос на покупку, английский язык)
-  const k2Heads = [
-    {text:'Apartments from 130 m²',       pin:'P1'},
-    {text:'Buy Apartment in Tbilisi',      pin:null},
-    {text:'Boutique Residence Tbilisi',    pin:null},
-    {text:'Building Commissioned & Ready', pin:null},
-    {text:'Open for Private Viewing',      pin:null},
-    {text:'Luxury Tbilisi Real Estate',    pin:null},
-    {text:'Free Floor Plan — No Walls',    pin:null},
-    {text:'Panoramic Views — Every Unit',  pin:null},
-    {text:'Privacy. Security. Silence.',   pin:null},
-    {text:'Underground Parking Included',  pin:null},
-    {text:'Generator & Water Reserve',     pin:null},
-    {text:'Book a Private Viewing',        pin:null},
-    {text:'Plans & Prices on Request',     pin:null},
-    {text:'2 Apartments per Floor Only',   pin:null},
-    {text:'Boutique — Not a Complex',      pin:null},
-  ];
-  const k2Descs = [
-    'Boutique Residence in Tbilisi. 14 apartments from 130 m². Building commissioned.',
-    'Free floor plan. No load-bearing walls. Panoramic city views from every residence.',
-    'Full infrastructure independence. Generator. 70-ton water reserve. 24/7 security.',
-    'Book a private viewing. Request plans, pricing, and full project details.',
-  ];
-
-  // Кампания 3 — Премиум RU (премиальное позиционирование, русский язык)
-  const k3Heads = [
-    {text:'Бутик-резиденция в Тбилиси',     pin:'P1'},
-    {text:'Не комплекс. 14 резиденций.',     pin:null},
-    {text:'Резиденция, а не квартира',        pin:null},
-    {text:'2 резиденции на этаже',            pin:null},
-    {text:'Без несущих стен',                 pin:null},
-    {text:'Свободная планировка',             pin:null},
-    {text:'Панорамный вид из каждой',         pin:null},
-    {text:'Элитная недвижимость Тбилиси',    pin:null},
-    {text:'Приватный формат жизни',           pin:null},
-    {text:'Полная автономность дома',         pin:null},
-    {text:'Дом введён в эксплуатацию',        pin:null},
-    {text:'Открыта к просмотру',              pin:null},
-    {text:'Подземный паркинг',                pin:null},
-    {text:'Записаться на показ',              pin:null},
-    {text:'Информация о проекте',             pin:null},
-  ];
-  const k3Descs = [
-    'Бутик-резиденция в Тбилиси. Только 14 резиденций. Не комплекс — другой формат.',
-    'Свободная планировка. Без несущих стен. 2 резиденции на этаже. Панорамный вид.',
-    'Тишина. Приватность. Независимость от коммуникаций. Генератор. Резервуар. Паркинг.',
-    'Запишитесь на показ — узнайте цены, планировки и все детали проекта лично.',
-  ];
-
-  // Кампания 4 — Конкуренты, RSA 1: RU
-  const k4RuHeads = [
-    'Не комплекс — бутик-резиденция',
-    'Дом введён в эксплуатацию',
-    'Всего 2 квартиры на этаже',
-    'Сравните с ELYSIUM',
-    'Бутик-резиденция в Тбилиси',
-    'Только 14 квартир в доме',
-    'Свободная планировка',
-    'Без несущих стен',
-    'Панорамный вид из каждой',
-    'Автономная инфраструктура',
-    'Подземный паркинг включён',
-    'Открыта к просмотру',
-    'Сравните до покупки',
-    'Полная независимость от сетей',
-    'Записаться на показ',
-  ];
-  const k4RuDescs = [
-    'Дом введён в эксплуатацию. Всего 2 квартиры на этаже. Не комплекс — резиденция.',
-    'Свободная планировка. Без несущих стен. Панорамный вид из каждой квартиры.',
-    'Сравните ELYSIUM с вашим проектом: 14 резиденций, автономность, готов к показу.',
-    'Записаться на показ — сравните лично, прежде чем принять решение о покупке.',
-  ];
-
-  // Кампания 4 — Конкуренты, RSA 2: EN
-  const k4EnHeads = [
-    'Boutique — Not a Complex',
-    'Building Commissioned & Ready',
-    'Only 2 Apartments per Floor',
-    'ELYSIUM Boutique Residence',
-    '14 Apartments from 130 m²',
-    'Panoramic Views — Every Unit',
-    'Free Floor Plan — No Walls',
-    'Privacy. Security. Silence.',
-    'Underground Parking Included',
-    'Generator & Water Reserve',
-    'Open for Private Viewing',
-    'Full Infrastructure Backup',
-    'Book a Private Viewing',
-    'Request Full Project Info',
-    'Compare Before You Choose',
-  ];
-  const k4EnDescs = [
-    'Building commissioned. Only 2 apartments per floor. Boutique — not a complex.',
-    'Free floor plan. Panoramic views from every residence. Privacy & silence.',
-    'Underground parking. Generator. 70-ton water reserve. Full infrastructure backup.',
-    'Book a private viewing. Compare ELYSIUM with any premium Tbilisi project.',
-  ];
+  // RSA data — references to module-level constants
+  const k1Heads    = RSA_K1_HEADS;
+  const k1Descs    = RSA_K1_DESCS;
+  const k2Heads    = RSA_K2_HEADS;
+  const k2Descs    = RSA_K2_DESCS;
+  const k3Heads    = RSA_K3_HEADS;
+  const k3Descs    = RSA_K3_DESCS;
+  const k4RuHeads  = RSA_K4_RU_HEADS;
+  const k4RuDescs  = RSA_K4_RU_DESCS;
+  const k4EnHeads  = RSA_K4_EN_HEADS;
+  const k4EnDescs  = RSA_K4_EN_DESCS;
 
   /* ── HELPERS ──────────────────────────────────────────────── */
   const renderPinned = (arr) => arr.map(h => {
