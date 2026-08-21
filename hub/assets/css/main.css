@@ -1160,6 +1160,111 @@ ul, ol { list-style: none; }
 .qa-item.pass .qa-icon::after { content: '✓'; color: #70B880; }
 
 /* ============================================================
+   RESTRUCTURED CLIENT VIEW — S01–S07
+   ============================================================ */
+
+.facts-list { display: flex; flex-direction: column; gap: 8px; }
+
+.position-list { display: flex; flex-direction: column; gap: 8px; }
+
+/* Language badges */
+.badge-lang {
+  display: inline-block;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 2px 6px;
+  border-radius: 3px;
+  vertical-align: middle;
+}
+.badge-lang-RU { background: rgba(196,168,130,0.15); color: var(--accent-gold); border: 1px solid rgba(196,168,130,0.3); }
+.badge-lang-EN { background: rgba(74,106,140,0.15); color: var(--data-blue); border: 1px solid rgba(74,106,140,0.3); }
+
+/* Bidding phases */
+.bidding-phases {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.bidding-phase {
+  padding: 20px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+}
+.bidding-phase-num {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent-gold);
+  margin-bottom: 6px;
+}
+.bidding-phase-title {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+.bidding-phase-when {
+  font-size: 11px;
+  color: var(--text-tertiary);
+  font-family: var(--font-mono);
+  margin-bottom: 10px;
+}
+.bidding-phase-desc {
+  font-size: 12px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* CPC expectations */
+.cpc-expectations {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+.cpc-exp-item {
+  padding: 12px 16px;
+  background: var(--bg-hover);
+  border-radius: var(--radius-sm);
+}
+.cpc-exp-pool {
+  font-size: 11px;
+  color: var(--text-tertiary);
+  margin-bottom: 4px;
+}
+.cpc-exp-val {
+  font-size: 22px;
+  font-weight: 300;
+  font-family: var(--font-mono);
+  color: var(--accent-gold);
+  margin-bottom: 2px;
+}
+.cpc-exp-note {
+  font-size: 10px;
+  color: var(--text-tertiary);
+}
+
+/* Conversion table */
+.conv-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+.conv-table th {
+  text-align: left;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+.conv-table td { padding: 8px 12px; border-bottom: 1px solid var(--border-subtle); }
+.conv-event { color: var(--text-secondary); }
+.conv-priority-critical { color: #E57373; font-weight: 600; font-size: 11px; }
+.conv-priority-important { color: var(--accent-gold); font-weight: 500; font-size: 11px; }
+.conv-priority-secondary { color: var(--text-tertiary); font-size: 11px; }
+
+/* ============================================================
    RESPONSIVE
    ============================================================ */
 

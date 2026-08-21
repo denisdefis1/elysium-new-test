@@ -187,24 +187,15 @@ function updateHeaderNav() {
 
 function buildGoogleSidebar() {
   const sections = [
-    ['00','Executive Summary'],
-    ['01','Business & Product'],
-    ['02','Market & Demand'],
-    ['03','Geo & Language'],
-    ['04','Search Intent'],
-    ['05','Keyword Architecture'],
-    ['06','Campaign Architecture'],
-    ['07','Competitor Strategy'],
-    ['08','Negative Keywords'],
+    ['00','Overview'],
+    ['01','Product & Positioning'],
+    ['02','Target Audience'],
+    ['03','Search Strategy'],
+    ['04','Campaign Structure'],
+    ['05','Campaign Details'],
+    ['06','Budget & Bidding'],
+    ['07','Measurement'],
     ['09','Ads & Messaging'],
-    ['10','Landing Page'],
-    ['11','Budget & Bidding'],
-    ['12','Conversion & Analytics'],
-    ['13','Optimization'],
-    ['14','Testing Framework'],
-    ['15','KPI Framework'],
-    ['16','90-Day Roadmap'],
-    ['17','Research & QA'],
   ];
 
   sidebar.innerHTML = `

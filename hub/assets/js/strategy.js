@@ -13,105 +13,16 @@ export function renderGoogleStrategy(container, data) {
   const { keywords, campaigns, competitors, negatives, research } = data;
 
   container.innerHTML = `
-    <!-- S00 -->
-    <div class="section-block" id="s00">
-      ${renderS00()}
-    </div>
-
-    <!-- S01 -->
-    <div class="section-block" id="s01">
-      ${renderS01()}
-    </div>
-
-    <!-- S02 -->
-    <div class="section-block" id="s02">
-      ${renderS02Header()}
-      <div id="kw-table-s02"></div>
-    </div>
-
-    <!-- S03 -->
-    <div class="section-block" id="s03">
-      ${renderS03()}
-    </div>
-
-    <!-- S04 -->
-    <div class="section-block" id="s04">
-      ${renderS04()}
-    </div>
-
-    <!-- S05 -->
-    <div class="section-block" id="s05">
-      ${renderS05Header(research)}
-      <div id="kw-table-s05"></div>
-    </div>
-
-    <!-- S06 -->
-    <div class="section-block" id="s06">
-      ${renderS06(campaigns, research)}
-    </div>
-
-    <!-- S07 -->
-    <div class="section-block" id="s07">
-      ${renderS07(competitors)}
-    </div>
-
-    <!-- S08 -->
-    <div class="section-block" id="s08">
-      ${renderS08(negatives)}
-    </div>
-
-    <!-- S09 -->
-    <div class="section-block" id="s09">
-      ${renderS09()}
-    </div>
-
-    <!-- S10 -->
-    <div class="section-block" id="s10">
-      ${renderS10()}
-    </div>
-
-    <!-- S11 -->
-    <div class="section-block" id="s11">
-      ${renderS11(campaigns)}
-    </div>
-
-    <!-- S12 -->
-    <div class="section-block" id="s12">
-      ${renderS12()}
-    </div>
-
-    <!-- S13 -->
-    <div class="section-block" id="s13">
-      ${renderS13()}
-    </div>
-
-    <!-- S14 -->
-    <div class="section-block" id="s14">
-      ${renderS14()}
-    </div>
-
-    <!-- S15 -->
-    <div class="section-block" id="s15">
-      ${renderS15()}
-    </div>
-
-    <!-- S16 -->
-    <div class="section-block" id="s16">
-      ${renderS16()}
-    </div>
-
-    <!-- S17 -->
-    <div class="section-block" id="s17">
-      ${renderS17(research)}
-    </div>
+    <div class="section-block" id="s00">${renderS00()}</div>
+    <div class="section-block" id="s01">${renderS01()}</div>
+    <div class="section-block" id="s02">${renderS02()}</div>
+    <div class="section-block" id="s03">${renderS03()}</div>
+    <div class="section-block" id="s04">${renderS04()}</div>
+    <div class="section-block" id="s05">${renderS05(negatives)}</div>
+    <div class="section-block" id="s06">${renderS06(campaigns)}</div>
+    <div class="section-block" id="s07">${renderS07()}</div>
+    <div class="section-block" id="s09">${renderS09()}</div>
   `;
-
-  // Mount keyword tables after DOM is ready
-  if (keywords) {
-    const kwData = keywords.keywords || [];
-    buildKeywordTable(container.querySelector('#kw-table-s02'), kwData);
-    buildKeywordTable(container.querySelector('#kw-table-s05'), kwData);
-  }
 }
 
 /* ---- S00 Обзор стратегии ---- */
@@ -202,65 +113,57 @@ function renderS01() {
     <div class="section-block-header">
       <div class="section-block-num">01</div>
       <div class="section-block-title-wrap">
-        <div class="section-block-title">Business & Product</div>
-        <div class="section-block-desc">Project facts and approved brand positioning</div>
+        <div class="section-block-title">Product & Positioning</div>
+        <div class="section-block-desc">What ELYSIUM is and how it's positioned in advertising</div>
       </div>
     </div>
 
     <div class="two-col">
       <div>
-        <div class="card-title">Business Facts</div>
+        <div class="card-title">Key Facts</div>
         <div class="facts-list">
-          ${fact('Project', 'ELYSIUM Boutique Residence Tbilisi')}
-          ${fact('Developer', 'Available on request')}
-          ${fact('Status', 'Дом введён в эксплуатацию')}
-          ${fact('Total Units', '14 premium residences')}
-          ${fact('Size Range', 'from 130 m² to 191 m²')}
-          ${fact('Layout', 'Free planning — no load-bearing walls inside')}
-          ${fact('Views', 'Panoramic from every residence')}
+          ${fact('Project', 'ELYSIUM Boutique Residence · Tbilisi')}
+          ${fact('Status', 'Building commissioned & ready to view')}
+          ${fact('Units', '14 premium residences · 2 per floor')}
+          ${fact('Size', '130 m² – 191 m²')}
+          ${fact('Layout', 'Free floor plan · No load-bearing walls')}
+          ${fact('Views', 'Panoramic city views from every residence')}
+          ${fact('Infrastructure', 'Generator · 70-ton water reserve')}
+          ${fact('Parking', 'Underground parking included')}
           ${fact('Rooftop', 'Jacuzzi · Fitness · Outdoor kitchen')}
-          ${fact('Parking', 'Underground parking')}
-          ${fact('Security', '24/7 security & video monitoring')}
-          ${fact('Infrastructure', 'Generator + 70-ton reserve water tank')}
-          ${fact('Independence', 'Full independence from city utilities')}
-          ${fact('Sound', '300mm inter-apartment sound insulation')}
-          ${fact('Viewings', 'Open for individual viewings')}
-          ${fact('Info', 'Full project info available on request')}
+          ${fact('Security', '24/7 CCTV & on-site security')}
+          ${fact('Viewings', 'Open for private individual viewings')}
         </div>
       </div>
 
       <div>
         <div class="card-title" style="margin-bottom:20px">Brand Positioning</div>
         <div style="margin-bottom:24px">
-          <div class="label" style="margin-bottom:12px;display:block">APPROVED — Use these</div>
+          <div class="label" style="margin-bottom:12px;display:block">✓ Use in all ad copy</div>
           <div class="position-list">
-            ${posItem(true, 'Бутик-резиденция')}
+            ${posItem(true, 'Бутик-резиденция / Boutique Residence')}
             ${posItem(true, 'Дом введён в эксплуатацию')}
-            ${posItem(true, 'Бутик-резиденция открыта к просмотру')}
-            ${posItem(true, 'Всего 14 резиденций')}
-            ${posItem(true, 'Свободная планировка')}
-            ${posItem(true, 'Без несущих стен внутри')}
-            ${posItem(true, 'Панорамный вид из каждой квартиры')}
-            ${posItem(true, 'Подземный паркинг')}
+            ${posItem(true, 'Building Commissioned & Ready')}
+            ${posItem(true, 'Только 14 резиденций / 14 Residences Only')}
+            ${posItem(true, 'Свободная планировка / Free Floor Plan')}
+            ${posItem(true, 'Панорамный вид из каждой')}
             ${posItem(true, 'Тишина. Приватность. Безопасность.')}
-            ${posItem(true, 'Генератор и резервуар с водой')}
-            ${posItem(true, 'Индивидуальный показ')}
-            ${posItem(true, 'Записаться на показ')}
+            ${posItem(true, 'Privacy. Security. Silence.')}
+            ${posItem(true, 'Записаться на показ / Book a Private Viewing')}
           </div>
         </div>
-
         <div>
-          <div class="label" style="margin-bottom:12px;display:block;color:var(--error)">PROHIBITED — Never use</div>
+          <div class="label" style="margin-bottom:12px;display:block;color:var(--error)">✗ Never use in ads</div>
           <div class="position-list">
-            ${posItem(false, 'Клубный дом')}
+            ${posItem(false, 'Клубный дом / Club House')}
             ${posItem(false, 'Дом полностью сдан')}
-            ${posItem(false, '2 квартиры на этаже')}
             ${posItem(false, 'Элия Хилл — приватность рядом')}
+            ${posItem(false, 'Сегодня (in any CTA)')}
           </div>
         </div>
       </div>
     </div>
-  `;
+  \`;
 }
 
 function fact(label, value) {
@@ -279,113 +182,45 @@ function posItem(ok, text) {
     </div>`;
 }
 
-/* ---- S02 Market & Search Demand ---- */
-function renderS02Header() {
+/* ---- S02 Target Audience ---- */
+function renderS02() {
   return `
     <div class="section-block-header">
       <div class="section-block-num">02</div>
       <div class="section-block-title-wrap">
-        <div class="section-block-title">Market & Search Demand</div>
-        <div class="section-block-desc">Keyword research across 4,412 terms · Volumes from Google Keyword Planner (global estimates)</div>
+        <div class="section-block-title">Target Audience</div>
+        <div class="section-block-desc">Who we reach · Three markets · Two languages</div>
       </div>
     </div>
 
-    <div class="note-box info" style="margin-bottom:24px">
-      <span class="note-box-icon">ℹ</span>
-      <div>
-        <strong>Volume note:</strong> All figures are global Google Keyword Planner estimates.
-        Actual traffic from IL+UA+BY targeting will be a fraction of global volume.
-        No geo-specific estimates are fabricated — only real research data is shown.
-      </div>
-    </div>
-
-    <div class="metrics-row" style="margin-bottom:24px">
-      <div class="metric-card">
-        <div class="metric-label">Highest RU Volume</div>
-        <div class="metric-value">1K</div>
-        <div class="metric-sub">купить квартиру в тбилиси</div>
-      </div>
-      <div class="metric-card">
-        <div class="metric-label">Highest EN Volume</div>
-        <div class="metric-value">1.3K</div>
-        <div class="metric-sub">apartment tbilisi (generic)</div>
-      </div>
-      <div class="metric-card">
-        <div class="metric-label">Top EN Purchase Vol</div>
-        <div class="metric-value">480</div>
-        <div class="metric-sub">apartments for sale tbilisi</div>
-      </div>
-      <div class="metric-card">
-        <div class="metric-label">Historical KWs</div>
-        <div class="metric-value">74</div>
-        <div class="metric-sub">preserved from account</div>
-      </div>
-      <div class="metric-card">
-        <div class="metric-label">Zero Volume Saved</div>
-        <div class="metric-value">3,004</div>
-        <div class="metric-sub">in research database</div>
-      </div>
-    </div>
-  `;
-}
-
-/* ---- S03 Geo & Language ---- */
-function renderS03() {
-  return `
-    <div class="section-block-header">
-      <div class="section-block-num">03</div>
-      <div class="section-block-title-wrap">
-        <div class="section-block-title">Geo & Language Strategy</div>
-        <div class="section-block-desc">Active markets and targeting logic</div>
-      </div>
-    </div>
-
-    <div class="three-col" style="margin-bottom:32px">
+    <div class="three-col" style="margin-bottom:24px">
       <div class="geo-card">
         <div class="geo-flag">🇮🇱</div>
         <div class="geo-name">Israel</div>
         <div class="geo-facts">
-          <div class="geo-fact">Primary EN-speaking market</div>
-          <div class="geo-fact">Significant Russian-speaking population</div>
+          <div class="geo-fact"><strong>Primary market</strong></div>
+          <div class="geo-fact">Russian-speaking Israelis → RU campaigns</div>
+          <div class="geo-fact">English-speaking professionals → EN campaigns</div>
           <div class="geo-fact">Both RU and EN campaigns active</div>
-          <div class="geo-fact">Target: Russian-speaking Israelis + English-speaking professionals</div>
-          <div class="geo-fact">Highest-potential market for EN campaigns</div>
-          <div class="geo-fact">Audience primarily mobile — fast LP load critical</div>
+          <div class="geo-fact">Mobile-first audience — fast load critical</div>
         </div>
       </div>
-
       <div class="geo-card">
         <div class="geo-flag">🇺🇦</div>
         <div class="geo-name">Ukraine</div>
         <div class="geo-facts">
-          <div class="geo-fact">Primary RU-language market</div>
-          <div class="geo-fact">EN secondary</div>
-          <div class="geo-fact">UA-based buyers of foreign real estate active</div>
-          <div class="geo-fact">Core RU campaign primary targeting</div>
-          <div class="geo-fact">Strong search intent for Tbilisi property</div>
+          <div class="geo-fact">Russian-speaking buyers</div>
+          <div class="geo-fact">RU campaigns primary targeting</div>
+          <div class="geo-fact">Strong purchase intent for Tbilisi property</div>
         </div>
       </div>
-
       <div class="geo-card">
         <div class="geo-flag">🇧🇾</div>
         <div class="geo-name">Belarus</div>
         <div class="geo-facts">
-          <div class="geo-fact">Primary RU-language market</div>
-          <div class="geo-fact">Tbilisi well-known destination</div>
-          <div class="geo-fact">Core RU campaign primary targeting</div>
-          <div class="geo-fact">Strong relocation intent</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="card" style="margin-bottom:20px">
-      <div class="card-title">Geos NOT Included</div>
-      <div style="display:flex;gap:24px;flex-wrap:wrap">
-        <div style="font-size:13px;color:var(--text-tertiary)">
-          <s>Germany</s> — Removed from targeting
-        </div>
-        <div style="font-size:13px;color:var(--text-tertiary)">
-          <s>Georgia (local)</s> — Not a paid acquisition geo
+          <div class="geo-fact">Russian-speaking buyers</div>
+          <div class="geo-fact">RU campaigns primary targeting</div>
+          <div class="geo-fact">High relocation intent to Georgia</div>
         </div>
       </div>
     </div>
@@ -394,11 +229,74 @@ function renderS03() {
       <span class="note-box-icon">ℹ</span>
       <div>
         <strong>Key principle:</strong> Country ≠ Language.
-        EN and RU campaigns run across all 3 geos simultaneously with different bid adjustments per market.
-        Israel receives the highest EN campaign priority. Ukraine and Belarus are primary for RU campaigns.
+        RU and EN campaigns run simultaneously across all 3 markets — Israel receives the highest EN bid adjustment.
+        <strong>Excluded from targeting:</strong> Germany · Georgia (local residents).
       </div>
     </div>
-  `;
+  \`;
+}
+
+/* ---- S03 Geo & Language ---- */
+function renderS03() {
+  return `
+    <div class="section-block-header">
+      <div class="section-block-num">03</div>
+      <div class="section-block-title-wrap">
+        <div class="section-block-title">Search Strategy</div>
+        <div class="section-block-desc">Four demand types · Each captured by a dedicated campaign</div>
+      </div>
+    </div>
+
+    <div class="intent-grid">
+      <div class="intent-card">
+        <div class="intent-card-header">
+          <div class="pool-badge pool-A">К1</div>
+          <div class="intent-title">Purchase Intent — RU</div>
+          <span class="intent-count">~141 KW</span>
+        </div>
+        <div class="intent-examples">"купить квартиру в тбилиси"<br>"апартаменты тбилиси"</div>
+        <div class="intent-desc">Russian-language buyers actively searching to purchase property in Tbilisi. Highest priority. Exact match first, then Phrase.</div>
+      </div>
+
+      <div class="intent-card">
+        <div class="intent-card-header">
+          <div class="pool-badge pool-B">К2</div>
+          <div class="intent-title">Purchase Intent — EN</div>
+          <span class="intent-count">~83 KW</span>
+        </div>
+        <div class="intent-examples">"buy apartment in tbilisi"<br>"luxury apartment tbilisi"</div>
+        <div class="intent-desc">English-language buyers — primarily Israel market. Covers purchase, luxury, penthouse, boutique residence, and investment queries.</div>
+      </div>
+
+      <div class="intent-card">
+        <div class="intent-card-header">
+          <div class="pool-badge pool-C">К3</div>
+          <div class="intent-title">Premium Intent — RU</div>
+          <span class="intent-count">~19 KW</span>
+        </div>
+        <div class="intent-examples">"элитная недвижимость тбилиси"<br>"бутик резиденция тбилиси"</div>
+        <div class="intent-desc">Russian-language premium and luxury segment. Audience self-selects — high qualification rate. Avg. CPC $1.24. Premium messaging essential.</div>
+      </div>
+
+      <div class="intent-card" style="border-color:rgba(140,94,48,0.25)">
+        <div class="intent-card-header">
+          <div class="pool-badge pool-I">К4</div>
+          <div class="intent-title">Competitor Searches</div>
+          <span class="intent-count">~87 KW ⚠</span>
+        </div>
+        <div class="intent-examples">"park home vake"<br>"cityzen tbilisi"</div>
+        <div class="intent-desc">Buyers researching competing projects. ELYSIUM appears as a boutique alternative. All 87 keywords require manual review before launch.</div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:24px;border-color:rgba(74,106,140,0.2)">
+      <div class="card-title" style="color:var(--data-blue)">Phase 2 — Not in current scope</div>
+      <div style="font-size:13px;color:var(--text-secondary);line-height:1.6;margin-top:8px">
+        183 generic real estate keywords ("apartment tbilisi" etc.) are retained for Phase 2 expansion.
+        These require larger budgets and will be evaluated after Phase 1 CPL data is available (6–8 weeks post-launch).
+      </div>
+    </div>
+  \`;
 }
 
 /* ---- S04 Search Intent ---- */
@@ -407,482 +305,358 @@ function renderS04() {
     <div class="section-block-header">
       <div class="section-block-num">04</div>
       <div class="section-block-title-wrap">
-        <div class="section-block-title">Search Intent Architecture</div>
-        <div class="section-block-desc">Intent pools and targeting logic for campaign structure</div>
-      </div>
-    </div>
-
-    <div class="intent-grid">
-      <div class="intent-card">
-        <div class="intent-card-header">
-          <div class="pool-badge pool-A">A</div>
-          <div class="intent-title">Purchase Intent</div>
-          <span class="intent-count">163 KEEP</span>
-        </div>
-        <div class="intent-examples">"купить квартиру в тбилиси"<br>"buy apartment in tbilisi"</div>
-        <div class="intent-desc">Highest priority. Direct conversion intent. Core RU and Core EN campaigns. Exact match first, then Phrase.</div>
-      </div>
-
-      <div class="intent-card">
-        <div class="intent-card-header">
-          <div class="pool-badge pool-B">B</div>
-          <div class="intent-title">Premium / Luxury Intent</div>
-          <span class="intent-count">19 KEEP</span>
-        </div>
-        <div class="intent-examples">"luxury apartment tbilisi"<br>"элитная недвижимость тбилиси"</div>
-        <div class="intent-desc">Audience self-selects for premium. High qualification rate. Avg CPC $1.24. Premium messaging essential. Note: 18/19 KEEP keywords are EN; 1 RU keyword in this pool.</div>
-      </div>
-
-      <div class="intent-card">
-        <div class="intent-card-header">
-          <div class="pool-badge pool-C">C</div>
-          <div class="intent-title">Residence / Boutique</div>
-          <span class="intent-count">4 KEEP</span>
-        </div>
-        <div class="intent-examples">"king david residence tbilisi"<br>"boutique apartment tbilisi"</div>
-        <div class="intent-desc">Branded residence searches — named development queries. EN-only pool. Core EN campaign (Campaign 3). Note: "Greenhill Residence" has no Tbilisi geo signal — verify before activating.</div>
-      </div>
-
-      <div class="intent-card">
-        <div class="intent-card-header">
-          <div class="pool-badge pool-D">D</div>
-          <div class="intent-title">Penthouse</div>
-          <span class="intent-count">6 KEEP</span>
-        </div>
-        <div class="intent-examples">"penthouse in tbilisi"<br>"penthouse tbilisi"</div>
-        <div class="intent-desc">Very specific, small volume but high value intent. Core EN campaign dedicated ad group. Note: no penthouse section on site yet.</div>
-      </div>
-
-      <div class="intent-card">
-        <div class="intent-card-header">
-          <div class="pool-badge pool-E">E</div>
-          <div class="intent-title">Investment</div>
-          <span class="intent-count">6 KEEP</span>
-        </div>
-        <div class="intent-examples">"investment property georgia"<br>"инвестиции в недвижимость грузии"</div>
-        <div class="intent-desc">Different messaging required — ROI framing. Note: no investment section exists on current site (gap identified).</div>
-      </div>
-
-      <div class="intent-card">
-        <div class="intent-card-header">
-          <div class="pool-badge pool-F">F</div>
-          <div class="intent-title">New Build / Ready</div>
-          <span class="intent-count">14 KEEP</span>
-        </div>
-        <div class="intent-examples">"new apartment tbilisi"<br>"новостройка тбилиси"</div>
-        <div class="intent-desc">Overlaps with purchase intent. Key message: Дом введён в эксплуатацию — commissioned and ready to view.</div>
-      </div>
-
-      <div class="intent-card">
-        <div class="intent-card-header">
-          <div class="pool-badge pool-G">G</div>
-          <div class="intent-title">Districts / Location</div>
-          <span class="intent-count">12 KEEP</span>
-        </div>
-        <div class="intent-examples">"квартира ваке"<br>"apartment mtatsminda"</div>
-        <div class="intent-desc">Location-specific search. ELYSIUM is in a premium Tbilisi location. Ad copy to mention neighbourhood.</div>
-      </div>
-
-      <div class="intent-card" style="border-color:rgba(74,106,140,0.25);opacity:0.75">
-        <div class="intent-card-header">
-          <div class="pool-badge pool-J">J</div>
-          <div class="intent-title">Generic Real Estate</div>
-          <span class="intent-count" style="background:rgba(74,106,140,0.15);color:var(--data-blue)">183 · Phase 2</span>
-        </div>
-        <div class="intent-examples">"apartment tbilisi"<br>"real estate tbilisi"</div>
-        <div class="intent-desc">Large volume, lower specificity. <strong>Retained for Phase 2 expansion</strong> — not in Phase 1 campaigns. 123 RU + 60 EN. Will be evaluated after Phase 1 data is collected.</div>
-      </div>
-
-      <div class="intent-card" style="border-color:rgba(140,94,48,0.25)">
-        <div class="intent-card-header">
-          <div class="pool-badge pool-I">I</div>
-          <div class="intent-title">Competitors</div>
-          <span class="intent-count">87 CHECK</span>
-        </div>
-        <div class="intent-examples">"park home vake"<br>"cityzen tbilisi", "next tbilisi"</div>
-        <div class="intent-desc">Requires manual review before launch. Differentiation messaging. Separate campaign (Campaign 4). All 87 keywords are CHECK_REQUIRED.</div>
-      </div>
-    </div>
-
-    <div class="card" style="margin-top:24px">
-      <div class="card-title">Excluded from Campaigns (saved for audit)</div>
-      <div style="display:flex;gap:24px;flex-wrap:wrap;margin-bottom:12px">
-        <div style="font-size:12px;color:var(--text-tertiary)">🚫 Rental / Аренда: <strong style="color:var(--text-secondary)">1,840 keywords</strong></div>
-        <div style="font-size:12px;color:var(--text-tertiary)">🚫 US Georgia: <strong style="color:var(--text-secondary)">689 keywords</strong></div>
-        <div style="font-size:12px;color:var(--text-tertiary)">🚫 Batumi & Cities: <strong style="color:var(--text-secondary)">478 keywords</strong></div>
-        <div style="font-size:12px;color:var(--text-tertiary)">🚫 General irrelevant: <strong style="color:var(--text-secondary)">125 keywords</strong></div>
-        <div style="font-size:12px;color:var(--text-tertiary)">🚫 Hotels: <strong style="color:var(--text-secondary)">7 keywords</strong></div>
-        <div style="font-size:12px;color:var(--text-tertiary)">🚫 Seller intent: <strong style="color:var(--text-secondary)">4 keywords</strong></div>
-      </div>
-      <div style="font-size:11px;color:var(--text-tertiary);border-top:1px solid var(--border-subtle);padding-top:10px">
-        ℹ Pool H (Lifestyle/Location): 1 keyword retained in KEEP per client decision — small expected volume, acceptable risk.
-      </div>
-    </div>
-
-    <div class="card" style="margin-top:16px;border-color:rgba(74,106,140,0.2);background:rgba(74,106,140,0.04)">
-      <div class="card-title" style="color:var(--data-blue)">Phase 2 — Generic Real Estate Expansion</div>
-      <div style="display:flex;gap:32px;margin:16px 0;flex-wrap:wrap">
-        <div style="text-align:center">
-          <div style="font-size:28px;font-weight:300;color:var(--text-primary)">183</div>
-          <div style="font-size:11px;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:0.08em">Total · Pool J</div>
-        </div>
-        <div style="text-align:center">
-          <div style="font-size:28px;font-weight:300;color:var(--text-primary)">123</div>
-          <div style="font-size:11px;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:0.08em">RU keywords</div>
-        </div>
-        <div style="text-align:center">
-          <div style="font-size:28px;font-weight:300;color:var(--text-primary)">60</div>
-          <div style="font-size:11px;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:0.08em">EN keywords</div>
-        </div>
-      </div>
-      <div style="font-size:13px;color:var(--text-secondary);line-height:1.7">
-        Generic real estate searches ("apartment tbilisi", "real estate tbilisi" etc.) are retained in the research database
-        but excluded from Phase 1 active campaigns. These keywords require larger budgets and tighter negative keyword
-        coverage to be profitable. They will be evaluated for Phase 2 expansion once Phase 1 campaign data (CTR, CPC, CPL)
-        is available — typically after 6–8 weeks of live performance.
-      </div>
-    </div>
-  `;
-}
-
-/* ---- S05 Keyword Architecture ---- */
-function renderS05Header(research) {
-  const rs = research || {};
-  return `
-    <div class="section-block-header">
-      <div class="section-block-num">05</div>
-      <div class="section-block-title-wrap">
-        <div class="section-block-title">Keyword Architecture</div>
-        <div class="section-block-desc">Full KEEP keyword database with pool classification and QA status</div>
-      </div>
-    </div>
-
-    <div class="card" style="margin-bottom:24px">
-      <div class="card-title">Research Summary</div>
-      <div class="research-stats-grid">
-        <div class="research-stat"><span class="research-stat-label">Total researched</span><span class="research-stat-value">${(rs.total_keywords||4412).toLocaleString()}</span></div>
-        <div class="research-stat"><span class="research-stat-label">Research phases</span><span class="research-stat-value">${(rs.phases||[]).length || 4}</span></div>
-        <div class="research-stat"><span class="research-stat-label">KEEP (campaign-ready)</span><span class="research-stat-value gold">${(rs.keep_count||408).toLocaleString()}</span></div>
-        <div class="research-stat"><span class="research-stat-label">CHECK_REQUIRED</span><span class="research-stat-value">${(rs.check_required_count||861).toLocaleString()}</span></div>
-        <div class="research-stat"><span class="research-stat-label">Excluded (saved)</span><span class="research-stat-value">${(rs.excluded_count||3143).toLocaleString()}</span></div>
-        <div class="research-stat"><span class="research-stat-label">Zero-volume preserved</span><span class="research-stat-value">${(rs.zero_volume_count||3004).toLocaleString()}</span></div>
-        <div class="research-stat"><span class="research-stat-label">Historical account KWs</span><span class="research-stat-value">${rs.historical_keywords||74}</span></div>
-        <div class="research-stat"><span class="research-stat-label">QA checks passed</span><span class="research-stat-value gold">19/19 ✓</span></div>
-      </div>
-    </div>
-  `;
-}
-
-/* ---- S06 Структура кампаний ---- */
-function renderS06(campaigns, research) {
-  const cdata = campaigns?.campaigns || [];
-  return `
-    <div class="section-block-header">
-      <div class="section-block-num">06</div>
-      <div class="section-block-title-wrap">
-        <div class="section-block-title">Структура кампаний (Campaign Architecture)</div>
-        <div class="section-block-desc">4 кампании · Бюджет $500/мес · По 25% на каждую · Каждая закрывает отдельный тип спроса</div>
+        <div class="section-block-title">Campaign Structure</div>
+        <div class="section-block-desc">4 independent campaigns · $500/month total · $125/month each</div>
       </div>
     </div>
 
     <div class="card" style="margin-bottom:32px;font-family:var(--font-mono);font-size:13px;line-height:2.1">
-      <div style="font-size:10px;color:var(--text-tertiary);letter-spacing:0.08em;text-transform:uppercase;font-family:var(--font-sans);margin-bottom:10px">Схема распределения бюджета</div>
-      <div style="color:var(--accent-gold);font-weight:600">GOOGLE ADS — $500 / месяц</div>
-      <div style="color:var(--text-secondary)">├── Кампания 1 — Брендовая <span style="color:var(--text-tertiary)">·········</span> <span style="color:var(--text-primary)">$125/мес</span></div>
-      <div style="color:var(--text-secondary)">├── Кампания 2 — Покупка RU <span style="color:var(--text-tertiary)">········</span> <span style="color:var(--text-primary)">$125/мес</span></div>
-      <div style="color:var(--text-secondary)">├── Кампания 3 — Покупка EN <span style="color:var(--text-tertiary)">········</span> <span style="color:var(--text-primary)">$125/мес</span></div>
-      <div style="color:var(--text-secondary)">└── Кампания 4 — Конкурентная <span style="color:var(--text-tertiary)">······</span> <span style="color:var(--text-primary)">$125/мес</span></div>
-      <div style="margin-top:14px;font-size:12px;color:var(--text-tertiary);font-family:var(--font-sans);line-height:1.6;border-top:1px solid var(--border-subtle);padding-top:12px">
-        Четыре кампании разделяют четыре разных типа спроса. Это позволяет независимо управлять бюджетом, ставками (Bidding), ключевыми словами (Keywords) и рекламными сообщениями для каждой аудитории.
-      </div>
+      <div style="font-size:10px;color:var(--text-tertiary);letter-spacing:0.08em;text-transform:uppercase;font-family:var(--font-sans);margin-bottom:10px">Budget allocation</div>
+      <div style="color:var(--accent-gold);font-weight:600">Google Ads — $500 / month</div>
+      <div style="color:var(--text-secondary)">├── Campaign 1 — К1 Purchase RU <span style="color:var(--text-tertiary)">·····</span> <span style="color:var(--text-primary)">$125/mo</span></div>
+      <div style="color:var(--text-secondary)">├── Campaign 2 — К2 Purchase EN <span style="color:var(--text-tertiary)">·····</span> <span style="color:var(--text-primary)">$125/mo</span></div>
+      <div style="color:var(--text-secondary)">├── Campaign 3 — К3 Premium RU <span style="color:var(--text-tertiary)">······</span> <span style="color:var(--text-primary)">$125/mo</span></div>
+      <div style="color:var(--text-secondary)">└── Campaign 4 — К4 Competitors <span style="color:var(--text-tertiary)">·····</span> <span style="color:var(--text-primary)">$125/mo</span></div>
     </div>
 
-    <div style="display:flex;flex-direction:column;gap:32px">
-      ${cdata.map(c => renderCampaignCard(c, research)).join('')}
-    </div>
-
-    <div class="note-box warning" style="margin-top:32px">
-      <span class="note-box-icon">⚠</span>
-      <div>
-        <strong>Кампания 4 (Конкурентная): требуется ручная проверка перед запуском.</strong>
-        Все 87 ключевых слов Pool I — статус CHECK_REQUIRED. Запускать только высокорелевантные.
-        Приоритет запуска: Park Home Vake · Gergeti Rise · CityZen · Next Tbilisi · Mtatsminda Panorama.
-      </div>
-    </div>
-  `;
-}
-
-function renderCampaignCard(c, research) {
-  const kwCount = c.pool_sources?.includes('I')
-    ? (research?.pool_stats?.I?.total ?? c.keyword_count_approx)
-    : c.keyword_count_approx;
-  const adGroups = c.ad_groups || [];
-
-  const ruNames = {
-    1: 'Брендовая — ELYSIUM',
-    2: 'Основная покупка — RU',
-    3: 'Основная покупка — EN',
-    4: 'Конкурентная',
-  };
-  const whyMap = {
-    1: 'Защищаем брендовый спрос. Перехватываем самых горячих лидов — тех, кто уже знает ELYSIUM и ищет нас напрямую. Наивысший ожидаемый коэффициент конверсии (CR).',
-    2: 'Закрываем прямой спрос на покупку недвижимости в Тбилиси на русском языке. Показываем ELYSIUM как конкретный готовый вариант — дом введён в эксплуатацию.',
-    3: 'Закрываем прямой спрос на покупку недвижимости в Тбилиси на английском языке. Основной рынок — Израиль: русскоязычные израильтяне и англоязычные профессионалы.',
-    4: 'Перехватываем аудиторию, которая ищет конкурирующие проекты. Позиционируем ELYSIUM как бутик-альтернативу большим комплексам. Требует ручной проверки ключевых слов.',
-  };
-  const whoMap = {
-    1: 'Пользователи, ищущие ELYSIUM по имени или смежным брендовым запросам.',
-    2: 'Русскоязычные покупатели из Израиля, Украины и Беларуси — те, кто ищет купить квартиру или недвижимость в Тбилиси.',
-    3: 'Англоязычные покупатели и инвесторы в Израиле (приоритет), на Украине и в Беларуси.',
-    4: 'Покупатели, уже рассматривающие конкурирующие premium-проекты в Тбилиси.',
-  };
-  const demandMap = {
-    1: 'Горячий брендовый спрос',
-    2: 'Прямое намерение купить (RU)',
-    3: 'Прямое намерение купить (EN)',
-    4: 'Конкурентный перехват (RU + EN)',
-  };
-  const priorityColor = c.priority === 'HIGHEST' ? 'var(--accent-gold)' : c.priority === 'PRIMARY' ? '#70B880' : 'var(--text-tertiary)';
-
-  return `
-    <div style="border:1px solid var(--border-medium);border-radius:10px;overflow:hidden">
-      <div style="padding:20px 24px;background:var(--bg-elevated);border-bottom:1px solid var(--border-subtle);display:flex;justify-content:space-between;align-items:flex-start;gap:16px">
-        <div>
-          <div style="font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-tertiary);margin-bottom:4px">Кампания ${c.id}</div>
-          <div style="font-size:18px;font-weight:500;color:var(--text-primary);margin-bottom:3px">${ruNames[c.id] || escHtml(c.name)}</div>
-          <div style="font-size:11px;color:var(--text-tertiary);font-family:var(--font-mono)">${escHtml(c.name)}</div>
-        </div>
-        <div style="text-align:right;flex-shrink:0">
-          <div style="font-size:22px;font-weight:300;color:var(--accent-gold)">$${c.budget_monthly}<span style="font-size:12px">/мес</span></div>
-          <div style="font-size:11px;color:var(--text-tertiary)">≈ $${c.budget_daily_approx}/день</div>
-        </div>
-      </div>
-
-      <div style="padding:20px 24px;display:flex;flex-direction:column;gap:18px">
-
-        <div>
-          <div style="font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-tertiary);margin-bottom:6px">Зачем запускаем</div>
-          <div style="font-size:13px;color:var(--text-secondary);line-height:1.6">${whyMap[c.id] || escHtml(c.intent)}</div>
-        </div>
-
-        <div>
-          <div style="font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-tertiary);margin-bottom:6px">Кому показываем</div>
-          <div style="font-size:13px;color:var(--text-secondary);line-height:1.6">${whoMap[c.id] || ''}</div>
-        </div>
-
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px">
-          <div style="padding:10px 14px;background:var(--bg-hover);border-radius:6px">
-            <div style="font-size:10px;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:4px">Гео (Geo)</div>
-            <div style="font-size:12px;color:var(--text-primary)">${c.geo.join(' · ')}</div>
-          </div>
-          <div style="padding:10px 14px;background:var(--bg-hover);border-radius:6px">
-            <div style="font-size:10px;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:4px">Язык (Language)</div>
-            <div style="font-size:12px;color:var(--text-primary)">${c.languages.map(l => `<span class="badge badge-lang badge-lang-${l}">${l}</span>`).join(' ')}</div>
-          </div>
-          <div style="padding:10px 14px;background:var(--bg-hover);border-radius:6px">
-            <div style="font-size:10px;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:4px">Тип спроса</div>
-            <div style="font-size:12px;color:var(--text-primary)">${demandMap[c.id] || ''}</div>
-          </div>
-          <div style="padding:10px 14px;background:var(--bg-hover);border-radius:6px">
-            <div style="font-size:10px;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:4px">Приоритет</div>
-            <div style="font-size:12px;font-weight:500;color:${priorityColor}">${c.priority}${c.requires_manual_review ? ' · ⚠ Проверка' : ''}</div>
-          </div>
-        </div>
-
-        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;font-size:12px">
-          <div>
-            <div style="color:var(--text-tertiary);margin-bottom:3px">Ключевых слов (Keywords)</div>
-            <div style="color:var(--text-primary);font-family:var(--font-mono);font-weight:600">~${kwCount}</div>
-          </div>
-          <div>
-            <div style="color:var(--text-tertiary);margin-bottom:3px">Тип соответствия (Match Type)</div>
-            <div style="color:var(--text-primary)">${c.match_types.join(' · ')}</div>
-          </div>
-          <div>
-            <div style="color:var(--text-tertiary);margin-bottom:3px">Стратегия ставок (Bidding)</div>
-            <div style="color:var(--text-primary)">${escHtml(c.bidding)}</div>
-          </div>
-        </div>
-
-        <div>
-          <div style="font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-tertiary);margin-bottom:10px">Группы объявлений (Ad Groups)</div>
-          <div style="display:flex;flex-direction:column;gap:8px">
-            ${adGroups.map(ag => `
-              <div style="padding:10px 14px;background:var(--bg-hover);border-radius:6px;border-left:2px solid rgba(196,168,130,0.3)">
-                <div style="font-size:12px;color:var(--text-primary);margin-bottom:6px">→ ${escHtml(ag.name)}</div>
-                <div style="font-size:11px;color:var(--text-tertiary)">Примеры запросов:
-                  ${ag.examples.map(e => `<code style="background:var(--bg-surface);padding:1px 5px;border-radius:3px;margin:0 2px;font-size:10px">${escHtml(e)}</code>`).join('')}
-                </div>
-              </div>
-            `).join('')}
-          </div>
-        </div>
-
-        <div>
-          <div style="font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-tertiary);margin-bottom:6px">Куда ведём (Landing Page)</div>
-          <div style="font-family:var(--font-mono);font-size:12px;color:var(--accent-gold)">${escHtml(c.landing_page)}</div>
-        </div>
-
-        <div style="border-top:1px solid var(--border-subtle);padding-top:18px">
-          <div style="font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-tertiary);margin-bottom:14px">ЧТО УВИДИТ ПОЛЬЗОВАТЕЛЬ</div>
-          ${renderCampaignAdPreview(c.id)}
-        </div>
-
-        ${c.notes ? `<div style="font-size:11px;color:var(--text-tertiary);border-top:1px solid var(--border-subtle);padding-top:12px;line-height:1.5">${escHtml(c.notes)}</div>` : ''}
-      </div>
-    </div>
-  `;
-}
-
-function renderCampaignAdPreview(id) {
-  if (id === 2) {
-    return `
-      <div style="background:var(--bg-surface);border:1px solid var(--border-subtle);border-radius:8px;padding:16px 20px;margin-bottom:12px">
-        <div style="font-size:10px;color:var(--text-tertiary);margin-bottom:6px;text-transform:uppercase;letter-spacing:0.08em">🇷🇺 Google Ads — пример объявления (RU)</div>
-        <div style="font-size:11px;color:#4CAF50;font-family:var(--font-mono);margin-bottom:4px">🔗 elysiumtbilisi.com</div>
-        <div style="font-size:14px;color:#8ab4f8;font-weight:500;line-height:1.4;margin-bottom:8px">Бутик-резиденция в Тбилиси | Дом введён в эксплуатацию | 14 резиденций — от 130 м²</div>
-        <div style="font-size:12px;color:var(--text-secondary);line-height:1.6">Бутик-резиденция в Тбилиси. 14 квартир от 130 м². Дом введён в эксплуатацию.<br>Свободная планировка. Без несущих стен. Панорамные виды. Индивидуальный показ.</div>
-        <div style="font-size:10px;color:var(--text-tertiary);margin-top:8px">Google подбирает лучшую комбинацию из 12 заголовков и 3 описаний автоматически</div>
-      </div>
-      <div style="display:flex;flex-direction:column;gap:5px;font-size:12px">
-        <div style="display:flex;gap:8px"><span style="color:var(--accent-gold);flex-shrink:0">Закрывает запросы:</span><span style="color:var(--text-secondary)">«купить квартиру в тбилиси», «элитная недвижимость тбилиси», «бутик резиденция тбилиси»</span></div>
-        <div style="display:flex;gap:8px"><span style="color:var(--accent-gold);flex-shrink:0">Ключевое преимущество:</span><span style="color:var(--text-secondary)">Дом введён в эксплуатацию — готов к просмотру прямо сейчас</span></div>
-        <div style="display:flex;gap:8px"><span style="color:var(--accent-gold);flex-shrink:0">CTA:</span><span style="color:var(--text-secondary)">«Запишитесь на показ» · «Планировки и цены — по запросу»</span></div>
-      </div>
-      <div style="margin-top:10px;font-size:11px;color:var(--text-tertiary)">→ Полный список заголовков и описаний — раздел 09 «Объявления и тексты»</div>
-    `;
-  }
-  if (id === 3) {
-    return `
-      <div style="background:var(--bg-surface);border:1px solid var(--border-subtle);border-radius:8px;padding:16px 20px;margin-bottom:12px">
-        <div style="font-size:10px;color:var(--text-tertiary);margin-bottom:6px;text-transform:uppercase;letter-spacing:0.08em">🇬🇧 Google Ads — Ad Preview (EN)</div>
-        <div style="font-size:11px;color:#4CAF50;font-family:var(--font-mono);margin-bottom:4px">🔗 elysiumtbilisi.com</div>
-        <div style="font-size:14px;color:#8ab4f8;font-weight:500;line-height:1.4;margin-bottom:8px">Boutique Residence Tbilisi | 14 Premium Residences | Building Commissioned &amp; Ready</div>
-        <div style="font-size:12px;color:var(--text-secondary);line-height:1.6">Boutique Residence in Tbilisi. 14 premium homes from 130 m². Building commissioned.<br>Free floor plan. No load-bearing walls. Panoramic city views from every residence.</div>
-        <div style="font-size:10px;color:var(--text-tertiary);margin-top:8px">Google selects the best combination from 12 headlines and 3 descriptions automatically</div>
-      </div>
-      <div style="display:flex;flex-direction:column;gap:5px;font-size:12px">
-        <div style="display:flex;gap:8px"><span style="color:var(--accent-gold);flex-shrink:0">Закрывает запросы:</span><span style="color:var(--text-secondary)">"buy apartment tbilisi", "luxury apartment tbilisi", "boutique residence tbilisi"</span></div>
-        <div style="display:flex;gap:8px"><span style="color:var(--accent-gold);flex-shrink:0">Ключевое преимущество:</span><span style="color:var(--text-secondary)">Commissioned building ready to view · Only 14 boutique residences · Free floor plan</span></div>
-        <div style="display:flex;gap:8px"><span style="color:var(--accent-gold);flex-shrink:0">CTA:</span><span style="color:var(--text-secondary)">"Book an Individual Viewing" · "Plans &amp; Prices on Request"</span></div>
-      </div>
-      <div style="margin-top:10px;font-size:11px;color:var(--text-tertiary)">→ Полный список Headlines и Descriptions — раздел 09 «Объявления и тексты»</div>
-    `;
-  }
-  if (id === 1) {
-    return `
-      <div style="padding:14px 16px;background:var(--bg-hover);border-radius:6px;font-size:13px;color:var(--text-secondary);line-height:1.6">
-        Брендовая кампания показывает объявления тем, кто уже ищет ELYSIUM. RSA-объявления используют утверждённые бренд-формулировки (S01): «Бутик-резиденция», «Дом введён в эксплуатацию», «Открыта к просмотру», «Всего 14 резиденций».
-        Два варианта: RU-объявление для русскоязычной аудитории, EN — для англоязычной.
-      </div>
-    `;
-  }
-  if (id === 4) {
-    return `
-      <div style="padding:14px 16px;background:rgba(196,168,100,0.06);border:1px solid rgba(196,168,100,0.2);border-radius:6px">
-        <div style="font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent-gold);margin-bottom:8px">Ключевое сообщение конкурентных объявлений</div>
-        <div style="font-size:13px;color:var(--text-secondary);line-height:1.6">Когда пользователь ищет другой проект (Park Home Vake, CityZen, Next Tbilisi...) → ELYSIUM появляется рядом с конкурентом.<br>Сообщение: «Не комплекс, а бутик-резиденция. Всего 14 апартаментов. Дом введён в эксплуатацию. Открыт к показу.»</div>
-        <div style="margin-top:10px;font-size:11px;color:var(--text-tertiary)">Стратегия и сообщения — раздел 07 «Конкуренты». Все 87 ключевых слов: CHECK_REQUIRED, запуск только после ручной проверки.</div>
-      </div>
-    `;
-  }
-  return '';
-}
-
-/* ---- S07 Competitor Strategy ---- */
-function renderS07(competitors) {
-  const comps = competitors?.competitors || [];
-  const allComps = [...comps].sort((a, b) => b.top_volume - a.top_volume);
-
-  const actionBadge = (vol) => {
-    if (vol >= 100) return `<span class="badge badge-launch">Launch</span>`;
-    if (vol >= 10)  return `<span class="badge badge-review">Review</span>`;
-    return `<span class="badge badge-monitor">Monitor</span>`;
-  };
-
-  const sourceBadge = (isGs) => isGs
-    ? `<span style="font-size:10px;color:#70B880">✅ Google Sheet</span>`
-    : `<span style="font-size:10px;color:var(--text-tertiary)">🔍 Research</span>`;
-
-  return `
-    <div class="section-block-header">
-      <div class="section-block-num">07</div>
-      <div class="section-block-title-wrap">
-        <div class="section-block-title">Competitor Strategy</div>
-        <div class="section-block-desc">38 competitors tracked · 14 Google Sheet verified · 24 Research identified</div>
-      </div>
-    </div>
-
-    <div class="note-box warning" style="margin-bottom:24px">
-      <span class="note-box-icon">⚠</span>
-      <div>
-        Sorted by top volume DESC. Google Sheet access requires authentication — 14 records confirmed via GS. 24 additional competitors identified through keyword research. All 38 shown individually.
-      </div>
-    </div>
-
-    <div class="card-title" style="margin-bottom:16px">All 38 Competitors — Sorted by Volume</div>
-    <div class="table-wrapper" style="margin-bottom:32px">
-      <table class="competitor-table">
+    <div class="table-wrapper" style="margin-bottom:24px">
+      <table class="kpi-table">
         <thead>
           <tr>
-            <th>Competitor</th>
-            <th>Best Keyword</th>
-            <th style="text-align:right">Volume</th>
-            <th style="text-align:right">Avg CPC</th>
-            <th style="text-align:right">KWs</th>
-            <th>Source</th>
-            <th>Action</th>
+            <th>#</th>
+            <th>Campaign</th>
+            <th>Language</th>
+            <th>Intent</th>
+            <th>Keywords</th>
+            <th>Budget</th>
           </tr>
         </thead>
         <tbody>
-          ${allComps.map(c => `
-            <tr>
-              <td class="comp-name">${escHtml(c.name)}</td>
-              <td class="comp-keyword">${escHtml(c.best_keyword)}</td>
-              <td class="comp-vol ${volClass(c.top_volume)}">${fmtVol(c.top_volume)}</td>
-              <td class="comp-cpc">${fmtCpc(c.avg_cpc)}</td>
-              <td class="comp-vol">${c.keyword_count}</td>
-              <td>${sourceBadge(c.is_google_sheet)}</td>
-              <td>${actionBadge(c.top_volume)}</td>
-            </tr>
-          `).join('')}
+          <tr>
+            <td class="kpi-name">К1</td>
+            <td>Purchase RU</td>
+            <td><span class="badge badge-lang badge-lang-RU">RU</span></td>
+            <td style="font-size:12px;color:var(--text-secondary)">Direct purchase intent (RU-language)</td>
+            <td style="font-family:var(--font-mono)">~141</td>
+            <td style="font-family:var(--font-mono);color:var(--accent-gold)">$125/mo</td>
+          </tr>
+          <tr>
+            <td class="kpi-name">К2</td>
+            <td>Purchase EN</td>
+            <td><span class="badge badge-lang badge-lang-EN">EN</span></td>
+            <td style="font-size:12px;color:var(--text-secondary)">Direct purchase intent (EN-language)</td>
+            <td style="font-family:var(--font-mono)">~83</td>
+            <td style="font-family:var(--font-mono);color:var(--accent-gold)">$125/mo</td>
+          </tr>
+          <tr>
+            <td class="kpi-name">К3</td>
+            <td>Premium RU</td>
+            <td><span class="badge badge-lang badge-lang-RU">RU</span></td>
+            <td style="font-size:12px;color:var(--text-secondary)">Luxury / premium segment (RU)</td>
+            <td style="font-family:var(--font-mono)">~19</td>
+            <td style="font-family:var(--font-mono);color:var(--accent-gold)">$125/mo</td>
+          </tr>
+          <tr>
+            <td class="kpi-name">К4</td>
+            <td>Competitors</td>
+            <td><span class="badge badge-lang badge-lang-RU">RU</span> <span class="badge badge-lang badge-lang-EN">EN</span></td>
+            <td style="font-size:12px;color:var(--text-secondary)">Intercept competitor project searches</td>
+            <td style="font-family:var(--font-mono)">~87 ⚠</td>
+            <td style="font-family:var(--font-mono);color:var(--accent-gold)">$125/mo</td>
+          </tr>
+          <tr style="background:var(--bg-elevated);border-top:1px solid var(--border-medium)">
+            <td colspan="2" style="font-weight:600;color:var(--text-primary)">TOTAL</td>
+            <td></td>
+            <td></td>
+            <td style="font-family:var(--font-mono);font-weight:600;color:var(--text-primary)">~330</td>
+            <td style="font-family:var(--font-mono);font-weight:600;color:var(--accent-gold)">$500/mo</td>
+          </tr>
         </tbody>
       </table>
     </div>
 
-    <div class="card-title" style="margin-bottom:16px">Part B — Approved Differentiation Messaging</div>
+    <div class="note-box warning">
+      <span class="note-box-icon">⚠</span>
+      <div>
+        <strong>Campaign 4 (Competitors):</strong> All ~87 keywords are CHECK_REQUIRED.
+        Manual review before enabling each keyword. Launch highest-volume first:
+        Park Home Vake · Gergeti Rise · CityZen · Next Tbilisi · Mtatsminda Panorama.
+      </div>
+    </div>
+  \`;
+}
+
+/* ---- S05 Keyword Architecture ---- */
+function renderS05(negatives) {
+  const negBlock = (campNote) => `
+    <div style="margin-top:16px">
+      <div style="font-size:10px;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:10px">Negative Keywords</div>
+      <div style="display:flex;flex-direction:column;gap:6px;font-size:12px">
+        <div style="display:flex;gap:10px;align-items:baseline"><span style="color:var(--error);min-width:110px">🚫 Rental</span><span style="color:var(--text-tertiary);font-size:11px"><code style="background:var(--bg-hover);padding:1px 5px;border-radius:3px">аренда</code> <code style="background:var(--bg-hover);padding:1px 5px;border-radius:3px">снять</code> <code style="background:var(--bg-hover);padding:1px 5px;border-radius:3px">rent</code> <code style="background:var(--bg-hover);padding:1px 5px;border-radius:3px">airbnb</code> <code style="background:var(--bg-hover);padding:1px 5px;border-radius:3px">посуточно</code></span></div>
+        <div style="display:flex;gap:10px;align-items:baseline"><span style="color:var(--error);min-width:110px">🚫 Wrong city</span><span style="color:var(--text-tertiary);font-size:11px"><code style="background:var(--bg-hover);padding:1px 5px;border-radius:3px">батуми</code> <code style="background:var(--bg-hover);padding:1px 5px;border-radius:3px">кутаиси</code> <code style="background:var(--bg-hover);padding:1px 5px;border-radius:3px">batumi</code> <code style="background:var(--bg-hover);padding:1px 5px;border-radius:3px">kutaisi</code></span></div>
+        <div style="display:flex;gap:10px;align-items:baseline"><span style="color:var(--error);min-width:110px">🚫 US Georgia</span><span style="color:var(--text-tertiary);font-size:11px"><code style="background:var(--bg-hover);padding:1px 5px;border-radius:3px">atlanta</code> <code style="background:var(--bg-hover);padding:1px 5px;border-radius:3px">buckhead</code> <code style="background:var(--bg-hover);padding:1px 5px;border-radius:3px">savannah</code></span></div>
+        <div style="display:flex;gap:10px;align-items:baseline"><span style="color:var(--error);min-width:110px">🚫 Wrong type</span><span style="color:var(--text-tertiary);font-size:11px"><code style="background:var(--bg-hover);padding:1px 5px;border-radius:3px">студия</code> <code style="background:var(--bg-hover);padding:1px 5px;border-radius:3px">studio</code> <code style="background:var(--bg-hover);padding:1px 5px;border-radius:3px">hotel</code> <code style="background:var(--bg-hover);padding:1px 5px;border-radius:3px">hostel</code></span></div>
+        <div style="display:flex;gap:10px;align-items:baseline"><span style="color:var(--error);min-width:110px">🚫 Seller intent</span><span style="color:var(--text-tertiary);font-size:11px"><code style="background:var(--bg-hover);padding:1px 5px;border-radius:3px">продам</code> <code style="background:var(--bg-hover);padding:1px 5px;border-radius:3px">sell my</code> <code style="background:var(--bg-hover);padding:1px 5px;border-radius:3px">for sale by owner</code></span></div>
+        ${campNote ? '<div style="margin-top:8px;font-size:11px;color:var(--text-tertiary)">' + campNote + '</div>' : ''}
+      </div>
+    </div>
+  \`;
+
+  const kwBlock = (examples, count, intent) => `
+    <div style="margin-top:16px">
+      <div style="font-size:10px;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:8px">Keywords · ${count}</div>
+      <div style="font-size:12px;color:var(--text-secondary);margin-bottom:8px">${intent}</div>
+      <div style="display:flex;flex-wrap:wrap;gap:6px">
+        ${examples.map(kw => '<code style="background:var(--bg-hover);padding:3px 8px;border-radius:4px;font-size:11px;color:var(--text-secondary)">' + kw + '</code>').join('')}
+      </div>
+    </div>
+  \`;
+
+  const adsBlock = (rsaName, p1, sectionRef) => `
+    <div style="margin-top:16px;padding:14px 16px;background:var(--bg-surface);border:1px solid var(--border-subtle);border-radius:8px">
+      <div style="font-size:10px;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:8px">Ads (RSA)</div>
+      <div style="font-size:13px;color:var(--text-primary);margin-bottom:4px">${rsaName}</div>
+      <div style="font-size:12px;color:var(--text-tertiary);margin-bottom:8px">📌 Pinned Headline 1: <span style="color:var(--accent-gold)">${p1}</span></div>
+      <div style="font-size:11px;color:var(--text-tertiary)">→ Full RSA copy (15 headlines · 4 descriptions) in <strong>Section 09 — Ads & Messaging</strong></div>
+    </div>
+  \`;
+
+  const campaignBlock = (num, nameRu, nameEn, lang, geo, kwContent, negContent, adsContent) => `
+    <div style="border:1px solid var(--border-medium);border-radius:10px;overflow:hidden;margin-bottom:32px">
+      <div style="padding:18px 24px;background:var(--bg-elevated);border-bottom:1px solid var(--border-subtle);display:flex;justify-content:space-between;align-items:flex-start;gap:16px">
+        <div>
+          <div style="font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-tertiary);margin-bottom:4px">Campaign ${num}</div>
+          <div style="font-size:18px;font-weight:500;color:var(--text-primary);margin-bottom:2px">${nameRu}</div>
+          <div style="font-size:11px;color:var(--text-tertiary);font-family:var(--font-mono)">${nameEn}</div>
+        </div>
+        <div style="text-align:right;flex-shrink:0">
+          <div style="font-size:22px;font-weight:300;color:var(--accent-gold)">$125<span style="font-size:12px">/mo</span></div>
+          <div style="font-size:11px;color:var(--text-tertiary);margin-top:2px">${lang} · ${geo}</div>
+        </div>
+      </div>
+      <div style="padding:20px 24px;display:flex;flex-direction:column;gap:0">
+        ${kwContent}
+        ${negContent}
+        ${adsContent}
+      </div>
+    </div>
+  \`;
+
+  return `
+    <div class="section-block-header">
+      <div class="section-block-num">05</div>
+      <div class="section-block-title-wrap">
+        <div class="section-block-title">Campaign Details</div>
+        <div class="section-block-desc">Keywords · Negative keywords · Ads — per campaign</div>
+      </div>
+    </div>
+
+    ${campaignBlock(
+      '1',
+      'К1 — Покупка RU',
+      'Purchase RU',
+      'RU',
+      'IL · UA · BY',
+      kwBlock(
+        ['купить квартиру в тбилиси','купить апартаменты тбилиси','апартаменты в тбилиси купить','недвижимость тбилиси купить','квартира в грузии купить','новостройка тбилиси','квартира ваке тбилиси','апартаменты вера тбилиси','инвестиции в недвижимость грузии'],
+        '~141 keywords · Pools A B E F G · RU language',
+        'Direct Russian-language purchase intent. Pools: A (Purchase), B (Premium RU), E (Investment), F (New Build), G (Districts). Exact match first, then Phrase.'
+      ),
+      negBlock(''),
+      adsBlock('К1 Purchase RU RSA', '«Апартаменты от 130 м²»', '09')
+    )}
+
+    ${campaignBlock(
+      '2',
+      'К2 — Purchase EN',
+      'Purchase EN',
+      'EN',
+      'IL · UA · BY',
+      kwBlock(
+        ['buy apartment in tbilisi','apartments for sale tbilisi','luxury apartment tbilisi','boutique apartment tbilisi','penthouse in tbilisi','investment property georgia','new apartment tbilisi','large apartment tbilisi'],
+        '~83 keywords · Pools A B C D E F G · EN language',
+        'English-language purchase intent. Covers all EN segments: purchase, luxury, boutique residence, penthouse, investment, new build. Israel primary geo.'
+      ),
+      negBlock(''),
+      adsBlock('К2 Purchase EN RSA', '"Apartments from 130 m²"', '09')
+    )}
+
+    ${campaignBlock(
+      '3',
+      'К3 — Премиум RU',
+      'Premium RU',
+      'RU',
+      'IL · UA · BY',
+      kwBlock(
+        ['элитная квартира тбилиси','элитная недвижимость тбилиси','премиум недвижимость тбилиси','бутик резиденция тбилиси','элитная квартира грузия','роскошная квартира тбилиси'],
+        '~19 keywords · Pool B · RU language',
+        'Russian-language luxury and premium segment. Audience self-selects — high qualification rate. Separate from К1 to allow dedicated premium messaging.'
+      ),
+      negBlock(''),
+      adsBlock('К3 Premium RU RSA', '«Бутик-резиденция в Тбилиси»', '09')
+    )}
+
+    ${campaignBlock(
+      '4',
+      'К4 — Конкуренты',
+      'Competitors',
+      'RU + EN',
+      'IL · UA · BY',
+      \`<div style="margin-top:16px">
+        <div style="font-size:10px;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:8px">Keywords · ~87 keywords · Pool I · CHECK_REQUIRED</div>
+        <div style="font-size:12px;color:var(--text-secondary);margin-bottom:8px">Buyers actively searching for competing premium projects in Tbilisi. Both RU and EN queries. All keywords require manual review before enabling.</div>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px">
+          \${'park home vake,cityzen tbilisi,next tbilisi,gergeti rise residence,крцаниси резиденция,mtatsminda panorama,king david residence,greenhill tbilisi'.split(',').map(kw => '<code style="background:var(--bg-hover);padding:3px 8px;border-radius:4px;font-size:11px;color:var(--text-secondary)">' + kw + '</code>').join('')}
+        </div>
+        <div class="note-box warning" style="margin:0">
+          <span class="note-box-icon">⚠</span>
+          <div style="font-size:12px">All 87 keywords are <strong>CHECK_REQUIRED</strong>. Launch priority: Park Home Vake → Gergeti Rise → CityZen → Next Tbilisi → Mtatsminda Panorama.</div>
+        </div>
+      </div>\`,
+      negBlock('Additional: exclude irrelevant competitor brand terms that have no Tbilisi geo signal.'),
+      \`<div style="margin-top:16px;padding:14px 16px;background:var(--bg-surface);border:1px solid var(--border-subtle);border-radius:8px">
+        <div style="font-size:10px;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:8px">Ads (RSA) — 2 ads</div>
+        <div style="font-size:13px;color:var(--text-primary);margin-bottom:6px">К4 RU + К4 EN (separate RSAs per language)</div>
+        <div style="font-size:12px;color:var(--text-tertiary);margin-bottom:4px">📌 RU P1: <span style="color:var(--accent-gold)">«Не комплекс — бутик-резиденция»</span></div>
+        <div style="font-size:12px;color:var(--text-tertiary);margin-bottom:8px">📌 EN P1: <span style="color:var(--accent-gold)">"Boutique — Not a Complex"</span></div>
+        <div style="font-size:11px;color:var(--text-tertiary)">→ Full RSA copy in <strong>Section 09 — Ads & Messaging</strong></div>
+      </div>\`
+    )}
+  \`;
+}
+
+/* ---- S06 Структура кампаний ---- */
+function renderS06(campaigns) {
+  return `
+    <div class="section-block-header">
+      <div class="section-block-num">06</div>
+      <div class="section-block-title-wrap">
+        <div class="section-block-title">Budget & Bidding</div>
+        <div class="section-block-desc">$500/month total · Phased bidding strategy</div>
+      </div>
+    </div>
+
+    <div class="bidding-phases" style="margin-bottom:32px">
+      <div class="bidding-phase">
+        <div class="bidding-phase-num">Phase 1</div>
+        <div class="bidding-phase-title">Manual CPC</div>
+        <div class="bidding-phase-when">Months 1–2</div>
+        <div class="bidding-phase-desc">Full manual control. Account lacks conversion history for Smart Bidding. Monitor CPCs closely — target under $2.00.</div>
+      </div>
+      <div class="bidding-phase">
+        <div class="bidding-phase-num">Phase 2</div>
+        <div class="bidding-phase-title">Enhanced CPC</div>
+        <div class="bidding-phase-when">Month 3 · if 20+ conversions/campaign</div>
+        <div class="bidding-phase-desc">Semi-automated. Google adjusts within your set max CPC. Lower risk than Target CPA. Switch campaign by campaign.</div>
+      </div>
+      <div class="bidding-phase">
+        <div class="bidding-phase-num">Phase 3</div>
+        <div class="bidding-phase-title">Target CPA</div>
+        <div class="bidding-phase-when">Month 4+ · if 30+ conv/month total</div>
+        <div class="bidding-phase-desc">Full Smart Bidding. Requires stable conversion volume. Evaluate after Phase 2 performance data.</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title" style="margin-bottom:16px">CPC Expectations (based on research)</div>
+      <div class="cpc-expectations">
+        <div class="cpc-exp-item">
+          <div class="cpc-exp-pool">Purchase KWs avg</div>
+          <div class="cpc-exp-val">$1.20</div>
+          <div class="cpc-exp-note">Pool A — core purchase</div>
+        </div>
+        <div class="cpc-exp-item">
+          <div class="cpc-exp-pool">Premium KWs avg</div>
+          <div class="cpc-exp-val">$1.24</div>
+          <div class="cpc-exp-note">Pool B — luxury segment</div>
+        </div>
+        <div class="cpc-exp-item">
+          <div class="cpc-exp-pool">Clicks/day/campaign</div>
+          <div class="cpc-exp-val">3–4</div>
+          <div class="cpc-exp-note">at $4.17/day, $1.20 CPC</div>
+        </div>
+        <div class="cpc-exp-item">
+          <div class="cpc-exp-pool">Est. leads/mo/campaign</div>
+          <div class="cpc-exp-val">4–12</div>
+          <div class="cpc-exp-note">at 5–10% conversion rate</div>
+        </div>
+      </div>
+      <div class="note-box info" style="margin-top:16px;margin-bottom:0">
+        <span class="note-box-icon">ℹ</span>
+        <div>CPC expectations are based on Google Keyword Planner data, not guarantees. Actual CPL will be established after 4–6 weeks of live data.</div>
+      </div>
+    </div>
+  \`;
+}
+
+/* renderCampaignCard — backend only, not rendered in client view */
+
+/* renderCampaignAdPreview — backend only, not rendered in client view */
+
+/* ---- S07 Competitor Strategy ---- */
+function renderS07() {
+  return `
+    <div class="section-block-header">
+      <div class="section-block-num">07</div>
+      <div class="section-block-title-wrap">
+        <div class="section-block-title">Measurement & Optimization</div>
+        <div class="section-block-desc">What we track · How we optimize · Optimization cadence</div>
+      </div>
+    </div>
+
     <div class="two-col">
       <div>
-        <div class="label" style="margin-bottom:12px;display:block;color:#70B880">✓ APPROVED — Use in competitor ads</div>
-        <div class="checklist">
-          ${doItem('Дом введён в эксплуатацию')}
-          ${doItem('Бутик-резиденция открыта к просмотру')}
-          ${doItem('Всего 14 резиденций')}
-          ${doItem('Не комплекс, а бутик-резиденция')}
-          ${doItem('Свободная планировка')}
-          ${doItem('Без несущих стен внутри')}
-          ${doItem('Панорамный вид из каждой квартиры')}
-          ${doItem('Подземный паркинг')}
-          ${doItem('Тишина. Приватность. Безопасность.')}
-          ${doItem('Генератор и резервуар с водой')}
-          ${doItem('Полная независимость от городских коммуникаций')}
-          ${doItem('Планировки и цены — по запросу')}
-          ${doItem('Индивидуальный показ')}
-          ${doItem('Записаться на показ')}
+        <div class="card-title" style="margin-bottom:20px">Conversion Funnel</div>
+        <div class="funnel">
+          ${['Impression','Click','Landing Page Visit','Lead (form / phone / WhatsApp)','Qualified Lead','Viewing Booked','Deal'].map((step, i, arr) => `
+            ${i > 0 ? '<div class="funnel-connector"></div>' : ''}
+            <div class="funnel-step">
+              <span class="funnel-idx">${i+1}</span>
+              <div class="funnel-bar ${step.includes('Lead') ? 'highlight' : ''}">${step}</div>
+            </div>
+          `).join('')}
         </div>
       </div>
 
       <div>
-        <div class="label" style="margin-bottom:12px;display:block;color:#C07070">✗ PROHIBITED — Never use</div>
-        <div class="checklist">
-          ${dontItem('Клубный дом')}
-          ${dontItem('Дом полностью сдан')}
-          ${dontItem('2 квартиры на этаже')}
-          ${dontItem('Элия Хилл — приватность рядом')}
+        <div class="card-title" style="margin-bottom:16px">What We Track</div>
+        <div class="table-wrapper" style="margin-bottom:20px">
+          <table class="conv-table">
+            <thead>
+              <tr><th>Event</th><th>Priority</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="conv-event">Form submission</td><td class="conv-priority-critical">Critical</td></tr>
+              <tr><td class="conv-event">Phone click</td><td class="conv-priority-critical">Critical</td></tr>
+              <tr><td class="conv-event">WhatsApp / Telegram click</td><td class="conv-priority-critical">Critical</td></tr>
+              <tr><td class="conv-event">Time on page &gt;3 min</td><td class="conv-priority-important">Important</td></tr>
+              <tr><td class="conv-event">Floor plan download</td><td class="conv-priority-important">Important</td></tr>
+              <tr><td class="conv-event">Scroll depth &gt;75%</td><td class="conv-priority-secondary">Secondary</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="card-title" style="margin-bottom:12px">Optimization Cadence</div>
+        <div style="display:flex;flex-direction:column;gap:10px;font-size:12px">
+          <div><strong style="color:var(--accent-gold)">Weekly:</strong> <span style="color:var(--text-secondary)">Search term review → add negatives · CTR check per ad group · Budget pacing</span></div>
+          <div><strong style="color:var(--accent-gold)">Monthly:</strong> <span style="color:var(--text-secondary)">Keyword performance · A/B results · Bid adjustments by geo · CPL report</span></div>
+          <div><strong style="color:var(--accent-gold)">Quarterly:</strong> <span style="color:var(--text-secondary)">Full campaign audit · Budget reallocation by CPL · Smart Bidding readiness</span></div>
         </div>
       </div>
     </div>
-  `;
+
+    <div class="card" style="margin-top:24px">
+      <div class="card-title" style="margin-bottom:12px">Key Metrics</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;font-size:12px">
+        <div style="padding:10px 14px;background:var(--bg-hover);border-radius:6px"><div style="color:var(--text-tertiary);margin-bottom:4px">Primary KPI</div><div style="color:var(--text-primary);font-weight:500">CPL = Spend / Leads</div></div>
+        <div style="padding:10px 14px;background:var(--bg-hover);border-radius:6px"><div style="color:var(--text-tertiary);margin-bottom:4px">Quality KPI</div><div style="color:var(--text-primary);font-weight:500">CPQL = Spend / Qualified Leads</div></div>
+        <div style="padding:10px 14px;background:var(--bg-hover);border-radius:6px"><div style="color:var(--text-tertiary);margin-bottom:4px">CTR Target</div><div style="color:var(--text-primary);font-weight:500">&gt;3% (Month 1–3)</div></div>
+        <div style="padding:10px 14px;background:var(--bg-hover);border-radius:6px"><div style="color:var(--text-tertiary);margin-bottom:4px">CPC Target</div><div style="color:var(--text-primary);font-weight:500">&lt;$2.00</div></div>
+        <div style="padding:10px 14px;background:var(--bg-hover);border-radius:6px"><div style="color:var(--text-tertiary);margin-bottom:4px">CPL Target</div><div style="color:var(--text-primary);font-weight:500">&lt;$50 (Month 1–3)</div></div>
+        <div style="padding:10px 14px;background:var(--bg-hover);border-radius:6px"><div style="color:var(--text-tertiary);margin-bottom:4px">Leads/mo target</div><div style="color:var(--text-primary);font-weight:500">10–20 (Month 1–3)</div></div>
+      </div>
+    </div>
+  \`;
 }
 
 function doItem(text) {
@@ -900,8 +674,8 @@ function renderS08(negatives) {
     <div class="section-block-header">
       <div class="section-block-num">08</div>
       <div class="section-block-title-wrap">
-        <div class="section-block-title">Negative Keyword System</div>
-        <div class="section-block-desc">3,143 excluded keywords organized by category · All campaigns scope</div>
+        <div class="section-block-title">Система минус-слов</div>
+        <div class="section-block-desc">3 143 исключённых ключевых слова по категориям · Применяется ко всем кампаниям</div>
       </div>
     </div>
 
@@ -909,11 +683,11 @@ function renderS08(negatives) {
       <table class="negatives-table">
         <thead>
           <tr>
-            <th>Category</th>
-            <th style="text-align:right">Count</th>
-            <th>Examples</th>
-            <th>Scope</th>
-            <th>Reason</th>
+            <th>Категория</th>
+            <th style="text-align:right">Кол-во</th>
+            <th>Примеры</th>
+            <th>Охват</th>
+            <th>Причина</th>
           </tr>
         </thead>
         <tbody>
@@ -922,7 +696,7 @@ function renderS08(negatives) {
               <td class="neg-cat">${escHtml(cat.label)}</td>
               <td class="neg-count"><strong>${cat.count.toLocaleString()}</strong></td>
               <td class="neg-examples">${cat.examples.slice(0,6).map(e => `<code style="background:var(--bg-hover);padding:1px 5px;border-radius:3px;font-size:10px">${escHtml(e)}</code>`).join(' ')}&hellip;</td>
-              <td class="neg-scope"><span class="badge" style="background:rgba(80,80,80,0.2);color:var(--text-secondary);border:1px solid var(--border-subtle)">All Campaigns</span></td>
+              <td class="neg-scope"><span class="badge" style="background:rgba(80,80,80,0.2);color:var(--text-secondary);border:1px solid var(--border-subtle)">Все кампании</span></td>
               <td class="neg-reason">${negReason(cat.status)}</td>
             </tr>
           `).join('')}
@@ -931,15 +705,15 @@ function renderS08(negatives) {
     </div>
 
     <div class="card">
-      <div class="card-title">Key Negative Rules</div>
+      <div class="card-title">Ключевые правила минус-слов</div>
       <div style="display:flex;flex-direction:column;gap:10px">
-        <div style="font-size:13px;color:var(--text-secondary);display:flex;gap:10px"><span style="color:var(--accent-gold)">1.</span> Any rental signal (аренда, снять, rent, airbnb, посуточн) → NEGATIVE across all campaigns</div>
-        <div style="font-size:13px;color:var(--text-secondary);display:flex;gap:10px"><span style="color:var(--accent-gold)">2.</span> US state of Georgia (Atlanta, Buckhead, etc.) → NEGATIVE via geo-specific terms list</div>
-        <div style="font-size:13px;color:var(--text-secondary);display:flex;gap:10px"><span style="color:var(--accent-gold)">3.</span> Batumi, Kutaisi, Rustavi and other Georgian cities → NEGATIVE (wrong city)</div>
-        <div style="font-size:13px;color:var(--text-secondary);display:flex;gap:10px"><span style="color:var(--accent-gold)">4.</span> House / дом / studio / студия → NEGATIVE (wrong product type)</div>
-        <div style="font-size:13px;color:var(--text-secondary);display:flex;gap:10px"><span style="color:var(--accent-gold)">5.</span> Seller intent (продам, sell my) → NEGATIVE (wrong direction)</div>
-        <div style="font-size:13px;color:var(--text-secondary);display:flex;gap:10px"><span style="color:var(--accent-gold)">6.</span> Hotel / hostel / Pullman → NEGATIVE (wrong category)</div>
-        <div style="font-size:13px;color:var(--text-secondary);display:flex;gap:10px"><span style="color:var(--accent-gold)">7.</span> Ongoing: weekly search term review → add any missed irrelevant terms as negatives</div>
+        <div style="font-size:13px;color:var(--text-secondary);display:flex;gap:10px"><span style="color:var(--accent-gold)">1.</span> Любой сигнал аренды (аренда, снять, rent, airbnb, посуточн) → МИНУС во всех кампаниях</div>
+        <div style="font-size:13px;color:var(--text-secondary);display:flex;gap:10px"><span style="color:var(--accent-gold)">2.</span> Штат Джорджия США (Atlanta, Buckhead и др.) → МИНУС через список гео-специфических терминов</div>
+        <div style="font-size:13px;color:var(--text-secondary);display:flex;gap:10px"><span style="color:var(--accent-gold)">3.</span> Батуми, Кутаиси, Рустави и другие грузинские города → МИНУС (не тот город)</div>
+        <div style="font-size:13px;color:var(--text-secondary);display:flex;gap:10px"><span style="color:var(--accent-gold)">4.</span> House / дом / studio / студия → МИНУС (не тот тип продукта)</div>
+        <div style="font-size:13px;color:var(--text-secondary);display:flex;gap:10px"><span style="color:var(--accent-gold)">5.</span> Намерение продать (продам, sell my) → МИНУС (не то направление)</div>
+        <div style="font-size:13px;color:var(--text-secondary);display:flex;gap:10px"><span style="color:var(--accent-gold)">6.</span> Hotel / hostel / Pullman → МИНУС (не та категория)</div>
+        <div style="font-size:13px;color:var(--text-secondary);display:flex;gap:10px"><span style="color:var(--accent-gold)">7.</span> Постоянно: еженедельный просмотр поисковых запросов → добавлять пропущенные нерелевантные термины в минус-слова</div>
       </div>
     </div>
   `;
@@ -947,12 +721,12 @@ function renderS08(negatives) {
 
 function negReason(status) {
   const map = {
-    'EXCLUDED_RENTAL': 'Wrong intent — rental not purchase',
-    'EXCLUDED_US_GEORGIA': 'Wrong country — US state',
-    'EXCLUDED_BATUMI': 'Wrong city — not Tbilisi',
-    'EXCLUDED_GENERAL': 'Wrong product type',
-    'EXCLUDED_HOTEL': 'Wrong category — accommodation',
-    'EXCLUDED_SELLER_INTENT': 'Wrong direction — seller not buyer',
+    'EXCLUDED_RENTAL': 'Неверное намерение — аренда, а не покупка',
+    'EXCLUDED_US_GEORGIA': 'Неверная страна — штат США',
+    'EXCLUDED_BATUMI': 'Неверный город — не Тбилиси',
+    'EXCLUDED_GENERAL': 'Неверный тип продукта',
+    'EXCLUDED_HOTEL': 'Неверная категория — жильё посуточно',
+    'EXCLUDED_SELLER_INTENT': 'Неверное направление — продавец, а не покупатель',
   };
   return map[status] || status;
 }
@@ -1338,8 +1112,8 @@ function renderS10() {
     <div class="section-block-header">
       <div class="section-block-num">10</div>
       <div class="section-block-title-wrap">
-        <div class="section-block-title">Landing Page Strategy</div>
-        <div class="section-block-desc">Intent-to-page mapping and site gap analysis</div>
+        <div class="section-block-title">Стратегия посадочных страниц</div>
+        <div class="section-block-desc">Маппинг намерений на страницы и анализ пробелов сайта</div>
       </div>
     </div>
 
@@ -1347,88 +1121,88 @@ function renderS10() {
       <table class="intent-map-table">
         <thead>
           <tr>
-            <th>Search Intent</th>
-            <th>Ad Group</th>
-            <th>Key Message</th>
-            <th>Landing Section</th>
+            <th>Поисковое намерение</th>
+            <th>Группа объявлений</th>
+            <th>Ключевой месседж</th>
+            <th>Раздел сайта</th>
             <th>CTA</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td class="im-intent">Купить квартиру в Тбилиси</td>
-            <td>Core RU — Purchase</td>
+            <td>Кампания RU — Покупка</td>
             <td>Бутик-резиденция. Дом введён в эксплуатацию</td>
-            <td>Hero + About</td>
+            <td>Hero + О проекте</td>
             <td>Записаться на показ</td>
           </tr>
           <tr>
             <td class="im-intent">Buy apartment Tbilisi</td>
-            <td>Core EN — Purchase</td>
+            <td>Кампания EN — Покупка</td>
             <td>Boutique Residence. Building commissioned.</td>
-            <td>Hero + Architecture</td>
+            <td>Hero + Архитектура</td>
             <td>Book a Viewing</td>
           </tr>
           <tr>
             <td class="im-intent">Luxury apartment Tbilisi</td>
-            <td>Core EN — Luxury</td>
+            <td>Кампания EN — Люкс</td>
             <td>14 residences, from 130 m², panoramic views</td>
-            <td>Quality + Views</td>
+            <td>Качество + Виды</td>
             <td>Contact</td>
           </tr>
           <tr class="gap-row">
             <td class="im-intent">Investment property Georgia</td>
-            <td>Investment</td>
+            <td>Инвестиции</td>
             <td>—</td>
-            <td class="im-gap">⚠ No investment section</td>
-            <td>Investment inquiry</td>
+            <td class="im-gap">⚠ Раздела об инвестициях нет</td>
+            <td>Запрос по инвестициям</td>
           </tr>
           <tr class="gap-row">
             <td class="im-intent">Penthouse Tbilisi</td>
-            <td>Penthouse</td>
+            <td>Пентхаус</td>
             <td>—</td>
-            <td class="im-gap">⚠ No penthouse section</td>
-            <td>Contact</td>
+            <td class="im-gap">⚠ Раздела пентхаус нет</td>
+            <td>Связаться</td>
           </tr>
           <tr>
             <td class="im-intent">Park Home Vake</td>
-            <td>Competitors</td>
-            <td>ELYSIUM vs. large complexes</td>
-            <td>Main page</td>
-            <td>Book a Viewing</td>
+            <td>Конкуренты</td>
+            <td>ELYSIUM vs. крупные комплексы</td>
+            <td>Главная страница</td>
+            <td>Записаться на показ</td>
           </tr>
         </tbody>
       </table>
     </div>
 
-    <div class="card-title" style="margin-bottom:16px">Gap Analysis — Missing from elysiumtbilisi.com</div>
+    <div class="card-title" style="margin-bottom:16px">Анализ пробелов — отсутствует на elysiumtbilisi.com</div>
     <div class="gap-grid" style="margin-bottom:24px">
-      <div class="gap-card"><span class="gap-icon">⚠</span><span class="gap-text">No investment / ROI section</span></div>
-      <div class="gap-card"><span class="gap-icon">⚠</span><span class="gap-text">No floor plan downloads</span></div>
-      <div class="gap-card"><span class="gap-icon">⚠</span><span class="gap-text">No price anchoring ("from $…")</span></div>
-      <div class="gap-card"><span class="gap-icon">⚠</span><span class="gap-text">No WhatsApp / Telegram CTA</span></div>
-      <div class="gap-card"><span class="gap-icon">⚠</span><span class="gap-text">No penthouse-specific content</span></div>
-      <div class="gap-card"><span class="gap-icon">⚠</span><span class="gap-text">CTAs only visible after initial load</span></div>
+      <div class="gap-card"><span class="gap-icon">⚠</span><span class="gap-text">Нет раздела об инвестициях / ROI</span></div>
+      <div class="gap-card"><span class="gap-icon">⚠</span><span class="gap-text">Нет скачивания планировок</span></div>
+      <div class="gap-card"><span class="gap-icon">⚠</span><span class="gap-text">Нет ценового ориентира («от $…»)</span></div>
+      <div class="gap-card"><span class="gap-icon">⚠</span><span class="gap-text">Нет CTA WhatsApp / Telegram</span></div>
+      <div class="gap-card"><span class="gap-icon">⚠</span><span class="gap-text">Нет контента о пентхаусе</span></div>
+      <div class="gap-card"><span class="gap-icon">⚠</span><span class="gap-text">CTA видны только после первоначальной загрузки</span></div>
     </div>
 
     <div class="card">
-      <div class="card-title">Recommended Additions (Priority Order)</div>
+      <div class="card-title">Рекомендуемые дополнения (в порядке приоритета)</div>
       <div style="display:flex;flex-direction:column;gap:10px">
         <div style="display:flex;gap:12px;align-items:flex-start;font-size:13px;color:var(--text-secondary)">
           <span style="color:var(--accent-gold);font-family:var(--font-mono);min-width:20px">1.</span>
-          <span><strong style="color:var(--text-primary)">WhatsApp / Telegram floating button</strong> — Immediate, high impact. IL audience primarily mobile.</span>
+          <span><strong style="color:var(--text-primary)">Плавающая кнопка WhatsApp / Telegram</strong> — Быстро, высокий эффект. IL-аудитория преимущественно мобильная.</span>
         </div>
         <div style="display:flex;gap:12px;align-items:flex-start;font-size:13px;color:var(--text-secondary)">
           <span style="color:var(--accent-gold);font-family:var(--font-mono);min-width:20px">2.</span>
-          <span><strong style="color:var(--text-primary)">Investment value section</strong> — 3 paragraphs on Georgian RE market, rental yield, capital appreciation.</span>
+          <span><strong style="color:var(--text-primary)">Раздел инвестиционной ценности</strong> — 3 абзаца о грузинском рынке недвижимости, арендной доходности, росте капитала.</span>
         </div>
         <div style="display:flex;gap:12px;align-items:flex-start;font-size:13px;color:var(--text-secondary)">
           <span style="color:var(--accent-gold);font-family:var(--font-mono);min-width:20px">3.</span>
-          <span><strong style="color:var(--text-primary)">Floor plan PDF download</strong> — Requires form/contact before delivery (lead capture).</span>
+          <span><strong style="color:var(--text-primary)">Скачивание планировок PDF</strong> — Форма/контакт перед получением (захват лида).</span>
         </div>
         <div style="display:flex;gap:12px;align-items:flex-start;font-size:13px;color:var(--text-secondary)">
           <span style="color:var(--accent-gold);font-family:var(--font-mono);min-width:20px">4.</span>
-          <span><strong style="color:var(--text-primary)">Faster mobile load</strong> — IL audience primarily mobile. Core Web Vitals directly affect Quality Score and CPC.</span>
+          <span><strong style="color:var(--text-primary)">Ускорение мобильной загрузки</strong> — IL-аудитория преимущественно мобильная. Core Web Vitals напрямую влияют на показатель качества и CPC.</span>
         </div>
       </div>
     </div>
@@ -1442,8 +1216,8 @@ function renderS11(campaigns) {
     <div class="section-block-header">
       <div class="section-block-num">11</div>
       <div class="section-block-title-wrap">
-        <div class="section-block-title">Budget & Bidding</div>
-        <div class="section-block-desc">Phased bidding approach · $500/month total allocation</div>
+        <div class="section-block-title">Бюджет и ставки</div>
+        <div class="section-block-desc">Поэтапный подход к ставкам · Общий бюджет $500/мес</div>
       </div>
     </div>
 
@@ -1451,11 +1225,11 @@ function renderS11(campaigns) {
       <table class="kpi-table">
         <thead>
           <tr>
-            <th>Campaign</th>
-            <th>Monthly Budget</th>
-            <th>Daily (Approx)</th>
+            <th>Кампания</th>
+            <th>Бюджет/мес</th>
+            <th>В день (прибл.)</th>
             <th>%</th>
-            <th>Intent</th>
+            <th>Тип спроса</th>
           </tr>
         </thead>
         <tbody>
@@ -1469,7 +1243,7 @@ function renderS11(campaigns) {
             </tr>
           `).join('')}
           <tr style="background:var(--bg-elevated);border-top:1px solid var(--border-medium)">
-            <td style="font-weight:600;color:var(--text-primary)">TOTAL</td>
+            <td style="font-weight:600;color:var(--text-primary)">ИТОГО</td>
             <td style="font-family:var(--font-mono);font-weight:600;color:var(--accent-gold)">$500</td>
             <td style="font-family:var(--font-mono);color:var(--text-secondary)">~$16.67/day</td>
             <td style="font-family:var(--font-mono);font-weight:600;color:var(--text-primary)">100%</td>
@@ -1479,60 +1253,60 @@ function renderS11(campaigns) {
       </table>
     </div>
 
-    <div class="card-title" style="margin-bottom:16px">Bidding Phases</div>
+    <div class="card-title" style="margin-bottom:16px">Фазы стратегии ставок</div>
     <div class="bidding-phases">
       <div class="bidding-phase">
-        <div class="bidding-phase-num">Phase 1</div>
+        <div class="bidding-phase-num">Фаза 1</div>
         <div class="bidding-phase-title">Manual CPC</div>
-        <div class="bidding-phase-when">Month 1–2</div>
-        <div class="bidding-phase-desc">Account lacks sufficient conversion data for Smart Bidding. Full manual control. Monitor CPCs closely.</div>
+        <div class="bidding-phase-when">Месяцы 1–2</div>
+        <div class="bidding-phase-desc">Недостаточно данных конверсий для Smart Bidding. Полный ручной контроль. Тщательный мониторинг CPC.</div>
       </div>
       <div class="bidding-phase">
-        <div class="bidding-phase-num">Phase 2</div>
+        <div class="bidding-phase-num">Фаза 2</div>
         <div class="bidding-phase-title">Enhanced CPC</div>
-        <div class="bidding-phase-when">Month 3 · if 20+ conversions/campaign</div>
-        <div class="bidding-phase-desc">Semi-automated. Google adjusts bids within your set maximum. Lower risk than Target CPA.</div>
+        <div class="bidding-phase-when">Месяц 3 · при 20+ конверсиях/кампанию</div>
+        <div class="bidding-phase-desc">Полуавтоматический режим. Google корректирует ставки в пределах установленного максимума. Риск ниже, чем у Target CPA.</div>
       </div>
       <div class="bidding-phase">
-        <div class="bidding-phase-num">Phase 3</div>
+        <div class="bidding-phase-num">Фаза 3</div>
         <div class="bidding-phase-title">Target CPA</div>
-        <div class="bidding-phase-when">Month 4+ · if 30+ conv/month total</div>
-        <div class="bidding-phase-desc">Full Smart Bidding. Requires consistent recent conversion volume across all campaigns combined.</div>
+        <div class="bidding-phase-when">Месяц 4+ · при 30+ конв./мес суммарно</div>
+        <div class="bidding-phase-desc">Полная автоматизация. Требует стабильного объёма конверсий по всем кампаниям суммарно.</div>
       </div>
     </div>
 
     <div class="card" style="margin-top:24px">
-      <div class="card-title">CPC Expectations (from research)</div>
+      <div class="card-title">Ожидаемые CPC (по данным исследования)</div>
       <div class="cpc-expectations">
         <div class="cpc-exp-item">
-          <div class="cpc-exp-pool">Pool A avg</div>
+          <div class="cpc-exp-pool">Пул A (средн.)</div>
           <div class="cpc-exp-val">$1.20</div>
-          <div class="cpc-exp-note">Core purchase intent</div>
+          <div class="cpc-exp-note">Покупательский спрос</div>
         </div>
         <div class="cpc-exp-item">
-          <div class="cpc-exp-pool">Pool B avg</div>
+          <div class="cpc-exp-pool">Пул B (средн.)</div>
           <div class="cpc-exp-val">$1.24</div>
-          <div class="cpc-exp-note">Premium / luxury</div>
+          <div class="cpc-exp-note">Премиум / люкс</div>
         </div>
         <div class="cpc-exp-item">
-          <div class="cpc-exp-pool">Pool D avg</div>
+          <div class="cpc-exp-pool">Пул D (средн.)</div>
           <div class="cpc-exp-val">$1.00</div>
-          <div class="cpc-exp-note">Penthouse</div>
+          <div class="cpc-exp-note">Пентхаус</div>
         </div>
         <div class="cpc-exp-item">
-          <div class="cpc-exp-pool">Clicks/day/camp</div>
+          <div class="cpc-exp-pool">Кликов/день/кампанию</div>
           <div class="cpc-exp-val">3–4</div>
-          <div class="cpc-exp-note">at $4.17/day, $1.20 CPC</div>
+          <div class="cpc-exp-note">при $4.17/день, $1.20 CPC</div>
         </div>
         <div class="cpc-exp-item">
-          <div class="cpc-exp-pool">Est. leads/mo/camp</div>
+          <div class="cpc-exp-pool">Лидов/мес/кампанию (оценка)</div>
           <div class="cpc-exp-val">4–12</div>
-          <div class="cpc-exp-note">at 5–10% lead rate</div>
+          <div class="cpc-exp-note">при конв. 5–10%</div>
         </div>
       </div>
       <div class="note-box info" style="margin-top:16px;margin-bottom:0">
         <span class="note-box-icon">ℹ</span>
-        <div>These are rough expectations based on market knowledge, not forecasts. Real CPL will only be known after launch. Lead rate assumption (5–10%) is directional only.</div>
+        <div>Это ориентировочные ожидания на основе знания рынка, а не прогнозы. Реальный CPL станет известен только после запуска. Конверсия в лид (5–10%) — лишь ориентир.</div>
       </div>
     </div>
   `;
@@ -1544,16 +1318,16 @@ function renderS12() {
     <div class="section-block-header">
       <div class="section-block-num">12</div>
       <div class="section-block-title-wrap">
-        <div class="section-block-title">Conversion & Analytics</div>
-        <div class="section-block-desc">Funnel architecture · Conversion tracking events · Metrics framework</div>
+        <div class="section-block-title">Конверсии и аналитика</div>
+        <div class="section-block-desc">Архитектура воронки · События отслеживания конверсий · Метрики</div>
       </div>
     </div>
 
     <div class="two-col">
       <div>
-        <div class="card-title" style="margin-bottom:20px">Conversion Funnel</div>
+        <div class="card-title" style="margin-bottom:20px">Воронка конверсий</div>
         <div class="funnel">
-          ${['Impression','Click','Landing Page Visit','Lead (form/phone/WA)','Qualified Lead','Manager Contact','Viewing','Booking','Deal'].map((step, i) => `
+          ${['Показ','Клик','Визит на посадочную страницу','Лид (форма/телефон/WA)','Квалифицированный лид','Контакт менеджера','Показ объекта','Бронирование','Сделка'].map((step, i) => `
             ${i > 0 ? '<div class="funnel-connector"></div>' : ''}
             <div class="funnel-step">
               <span class="funnel-idx">${i+1}</span>
@@ -1564,33 +1338,33 @@ function renderS12() {
       </div>
 
       <div>
-        <div class="card-title" style="margin-bottom:16px">Conversion Events to Track</div>
+        <div class="card-title" style="margin-bottom:16px">События для отслеживания</div>
         <div class="table-wrapper">
           <table class="conv-table">
             <thead>
-              <tr><th>Event</th><th>Type</th><th>Priority</th></tr>
+              <tr><th>Событие</th><th>Тип</th><th>Приоритет</th></tr>
             </thead>
             <tbody>
-              <tr><td class="conv-event">Form submission (#form1)</td><td>Primary</td><td class="conv-priority-critical">Critical</td></tr>
-              <tr><td class="conv-event">Phone click</td><td>Primary</td><td class="conv-priority-critical">Critical</td></tr>
-              <tr><td class="conv-event">WhatsApp / Telegram click</td><td>Primary</td><td class="conv-priority-critical">Critical</td></tr>
-              <tr><td class="conv-event">Time on page &gt;3 min</td><td>Micro</td><td class="conv-priority-important">Important</td></tr>
-              <tr><td class="conv-event">Floor plan download</td><td>Micro</td><td class="conv-priority-important">Important</td></tr>
-              <tr><td class="conv-event">Scroll depth &gt;75%</td><td>Engagement</td><td class="conv-priority-secondary">Secondary</td></tr>
+              <tr><td class="conv-event">Отправка формы (#form1)</td><td>Основное</td><td class="conv-priority-critical">Критично</td></tr>
+              <tr><td class="conv-event">Клик по телефону</td><td>Основное</td><td class="conv-priority-critical">Критично</td></tr>
+              <tr><td class="conv-event">Клик WhatsApp / Telegram</td><td>Основное</td><td class="conv-priority-critical">Критично</td></tr>
+              <tr><td class="conv-event">Время на странице &gt;3 мин</td><td>Микро</td><td class="conv-priority-important">Важно</td></tr>
+              <tr><td class="conv-event">Скачивание планировки</td><td>Микро</td><td class="conv-priority-important">Важно</td></tr>
+              <tr><td class="conv-event">Глубина прокрутки &gt;75%</td><td>Вовлечённость</td><td class="conv-priority-secondary">Вторично</td></tr>
             </tbody>
           </table>
         </div>
 
         <div class="card" style="margin-top:20px">
-          <div class="card-title">Metrics Framework</div>
+          <div class="card-title">Метрики</div>
           <div style="display:flex;flex-direction:column;gap:8px;font-size:12px;color:var(--text-secondary)">
-            <div><span style="color:var(--text-tertiary)">Google data:</span> Impressions · Clicks · CTR · CPC</div>
-            <div><span style="color:var(--text-tertiary)">GA4:</span> Landing sessions · Bounce rate</div>
-            <div><span style="color:var(--text-tertiary)">CRM:</span> Leads = form + phone + WA</div>
-            <div><span style="color:var(--text-tertiary)">Key ratio:</span> CPL = Spend / Leads</div>
-            <div><span style="color:var(--text-tertiary)">Sales:</span> Qualified leads (sales feedback)</div>
-            <div><span style="color:var(--text-tertiary)">Key ratio:</span> CPQL = Spend / Qualified Leads</div>
-            <div><span style="color:var(--text-tertiary)">Pipeline:</span> Viewings booked · Deals closed</div>
+            <div><span style="color:var(--text-tertiary)">Данные Google:</span> Показы · Клики · CTR · CPC</div>
+            <div><span style="color:var(--text-tertiary)">GA4:</span> Сессии на посадочной · Показатель отказов</div>
+            <div><span style="color:var(--text-tertiary)">CRM:</span> Лиды = форма + телефон + WA</div>
+            <div><span style="color:var(--text-tertiary)">Ключевой показатель:</span> CPL = Расход / Лиды</div>
+            <div><span style="color:var(--text-tertiary)">Продажи:</span> Квалифицированные лиды (обратная связь от отдела продаж)</div>
+            <div><span style="color:var(--text-tertiary)">Ключевой показатель:</span> CPQL = Расход / Квал. лиды</div>
+            <div><span style="color:var(--text-tertiary)">Воронка:</span> Показы забронированы · Сделки закрыты</div>
           </div>
         </div>
       </div>
@@ -1604,43 +1378,43 @@ function renderS13() {
     <div class="section-block-header">
       <div class="section-block-num">13</div>
       <div class="section-block-title-wrap">
-        <div class="section-block-title">Optimization System</div>
-        <div class="section-block-desc">Recurring review cadence — Weekly · Monthly · Quarterly</div>
+        <div class="section-block-title">Система оптимизации</div>
+        <div class="section-block-desc">Регулярный цикл проверок — Еженедельно · Ежемесячно · Ежеквартально</div>
       </div>
     </div>
 
     <div class="schedule-grid">
       <div class="schedule-card">
-        <div class="schedule-period">Weekly</div>
+        <div class="schedule-period">Еженедельно</div>
         <div class="schedule-items">
-          <div class="schedule-item">Search terms review → add negatives for irrelevant matches</div>
-          <div class="schedule-item">CTR by ad group → pause underperforming ads (&lt;1% CTR after 200 impressions)</div>
-          <div class="schedule-item">Budget pacing check — ensure even daily spend</div>
-          <div class="schedule-item">Position monitoring for Brand campaign</div>
+          <div class="schedule-item">Проверка поисковых запросов → добавить минус-слова для нерелевантных совпадений</div>
+          <div class="schedule-item">CTR по группам объявлений → приостановить слабые объявления (&lt;1% CTR после 200 показов)</div>
+          <div class="schedule-item">Проверка темпа расхода бюджета — обеспечить равномерный дневной расход</div>
+          <div class="schedule-item">Мониторинг позиций брендовой кампании</div>
         </div>
       </div>
 
       <div class="schedule-card">
-        <div class="schedule-period">Monthly</div>
+        <div class="schedule-period">Ежемесячно</div>
         <div class="schedule-items">
-          <div class="schedule-item">Keyword performance → move low CTR to paused</div>
-          <div class="schedule-item">Ad copy A/B results → kill losing variants</div>
-          <div class="schedule-item">Competitor campaign review → add / remove keywords based on relevance</div>
-          <div class="schedule-item">Bid adjustments by geo (IL / UA / BY)</div>
-          <div class="schedule-item">Landing page heatmap review (if Hotjar installed)</div>
-          <div class="schedule-item">CPL report — compare actual vs. target</div>
+          <div class="schedule-item">Эффективность ключевых слов → перевести слабый CTR в паузу</div>
+          <div class="schedule-item">Результаты A/B тестов объявлений → отключить проигрывающие варианты</div>
+          <div class="schedule-item">Проверка конкурентной кампании → добавить / убрать ключевые слова по релевантности</div>
+          <div class="schedule-item">Корректировки ставок по гео (IL / UA / BY)</div>
+          <div class="schedule-item">Просмотр тепловой карты посадочной страницы (если Hotjar установлен)</div>
+          <div class="schedule-item">Отчёт CPL — сравнение факта и плана</div>
         </div>
       </div>
 
       <div class="schedule-card">
-        <div class="schedule-period">Quarterly</div>
+        <div class="schedule-period">Ежеквартально</div>
         <div class="schedule-items">
-          <div class="schedule-item">Full campaign audit across all 4 campaigns</div>
-          <div class="schedule-item">Keyword database update — re-run Planner if needed</div>
-          <div class="schedule-item">Budget reallocation based on CPL data by campaign</div>
-          <div class="schedule-item">Campaign structure review — add new ad groups if needed</div>
-          <div class="schedule-item">Competitor landscape update — new projects?</div>
-          <div class="schedule-item">Smart Bidding readiness assessment</div>
+          <div class="schedule-item">Полный аудит всех 4 кампаний</div>
+          <div class="schedule-item">Обновление базы ключевых слов — повторный запуск Planner при необходимости</div>
+          <div class="schedule-item">Перераспределение бюджета на основе CPL по кампаниям</div>
+          <div class="schedule-item">Проверка структуры кампаний — добавить новые группы при необходимости</div>
+          <div class="schedule-item">Обновление конкурентного ландшафта — появились новые проекты?</div>
+          <div class="schedule-item">Оценка готовности к Smart Bidding</div>
         </div>
       </div>
     </div>
@@ -1653,8 +1427,8 @@ function renderS14() {
     <div class="section-block-header">
       <div class="section-block-num">14</div>
       <div class="section-block-title-wrap">
-        <div class="section-block-title">Testing Framework</div>
-        <div class="section-block-desc">Structured A/B tests for creative, matching, and landing pages</div>
+        <div class="section-block-title">Фреймворк тестирования</div>
+        <div class="section-block-desc">Структурированные A/B тесты: объявления, типы соответствия, посадочные страницы</div>
       </div>
     </div>
 
@@ -1662,42 +1436,42 @@ function renderS14() {
       <table class="test-table">
         <thead>
           <tr>
-            <th>Test</th>
-            <th>Variable</th>
-            <th>Duration</th>
-            <th>Success Metric</th>
+            <th>Тест</th>
+            <th>Переменная</th>
+            <th>Длительность</th>
+            <th>Метрика успеха</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td class="test-name">Ad Copy A/B</td>
-            <td>Headline 1: Brand name vs. Product ("Бутик-резиденция" vs. "14 Резиденций в Тбилиси")</td>
-            <td class="test-duration">4 weeks</td>
-            <td class="test-metric">CTR + Conv Rate</td>
+            <td class="test-name">A/B тест объявлений</td>
+            <td>Заголовок 1: название бренда vs. продукт («Бутик-резиденция» vs. «14 Резиденций в Тбилиси»)</td>
+            <td class="test-duration">4 недели</td>
+            <td class="test-metric">CTR + Конв. Rate</td>
           </tr>
           <tr>
-            <td class="test-name">Match Type Test</td>
-            <td>Exact vs. Phrase match on top 20 terms</td>
-            <td class="test-duration">6 weeks</td>
-            <td class="test-metric">CPA difference</td>
+            <td class="test-name">Тест типов соответствия</td>
+            <td>Exact vs. Phrase match по топ-20 запросам</td>
+            <td class="test-duration">6 недель</td>
+            <td class="test-metric">Разница CPA</td>
           </tr>
           <tr>
-            <td class="test-name">Geo Bid Adjustment</td>
-            <td>Israel +20% vs. flat bid (IL/UA/BY)</td>
-            <td class="test-duration">4 weeks</td>
-            <td class="test-metric">CPL by country</td>
+            <td class="test-name">Корректировка ставок по гео</td>
+            <td>Израиль +20% vs. единая ставка (IL/UA/BY)</td>
+            <td class="test-duration">4 недели</td>
+            <td class="test-metric">CPL по стране</td>
           </tr>
           <tr>
-            <td class="test-name">Landing Page</td>
-            <td>Main elysiumtbilisi.com vs. dedicated Investment LP</td>
-            <td class="test-duration">8 weeks</td>
-            <td class="test-metric">Lead rate</td>
+            <td class="test-name">Посадочная страница</td>
+            <td>Основной elysiumtbilisi.com vs. отдельный инвестиционный LP</td>
+            <td class="test-duration">8 недель</td>
+            <td class="test-metric">Конв. в лид</td>
           </tr>
           <tr>
-            <td class="test-name">CTA Language</td>
+            <td class="test-name">Язык CTA</td>
             <td>"Записаться на показ" vs. "Узнать цену и планировку"</td>
-            <td class="test-duration">4 weeks</td>
-            <td class="test-metric">Click-through rate on CTA</td>
+            <td class="test-duration">4 недели</td>
+            <td class="test-metric">CTR по CTA</td>
           </tr>
         </tbody>
       </table>
@@ -1711,14 +1485,14 @@ function renderS15() {
     <div class="section-block-header">
       <div class="section-block-num">15</div>
       <div class="section-block-title-wrap">
-        <div class="section-block-title">KPI Framework</div>
-        <div class="section-block-desc">Directional targets — actual baseline will be established post-launch</div>
+        <div class="section-block-title">Система KPI</div>
+        <div class="section-block-desc">Ориентировочные цели — фактический базис будет установлен после запуска</div>
       </div>
     </div>
 
     <div class="note-box info" style="margin-bottom:24px">
       <span class="note-box-icon">ℹ</span>
-      <div>These are directional targets based on market knowledge, not forecasts. Actual results will determine the real baseline after 4–6 weeks of live data.</div>
+      <div>Это ориентировочные цели на основе знания рынка, а не прогнозы. Реальные результаты определят фактический базис после 4–6 недель работы.</div>
     </div>
 
     <div class="table-wrapper">
@@ -1726,20 +1500,20 @@ function renderS15() {
         <thead>
           <tr>
             <th>KPI</th>
-            <th>Target Month 1–3</th>
-            <th>Target Month 4–6</th>
-            <th>Source</th>
+            <th>Цель Мес. 1–3</th>
+            <th>Цель Мес. 4–6</th>
+            <th>Источник</th>
           </tr>
         </thead>
         <tbody>
-          <tr><td class="kpi-name">Impressions</td><td class="kpi-val">&gt;5,000/mo</td><td class="kpi-val">&gt;10,000/mo</td><td>Google Ads</td></tr>
+          <tr><td class="kpi-name">Показы</td><td class="kpi-val">&gt;5,000/mo</td><td class="kpi-val">&gt;10,000/mo</td><td>Google Ads</td></tr>
           <tr><td class="kpi-name">CTR</td><td class="kpi-val">&gt;3%</td><td class="kpi-val">&gt;4%</td><td>Google Ads</td></tr>
           <tr><td class="kpi-name">CPC</td><td class="kpi-val">&lt;$2.00</td><td class="kpi-val">&lt;$1.50</td><td>Google Ads</td></tr>
-          <tr><td class="kpi-name">Leads / month</td><td class="kpi-val">10–20</td><td class="kpi-val">20–40</td><td>CRM</td></tr>
+          <tr><td class="kpi-name">Лиды / месяц</td><td class="kpi-val">10–20</td><td class="kpi-val">20–40</td><td>CRM</td></tr>
           <tr><td class="kpi-name">CPL</td><td class="kpi-val">&lt;$50</td><td class="kpi-val">&lt;$30</td><td>CRM / Ads</td></tr>
-          <tr><td class="kpi-name">Qualified Leads</td><td class="kpi-val">3–8/mo</td><td class="kpi-val">8–15/mo</td><td>Sales</td></tr>
+          <tr><td class="kpi-name">Квал. лиды</td><td class="kpi-val">3–8/mo</td><td class="kpi-val">8–15/mo</td><td>Sales</td></tr>
           <tr><td class="kpi-name">CPQL</td><td class="kpi-val">&lt;$150</td><td class="kpi-val">&lt;$80</td><td>Sales / Ads</td></tr>
-          <tr><td class="kpi-name">Viewings</td><td class="kpi-val">1–3/mo</td><td class="kpi-val">3–6/mo</td><td>Sales</td></tr>
+          <tr><td class="kpi-name">Показы объекта</td><td class="kpi-val">1–3/mo</td><td class="kpi-val">3–6/mo</td><td>Sales</td></tr>
         </tbody>
       </table>
     </div>
@@ -1752,54 +1526,54 @@ function renderS16() {
     <div class="section-block-header">
       <div class="section-block-num">16</div>
       <div class="section-block-title-wrap">
-        <div class="section-block-title">90-Day Roadmap</div>
-        <div class="section-block-desc">Phased launch plan — Setup → Data → Optimize</div>
+        <div class="section-block-title">Дорожная карта на 90 дней</div>
+        <div class="section-block-desc">Поэтапный план запуска — Настройка → Данные → Оптимизация</div>
       </div>
     </div>
 
     <div class="timeline">
       <div class="timeline-phase phase-1">
         <div class="timeline-dot"></div>
-        <div class="timeline-phase-eyebrow">Phase 1 — Weeks 1–2</div>
-        <div class="timeline-phase-title">Setup & Foundation</div>
+        <div class="timeline-phase-eyebrow">Фаза 1 — Недели 1–2</div>
+        <div class="timeline-phase-title">Настройка и фундамент</div>
         <div class="timeline-items">
-          <div class="timeline-item">Landing page: Add WhatsApp/Telegram button (immediate, high impact)</div>
-          <div class="timeline-item">Landing page: Add investment value section (3 paragraphs)</div>
-          <div class="timeline-item">Landing page: Add floor plan PDF download (gated with contact form)</div>
-          <div class="timeline-item">Google Ads: Set up conversion tracking — form, phone, WhatsApp</div>
-          <div class="timeline-item">Google Ads: Create Brand campaign → launch immediately</div>
-          <div class="timeline-item">Google Ads: Create Core RU campaign → Exact match only</div>
-          <div class="timeline-item">Google Ads: Create Core EN campaign → Exact match only</div>
-          <div class="timeline-item">Create all RSA ads — minimum 3 per ad group, target 15 headlines each</div>
-          <div class="timeline-item">Set up UTM parameters for all ads</div>
+          <div class="timeline-item">Посадочная: добавить кнопку WhatsApp/Telegram (быстро, высокий эффект)</div>
+          <div class="timeline-item">Посадочная: добавить раздел инвестиционной ценности (3 абзаца)</div>
+          <div class="timeline-item">Посадочная: добавить скачивание PDF планировок (с формой контакта)</div>
+          <div class="timeline-item">Google Ads: настроить отслеживание конверсий — форма, телефон, WhatsApp</div>
+          <div class="timeline-item">Google Ads: создать брендовую кампанию → запустить немедленно</div>
+          <div class="timeline-item">Google Ads: создать кампанию Core RU → только Exact match</div>
+          <div class="timeline-item">Google Ads: создать кампанию Core EN → только Exact match</div>
+          <div class="timeline-item">Создать все RSA объявления — минимум 3 на группу, цель: 15 заголовков в каждом</div>
+          <div class="timeline-item">Настроить UTM-параметры для всех объявлений</div>
         </div>
       </div>
 
       <div class="timeline-phase phase-2">
         <div class="timeline-dot"></div>
-        <div class="timeline-phase-eyebrow">Phase 2 — Weeks 3–8</div>
-        <div class="timeline-phase-title">Launch & Data Collection</div>
+        <div class="timeline-phase-eyebrow">Фаза 2 — Недели 3–8</div>
+        <div class="timeline-phase-title">Запуск и сбор данных</div>
         <div class="timeline-items">
-          <div class="timeline-item">Review Competitors campaign keywords manually → launch top 20 highest-relevance</div>
-          <div class="timeline-item">Add Phrase match to best-performing Exact keywords (after 2 weeks data)</div>
-          <div class="timeline-item">Weekly: review search terms → add negatives for irrelevant matches</div>
-          <div class="timeline-item">Monthly: first performance review — impressions, CTR, CPC, leads</div>
-          <div class="timeline-item">Add GA4 + Google Tag Manager for full attribution</div>
-          <div class="timeline-item">Set up bid adjustments by device and time of day</div>
+          <div class="timeline-item">Ручная проверка ключевых слов конкурентной кампании → запустить топ-20 по релевантности</div>
+          <div class="timeline-item">Добавить Phrase match к лучшим Exact-ключевым словам (после 2 недель данных)</div>
+          <div class="timeline-item">Еженедельно: просмотр запросов → добавлять минус-слова</div>
+          <div class="timeline-item">Ежемесячно: первый отчёт по эффективности — показы, CTR, CPC, лиды</div>
+          <div class="timeline-item">Подключить GA4 + Google Tag Manager для полной атрибуции</div>
+          <div class="timeline-item">Настроить корректировки ставок по устройству и времени суток</div>
         </div>
       </div>
 
       <div class="timeline-phase phase-3">
         <div class="timeline-dot"></div>
-        <div class="timeline-phase-eyebrow">Phase 3 — Months 3–4</div>
-        <div class="timeline-phase-title">Optimization & Scale</div>
+        <div class="timeline-phase-eyebrow">Фаза 3 — Месяцы 3–4</div>
+        <div class="timeline-phase-title">Оптимизация и масштабирование</div>
         <div class="timeline-items">
-          <div class="timeline-item">First bid adjustments by geo — increase Israel if CPL data supports</div>
-          <div class="timeline-item">A/B test headline variants — kill losing copy</div>
-          <div class="timeline-item">If 20+ conversions/campaign: switch to Enhanced CPC</div>
-          <div class="timeline-item">Evaluate Investment landing page — build if ROI positive</div>
-          <div class="timeline-item">Keyword expansion — add Phrase match winners to KEEP list</div>
-          <div class="timeline-item">If 30+ conv/month total: evaluate Target CPA</div>
+          <div class="timeline-item">Первые корректировки ставок по гео — повысить Израиль, если данные CPL поддерживают</div>
+          <div class="timeline-item">A/B тест вариантов заголовков — отключить проигрывающие тексты</div>
+          <div class="timeline-item">При 20+ конверсиях/кампанию: переключить на Enhanced CPC</div>
+          <div class="timeline-item">Оценить отдельную инвестиционную посадочную — создать, если ROI положительный</div>
+          <div class="timeline-item">Расширение ключевых слов — добавить победителей Phrase match в список KEEP</div>
+          <div class="timeline-item">При 30+ конв./мес суммарно: оценить переход на Target CPA</div>
         </div>
       </div>
     </div>
@@ -1812,25 +1586,25 @@ function renderS17(research) {
   const pools = rs.pool_stats || {};
 
   const qaItems = [
-    'Rental keywords in Core campaigns: 0',
-    'Batumi terms in Core campaigns: 0',
-    'Other Georgian cities in Core: 0',
-    'US Georgia terms in Core: 0',
+    'Арендные запросы в Core кампаниях: 0',
+    'Термины Батуми в Core кампаниях: 0',
+    'Другие города Грузии в Core: 0',
+    'Термины штата Джорджия в Core: 0',
     'Hotel terms in Core: 0',
-    'Hotel terms in Competitor Pool: 0',
-    'Seller intent in Core: 0',
-    'False Lisi matches: 0',
-    'Google Sheet Competitors: 14/14 verified',
-    'Duplicate keywords in final list: 0',
-    'Pool A keywords verified: PASS',
-    'Pool B luxury signal verified: PASS',
-    'Pool D penthouse verified: PASS',
-    'Pool E investment verified: PASS',
-    'Pool F new build verified: PASS',
-    'Pool G districts verified: PASS',
-    'Pool H lifestyle verified: PASS',
-    'Pool I competitors all CHECK_REQUIRED: PASS',
-    'Pool J generic RE coverage: PASS',
+    'Отельные термины в конкурентном пуле: 0',
+    'Намерение продать в Core: 0',
+    'Ложные совпадения Lisi: 0',
+    'Конкуренты Google Sheet: 14/14 верифицировано',
+    'Дубликаты ключевых слов в финальном списке: 0',
+    'Ключевые слова пула A верифицированы: PASS',
+    'Люкс-сигнал пула B верифицирован: PASS',
+    'Пентхаус пула D верифицирован: PASS',
+    'Инвестиции пула E верифицированы: PASS',
+    'Новостройки пула F верифицированы: PASS',
+    'Районы пула G верифицированы: PASS',
+    'Лайфстайл пула H верифицирован: PASS',
+    'Конкуренты пула I все CHECK_REQUIRED: PASS',
+    'Покрытие общей недвижимости пула J: PASS',
   ];
 
   const poolRows = Object.entries(pools).map(([key, val]) => `
@@ -1847,18 +1621,18 @@ function renderS17(research) {
     <div class="section-block-header">
       <div class="section-block-num">17</div>
       <div class="section-block-title-wrap">
-        <div class="section-block-title">Research & QA</div>
-        <div class="section-block-desc">Full keyword research methodology and quality assurance results</div>
+        <div class="section-block-title">Исследование и QA</div>
+        <div class="section-block-desc">Полная методология исследования и результаты контроля качества</div>
       </div>
     </div>
 
     <div class="metrics-row" style="margin-bottom:28px">
       <div class="metric-card">
-        <div class="metric-label">Total Researched</div>
+        <div class="metric-label">Всего исследовано</div>
         <div class="metric-value">${(rs.total_keywords||4412).toLocaleString()}</div>
       </div>
       <div class="metric-card">
-        <div class="metric-label">Phases</div>
+        <div class="metric-label">Фазы</div>
         <div class="metric-value">${(rs.phases||[]).length || 4}</div>
       </div>
       <div class="metric-card gold">
@@ -1866,26 +1640,26 @@ function renderS17(research) {
         <div class="metric-value">${rs.keep_count||408}</div>
       </div>
       <div class="metric-card">
-        <div class="metric-label">CHECK Required</div>
+        <div class="metric-label">Требуют проверки</div>
         <div class="metric-value">${rs.check_required_count||861}</div>
       </div>
       <div class="metric-card">
-        <div class="metric-label">Excluded</div>
+        <div class="metric-label">Исключено</div>
         <div class="metric-value">${(rs.excluded_count||3143).toLocaleString()}</div>
       </div>
       <div class="metric-card">
-        <div class="metric-label">Zero Volume Saved</div>
+        <div class="metric-label">Нулевой объём сохранён</div>
         <div class="metric-value">${(rs.zero_volume_count||3004).toLocaleString()}</div>
       </div>
     </div>
 
     <div class="two-col" style="margin-bottom:28px">
       <div>
-        <div class="card-title" style="margin-bottom:16px">Pool Statistics</div>
+        <div class="card-title" style="margin-bottom:16px">Статистика пулов</div>
         <div class="table-wrapper">
           <table class="pool-table">
             <thead>
-              <tr><th>Pool</th><th>Name</th><th style="text-align:right">Total</th><th style="text-align:right">KEEP</th><th style="text-align:right">CHECK</th></tr>
+              <tr><th>Пул</th><th>Название</th><th style="text-align:right">Всего</th><th style="text-align:right">KEEP</th><th style="text-align:right">CHECK</th></tr>
             </thead>
             <tbody>
               ${poolRows}
@@ -1895,7 +1669,7 @@ function renderS17(research) {
       </div>
 
       <div>
-        <div class="card-title" style="margin-bottom:16px">QA Results — ${rs.qa_checks_passed||19}/${rs.qa_checks_total||19} PASS</div>
+        <div class="card-title" style="margin-bottom:16px">Результаты QA — ${rs.qa_checks_passed||19}/${rs.qa_checks_total||19} PASS</div>
         <div class="qa-grid">
           ${qaItems.map(item => `
             <div class="qa-item pass">
@@ -1910,9 +1684,9 @@ function renderS17(research) {
     <div class="note-box success">
       <span class="note-box-icon">✓</span>
       <div>
-        <strong>QA Status: ALL PASS.</strong> 19/19 quality checks completed with zero failures.
-        The keyword database is validated and campaign-ready. Historical account keywords (${rs.historical_keywords||74}) have been preserved and integrated.
-        4 research phases completed: Keyword Planner, Extended, Districts+Investment, 15 new batches.
+        <strong>Статус QA: ВСЕ ПРОЙДЕНЫ.</strong> 19/19 проверок завершены без ошибок.
+        База ключевых слов валидирована и готова к запуску. Исторические ключевые слова аккаунта (${rs.historical_keywords||74}) сохранены и интегрированы.
+        Выполнено 4 фазы исследования: Keyword Planner, расширенная, Районы+Инвестиции, 15 новых блоков.
       </div>
     </div>
   `;
@@ -1936,9 +1710,9 @@ export function renderYandexStrategy(container) {
     <div class="note-box warning" style="margin-bottom:40px">
       <span class="note-box-icon">⚠</span>
       <div>
-        <strong>Yandex Direct is not in current strategy scope.</strong>
-        Tab retained for future planning. Google Ads is the only active channel in the current strategy.
-        Status: <strong>Not in scope / Data Pending</strong>
+        <strong>Yandex Direct не входит в текущий охват стратегии.</strong>
+        Вкладка сохранена для будущего планирования. Google Ads — единственный активный канал в текущей стратегии.
+        Статус: <strong>Не в охвате / Данные ожидаются</strong>
       </div>
     </div>
 
@@ -1990,8 +1764,8 @@ function renderPendingSection(num, title) {
       </div>
       <div class="data-pending">
         <div class="data-pending-icon">⏳</div>
-        <div class="data-pending-label">Data Pending</div>
-        <div class="data-pending-desc">Not in current scope. Channel retained for future strategy decision.</div>
+        <div class="data-pending-label">Данные ожидаются</div>
+        <div class="data-pending-desc">Не в текущем охвате. Канал сохранён для будущего стратегического решения.</div>
       </div>
     </div>
   `;
@@ -2003,21 +1777,21 @@ function renderPendingSection(num, title) {
 
 export function renderMetaStrategy(container) {
   const sections = [
-    ['01','Executive Summary','Meta audience-based strategy requires audience research, creative brief, and pixel setup. Channel structure is ready.'],
-    ['02','Audience Strategy','Audience definition requires ICP research — demographics, interests, behavioural targeting for IL/UA/BY markets.'],
-    ['03','Creative Strategy','Creative brief not yet prepared. Requires visual assets, copywriting direction, and format strategy (Feed, Stories, Reels).'],
-    ['04','Campaign Architecture','Campaign structure to be defined post-audience research and creative brief completion.'],
-    ['05','Budget & Bidding','Budget allocation pending. Awaiting channel decision on Meta vs. Yandex priority.'],
-    ['06','Analytics & Tracking','Meta Pixel setup required. Conversion API implementation needed for iOS 14+ tracking accuracy.'],
+    ['01','Краткое резюме','Стратегия Meta на основе аудиторий требует исследования аудитории, креативного брифа и настройки пикселя. Структура канала готова.'],
+    ['02','Стратегия аудиторий','Определение аудитории требует ICP-исследования — демографика, интересы, поведенческий таргетинг для рынков IL/UA/BY.'],
+    ['03','Креативная стратегия','Креативный бриф ещё не подготовлен. Требуются визуальные материалы, направление копирайтинга и стратегия форматов (Feed, Stories, Reels).'],
+    ['04','Структура кампаний','Структура кампаний определяется после исследования аудитории и завершения креативного брифа.'],
+    ['05','Бюджет и ставки','Распределение бюджета ожидает решения о приоритете канала Meta vs. Yandex.'],
+    ['06','Аналитика и отслеживание','Требуется настройка Meta Pixel. Необходима Conversion API для точного отслеживания на iOS 14+.'],
   ];
 
   container.innerHTML = `
     <div class="note-box info" style="margin-bottom:40px">
       <span class="note-box-icon">ℹ</span>
       <div>
-        <strong>Meta strategy is audience-based, not keyword-based.</strong>
-        It requires: audience research (ICP definition), creative brief, pixel setup, and budget decision.
-        The channel structure is ready. All sections will be populated once prerequisites are complete.
+        <strong>Стратегия Meta основана на аудиториях, а не на ключевых словах.</strong>
+        Требуется: исследование аудитории (определение ICP), креативный бриф, настройка пикселя и решение по бюджету.
+        Структура канала готова. Все разделы будут заполнены после выполнения предварительных условий.
       </div>
     </div>
 
