@@ -1970,6 +1970,47 @@ export function renderMetaStrategy(container) {
       </div>
     </div>
 
+    <!-- M02.1: Таргетинг и интересы -->
+    <div class="section-block" id="m021">
+      ${sectionHeader('02.1','Таргетинг и интересы','Один пул интересов на каждый ad set · без дробления')}
+      <div style="display:flex;flex-wrap:wrap;gap:16px;margin-bottom:16px">
+        ${(()=>{
+          const interests = [
+            'Real estate','Luxury real estate','Property investment','Real estate investing',
+            'Architecture','Interior design','Luxury lifestyle','Premium lifestyle',
+            'Investment','Business','Entrepreneurship',
+          ];
+          const chip = t => '<code style="background:var(--bg-hover);padding:3px 9px;border-radius:4px;font-size:11px;color:var(--text-secondary);font-family:var(--font-mono)">' + t + '</code>';
+          const adsetBlock = (flag, lang, langLabel) =>
+            '<div style="flex:1;min-width:260px;border:1px solid var(--border-medium);border-radius:10px;overflow:hidden">' +
+            '<div style="padding:12px 18px;background:var(--bg-elevated);border-bottom:1px solid var(--border-subtle)">' +
+            '<div style="font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-tertiary);margin-bottom:3px">Ad Set</div>' +
+            '<div style="font-size:15px;font-weight:500;color:var(--text-primary)">' + flag + ' ' + lang + '</div>' +
+            '</div>' +
+            '<div style="padding:14px 18px;display:flex;flex-direction:column;gap:8px">' +
+            '<div style="display:grid;grid-template-columns:auto 1fr;gap:4px 12px;font-size:11px;margin-bottom:6px">' +
+            '<span style="color:var(--text-tertiary)">Гео</span><span style="color:var(--text-secondary)">Georgia</span>' +
+            '<span style="color:var(--text-tertiary)">Язык</span><span style="color:var(--text-secondary)">' + langLabel + '</span>' +
+            '<span style="color:var(--text-tertiary)">Возраст</span><span style="color:var(--text-secondary)">25–55</span>' +
+            '</div>' +
+            '<div style="font-size:10px;text-transform:uppercase;letter-spacing:0.07em;color:var(--text-tertiary);margin-bottom:4px">Интересы — единый пул</div>' +
+            '<div style="display:flex;flex-wrap:wrap;gap:5px">' + interests.map(chip).join('') + '</div>' +
+            '</div>' +
+            '</div>';
+          return adsetBlock('🌍','EN — Экспаты','English') + adsetBlock('🇬🇪','KA — Грузиноязычная','Georgian');
+        })()}
+      </div>
+      <div class="note-box info">
+        <span class="note-box-icon">ℹ</span>
+        <div style="font-size:11px">
+          Интересы не дробятся на отдельные ad set — в каждом языке один ad set с единым пулом.
+          Это сохраняет объём аудитории и даёт алгоритму достаточно сигналов без дробления бюджета.
+          Категории типа «Apartments», «Studio apartment», «Cheap apartments» сознательно исключены —
+          они противоречат позиционированию ELYSIUM как бутик-резиденции.
+        </div>
+      </div>
+    </div>
+
     <!-- M03: Гео -->
     <div class="section-block" id="m03">
       ${sectionHeader('03','Гео','Единственный рынок — Грузия')}
