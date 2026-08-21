@@ -47,7 +47,7 @@ export function renderGoogleStrategy(container, data) {
 
     <!-- S06 -->
     <div class="section-block" id="s06">
-      ${renderS06(campaigns)}
+      ${renderS06(campaigns, research)}
     </div>
 
     <!-- S07 -->
@@ -131,7 +131,7 @@ function renderS00() {
           <div class="eyebrow" style="margin-bottom:12px">Business</div>
           <div style="font-size:20px;font-weight:300;color:var(--text-primary);letter-spacing:-0.01em;margin-bottom:4px">ELYSIUM Boutique Residence Tbilisi</div>
           <div style="font-size:13px;color:var(--text-secondary);line-height:1.7">
-            14 premium residences · 130–191 m² · Дом введён в эксплуатацию<br>
+            14 premium residences · from 130 m² · Дом введён в эксплуатацию<br>
             Бутик-резиденция открыта к просмотру<br>
             <span style="color:var(--accent-gold)">Active Geo: Israel · Ukraine · Belarus</span>
           </div>
@@ -172,8 +172,8 @@ function renderS00() {
       </div>
       <div class="metric-card">
         <div class="metric-label">Competitors Tracked</div>
-        <div class="metric-value">14</div>
-        <div class="metric-sub">Google Sheet verified</div>
+        <div class="metric-value">38</div>
+        <div class="metric-sub">14 GS-verified · 24 Research</div>
       </div>
       <div class="metric-card">
         <div class="metric-label">Total Researched</div>
@@ -212,7 +212,7 @@ function renderS01() {
           ${fact('Developer', 'Available on request')}
           ${fact('Status', 'Дом введён в эксплуатацию')}
           ${fact('Total Units', '14 premium residences')}
-          ${fact('Size Range', '130–191 m²')}
+          ${fact('Size Range', 'from 130 m² to 191 m²')}
           ${fact('Layout', 'Free planning — no load-bearing walls inside')}
           ${fact('Views', 'Panoramic from every residence')}
           ${fact('Rooftop', 'Jacuzzi · Fitness · Outdoor kitchen')}
@@ -427,7 +427,17 @@ function renderS04() {
           <span class="intent-count">19 KEEP</span>
         </div>
         <div class="intent-examples">"luxury apartment tbilisi"<br>"элитная недвижимость тбилиси"</div>
-        <div class="intent-desc">Audience self-selects for premium. High qualification rate. Avg CPC $1.24. Premium messaging essential.</div>
+        <div class="intent-desc">Audience self-selects for premium. High qualification rate. Avg CPC $1.24. Premium messaging essential. Note: 18/19 KEEP keywords are EN; 1 RU keyword in this pool.</div>
+      </div>
+
+      <div class="intent-card">
+        <div class="intent-card-header">
+          <div class="pool-badge pool-C">C</div>
+          <div class="intent-title">Residence / Boutique</div>
+          <span class="intent-count">4 KEEP</span>
+        </div>
+        <div class="intent-examples">"king david residence tbilisi"<br>"boutique apartment tbilisi"</div>
+        <div class="intent-desc">Branded residence searches — named development queries. EN-only pool. Core EN campaign (Campaign 3). Note: "Greenhill Residence" has no Tbilisi geo signal — verify before activating.</div>
       </div>
 
       <div class="intent-card">
@@ -470,14 +480,14 @@ function renderS04() {
         <div class="intent-desc">Location-specific search. ELYSIUM is in a premium Tbilisi location. Ad copy to mention neighbourhood.</div>
       </div>
 
-      <div class="intent-card">
+      <div class="intent-card" style="border-color:rgba(74,106,140,0.25);opacity:0.75">
         <div class="intent-card-header">
           <div class="pool-badge pool-J">J</div>
           <div class="intent-title">Generic Real Estate</div>
-          <span class="intent-count">183 KEEP</span>
+          <span class="intent-count" style="background:rgba(74,106,140,0.15);color:var(--data-blue)">183 · Phase 2</span>
         </div>
         <div class="intent-examples">"apartment tbilisi"<br>"real estate tbilisi"</div>
-        <div class="intent-desc">Large volume, lower specificity. Phrase match + negative structure critical. High negative keyword coverage required.</div>
+        <div class="intent-desc">Large volume, lower specificity. <strong>Retained for Phase 2 expansion</strong> — not in Phase 1 campaigns. 123 RU + 60 EN. Will be evaluated after Phase 1 data is collected.</div>
       </div>
 
       <div class="intent-card" style="border-color:rgba(140,94,48,0.25)">
@@ -493,13 +503,40 @@ function renderS04() {
 
     <div class="card" style="margin-top:24px">
       <div class="card-title">Excluded from Campaigns (saved for audit)</div>
-      <div style="display:flex;gap:24px;flex-wrap:wrap">
+      <div style="display:flex;gap:24px;flex-wrap:wrap;margin-bottom:12px">
         <div style="font-size:12px;color:var(--text-tertiary)">🚫 Rental / Аренда: <strong style="color:var(--text-secondary)">1,840 keywords</strong></div>
         <div style="font-size:12px;color:var(--text-tertiary)">🚫 US Georgia: <strong style="color:var(--text-secondary)">689 keywords</strong></div>
         <div style="font-size:12px;color:var(--text-tertiary)">🚫 Batumi & Cities: <strong style="color:var(--text-secondary)">478 keywords</strong></div>
         <div style="font-size:12px;color:var(--text-tertiary)">🚫 General irrelevant: <strong style="color:var(--text-secondary)">125 keywords</strong></div>
         <div style="font-size:12px;color:var(--text-tertiary)">🚫 Hotels: <strong style="color:var(--text-secondary)">7 keywords</strong></div>
         <div style="font-size:12px;color:var(--text-tertiary)">🚫 Seller intent: <strong style="color:var(--text-secondary)">4 keywords</strong></div>
+      </div>
+      <div style="font-size:11px;color:var(--text-tertiary);border-top:1px solid var(--border-subtle);padding-top:10px">
+        ℹ Pool H (Lifestyle/Location): 1 keyword retained in KEEP per client decision — small expected volume, acceptable risk.
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:16px;border-color:rgba(74,106,140,0.2);background:rgba(74,106,140,0.04)">
+      <div class="card-title" style="color:var(--data-blue)">Phase 2 — Generic Real Estate Expansion</div>
+      <div style="display:flex;gap:32px;margin:16px 0;flex-wrap:wrap">
+        <div style="text-align:center">
+          <div style="font-size:28px;font-weight:300;color:var(--text-primary)">183</div>
+          <div style="font-size:11px;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:0.08em">Total · Pool J</div>
+        </div>
+        <div style="text-align:center">
+          <div style="font-size:28px;font-weight:300;color:var(--text-primary)">123</div>
+          <div style="font-size:11px;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:0.08em">RU keywords</div>
+        </div>
+        <div style="text-align:center">
+          <div style="font-size:28px;font-weight:300;color:var(--text-primary)">60</div>
+          <div style="font-size:11px;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:0.08em">EN keywords</div>
+        </div>
+      </div>
+      <div style="font-size:13px;color:var(--text-secondary);line-height:1.7">
+        Generic real estate searches ("apartment tbilisi", "real estate tbilisi" etc.) are retained in the research database
+        but excluded from Phase 1 active campaigns. These keywords require larger budgets and tighter negative keyword
+        coverage to be profitable. They will be evaluated for Phase 2 expansion once Phase 1 campaign data (CTR, CPC, CPL)
+        is available — typically after 6–8 weeks of live performance.
       </div>
     </div>
   `;
@@ -534,7 +571,7 @@ function renderS05Header(research) {
 }
 
 /* ---- S06 Campaign Architecture ---- */
-function renderS06(campaigns) {
+function renderS06(campaigns, research) {
   const cdata = campaigns?.campaigns || [];
   return `
     <div class="section-block-header">
@@ -546,7 +583,7 @@ function renderS06(campaigns) {
     </div>
 
     <div class="campaigns-grid">
-      ${cdata.map(c => renderCampaignCard(c)).join('')}
+      ${cdata.map(c => renderCampaignCard(c, research)).join('')}
     </div>
 
     <div class="card" style="margin-bottom:24px">
@@ -582,13 +619,13 @@ function renderS06(campaigns) {
       <div>
         <strong>Competitor Campaign Review Required:</strong> Campaign 4 (Competitors) requires manual keyword review before launch.
         All 87 Pool I keywords are currently CHECK_REQUIRED. Review and enable only high-relevance terms.
-        Suggested launch priority: Park Home Vake · Gergeti Rise · CityZen · Next Tbilisi · Mtatsminda Panorama.
+        Suggested launch priority: Tbilisi Hills (1,600 vol) · Park Home Vake · Gergeti Rise · CityZen · Next Tbilisi · Mtatsminda Panorama.
       </div>
     </div>
   `;
 }
 
-function renderCampaignCard(c) {
+function renderCampaignCard(c, research) {
   const priorityClass = c.priority === 'HIGHEST' ? 'priority-highest' : (c.requires_manual_review ? 'requires-review' : '');
   const adGroups = c.ad_groups || [];
   return `
@@ -628,7 +665,7 @@ function renderCampaignCard(c) {
         </div>
         <div>
           <div class="campaign-meta-label">Keywords ~</div>
-          <div class="campaign-meta-val mono">${c.keyword_count_approx}</div>
+          <div class="campaign-meta-val mono">${c.pool_sources?.includes('I') ? (research?.pool_stats?.I?.total ?? c.keyword_count_approx) : c.keyword_count_approx}</div>
         </div>
         <div>
           <div class="campaign-meta-label">Priority</div>
@@ -654,7 +691,7 @@ function renderCampaignCard(c) {
 /* ---- S07 Competitor Strategy ---- */
 function renderS07(competitors) {
   const comps = competitors?.competitors || [];
-  const gsComps = comps.filter(c => c.is_google_sheet);
+  const allComps = [...comps].sort((a, b) => b.top_volume - a.top_volume);
 
   const actionBadge = (vol) => {
     if (vol >= 100) return `<span class="badge badge-launch">Launch</span>`;
@@ -662,23 +699,27 @@ function renderS07(competitors) {
     return `<span class="badge badge-monitor">Monitor</span>`;
   };
 
+  const sourceBadge = (isGs) => isGs
+    ? `<span style="font-size:10px;color:#70B880">✅ Google Sheet</span>`
+    : `<span style="font-size:10px;color:var(--text-tertiary)">🔍 Research</span>`;
+
   return `
     <div class="section-block-header">
       <div class="section-block-num">07</div>
       <div class="section-block-title-wrap">
         <div class="section-block-title">Competitor Strategy</div>
-        <div class="section-block-desc">14 Google Sheet competitors verified · Differentiation messaging framework</div>
+        <div class="section-block-desc">38 competitors tracked · 14 Google Sheet verified · 24 Research identified</div>
       </div>
     </div>
 
     <div class="note-box warning" style="margin-bottom:24px">
       <span class="note-box-icon">⚠</span>
       <div>
-        Google Sheet access requires authentication. Competitor data sourced from verified keyword research database (14/14 confirmed — QA PASS).
+        Sorted by top volume DESC. Google Sheet access requires authentication — 14 records confirmed via GS. 24 additional competitors identified through keyword research. All 38 shown individually.
       </div>
     </div>
 
-    <div class="card-title" style="margin-bottom:16px">Part A — Google Sheet Competitors (14/14 Confirmed)</div>
+    <div class="card-title" style="margin-bottom:16px">All 38 Competitors — Sorted by Volume</div>
     <div class="table-wrapper" style="margin-bottom:32px">
       <table class="competitor-table">
         <thead>
@@ -688,17 +729,19 @@ function renderS07(competitors) {
             <th style="text-align:right">Volume</th>
             <th style="text-align:right">Avg CPC</th>
             <th style="text-align:right">KWs</th>
+            <th>Source</th>
             <th>Action</th>
           </tr>
         </thead>
         <tbody>
-          ${gsComps.map(c => `
+          ${allComps.map(c => `
             <tr>
               <td class="comp-name">${escHtml(c.name)}</td>
               <td class="comp-keyword">${escHtml(c.best_keyword)}</td>
               <td class="comp-vol ${volClass(c.top_volume)}">${fmtVol(c.top_volume)}</td>
               <td class="comp-cpc">${fmtCpc(c.avg_cpc)}</td>
               <td class="comp-vol">${c.keyword_count}</td>
+              <td>${sourceBadge(c.is_google_sheet)}</td>
               <td>${actionBadge(c.top_volume)}</td>
             </tr>
           `).join('')}
@@ -840,7 +883,7 @@ function renderS09() {
     <div class="rsa-card">
       <div class="rsa-type">Campaign 3 — Core Premium EN · RSA Headlines <span class="rsa-char-limit">(max 30 chars)</span></div>
       <div class="rsa-headlines">
-        ${['Boutique Residence Tbilisi','14 Premium Residences','From 130 m² — Panoramic Views','Building Commissioned & Ready','Open for Private Viewing','Free Floor Plan — No Walls','Privacy. Security. Silence.','Underground Parking Included','Generator & Water Reserve','Floor Plans & Prices on Request','Book an Individual Viewing','Luxury Boutique. 14 Homes.'].map(h => `<span class="rsa-headline">${h}</span>`).join('')}
+        ${['Boutique Residence Tbilisi','14 Premium Residences','From 130 m² — Panoramic Views','Building Commissioned & Ready','Open for Private Viewing','Free Floor Plan — No Walls','Privacy. Security. Silence.','Underground Parking Included','Generator & Water Reserve','Plans & Prices on Request','Book an Individual Viewing','Luxury Boutique. 14 Homes.'].map(h => `<span class="rsa-headline">${h}</span>`).join('')}
       </div>
       <div class="rsa-type" style="margin-top:8px">Descriptions <span class="rsa-char-limit">(max 90 chars)</span></div>
       <div class="rsa-descriptions">
@@ -897,7 +940,7 @@ function renderS10() {
           <tr>
             <td class="im-intent">Luxury apartment Tbilisi</td>
             <td>Core EN — Luxury</td>
-            <td>14 residences, 130+ m², panoramic views</td>
+            <td>14 residences, from 130 m², panoramic views</td>
             <td>Quality + Views</td>
             <td>Contact</td>
           </tr>
@@ -1461,9 +1504,9 @@ export function renderYandexStrategy(container) {
     <div class="note-box warning" style="margin-bottom:40px">
       <span class="note-box-icon">⚠</span>
       <div>
-        <strong>Yandex Direct requires Yandex Wordstat keyword research.</strong>
-        The channel structure is ready. Data collection is the next step.
-        This section will be fully populated once Wordstat data is available for IL/UA/BY markets.
+        <strong>Yandex Direct is not in current strategy scope.</strong>
+        Tab retained for future planning. Google Ads is the only active channel in the current strategy.
+        Status: <strong>Not in scope / Data Pending</strong>
       </div>
     </div>
 
@@ -1485,21 +1528,18 @@ function renderYandexGeo(num, title) {
           <div class="geo-facts">
             <div class="geo-fact">RU primary · EN secondary</div>
             <div class="geo-fact">Significant Russian-speaking population</div>
-            <div class="geo-fact">Yandex Direct available for IL targeting</div>
           </div>
         </div>
         <div class="geo-card"><div class="geo-flag">🇺🇦</div><div class="geo-name">Ukraine</div>
           <div class="geo-facts">
             <div class="geo-fact">RU primary market</div>
-            <div class="geo-fact">High Yandex search share historically</div>
-            <div class="geo-fact">Core RU campaign primary</div>
+            <div class="geo-fact">Historically significant Yandex presence</div>
           </div>
         </div>
         <div class="geo-card"><div class="geo-flag">🇧🇾</div><div class="geo-name">Belarus</div>
           <div class="geo-facts">
             <div class="geo-fact">RU primary market</div>
-            <div class="geo-fact">Strong Yandex market share</div>
-            <div class="geo-fact">High potential for Yandex Direct</div>
+            <div class="geo-fact">Strong Yandex historical presence</div>
           </div>
         </div>
       </div>
@@ -1519,7 +1559,7 @@ function renderPendingSection(num, title) {
       <div class="data-pending">
         <div class="data-pending-icon">⏳</div>
         <div class="data-pending-label">Data Pending</div>
-        <div class="data-pending-desc">Wordstat research not yet conducted. This section will be populated once Yandex Wordstat data is available for the IL · UA · BY markets.</div>
+        <div class="data-pending-desc">Not in current scope. Channel retained for future strategy decision.</div>
       </div>
     </div>
   `;
