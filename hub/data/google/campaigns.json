@@ -154,13 +154,14 @@
       "language_filter": "EN",
       "pool_sources": [
         "A",
+        "B",
         "C",
         "D",
         "E",
         "F",
         "G"
       ],
-      "keyword_count_approx": 63,
+      "keyword_count_approx": 79,
       "priority": "PRIMARY",
       "notes": "EN-language keywords only. Pools A, B, C, D, E, F, G filtered to language=EN. 83 verified EN keywords. Israel primary geo. Covers purchase, luxury, penthouse, residence, investment, district EN queries.",
       "ad_groups": [

@@ -518,12 +518,12 @@ function renderS05(keywords, competitors, negatives) {
   const negData  = (negatives  && negatives.categories)  ? negatives             : {categories:[], total:0};
 
   // Filter keywords per campaign — exclude EXCLUDED_* statuses from all campaigns
-  // Pool B (Luxury/Premium) is isolated in К4 — removed from К1/К2 to avoid internal auction competition
+  // К3 Premium = Pool B RU only. Pool B EN goes to К2 (no overlap — different languages)
   const isActive = k => !k.status || !k.status.startsWith('EXCLUDED');
   const k1kw = kwData.filter(k => isActive(k) && ['A','D','E','F','G'].includes(k.pool) && k.language === 'RU');
-  const k2kw = kwData.filter(k => isActive(k) && ['A','C','D','E','F','G'].includes(k.pool) && k.language === 'EN');
+  const k2kw = kwData.filter(k => isActive(k) && ['A','B','C','D','E','F','G'].includes(k.pool) && k.language === 'EN');
   const k3kw = compData.flatMap(c => c.keywords.map(kw => ({keyword: kw.keyword, competitor: c.name})));
-  const k4kw = kwData.filter(k => isActive(k) && k.pool === 'B');
+  const k4kw = kwData.filter(k => isActive(k) && k.pool === 'B' && k.language === 'RU');
 
   // ── LOW-LEVEL HELPERS (string concatenation, no nested template literals) ──
 
@@ -707,10 +707,10 @@ function renderS05(keywords, competitors, negatives) {
       kwSection(k2kw,'Пулы A B C D E F G · Язык EN'),
       negSection, k2Ads)}
 
-    ${campWrap('3','К3 — Премиум',
-      k4kw.length + ' ключевых слов · Пул B · Luxury intent · RU + EN · Аудитория: IL · UA · BY',
+    ${campWrap('3','К3 — Премиум RU',
+      k4kw.length + ' ключевых слов · Пул B · Язык: RU · Luxury intent · Аудитория: IL · UA · BY',
       'rgba(196,168,100,0.3)','rgba(196,168,100,0.04)',
-      kwSection(k4kw,'Пул B · Luxury / Premium'),
+      kwSection(k4kw,'Пул B · Язык RU'),
       negSection, k4Ads)}
 
     ${campWrap('4','К4 — Конкуренты',
