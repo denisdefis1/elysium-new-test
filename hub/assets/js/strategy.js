@@ -1842,39 +1842,198 @@ function renderPendingSection(num, title) {
    ============================================================ */
 
 export function renderMetaStrategy(container) {
-  const sections = [
-    ['01','Краткое резюме','Стратегия Meta на основе аудиторий требует исследования аудитории, креативного брифа и настройки пикселя. Структура канала готова.'],
-    ['02','Стратегия аудиторий','Определение аудитории требует ICP-исследования — демографика, интересы, поведенческий таргетинг для рынков IL/UA/BY.'],
-    ['03','Креативная стратегия','Креативный бриф ещё не подготовлен. Требуются визуальные материалы, направление копирайтинга и стратегия форматов (Feed, Stories, Reels).'],
-    ['04','Структура кампаний','Структура кампаний определяется после исследования аудитории и завершения креативного брифа.'],
-    ['05','Бюджет и ставки','Распределение бюджета ожидает решения о приоритете канала Meta vs. Yandex.'],
-    ['06','Аналитика и отслеживание','Требуется настройка Meta Pixel. Необходима Conversion API для точного отслеживания на iOS 14+.'],
-  ];
+  const stat = (val, label) =>
+    '<div style="display:flex;flex-direction:column;align-items:center;gap:6px;padding:20px 28px;background:var(--bg-elevated);border:1px solid var(--border-subtle);border-radius:10px;min-width:120px">' +
+    '<div style="font-size:28px;font-weight:600;color:var(--accent-gold);letter-spacing:-0.02em">' + val + '</div>' +
+    '<div style="font-size:11px;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:0.07em;text-align:center">' + label + '</div>' +
+    '</div>';
+
+  const sectionHeader = (num, title, desc) =>
+    '<div class="section-block-header">' +
+    '<div class="section-block-num">' + num + '</div>' +
+    '<div class="section-block-title-wrap">' +
+    '<div class="section-block-title">' + title + '</div>' +
+    (desc ? '<div class="section-block-desc">' + desc + '</div>' : '') +
+    '</div></div>';
+
+  const adSetCard = (lang, flag, budget, status, statusClr, audience, note) =>
+    '<div style="flex:1;min-width:220px;border:1px solid var(--border-medium);border-radius:10px;overflow:hidden">' +
+    '<div style="padding:14px 18px;background:var(--bg-elevated);border-bottom:1px solid var(--border-subtle);display:flex;justify-content:space-between;align-items:center">' +
+    '<div>' +
+    '<div style="font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-tertiary);margin-bottom:3px">Ad Set</div>' +
+    '<div style="font-size:16px;font-weight:500;color:var(--text-primary)">' + flag + ' ' + lang + '</div>' +
+    '</div>' +
+    '<div style="text-align:right">' +
+    '<div style="font-size:18px;font-weight:600;color:var(--accent-gold)">$' + budget + '</div>' +
+    '<div style="font-size:10px;color:var(--text-tertiary)">в месяц · старт</div>' +
+    '</div>' +
+    '</div>' +
+    '<div style="padding:14px 18px;display:flex;flex-direction:column;gap:8px">' +
+    '<div style="display:flex;align-items:center;gap:8px">' +
+    '<span style="font-size:10px;background:' + statusClr + ';border-radius:4px;padding:2px 8px;font-weight:500">' + status + '</span>' +
+    '</div>' +
+    '<div style="font-size:12px;color:var(--text-secondary)">' + audience + '</div>' +
+    (note ? '<div style="font-size:11px;color:var(--text-tertiary);font-style:italic;margin-top:2px">' + note + '</div>' : '') +
+    '</div>' +
+    '</div>';
+
+  const kpiRow = (metric, meaning) =>
+    '<tr>' +
+    '<td style="padding:10px 16px;font-size:12px;color:var(--text-primary);font-weight:500;border-bottom:1px solid var(--border-subtle);white-space:nowrap">' + metric + '</td>' +
+    '<td style="padding:10px 16px;font-size:12px;color:var(--text-secondary);border-bottom:1px solid var(--border-subtle)">' + meaning + '</td>' +
+    '</tr>';
+
+  const creativeLink = (n, url, type) =>
+    '<a href="' + url + '" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:var(--bg-elevated);border:1px solid var(--border-subtle);border-radius:8px;text-decoration:none;transition:border-color 0.15s" onmouseover="this.style.borderColor=\'var(--accent-gold)\'" onmouseout="this.style.borderColor=\'var(--border-subtle)\'">' +
+    '<span style="font-size:11px;font-weight:600;color:var(--accent-gold);background:rgba(196,168,100,0.12);border-radius:4px;padding:3px 8px;min-width:22px;text-align:center">' + n + '</span>' +
+    '<span style="font-size:11px;color:var(--text-tertiary);font-family:var(--font-mono);flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">' + type + '</span>' +
+    '<span style="font-size:10px;color:var(--text-tertiary);opacity:0.6">↗</span>' +
+    '</a>';
 
   container.innerHTML = `
-    <div class="note-box info" style="margin-bottom:40px">
-      <span class="note-box-icon">ℹ</span>
-      <div>
-        <strong>Стратегия Meta основана на аудиториях, а не на ключевых словах.</strong>
-        Требуется: исследование аудитории (определение ICP), креативный бриф, настройка пикселя и решение по бюджету.
-        Структура канала готова. Все разделы будут заполнены после выполнения предварительных условий.
+    <!-- M00: Резюме -->
+    <div class="section-block" id="m00">
+      ${sectionHeader('00','Резюме','Meta Ads · второй приоритет · $400/мес · Instagram Profile Growth')}
+      <div style="display:flex;flex-wrap:wrap;gap:12px;margin-bottom:24px">
+        ${stat('$400','весь бюджет')}
+        ${stat('1','кампания')}
+        ${stat('1','гео — Грузия')}
+        ${stat('2','аудитории')}
+        ${stat('Трафик','цель Meta')}
+      </div>
+      <div class="note-box info">
+        <span class="note-box-icon">ℹ</span>
+        <div style="font-size:12px">
+          Задача Meta — не лиды (их закрывает Google), а рост живой аудитории Instagram.
+          Люди видят продукт регулярно, до того как решат оставить заявку.
+          Одна кампания · одна цель · максимум концентрации бюджета на обучение алгоритма.
+        </div>
       </div>
     </div>
 
-    ${sections.map(([num, title, desc]) => `
-      <div class="section-block" id="m${num}">
-        <div class="section-block-header">
-          <div class="section-block-num">${num}</div>
-          <div class="section-block-title-wrap">
-            <div class="section-block-title">${title}</div>
+    <!-- M01: Почему так просто -->
+    <div class="section-block" id="m01">
+      ${sectionHeader('01','Почему так просто','Логика выбора цели и структуры')}
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <div style="background:var(--bg-elevated);border:1px solid var(--border-subtle);border-radius:10px;padding:20px 24px">
+          <div style="font-size:13px;font-weight:500;color:var(--text-primary);margin-bottom:8px">Цель — Трафик с назначением «Посещение профиля»</div>
+          <div style="font-size:12px;color:var(--text-secondary);line-height:1.7">
+            В Meta нет отдельной цели «рост подписчиков». Она достигается через Трафик с посадкой на профиль
+            или через Engagement на посты. Трафик стабильно даёт больше профильных переходов при том же бюджете —
+            именно этот паттерн уже тестировался на аккаунте и показал себя рабочим.
           </div>
         </div>
-        <div class="data-pending">
-          <div class="data-pending-icon">⏳</div>
-          <div class="data-pending-label">Data Pending</div>
-          <div class="data-pending-desc">${desc}</div>
+        <div style="background:var(--bg-elevated);border:1px solid var(--border-subtle);border-radius:10px;padding:20px 24px">
+          <div style="font-size:13px;font-weight:500;color:var(--text-primary);margin-bottom:8px">Почему не 9 кампаний как раньше</div>
+          <div style="font-size:12px;color:var(--text-secondary);line-height:1.7">
+            Предыдущая структура (9 кампаний, лиды, 3 сайта × 3 языка) при $400/мес была нереалистична —
+            алгоритм не успевал обучаться на маленьких параллельных кампаниях.
+            Новая логика — противоположная: одна кампания, весь бюджет, один сигнал обучения.
+          </div>
+        </div>
+        <div style="background:var(--bg-elevated);border:1px solid var(--border-subtle);border-radius:10px;padding:20px 24px">
+          <div style="font-size:13px;font-weight:500;color:var(--text-primary);margin-bottom:8px">Почему нет RU-аудитории</div>
+          <div style="font-size:12px;color:var(--text-secondary);line-height:1.7">
+            Русскоязычная аудитория Грузии охвачена через EN-сегмент (экспаты часто двуязычны)
+            и напрямую через Google/Yandex кампании. Дублировать здесь — распылять бюджет без прироста охвата.
+          </div>
         </div>
       </div>
-    `).join('')}
+    </div>
+
+    <!-- M02: Структура кампании -->
+    <div class="section-block" id="m02">
+      ${sectionHeader('02','Структура кампании','1 кампания · CBO · 2 ad set')}
+      <div style="background:rgba(196,168,100,0.04);border:1px solid rgba(196,168,100,0.2);border-radius:10px;padding:18px 22px;margin-bottom:20px">
+        <div style="font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-tertiary);margin-bottom:6px">Кампания</div>
+        <div style="font-size:16px;font-weight:500;color:var(--text-primary);margin-bottom:4px">[Трафик] Elysium — Instagram Profile Growth</div>
+        <div style="font-size:11px;color:var(--text-tertiary);font-family:var(--font-mono)">Цель: Трафик · Назначение: Посещение профиля · CBO вкл. · Гео: Грузия · $400/мес</div>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:16px;margin-bottom:16px">
+        ${adSetCard(
+          'EN — Экспаты','🌍','220','АКТИВЕН','rgba(80,200,120,0.15);color:#6fcf97',
+          'Экспаты и иностранцы в Грузии · Английский язык интерфейса',
+          'Запускается первым. Креативы готовы.'
+        )}
+        ${adSetCard(
+          'KA — Грузиноязычная','🇬🇪','180','НА ПАУЗЕ','rgba(255,180,50,0.15);color:#f2c94c',
+          'Грузиноязычная аудитория · Местные жители',
+          'Ожидает KA-креативов от Тани. Запуск сразу после получения.'
+        )}
+      </div>
+      <div class="note-box info">
+        <span class="note-box-icon">ℹ</span>
+        <div style="font-size:11px">
+          CBO (Campaign Budget Optimization) — система Meta сама распределяет $400 между ad set в реальном времени
+          по факту дешевизны результата. Стартовое соотношение $220/$180 — ориентир, не фиксация.
+        </div>
+      </div>
+    </div>
+
+    <!-- M03: Гео -->
+    <div class="section-block" id="m03">
+      ${sectionHeader('03','Гео','Единственный рынок — Грузия')}
+      <div style="background:var(--bg-elevated);border:1px solid var(--border-subtle);border-radius:10px;padding:20px 24px">
+        <div style="display:flex;align-items:center;gap:16px;margin-bottom:16px">
+          <span style="font-size:32px">🇬🇪</span>
+          <div>
+            <div style="font-size:16px;font-weight:500;color:var(--text-primary)">Грузия</div>
+            <div style="font-size:11px;color:var(--text-tertiary)">Единственное гео · без расширения</div>
+          </div>
+        </div>
+        <div style="font-size:12px;color:var(--text-secondary);line-height:1.7">
+          При $400/мес любое дополнительное гео означает менее $13/день на аудиторию —
+          ниже разумного порога для стабильного обучения алгоритма.
+          Один рынок, достаточный объём показов, чистый сигнал.
+        </div>
+      </div>
+    </div>
+
+    <!-- M04: Креативы -->
+    <div class="section-block" id="m04">
+      ${sectionHeader('04','Креативы','Переиспользуем готовый пул · 5 единиц · KA — ожидает')}
+      <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:16px">
+        ${creativeLink(1,'https://www.instagram.com/reel/DbkTgX8Ipnu/','Reel')}
+        ${creativeLink(2,'https://www.instagram.com/p/DZ2-B2ntANQ/','Post')}
+        ${creativeLink(3,'https://www.instagram.com/p/DZo0NbBtjr1/','Post')}
+        ${creativeLink(4,'https://www.instagram.com/p/DZeubf1tWoH/','Post')}
+        ${creativeLink(5,'https://www.instagram.com/reel/DZZn1maNzph/','Reel')}
+      </div>
+      <div class="note-box warning">
+        <span class="note-box-icon">⚠</span>
+        <div style="font-size:11px">
+          <strong>KA ad set:</strong> грузиноязычные креативы ожидаются от Тани.
+          До получения — ad set KA стоит на паузе или использует EN-креативы как временную заглушку.
+          Решение принять перед стартом кампании.
+        </div>
+      </div>
+    </div>
+
+    <!-- M05: KPI -->
+    <div class="section-block" id="m05">
+      ${sectionHeader('05','KPI — что считаем','Пересмотр не раньше 2–3 недель стабильных данных')}
+      <div style="border:1px solid var(--border-subtle);border-radius:10px;overflow:hidden;margin-bottom:16px">
+        <table style="width:100%;border-collapse:collapse">
+          <thead>
+            <tr style="background:var(--bg-elevated)">
+              <th style="padding:10px 16px;text-align:left;font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-tertiary);border-bottom:1px solid var(--border-subtle)">Метрика</th>
+              <th style="padding:10px 16px;text-align:left;font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-tertiary);border-bottom:1px solid var(--border-subtle)">Что показывает</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${kpiRow('Cost per Profile Visit','Базовая эффективность — сколько стоит переход в профиль')}
+            ${kpiRow('Follow-through rate','Доля дошедших до профиля, кто подписался. Низкий % при дешёвом переходе = нерелевантный трафик')}
+            ${kpiRow('Retention через 30 дней','Отписки в первый месяц — признак нецелевой аудитории, привлечённой ради дешёвого клика')}
+          </tbody>
+        </table>
+      </div>
+      <div class="note-box info">
+        <span class="note-box-icon">ℹ</span>
+        <div style="font-size:11px">
+          Пересмотр бюджета — не раньше 2–3 недель стабильных данных по обеим метрикам одновременно,
+          не только по цене перехода. Google и Yandex — приоритет. Meta — второй канал.
+        </div>
+      </div>
+    </div>
   `;
 }
