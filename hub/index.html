@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ELYSIUM Tbilisi — Marketing Intelligence Hub">
+  <meta name="robots" content="noindex, nofollow">
+  <title>ELYSIUM — Marketing Intelligence</title>
+
+  <!-- Preconnect for Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="./assets/css/main.css">
+  <link rel="stylesheet" href="./assets/css/components.css">
+  <link rel="stylesheet" href="./assets/css/animations.css">
+</head>
+<body>
+<div id="app">
+
+  <!-- ============================================================
+       FIXED HEADER
+       ============================================================ -->
+  <header id="header">
+
+    <!-- Brand -->
+    <div class="header-left">
+      <span class="header-brand-name">ELYSIUM</span>
+      <div class="header-brand-divider"></div>
+      <span class="header-brand-sub">Marketing Intelligence</span>
+    </div>
+
+    <!-- Channel/Report Switcher (injected by JS) -->
+    <div id="header-center"></div>
+
+    <!-- Area Nav + Mobile Toggle -->
+    <div class="header-right">
+      <!-- Mobile sidebar toggle -->
+      <button class="sidebar-toggle" id="sidebar-toggle" aria-label="Toggle navigation">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="2" y="3" width="12" height="1.5" rx="0.75" fill="currentColor" opacity="0.7"/>
+          <rect x="2" y="7.25" width="12" height="1.5" rx="0.75" fill="currentColor" opacity="0.7"/>
+          <rect x="2" y="11.5" width="12" height="1.5" rx="0.75" fill="currentColor" opacity="0.7"/>
+        </svg>
+      </button>
+      <!-- Area nav (injected by JS) -->
+      <div id="header-right"></div>
+    </div>
+
+  </header>
+
+  <!-- Mobile sidebar overlay -->
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+  <!-- ============================================================
+       MAIN LAYOUT
+       ============================================================ -->
+  <div id="main">
+
+    <!-- Sidebar (strategy sections nav) -->
+    <aside id="sidebar" class="hidden" role="navigation" aria-label="Section navigation">
+      <!-- Content injected by JS -->
+    </aside>
+
+    <!-- Main content -->
+    <main id="content" class="no-sidebar" role="main">
+      <!-- Content injected by JS -->
+    </main>
+
+  </div>
+
+</div>
+
+<!--
+  Inline data bundle: loads all JSON as JS globals for file:// compatibility.
+  data.js checks window.__ELYSIUM_DATA__ first; falls back to fetch() on HTTP.
+-->
+<script src="./assets/js/data-bundle.js"></script>
+
+<!-- App entry point (ES modules) -->
+<script type="module" src="./assets/js/app.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,124 @@
+{
+  "total_keywords": 4412,
+  "research_pool_count": 1269,
+  "keep_count": 408,
+  "check_required_count": 861,
+  "excluded_count": 3143,
+  "zero_volume_count": 3004,
+  "historical_keywords": 74,
+  "phases": [
+    "Phase 1 (Keyword Planner)",
+    "Phase 2 (Extended)",
+    "Phase 3 (Districts+Investment)",
+    "Phase 4 (15 new batches)"
+  ],
+  "pool_stats": {
+    "A": {
+      "total": 202,
+      "keep": 163,
+      "check_required": 39,
+      "name": "Core Purchase"
+    },
+    "B": {
+      "total": 201,
+      "keep": 19,
+      "check_required": 182,
+      "name": "Premium / Luxury"
+    },
+    "C": {
+      "total": 44,
+      "keep": 4,
+      "check_required": 40,
+      "name": "Apartments / Residence"
+    },
+    "D": {
+      "total": 18,
+      "keep": 6,
+      "check_required": 12,
+      "name": "Penthouse"
+    },
+    "E": {
+      "total": 21,
+      "keep": 6,
+      "check_required": 15,
+      "name": "Investment"
+    },
+    "F": {
+      "total": 48,
+      "keep": 14,
+      "check_required": 34,
+      "name": "New Build / Developer"
+    },
+    "G": {
+      "total": 59,
+      "keep": 12,
+      "check_required": 47,
+      "name": "Districts / Location"
+    },
+    "H": {
+      "total": 14,
+      "keep": 1,
+      "check_required": 13,
+      "name": "Lifestyle / View / Privacy"
+    },
+    "I": {
+      "total": 87,
+      "keep": 0,
+      "check_required": 87,
+      "name": "Competitors"
+    },
+    "J": {
+      "total": 575,
+      "keep": 183,
+      "check_required": 392,
+      "name": "Generic Real Estate"
+    },
+    "K": {
+      "total": 125,
+      "keep": 0,
+      "check_required": 0,
+      "name": "Excluded — General"
+    },
+    "L": {
+      "total": 7,
+      "keep": 0,
+      "check_required": 0,
+      "name": "Hotels"
+    },
+    "M": {
+      "total": 689,
+      "keep": 0,
+      "check_required": 0,
+      "name": "US Georgia"
+    },
+    "N": {
+      "total": 478,
+      "keep": 0,
+      "check_required": 0,
+      "name": "Batumi / Other Cities"
+    },
+    "O": {
+      "total": 1840,
+      "keep": 0,
+      "check_required": 0,
+      "name": "Rental"
+    },
+    "P": {
+      "total": 4,
+      "keep": 0,
+      "check_required": 0,
+      "name": "Seller Intent"
+    }
+  },
+  "qa_status": "PASS",
+  "qa_checks_passed": 19,
+  "qa_checks_total": 19,
+  "exclusion_counts": {
+    "EXCLUDED_RENTAL": 1840,
+    "EXCLUDED_US_GEORGIA": 689,
+    "EXCLUDED_BATUMI": 478,
+    "EXCLUDED_GENERAL": 125,
+    "EXCLUDED_HOTEL": 7,
+    "EXCLUDED_SELLER_INTENT": 4
+  }
+}

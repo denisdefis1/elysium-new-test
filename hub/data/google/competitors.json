@@ -1,0 +1,1169 @@
+{
+  "count": 38,
+  "google_sheet_count": 14,
+  "competitors": [
+    {
+      "name": "Park Home Vake",
+      "is_google_sheet": true,
+      "keyword_count": 2,
+      "top_volume": 1900,
+      "best_keyword": "park home vake",
+      "avg_cpc": 0.72,
+      "keywords": [
+        {
+          "keyword": "park home vake",
+          "volume": 1900,
+          "cpc": 1.44,
+          "competition_index": 3,
+          "status": "CHECK_REQUIRED",
+          "historical_impressions": "",
+          "historical_conversions": 0
+        },
+        {
+          "keyword": "park home vake tbilisi",
+          "volume": 10,
+          "cpc": 0.0,
+          "competition_index": 29,
+          "status": "CHECK_REQUIRED",
+          "historical_impressions": "",
+          "historical_conversions": 0
+        }
+      ]
+    },
+    {
+      "name": "Krtsanisi Residence",
+      "is_google_sheet": false,
+      "keyword_count": 3,
+      "top_volume": 1600,
+      "best_keyword": "krtsanisi residence",
+      "avg_cpc": 0.3,
+      "keywords": [
+        {
+          "keyword": "krtsanisi residence",
+          "volume": 1600,
+          "cpc": 0.91,
+          "competition_index": 15,
+          "status": "CHECK_REQUIRED",
+          "historical_impressions": 73,
+          "historical_conversions": 0
+        },
+        {
+          "keyword": "крцаниси резиденция",
+          "volume": 0,
+          "cpc": 0.0,
+          "competition_index": 0,
+          "status": "CHECK_REQUIRED",
+          "historical_impressions": "",
+          "historical_conversions": 0
+        },
+        {
+          "keyword": "krtsanisi residence tbilisi",
+          "volume": 0,
+          "cpc": 0.0,
+          "competition_index": 0,
+          "status": "CHECK_REQUIRED",
+          "historical_impressions": "",
+          "historical_conversions": 0
+        }
+      ]
+    },
+    {
+      "name": "Krtsanisi (typo)",
+      "is_google_sheet": false,
+      "keyword_count": 3,
+      "top_volume": 1600,
+      "best_keyword": "krwanisi residence",
+      "avg_cpc": 0.54,
+      "keywords": [
+        {
+          "keyword": "krwanisi residence",
+          "volume": 1600,
+          "cpc": 0.91,
+          "competition_index": 15,
+          "status": "CHECK_REQUIRED",
+          "historical_impressions": "",
+          "historical_conversions": 0
+        },
+        {
+          "keyword": "krwanisi villa residence",
+          "volume": 70,
+          "cpc": 0.7,
+          "competition_index": 24,
+          "status": "CHECK_REQUIRED",
+          "historical_impressions": "",
+          "historical_conversions": 0
+        },
+        {
+          "keyword": "krwanisi vila rezidensi",
+          "volume": 10,
+          "cpc": 0.0,
+          "competition_index": 0,
+          "status": "CHECK_REQUIRED",
+          "historical_impressions": "",
+          "historical_conversions": 0
+        }
+      ]
+    },
+    {
+      "name": "Tbilisi Hills Golf & Residences",
+      "is_google_sheet": true,
+      "keyword_count": 5,
+      "top_volume": 1600,
+      "best_keyword": "tbilisi hills",
+      "avg_cpc": 0.36,
+      "keywords": [
+        {
+          "keyword": "tbilisi hills",
+          "volume": 1600,
+          "cpc": 0.77,
+          "competition_index": 28,
+          "status": "CHECK_REQUIRED",
+          "historical_impressions": 88,
+          "historical_conversions": 1.0
+        },
+        {
+          "keyword": "tbilisi hills residences office",
+          "volume": 590,
+          "cpc": 0.0,
+          "competition_index": 3,
+          "status": "CHECK_REQUIRED",
+          "historical_impressions": "",
+          "historical_conversions": 0
+        },
+        {
+          "keyword": "tbilisi hills apartments",
+          "volume": 50,
+          "cpc": 1.02,
+          "competition_index": 44,
+          "status": "CHECK_REQUIRED",
+          "historical_impressions": "",
+          "historical_conversions": 0
+        },
+        {
+          "keyword": "tbilisi hills residences",
+          "volume": 0,
+          "cpc": 0.0,
+          "competition_index": 0,
+          "status": "CHECK_REQUIRED",
+          "historical_impressions": 226,
+          "historical_conversions": 4.0
+        },
+        {
+          "keyword": "tbilisi hills golf residences",
+          "volume": 0,
+          "cpc": 0.0,
+          "competition_index": 0,
+          "status": "CHECK_REQUIRED",
+          "historical_impressions": "",
+          "historical_conversions": 0
+        }
+      ]
+    },
+    {
+      "name": "Gergeti Rise Residence",
+      "is_google_sheet": true,
+      "keyword_count": 3,
+      "top_volume": 480,
+      "best_keyword": "gergeti rise residence",
+      "avg_cpc": 0.4,
+      "keywords": [
+        {
+          "keyword": "gergeti rise residence",
+          "volume": 480,
+          "cpc": 1.21,
+          "competition_index": 3,
+          "status": "CHECK_REQUIRED",
+          "historical_impressions": "",
+          "historical_conversions": 0
+        },
+        {
+          "keyword": "gergeti rise",
+          "volume": 0,
+          "cpc": 0.0,
+          "competition_index": 0,
+          "status": "CHECK_REQUIRED",
+          "historical_impressions": "",
+          "historical_conversions": 0
+        },
+        {
+          "keyword": "gergeti rise tbilisi",
+          "volume": 0,
+          "cpc": 0.0,
+          "competition_index": 0,
+          "status": "CHECK_REQUIRED",
+          "historical_impressions": "",
+          "historical_conversions": 0
+        }
+      ]
+    },
+    {
+      "name": "Archi Tbilisi",
+      "is_google_sheet": false,
+      "keyword_count": 2,
+      "top_volume": 320,
+      "best_keyword": "archi tbilisi",
+      "avg_cpc": 0.6,
+      "keywords": [
+        {
+          "keyword": "archi tbilisi",
+          "volume": 320,
+          "cpc": 1.21,
+          "competition_index": 29,
+          "status": "CHECK_REQUIRED",
+          "historical_impressions": 72,
+          "historical_conversions": 1.0
+        },
+        {
+          "keyword": "archi tbilisi apartments",
+          "volume": 0,
+          "cpc": 0.0,
+          "competition_index": 0,
+          "status": "CHECK_REQUIRED",
+          "historical_impressions": "",
+          "historical_conversions": 0
+        }
+      ]
+    },
+    {
+      "name": "Krtsanisi Villa Residence",
+      "is_google_sheet": false,
+      "keyword_count": 1,
+      "top_volume": 320,
+      "best_keyword": "krtsanisi villa residence",
+      "avg_cpc": 0.96,
+      "keywords": [
+        {
+          "keyword": "krtsanisi villa residence",
+          "volume": 320,
+          "cpc": 0.96,
+          "competition_index": 37,
+          "status": "CHECK_REQUIRED",
+          "historical_impressions": 37,
+          "historical_conversions": 3.0
+        }
+      ]
+    },
+    {
+      "name": "CityZen",
+      "is_google_sheet": true,
+      "keyword_count": 2,
+      "top_volume": 260,
+      "best_keyword": "cityzen tbilisi",
+      "avg_cpc": 0.54,
+      "keywords": [
+        {
+          "keyword": "cityzen tbilisi",
+          "volume": 260,
+          "cpc": 1.07,
+          "competition_index": 45,
+          "status": "CHECK_REQUIRED",
+          "historical_impressions": "",
+          "historical_conversions": 0
+        },
+        {
+          "keyword": "cityzen тбилиси",
+          "volume": 0,
+          "cpc": 0.0,
+          "competition_index": 0,
+          "status": "CHECK_REQUIRED",
+          "historical_impressions": "",
+          "historical_conversions": 0
+        }
+      ]
+    },
+    {
+      "name": "Next",
+      "is_google_sheet": true,
+      "keyword_count": 6,
+      "top_volume": 210,
+      "best_keyword": "next tbilisi",
+      "avg_cpc": 0.59,
+      "keywords": [
+        {
+          "keyword": "next tbilisi",
+          "volume": 210,
+          "cpc": 3.54,
+          "competition_index": 49,
+          "status": "CHECK_REQUIRED",
+          "historical_impressions": 36,
+          "historical_conversions": 2.0
+        },
+        {
+          "keyword": "next georgia tbilisi",
+          "volume": 50,
+          "cpc": 0.0,
+          "competition_index": 59,
+          "status": "CHECK_REQUIRED",
+          "historical_impressions": "",
+          "historical_conversions": 0
+        },
+        {
+          "keyword": "next tbilisi online",
+          "volume": 10,
+          "cpc": 0.0,
+          "competition_index": 0,
+          "status": "CHECK_REQUIRED",
+          "historical_impressions": "",
+          "historical_conversions": 0
+        },
+        {
+          "keyword": "next tbilisi pekini street",
+          "volume": 10,
+          "cpc": 0.0,
+          "competition_index": 0,
+          "status": "CHECK_REQUIRED",
+          "historical_impressions": "",
+          "historical_conversions": 0
+        },
+        {
+          "keyword": "Next Development Georgia",
+          "volume": 0,
+          "cpc": 0.0,
+          "competition_index": 0,
+          "status": "CHECK_REQUIRED",
+          "historical_impressions": 6,
+          "historical_conversions": 0
+        },
+        {
+          "keyword": "Next",
+          "volume": 0,
+          "cpc": 0.0,
+          "competition_index": 0,
+          "status": "CHECK_REQUIRED",
+          "historical_impressions": 1,
+          "historical_conversions": 0
+        }
+      ]
+    },
+    {
+      "name": "Eagle Hills",
+      "is_google_sheet": false,
+      "keyword_count": 3,
+      "top_volume": 210,
+      "best_keyword": "eagle hills tbilisi",
+      "avg_cpc": 0.68,
+      "keywords": [
+        {
+          "keyword": "eagle hills tbilisi",
+          "volume": 210,
+          "cpc": 2.04,
+          "competition_index": 38,
+          "status": "CHECK_REQUIRED",
+          "historical_impressions": 4,
+          "historical_conversions": 0
+        },
+        {
+          "keyword": "Eagle Hills",
+          "volume": 0,
+          "cpc": 0.0,
+          "competition_index": 0,
+          "status": "CHECK_REQUIRED",
+          "historical_impressions": 25,
+          "historical_conversions": 0
+        },
+        {
+          "keyword": "Eagle Hills Georgia",
+          "volume": 0,
+          "cpc": 0.0,
+          "competition_index": 0,
+          "status": "CHECK_REQUIRED",
+          "historical_impressions": 7,
+          "historical_conversions": 0
+        }
+      ]
+    },
+    {
+      "name": "Mtatsminda Panorama",
+      "is_google_sheet": true,
+      "keyword_count": 2,
+      "top_volume": 170,
+      "best_keyword": "mtatsminda panorama",
+      "avg_cpc": 0.53,
+      "keywords": [
+        {
+          "keyword": "mtatsminda panorama",
+          "volume": 170,
+          "cpc": 1.06,
+          "competition_index": 7,
+          "status": "CHECK_REQUIRED",
+          "historical_impressions": "",
+          "historical_conversions": 0
+        },
+        {
+          "keyword": "mtatsminda panorama tbilisi",
+          "volume": 0,
+          "cpc": 0.0,
+          "competition_index": 0,
+          "status": "CHECK_REQUIRED",
+          "historical_impressions": "",
+          "historical_conversions": 0
+        }
+      ]
+    },
+    {
+      "name": "Kings Garden",
+      "is_google_sheet": true,
+      "keyword_count": 2,
+      "top_volume": 90,
+      "best_keyword": "kings garden tbilisi",
+      "avg_cpc": 0.4,
+      "keywords": [
+        {
+          "keyword": "kings garden tbilisi",
+          "volume": 90,
+          "cpc": 0.79,
+          "competition_index": 33,
+          "status": "CHECK_REQUIRED",
+          "historical_impressions": "",
+          "historical_conversions": 0
+        },
+        {
+          "keyword": "kings garden тбилиси",
+          "volume": 0,
+          "cpc": 0.0,
+          "competition_index": 0,
+          "status": "CHECK_REQUIRED",
+          "historical_impressions": "",
+          "historical_conversions": 0
+        }
+      ]
+    },
+    {
+      "name": "Metropol Tbilisi",
+      "is_google_sheet": false,
+      "keyword_count": 1,
+      "top_volume": 70,
+      "best_keyword": "metropol tbilisi",
+      "avg_cpc": 1.25,
+      "keywords": [
+        {
+          "keyword": "metropol tbilisi",
+          "volume": 70,
+          "cpc": 1.25,
+          "competition_index": 36,
+          "status": "CHECK_REQUIRED",
+          "historical_impressions": 6,
+          "historical_conversions": 0
+        }
+      ]
+    },
+    {
+      "name": "Ocean Vake Park",
+      "is_google_sheet": true,
+      "keyword_count": 2,
+      "top_volume": 50,
+      "best_keyword": "ocean vake park",
+      "avg_cpc": 0.0,
+      "keywords": [
+        {
+          "keyword": "ocean vake park",
+          "volume": 50,
+          "cpc": 0.0,
+          "competition_index": 1,
+          "status": "CHECK_REQUIRED",
+          "historical_impressions": "",
+          "historical_conversions": 0
+        },
+        {
+          "keyword": "ocean vake park tbilisi",
+          "volume": 0,
+          "cpc": 0.0,
+          "competition_index": 0,
+          "status": "CHECK_REQUIRED",
+          "historical_impressions": "",
+          "historical_conversions": 0
+        }
+      ]
+    },
+    {
+      "name": "Biograpi",
+      "is_google_sheet": true,
+      "keyword_count": 2,
+      "top_volume": 50,
+      "best_keyword": "biograpi tbilisi",
+      "avg_cpc": 0.94,
+      "keywords": [
+        {
+          "keyword": "biograpi tbilisi",
+          "volume": 50,
+          "cpc": 1.89,
+          "competition_index": 61,
+          "status": "CHECK_REQUIRED",
+          "historical_impressions": "",
+          "historical_conversions": 0
+        },
+        {
+          "keyword": "biograpi тбилиси",
+          "volume": 0,
+          "cpc": 0.0,
+          "competition_index": 0,
+          "status": "CHECK_REQUIRED",
+          "historical_impressions": "",
+          "historical_conversions": 0
+        }
+      ]
+    },
+    {
+      "name": "Domus Tbilisi",
+      "is_google_sheet": false,
+      "keyword_count": 1,
+      "top_volume": 50,
+      "best_keyword": "domus tbilisi",
+      "avg_cpc": 1.38,
+      "keywords": [
+        {
+          "keyword": "domus tbilisi",
+          "volume": 50,
+          "cpc": 1.38,
+          "competition_index": 45,
+          "status": "CHECK_REQUIRED",
+          "historical_impressions": 37,
+          "historical_conversions": 0
+        }
+      ]
+    },
+    {
+      "name": "Archi Tower",
+      "is_google_sheet": false,
+      "keyword_count": 2,
+      "top_volume": 30,
+      "best_keyword": "archi tower tbilisi",
+      "avg_cpc": 0.43,
+      "keywords": [
+        {
+          "keyword": "archi tower tbilisi",
+          "volume": 30,
+          "cpc": 0.87,
+          "competition_index": 44,
+          "status": "CHECK_REQUIRED",
+          "historical_impressions": "",
+          "historical_conversions": 0
+        },
+        {
+          "keyword": "Archi Towers",
+          "volume": 0,
+          "cpc": 0.0,
+          "competition_index": 0,
+          "status": "CHECK_REQUIRED",
+          "historical_impressions": 0,
+          "historical_conversions": 0
+        }
+      ]
+    },
+    {
+      "name": "Orbi Group",
+      "is_google_sheet": false,
+      "keyword_count": 3,
+      "top_volume": 30,
+      "best_keyword": "orbi group tbilisi",
+      "avg_cpc": 0.51,
+      "keywords": [
+        {
+          "keyword": "orbi group tbilisi",
+          "volume": 30,
+          "cpc": 1.53,
+          "competition_index": 33,
+          "status": "CHECK_REQUIRED",
+          "historical_impressions": "",
+          "historical_conversions": 0
+        },
+        {
+          "keyword": "orbi group тбилиси",
+          "volume": 0,
+          "cpc": 0.0,
+          "competition_index": 0,
+          "status": "CHECK_REQUIRED",
+          "historical_impressions": "",
+          "historical_conversions": 0
+        },
+        {
+          "keyword": "Orbi Group",
+          "volume": 0,
+          "cpc": 0.0,
+          "competition_index": 0,
+          "status": "CHECK_REQUIRED",
+          "historical_impressions": 51,
+          "historical_conversions": 0
+        }
+      ]
+    },
+    {
+      "name": "Archi Georgia",
+      "is_google_sheet": false,
+      "keyword_count": 1,
+      "top_volume": 20,
+      "best_keyword": "archi georgia",
+      "avg_cpc": 2.68,
+      "keywords": [
+        {
+          "keyword": "archi georgia",
+          "volume": 20,
+          "cpc": 2.68,
+          "competition_index": 32,
+          "status": "CHECK_REQUIRED",
+          "historical_impressions": 47,
+          "historical_conversions": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Old City Panorama",
+      "is_google_sheet": true,
+      "keyword_count": 1,
+      "top_volume": 10,
+      "best_keyword": "old city panorama tbilisi",
+      "avg_cpc": 0.0,
+      "keywords": [
+        {
+          "keyword": "old city panorama tbilisi",
+          "volume": 10,
+          "cpc": 0.0,
+          "competition_index": 27,
+          "status": "CHECK_REQUIRED",
+          "historical_impressions": "",
+          "historical_conversions": 0
+        }
+      ]
+    },
+    {
+      "name": "Momaliv",
+      "is_google_sheet": true,
+      "keyword_count": 1,
+      "top_volume": 10,
+      "best_keyword": "momaliv tbilisi",
+      "avg_cpc": 2.55,
+      "keywords": [
+        {
+          "keyword": "momaliv tbilisi",
+          "volume": 10,
+          "cpc": 2.55,
+          "competition_index": 64,
+          "status": "CHECK_REQUIRED",
+          "historical_impressions": "",
+          "historical_conversions": 0
+        }
+      ]
+    },
+    {
+      "name": "Domus",
+      "is_google_sheet": false,
+      "keyword_count": 6,
+      "top_volume": 10,
+      "best_keyword": "domus development tbilisi",
+      "avg_cpc": 0.0,
+      "keywords": [
+        {
+          "keyword": "domus development tbilisi",
+          "volume": 10,
+          "cpc": 0.0,
+          "competition_index": 32,
+          "status": "CHECK_REQUIRED",
+          "historical_impressions": "",
+          "historical_conversions": 0
+        },
+        {
+          "keyword": "Domus",
+          "volume": 0,
+          "cpc": 0.0,
+          "competition_index": 0,
+          "status": "CHECK_REQUIRED",
+          "historical_impressions": 14,
+          "historical_conversions": 1.0
+        },
+        {
+          "keyword": "Domus Georgia",
+          "volume": 0,
+          "cpc": 0.0,
+          "competition_index": 0,
+          "status": "CHECK_REQUIRED",
+          "historical_impressions": 9,
+          "historical_conversions": 0
+        },
+        {
+          "keyword": "Domus Development",
+          "volume": 0,
+          "cpc": 0.0,
+          "competition_index": 0,
+          "status": "CHECK_REQUIRED",
+          "historical_impressions": 4,
+          "historical_conversions": 0
+        },
+        {
+          "keyword": "Domus projects",
+          "volume": 0,
+          "cpc": 0.0,
+          "competition_index": 0,
+          "status": "CHECK_REQUIRED",
+          "historical_impressions": 1,
+          "historical_conversions": 0
+        },
+        {
+          "keyword": "Domus apartments",
+          "volume": 0,
+          "cpc": 0.0,
+          "competition_index": 0,
+          "status": "CHECK_REQUIRED",
+          "historical_impressions": 0,
+          "historical_conversions": 0
+        }
+      ]
+    },
+    {
+      "name": "ZION Orangery",
+      "is_google_sheet": true,
+      "keyword_count": 3,
+      "top_volume": 0,
+      "best_keyword": "zion orangery tbilisi",
+      "avg_cpc": 0.0,
+      "keywords": [
+        {
+          "keyword": "zion orangery tbilisi",
+          "volume": 0,
+          "cpc": 0.0,
+          "competition_index": 0,
+          "status": "CHECK_REQUIRED",
+          "historical_impressions": "",
+          "historical_conversions": 0
+        },
+        {
+          "keyword": "zion orangery apartments",
+          "volume": 0,
+          "cpc": 0.0,
+          "competition_index": 0,
+          "status": "CHECK_REQUIRED",
+          "historical_impressions": "",
+          "historical_conversions": 0
+        },
+        {
+          "keyword": "zion orangery тбилиси",
+          "volume": 0,
+          "cpc": 0.0,
+          "competition_index": 0,
+          "status": "CHECK_REQUIRED",
+          "historical_impressions": "",
+          "historical_conversions": 0
+        }
+      ]
+    },
+    {
+      "name": "Krtsanisi Dev",
+      "is_google_sheet": false,
+      "keyword_count": 1,
+      "top_volume": 0,
+      "best_keyword": "krtsanisi development",
+      "avg_cpc": 0.0,
+      "keywords": [
+        {
+          "keyword": "krtsanisi development",
+          "volume": 0,
+          "cpc": 0.0,
+          "competition_index": 0,
+          "status": "CHECK_REQUIRED",
+          "historical_impressions": 133,
+          "historical_conversions": 1.0
+        }
+      ]
+    },
+    {
+      "name": "INO",
+      "is_google_sheet": true,
+      "keyword_count": 2,
+      "top_volume": 0,
+      "best_keyword": "ino tbilisi",
+      "avg_cpc": 0.0,
+      "keywords": [
+        {
+          "keyword": "ino tbilisi",
+          "volume": 0,
+          "cpc": 0.0,
+          "competition_index": 0,
+          "status": "CHECK_REQUIRED",
+          "historical_impressions": "",
+          "historical_conversions": 0
+        },
+        {
+          "keyword": "ino тбилиси",
+          "volume": 0,
+          "cpc": 0.0,
+          "competition_index": 0,
+          "status": "CHECK_REQUIRED",
+          "historical_impressions": "",
+          "historical_conversions": 0
+        }
+      ]
+    },
+    {
+      "name": "Latteral",
+      "is_google_sheet": true,
+      "keyword_count": 1,
+      "top_volume": 0,
+      "best_keyword": "latteral tbilisi",
+      "avg_cpc": 0.0,
+      "keywords": [
+        {
+          "keyword": "latteral tbilisi",
+          "volume": 0,
+          "cpc": 0.0,
+          "competition_index": 0,
+          "status": "CHECK_REQUIRED",
+          "historical_impressions": "",
+          "historical_conversions": 0
+        }
+      ]
+    },
+    {
+      "name": "Archi",
+      "is_google_sheet": false,
+      "keyword_count": 2,
+      "top_volume": 0,
+      "best_keyword": "archi тбилиси",
+      "avg_cpc": 0.0,
+      "keywords": [
+        {
+          "keyword": "archi тбилиси",
+          "volume": 0,
+          "cpc": 0.0,
+          "competition_index": 0,
+          "status": "CHECK_REQUIRED",
+          "historical_impressions": "",
+          "historical_conversions": 0
+        },
+        {
+          "keyword": "Archi",
+          "volume": 0,
+          "cpc": 0.0,
+          "competition_index": 0,
+          "status": "CHECK_REQUIRED",
+          "historical_impressions": 139,
+          "historical_conversions": 3.0
+        }
+      ]
+    },
+    {
+      "name": "Orbi Tbilisi",
+      "is_google_sheet": false,
+      "keyword_count": 2,
+      "top_volume": 0,
+      "best_keyword": "orbi tbilisi apartments",
+      "avg_cpc": 0.0,
+      "keywords": [
+        {
+          "keyword": "orbi tbilisi apartments",
+          "volume": 0,
+          "cpc": 0.0,
+          "competition_index": 0,
+          "status": "CHECK_REQUIRED",
+          "historical_impressions": "",
+          "historical_conversions": 0
+        },
+        {
+          "keyword": "Orbi Tbilisi",
+          "volume": 0,
+          "cpc": 0.0,
+          "competition_index": 0,
+          "status": "CHECK_REQUIRED",
+          "historical_impressions": 8,
+          "historical_conversions": 0
+        }
+      ]
+    },
+    {
+      "name": "Orbi",
+      "is_google_sheet": false,
+      "keyword_count": 2,
+      "top_volume": 0,
+      "best_keyword": "Orbi",
+      "avg_cpc": 0.0,
+      "keywords": [
+        {
+          "keyword": "Orbi",
+          "volume": 0,
+          "cpc": 0.0,
+          "competition_index": 0,
+          "status": "CHECK_REQUIRED",
+          "historical_impressions": 23,
+          "historical_conversions": 0
+        },
+        {
+          "keyword": "Orbi Georgia",
+          "volume": 0,
+          "cpc": 0.0,
+          "competition_index": 0,
+          "status": "CHECK_REQUIRED",
+          "historical_impressions": 8,
+          "historical_conversions": 0
+        }
+      ]
+    },
+    {
+      "name": "Archi Panorama",
+      "is_google_sheet": false,
+      "keyword_count": 2,
+      "top_volume": 0,
+      "best_keyword": "Archi Panorama Tbilisi",
+      "avg_cpc": 0.0,
+      "keywords": [
+        {
+          "keyword": "Archi Panorama Tbilisi",
+          "volume": 0,
+          "cpc": 0.0,
+          "competition_index": 0,
+          "status": "CHECK_REQUIRED",
+          "historical_impressions": 21,
+          "historical_conversions": 0
+        },
+        {
+          "keyword": "Archi Panorama",
+          "volume": 0,
+          "cpc": 0.0,
+          "competition_index": 0,
+          "status": "CHECK_REQUIRED",
+          "historical_impressions": 2,
+          "historical_conversions": 0
+        }
+      ]
+    },
+    {
+      "name": "Archi Apartment",
+      "is_google_sheet": false,
+      "keyword_count": 1,
+      "top_volume": 0,
+      "best_keyword": "Archi apartments",
+      "avg_cpc": 0.0,
+      "keywords": [
+        {
+          "keyword": "Archi apartments",
+          "volume": 0,
+          "cpc": 0.0,
+          "competition_index": 0,
+          "status": "CHECK_REQUIRED",
+          "historical_impressions": 20,
+          "historical_conversions": 0
+        }
+      ]
+    },
+    {
+      "name": "Gumbati",
+      "is_google_sheet": false,
+      "keyword_count": 3,
+      "top_volume": 0,
+      "best_keyword": "Gumbati Group",
+      "avg_cpc": 0.0,
+      "keywords": [
+        {
+          "keyword": "Gumbati Group",
+          "volume": 0,
+          "cpc": 0.0,
+          "competition_index": 0,
+          "status": "CHECK_REQUIRED",
+          "historical_impressions": 12,
+          "historical_conversions": 0
+        },
+        {
+          "keyword": "Gumbati",
+          "volume": 0,
+          "cpc": 0.0,
+          "competition_index": 0,
+          "status": "CHECK_REQUIRED",
+          "historical_impressions": 11,
+          "historical_conversions": 0
+        },
+        {
+          "keyword": "Gumbati Tbilisi",
+          "volume": 0,
+          "cpc": 0.0,
+          "competition_index": 0,
+          "status": "CHECK_REQUIRED",
+          "historical_impressions": 2,
+          "historical_conversions": 0
+        }
+      ]
+    },
+    {
+      "name": "Real Palace",
+      "is_google_sheet": false,
+      "keyword_count": 3,
+      "top_volume": 0,
+      "best_keyword": "Real Palace Tbilisi",
+      "avg_cpc": 0.0,
+      "keywords": [
+        {
+          "keyword": "Real Palace Tbilisi",
+          "volume": 0,
+          "cpc": 0.0,
+          "competition_index": 0,
+          "status": "CHECK_REQUIRED",
+          "historical_impressions": 12,
+          "historical_conversions": 0
+        },
+        {
+          "keyword": "Real Palace",
+          "volume": 0,
+          "cpc": 0.0,
+          "competition_index": 0,
+          "status": "CHECK_REQUIRED",
+          "historical_impressions": 2,
+          "historical_conversions": 0
+        },
+        {
+          "keyword": "Real Palace Development",
+          "volume": 0,
+          "cpc": 0.0,
+          "competition_index": 0,
+          "status": "CHECK_REQUIRED",
+          "historical_impressions": 0,
+          "historical_conversions": 0
+        }
+      ]
+    },
+    {
+      "name": "Zion Tbilisi",
+      "is_google_sheet": false,
+      "keyword_count": 1,
+      "top_volume": 0,
+      "best_keyword": "Zion Tbilisi",
+      "avg_cpc": 0.0,
+      "keywords": [
+        {
+          "keyword": "Zion Tbilisi",
+          "volume": 0,
+          "cpc": 0.0,
+          "competition_index": 0,
+          "status": "CHECK_REQUIRED",
+          "historical_impressions": 11,
+          "historical_conversions": 0
+        }
+      ]
+    },
+    {
+      "name": "Zion",
+      "is_google_sheet": false,
+      "keyword_count": 6,
+      "top_volume": 0,
+      "best_keyword": "Zion Development",
+      "avg_cpc": 0.0,
+      "keywords": [
+        {
+          "keyword": "Zion Development",
+          "volume": 0,
+          "cpc": 0.0,
+          "competition_index": 0,
+          "status": "CHECK_REQUIRED",
+          "historical_impressions": 6,
+          "historical_conversions": 0
+        },
+        {
+          "keyword": "Zion Krtsanisi Embassies",
+          "volume": 0,
+          "cpc": 0.0,
+          "competition_index": 0,
+          "status": "CHECK_REQUIRED",
+          "historical_impressions": 2,
+          "historical_conversions": 0
+        },
+        {
+          "keyword": "Zion",
+          "volume": 0,
+          "cpc": 0.0,
+          "competition_index": 0,
+          "status": "CHECK_REQUIRED",
+          "historical_impressions": 0,
+          "historical_conversions": 0
+        },
+        {
+          "keyword": "Zion apartments",
+          "volume": 0,
+          "cpc": 0.0,
+          "competition_index": 0,
+          "status": "CHECK_REQUIRED",
+          "historical_impressions": 0,
+          "historical_conversions": 0
+        },
+        {
+          "keyword": "Zion Georgia",
+          "volume": 0,
+          "cpc": 0.0,
+          "competition_index": 0,
+          "status": "CHECK_REQUIRED",
+          "historical_impressions": 0,
+          "historical_conversions": 0
+        },
+        {
+          "keyword": "Zion Krtsanisi",
+          "volume": 0,
+          "cpc": 0.0,
+          "competition_index": 0,
+          "status": "CHECK_REQUIRED",
+          "historical_impressions": 0,
+          "historical_conversions": 0
+        }
+      ]
+    },
+    {
+      "name": "Archi Group",
+      "is_google_sheet": false,
+      "keyword_count": 1,
+      "top_volume": 0,
+      "best_keyword": "Archi Group",
+      "avg_cpc": 0.0,
+      "keywords": [
+        {
+          "keyword": "Archi Group",
+          "volume": 0,
+          "cpc": 0.0,
+          "competition_index": 0,
+          "status": "CHECK_REQUIRED",
+          "historical_impressions": 3,
+          "historical_conversions": 0
+        }
+      ]
+    },
+    {
+      "name": "Parkwood",
+      "is_google_sheet": false,
+      "keyword_count": 2,
+      "top_volume": 0,
+      "best_keyword": "Parkwood",
+      "avg_cpc": 0.0,
+      "keywords": [
+        {
+          "keyword": "Parkwood",
+          "volume": 0,
+          "cpc": 0.0,
+          "competition_index": 0,
+          "status": "CHECK_REQUIRED",
+          "historical_impressions": 2,
+          "historical_conversions": 0
+        },
+        {
+          "keyword": "Parkwood Tbilisi",
+          "volume": 0,
+          "cpc": 0.0,
+          "competition_index": 0,
+          "status": "CHECK_REQUIRED",
+          "historical_impressions": 0,
+          "historical_conversions": 0
+        }
+      ]
+    },
+    {
+      "name": "Archi Vake",
+      "is_google_sheet": false,
+      "keyword_count": 1,
+      "top_volume": 0,
+      "best_keyword": "Archi Vake",
+      "avg_cpc": 0.0,
+      "keywords": [
+        {
+          "keyword": "Archi Vake",
+          "volume": 0,
+          "cpc": 0.0,
+          "competition_index": 0,
+          "status": "CHECK_REQUIRED",
+          "historical_impressions": 0,
+          "historical_conversions": 0
+        }
+      ]
+    }
+  ]
+}

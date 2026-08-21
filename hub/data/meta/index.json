@@ -1,0 +1,15 @@
+{
+  "status": "DATA_PENDING",
+  "message": "Meta audience research not yet conducted",
+  "sections": [
+    "Executive Summary",
+    "Audience Strategy",
+    "Creative Strategy",
+    "Campaign Architecture",
+    "Budget & Bidding",
+    "Analytics",
+    "Optimization",
+    "KPI",
+    "Roadmap"
+  ]
+}

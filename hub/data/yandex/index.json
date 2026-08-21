@@ -1,0 +1,21 @@
+{
+  "status": "DATA_PENDING",
+  "message": "Wordstat research not yet conducted",
+  "sections": [
+    "Executive Summary",
+    "Market & Search Demand",
+    "Geo Strategy",
+    "Language Strategy",
+    "Keyword Architecture",
+    "Campaign Architecture",
+    "Negative Keywords",
+    "Ads & Messaging",
+    "Landing Page Strategy",
+    "Budget & Bidding",
+    "Analytics",
+    "Optimization",
+    "Testing",
+    "KPI",
+    "Roadmap"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "google": {
+    "status": "LIVE",
+    "note": "Tracking setup required"
+  },
+  "yandex": {
+    "status": "DATA_PENDING"
+  },
+  "meta": {
+    "status": "DATA_PENDING"
+  },
+  "total": {
+    "status": "DATA_PENDING"
+  }
+}

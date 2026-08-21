@@ -1,0 +1,144 @@
+{
+  "categories": [
+    {
+      "pool": "O",
+      "label": "Rental",
+      "status": "EXCLUDED_RENTAL",
+      "count": 1840,
+      "examples": [
+        "посуточные квартиры в тбилиси",
+        "apartment for rent in tbilisi",
+        "apartments for rent in tbilisi georgia",
+        "flats for rent in tbilisi",
+        "flats for rent in tbilisi georgia",
+        "снять квартиру в тбилиси",
+        "сниму квартиру в тбилиси",
+        "аренда квартир в тбилиси",
+        "аренда квартира в тбилиси",
+        "аренда квартир тбилиси",
+        "rent in tbilisi",
+        "rentals in tbilisi georgia",
+        "снять квартиру тбилиси",
+        "rent house in tbilisi",
+        "house for rent in tbilisi georgia",
+        "tbilisi home rent",
+        "rent home in tbilisi",
+        "снять квартиру в тбилиси на длительный срок",
+        "сниму квартиру в тбилиси на длительный срок",
+        "снять квартиру в тбилиси на длительный срок недорого"
+      ]
+    },
+    {
+      "pool": "N",
+      "label": "Batumi & Georgian Cities",
+      "status": "EXCLUDED_BATUMI",
+      "count": 478,
+      "examples": [
+        "купить квартиру в батуми",
+        "куплю квартиру в батуми",
+        "снять квартиры в батуми",
+        "аренда квартир в батуми",
+        "аренда квартир батуми",
+        "купить квартиру батуми",
+        "квартиры батуми",
+        "снять квартиру батуми",
+        "квартиры в батуми",
+        "квартира в батуми купить",
+        "купить дом в батуми",
+        "купить квартиру в батуми вторичка",
+        "квартири в батуми купить",
+        "недвижимость батуми",
+        "продажа квартир батуми",
+        "срочная продажа квартир в батуми",
+        "квартиры в батуми аренда",
+        "квартира в батуми аренда",
+        "квартиры батуми аренда",
+        "купить квартиру в рустави"
+      ]
+    },
+    {
+      "pool": "M",
+      "label": "US Georgia",
+      "status": "EXCLUDED_US_GEORGIA",
+      "count": 689,
+      "examples": [
+        "houses in atlanta for sale",
+        "atlanta apartments for sale",
+        "athens ga houses for sale",
+        "houses for sale in alpharetta",
+        "atlanta georgia apartments for sale",
+        "macon georgia houses for sale",
+        "houses in midtown atlanta",
+        "condos athens ga",
+        "peachtree city ga houses for sale",
+        "houses for sale cobb county",
+        "apartments for sale midtown atlanta",
+        "columbus ga zillow",
+        "rome ga zillow",
+        "decatur ga zillow",
+        "flats for sale in atlanta",
+        "highrise apartment atlanta",
+        "luxury apartments athens ga",
+        "atlanta luxury homes",
+        "atlanta luxury homes for sale",
+        "furnished apartments athens ga"
+      ]
+    },
+    {
+      "pool": "L",
+      "label": "Hotels",
+      "status": "EXCLUDED_HOTEL",
+      "count": 7,
+      "examples": [
+        "pullman tbilisi axis towers",
+        "axis towers tbilisi",
+        "orbeliani residence hotel tbilisi",
+        "hotel villa residence tbilisi",
+        "отель пентхаус тбилиси",
+        "hotel penthouse tbilisi",
+        "Axis Towers"
+      ]
+    },
+    {
+      "pool": "K",
+      "label": "General Irrelevant",
+      "status": "EXCLUDED_GENERAL",
+      "count": 125,
+      "examples": [
+        "купить дом в грузии",
+        "buy house in tbilisi",
+        "tbilisi houses for sale",
+        "buy house in tbilisi georgia",
+        "купить дом в тбилиси",
+        "купить дом в ахалкалаки",
+        "купить дом тбилиси",
+        "купить дом грузия",
+        "дом в тбилиси купить",
+        "дом в тбилиси",
+        "коммерческая недвижимость тбилиси",
+        "купить дом в тбилиси недорого",
+        "купить дом в грузии у моря недорого",
+        "купить дом в грузии в деревне",
+        "дом в грузии купить",
+        "купить дом в грузии недорого",
+        "купить дом в чакви",
+        "land for sale in tbilisi",
+        "land for sale tbilisi",
+        "коммерческая недвижимость в тбилиси"
+      ]
+    },
+    {
+      "pool": "P",
+      "label": "Seller Intent",
+      "status": "EXCLUDED_SELLER_INTENT",
+      "count": 4,
+      "examples": [
+        "срочно продам квартиру в тбилиси без посредников срочно",
+        "срочно продам квартиру в тбилиси",
+        "продам квартиру в тбилиси",
+        "продам квартиру в грузии"
+      ]
+    }
+  ],
+  "total": 3143
+}

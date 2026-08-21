@@ -1,0 +1,186 @@
+/* ============================================================
+   ELYSIUM TBILISI — Marketing Intelligence Hub
+   animations.css — Transitions & Motion
+   ============================================================ */
+
+/* ============================================================
+   VIEW TRANSITIONS
+   ============================================================ */
+
+.view {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 240ms ease, transform 240ms var(--ease-out);
+  pointer-events: none;
+  display: none;
+}
+
+.view.active {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+  display: block;
+}
+
+/* Fade in animation on section reveal */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-in {
+  animation: fadeInUp 320ms var(--ease-out) forwards;
+}
+
+/* ============================================================
+   LOADING SKELETON
+   ============================================================ */
+
+@keyframes shimmer {
+  0%   { background-position: -400px 0; }
+  100% { background-position: 400px 0; }
+}
+
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--bg-elevated) 25%,
+    var(--bg-hover) 50%,
+    var(--bg-elevated) 75%
+  );
+  background-size: 800px 100%;
+  animation: shimmer 1.4s infinite;
+  border-radius: var(--radius-sm);
+}
+
+.skeleton-text {
+  height: 12px;
+  margin-bottom: 8px;
+}
+
+.skeleton-text.w-80 { width: 80%; }
+.skeleton-text.w-60 { width: 60%; }
+.skeleton-text.w-40 { width: 40%; }
+
+.skeleton-value {
+  height: 28px;
+  width: 80px;
+}
+
+/* ============================================================
+   HOVER TRANSITIONS (already defined in main, extras here)
+   ============================================================ */
+
+/* Smooth all interactive elements */
+.channel-tab,
+.filter-btn,
+.page-btn,
+.sidebar-nav-link,
+.header-nav-btn,
+.metric-card,
+.campaign-card,
+.intent-card,
+.geo-card,
+.schedule-card,
+.bidding-phase,
+.competitor-table tbody tr,
+.data-table tbody tr,
+.kpi-table tbody tr,
+.test-table tbody tr,
+.negatives-table tbody tr,
+.intent-map-table tbody tr {
+  transition-timing-function: ease;
+  transition-duration: 160ms;
+}
+
+/* Focus ring for accessibility */
+button:focus-visible,
+a:focus-visible,
+.sidebar-nav-link:focus-visible,
+.filter-btn:focus-visible,
+.page-btn:focus-visible,
+.channel-tab:focus-visible,
+.header-nav-btn:focus-visible {
+  outline: 2px solid rgba(196,168,130,0.5);
+  outline-offset: 2px;
+}
+
+/* ============================================================
+   TABLE SORT INDICATOR ANIMATION
+   ============================================================ */
+
+.th-sort-icon {
+  transition: transform 200ms ease;
+}
+
+th.sorted-asc .th-sort-icon {
+  transform: rotate(180deg);
+}
+
+/* ============================================================
+   SECTION VISIBILITY (IntersectionObserver targets)
+   ============================================================ */
+
+.section-block {
+  transition: none;
+}
+
+/* Sidebar active state flicker prevention */
+.sidebar-nav-link {
+  will-change: color;
+}
+
+/* ============================================================
+   CHANNEL SWITCHER ANIMATION
+   ============================================================ */
+
+.channel-pane {
+  display: none;
+  opacity: 0;
+  animation: fadeInUp 260ms var(--ease-out) forwards;
+}
+
+.channel-pane.active {
+  display: block;
+  opacity: 1;
+}
+
+/* ============================================================
+   SIDEBAR OPEN/CLOSE
+   ============================================================ */
+
+#sidebar {
+  will-change: transform;
+}
+
+/* ============================================================
+   TOOLTIP (future-proof)
+   ============================================================ */
+
+[data-tooltip] {
+  position: relative;
+}
+
+[data-tooltip]:hover::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-sm);
+  padding: 5px 10px;
+  font-size: 11px;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 100;
+  animation: fadeInUp 180ms ease forwards;
+}

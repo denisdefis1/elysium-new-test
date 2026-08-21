@@ -1,0 +1,265 @@
+{
+  "budget_total_monthly": 500,
+  "budget_currency": "USD",
+  "allocation_principle": "25% per campaign",
+  "campaigns": [
+    {
+      "id": 1,
+      "name": "Brand — ELYSIUM",
+      "name_short": "Brand",
+      "budget_pct": 25,
+      "budget_monthly": 125,
+      "budget_daily_approx": 4.2,
+      "intent": "Brand protection & hottest leads",
+      "geo": [
+        "Israel",
+        "Ukraine",
+        "Belarus"
+      ],
+      "languages": [
+        "RU",
+        "EN"
+      ],
+      "match_types": [
+        "Exact",
+        "Phrase"
+      ],
+      "bidding": "Manual CPC",
+      "landing_page": "elysiumtbilisi.com (lang=auto)",
+      "pool_sources": [
+        "Brand terms"
+      ],
+      "keyword_count_approx": 15,
+      "priority": "HIGHEST",
+      "notes": "Always-on. Protect brand from competitor bidding. Highest expected CR.",
+      "ad_groups": [
+        {
+          "name": "Brand — RU",
+          "examples": [
+            "Elysium Тбилиси",
+            "Элизиум Тбилиси",
+            "бутик резиденция элизиум",
+            "резиденция элизиум тбилиси"
+          ]
+        },
+        {
+          "name": "Brand — EN",
+          "examples": [
+            "Elysium Tbilisi",
+            "Elysium residence Tbilisi",
+            "boutique residence elysium",
+            "elysium apartments tbilisi"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Core Premium Purchase — RU",
+      "name_short": "Core RU",
+      "budget_pct": 25,
+      "budget_monthly": 125,
+      "budget_daily_approx": 4.2,
+      "intent": "Direct purchase intent, Russian-language",
+      "geo": [
+        "Ukraine",
+        "Belarus",
+        "Israel"
+      ],
+      "languages": [
+        "RU"
+      ],
+      "match_types": [
+        "Exact",
+        "Phrase"
+      ],
+      "bidding": "Manual CPC → Enhanced CPC after 20+ conv",
+      "landing_page": "elysiumtbilisi.com/?lang=ru",
+      "pool_sources": [
+        "A",
+        "B",
+        "E",
+        "F",
+        "G"
+      ],
+      "keyword_count_approx": 130,
+      "priority": "PRIMARY",
+      "notes": "Largest volume campaign. Covers direct purchase RU queries. Split into focused ad groups by sub-intent.",
+      "ad_groups": [
+        {
+          "name": "Покупка апартаментов — Тбилиси",
+          "examples": [
+            "купить квартиру в тбилиси",
+            "купить апартаменты тбилиси",
+            "апартаменты в тбилиси купить"
+          ]
+        },
+        {
+          "name": "Покупка недвижимости — Грузия",
+          "examples": [
+            "купить квартиру в грузии",
+            "недвижимость тбилиси купить",
+            "продажа квартир тбилиси"
+          ]
+        },
+        {
+          "name": "Премиум / Элитная",
+          "examples": [
+            "элитная квартира тбилиси",
+            "элитная недвижимость тбилиси",
+            "премиум недвижимость тбилиси"
+          ]
+        },
+        {
+          "name": "Инвестиции",
+          "examples": [
+            "инвестиции в недвижимость грузии",
+            "инвестиционная квартира тбилиси",
+            "купить квартиру для инвестиций"
+          ]
+        },
+        {
+          "name": "Районы Тбилиси",
+          "examples": [
+            "квартира ваке тбилиси",
+            "апартаменты вера тбилиси",
+            "квартира мтацминда тбилиси"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Core Premium Purchase — EN",
+      "name_short": "Core EN",
+      "budget_pct": 25,
+      "budget_monthly": 125,
+      "budget_daily_approx": 4.2,
+      "intent": "Direct purchase intent, English-language",
+      "geo": [
+        "Israel",
+        "Ukraine",
+        "Belarus"
+      ],
+      "languages": [
+        "EN"
+      ],
+      "match_types": [
+        "Exact",
+        "Phrase"
+      ],
+      "bidding": "Manual CPC → Enhanced CPC after 20+ conv",
+      "landing_page": "elysiumtbilisi.com/?lang=en",
+      "pool_sources": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ],
+      "keyword_count_approx": 80,
+      "priority": "PRIMARY",
+      "notes": "Israel primary geo. Covers direct EN purchase queries, luxury and penthouse.",
+      "ad_groups": [
+        {
+          "name": "Buy Apartment Tbilisi",
+          "examples": [
+            "buy apartment in tbilisi",
+            "apartments for sale tbilisi",
+            "buy flat tbilisi",
+            "flat for sale in tbilisi"
+          ]
+        },
+        {
+          "name": "Luxury / Premium Residence",
+          "examples": [
+            "luxury apartment tbilisi",
+            "luxury apartments tbilisi",
+            "premium apartment tbilisi",
+            "exclusive apartment tbilisi"
+          ]
+        },
+        {
+          "name": "Penthouse Tbilisi",
+          "examples": [
+            "penthouse in tbilisi",
+            "penthouse tbilisi",
+            "tbilisi penthouse"
+          ]
+        },
+        {
+          "name": "Investment Property",
+          "examples": [
+            "investment property georgia",
+            "investment apartment tbilisi",
+            "buy property for investment tbilisi"
+          ]
+        },
+        {
+          "name": "Large Format / 130+ m²",
+          "examples": [
+            "large apartment tbilisi",
+            "spacious apartment tbilisi",
+            "3 bedroom apartment tbilisi"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Competitors",
+      "name_short": "Competitors",
+      "budget_pct": 25,
+      "budget_monthly": 125,
+      "budget_daily_approx": 4.2,
+      "intent": "Intercept audience researching comparable premium projects",
+      "geo": [
+        "Israel",
+        "Ukraine",
+        "Belarus"
+      ],
+      "languages": [
+        "RU",
+        "EN"
+      ],
+      "match_types": [
+        "Phrase"
+      ],
+      "bidding": "Manual CPC (conservative, review after 30d)",
+      "landing_page": "elysiumtbilisi.com (differentiation messaging)",
+      "pool_sources": [
+        "I"
+      ],
+      "keyword_count_approx": 25,
+      "priority": "SECONDARY",
+      "requires_manual_review": true,
+      "notes": "All 87 Pool I keywords are CHECK_REQUIRED — manual review before enabling. Launch top 20-25 highest-relevance first.",
+      "launch_priority": [
+        "park home vake",
+        "krtsanisi villa residence",
+        "gergeti rise residence",
+        "cityzen tbilisi",
+        "next tbilisi",
+        "mtatsminda panorama"
+      ],
+      "ad_groups": [
+        {
+          "name": "Premium Competitors — EN",
+          "examples": [
+            "park home vake",
+            "gergeti rise residence",
+            "cityzen tbilisi",
+            "next tbilisi"
+          ]
+        },
+        {
+          "name": "Premium Competitors — RU",
+          "examples": [
+            "крцаниси резиденция",
+            "парк хоум вейк"
+          ]
+        }
+      ]
+    }
+  ]
+}
