@@ -3171,7 +3171,7 @@
       "competition": "LOW",
       "competition_index": 30,
       "cpc": 0.73,
-      "status": "KEEP",
+      "status": "EXCLUDED_PROPERTY_TYPE",
       "intent": "PURCHASE",
       "district": "",
       "geo_signal": "GEORGIA",
