@@ -959,102 +959,85 @@ function negReason(status) {
 
 /* ---- S09 Объявления и тексты ---- */
 function renderS09() {
-  const camp1RuHeadlines = [
-    'ELYSIUM Тбилиси',
-    'Бутик-резиденция ELYSIUM',
-    'Дом введён в эксплуатацию',
-    '14 апартаментов от 130 м²',
-    'Открыта к просмотру',
-    'Свободная планировка',
-    'Панорамный вид из каждой',
-    'Тишина и приватность',
-    'Подземный паркинг',
-    'Записаться на показ',
-    'Информация о проекте',
-    '2 квартиры на этаже',
-    'Генератор. Резервуар.',
-    'Приватность. Безопасность.',
-    'Не комплекс — бутик',
-  ];
-  const camp1RuDescs = [
-    'ELYSIUM — бутик-резиденция. 14 апартаментов от 130 м². Дом введён в эксплуатацию.',
-    'Открыта к просмотру. Свободная планировка. Без несущих стен. Панорамный вид.',
-    'Приватность. Безопасность. Подземный паркинг. Независимость от коммуникаций.',
-    'Записаться на показ — запросите планировки, цены и полную информацию о проекте.',
-  ];
-  const camp1EnHeadlines = [
-    'ELYSIUM Boutique Residence',
-    'ELYSIUM Tbilisi',
-    'Building Commissioned & Ready',
-    'Open for Private Viewing',
-    '14 Apartments from 130 m²',
-    'Boutique — Not a Complex',
-    'Free Floor Plan — No Walls',
-    'Panoramic Views from Every Apt',
-    'Privacy. Security. Silence.',
-    'Underground Parking Included',
-    'Generator & Water Reserve',
-    'Book a Private Viewing',
-    'Full Project Information',
-    '2 Apartments per Floor',
-    'Only 14 Boutique Residences',
-  ];
-  const camp1EnDescs = [
-    'ELYSIUM Boutique Residence in Tbilisi. 14 apartments from 130 m². Building commissioned.',
-    'Open for private viewing. Free floor plan. Panoramic views from every residence.',
-    'Privacy, security, silence. Underground parking. Generator & 70-ton water reserve.',
-    'Book a private viewing. Request plans, pricing, and full project details.',
-  ];
+  /* ── RSA DATA ─────────────────────────────────────────────── */
 
-  const camp2RuHeadlines = [
-    {text:'Апартаменты от 130 м²', pin:'P1'},
-    {text:'Купить квартиру в Тбилиси', pin:null},
+  // Кампания 1 — Покупка RU (прямой спрос на покупку, русский язык)
+  const k1Heads = [
+    {text:'Апартаменты от 130 м²',     pin:'P1'},
+    {text:'Купить квартиру в Тбилиси',  pin:null},
     {text:'Бутик-резиденция в Тбилиси', pin:null},
-    {text:'Дом введён в эксплуатацию', pin:null},
-    {text:'Квартира в Грузии от 130 м²', pin:null},
-    {text:'Свободная планировка', pin:null},
-    {text:'Панорамный вид из каждой', pin:null},
-    {text:'Подземный паркинг', pin:null},
-    {text:'Тишина и приватность', pin:null},
-    {text:'Приватность. Безопасность.', pin:null},
-    {text:'Открыта к просмотру', pin:null},
-    {text:'Генератор. Резервуар.', pin:null},
-    {text:'Записаться на показ', pin:null},
-    {text:'Информация о проекте', pin:null},
-    {text:'Не комплекс — резиденция', pin:null},
+    {text:'Дом введён в эксплуатацию',  pin:null},
+    {text:'Квартира в Грузии от 130 м²',pin:null},
+    {text:'Свободная планировка',        pin:null},
+    {text:'Панорамный вид из каждой',    pin:null},
+    {text:'Подземный паркинг',           pin:null},
+    {text:'Тишина и приватность',        pin:null},
+    {text:'Приватность. Безопасность.',  pin:null},
+    {text:'Открыта к просмотру',         pin:null},
+    {text:'Генератор. Резервуар.',       pin:null},
+    {text:'Записаться на показ',         pin:null},
+    {text:'Информация о проекте',        pin:null},
+    {text:'Не комплекс — резиденция',    pin:null},
   ];
-  const camp2RuDescs = [
+  const k1Descs = [
     'Апартаменты от 130 м² в Тбилиси. Бутик-резиденция. Дом введён в эксплуатацию.',
     'Свободная планировка. Без несущих стен. Панорамный вид из каждой квартиры.',
     'Тишина. Приватность. Безопасность. Подземный паркинг. Открыта к просмотру.',
     'Запросите планировки, цены и личный показ. Полная информация о проекте.',
   ];
 
-  const camp3EnHeadlines = [
-    {text:'Apartments from 130 m²', pin:'P1'},
-    {text:'Buy Apartment in Tbilisi', pin:null},
-    {text:'Boutique Residence Tbilisi', pin:null},
+  // Кампания 2 — Покупка EN (прямой спрос на покупку, английский язык)
+  const k2Heads = [
+    {text:'Apartments from 130 m²',       pin:'P1'},
+    {text:'Buy Apartment in Tbilisi',      pin:null},
+    {text:'Boutique Residence Tbilisi',    pin:null},
     {text:'Building Commissioned & Ready', pin:null},
-    {text:'Open for Private Viewing', pin:null},
-    {text:'Luxury Tbilisi Real Estate', pin:null},
-    {text:'Free Floor Plan — No Walls', pin:null},
-    {text:'Panoramic Views — Every Unit', pin:null},
-    {text:'Privacy. Security. Silence.', pin:null},
-    {text:'Underground Parking Included', pin:null},
-    {text:'Generator & Water Reserve', pin:null},
-    {text:'Book a Private Viewing', pin:null},
-    {text:'Plans & Prices on Request', pin:null},
-    {text:'2 Apartments per Floor Only', pin:null},
-    {text:'Boutique — Not a Complex', pin:null},
+    {text:'Open for Private Viewing',      pin:null},
+    {text:'Luxury Tbilisi Real Estate',    pin:null},
+    {text:'Free Floor Plan — No Walls',    pin:null},
+    {text:'Panoramic Views — Every Unit',  pin:null},
+    {text:'Privacy. Security. Silence.',   pin:null},
+    {text:'Underground Parking Included',  pin:null},
+    {text:'Generator & Water Reserve',     pin:null},
+    {text:'Book a Private Viewing',        pin:null},
+    {text:'Plans & Prices on Request',     pin:null},
+    {text:'2 Apartments per Floor Only',   pin:null},
+    {text:'Boutique — Not a Complex',      pin:null},
   ];
-  const camp3EnDescs = [
+  const k2Descs = [
     'Boutique Residence in Tbilisi. 14 apartments from 130 m². Building commissioned.',
     'Free floor plan. No load-bearing walls. Panoramic city views from every residence.',
     'Full infrastructure independence. Generator. 70-ton water reserve. 24/7 security.',
     'Book a private viewing. Request plans, pricing, and full project details.',
   ];
 
-  const camp4RuHeadlines = [
+  // Кампания 3 — Премиум RU (премиальное позиционирование, русский язык)
+  const k3Heads = [
+    {text:'Бутик-резиденция в Тбилиси',  pin:'P1'},
+    {text:'14 апартаментов от 130 м²',    pin:null},
+    {text:'Элитная недвижимость Тбилиси', pin:null},
+    {text:'Дом введён в эксплуатацию',    pin:null},
+    {text:'Открыта к просмотру',          pin:null},
+    {text:'Свободная планировка',         pin:null},
+    {text:'Панорамный вид из каждой',     pin:null},
+    {text:'Всего 2 квартиры на этаже',    pin:null},
+    {text:'Тишина и приватность',         pin:null},
+    {text:'Подземный паркинг',            pin:null},
+    {text:'Приватность. Безопасность.',   pin:null},
+    {text:'Генератор. Резервуар.',        pin:null},
+    {text:'Не комплекс — бутик',          pin:null},
+    {text:'Записаться на показ',          pin:null},
+    {text:'Информация о проекте',         pin:null},
+  ];
+  const k3Descs = [
+    'Бутик-резиденция в Тбилиси. 14 апартаментов от 130 м². Дом введён в эксплуатацию.',
+    'Не комплекс, а бутик-резиденция. Всего 2 квартиры на этаже. Открыта к просмотру.',
+    'Свободная планировка. Без несущих стен. Панорамный вид из каждой квартиры.',
+    'Запросите планировки, цены и личный показ. Полная информация о проекте.',
+  ];
+
+  // Кампания 4 — Конкуренты, RSA 1: RU
+  const k4RuHeads = [
     'Не комплекс — бутик-резиденция',
     'Дом введён в эксплуатацию',
     'Всего 2 квартиры на этаже',
@@ -1071,13 +1054,15 @@ function renderS09() {
     'Информация о проекте',
     'Автономность. Независимость.',
   ];
-  const camp4RuDescs = [
+  const k4RuDescs = [
     'Дом введён в эксплуатацию. Всего 2 квартиры на этаже. Не комплекс, а бутик-резиденция.',
     'Свободная планировка. Без несущих стен. Панорамный вид из каждой квартиры.',
     'Тишина. Приватность. Безопасность. Подземный паркинг. Генератор. Резервуар.',
     'Записаться на показ. Запросите планировки, цены и полную информацию о проекте.',
   ];
-  const camp4EnHeadlines = [
+
+  // Кампания 4 — Конкуренты, RSA 2: EN
+  const k4EnHeads = [
     'Boutique — Not a Complex',
     'Building Commissioned & Ready',
     'Only 2 Apartments per Floor',
@@ -1094,34 +1079,64 @@ function renderS09() {
     'Request Full Project Info',
     'Compare Before You Choose',
   ];
-  const camp4EnDescs = [
+  const k4EnDescs = [
     'Building commissioned. Only 2 apartments per floor. Boutique — not a complex.',
     'Free floor plan. Panoramic views from every residence. Privacy & silence.',
     'Underground parking. Generator. 70-ton water reserve. Full infrastructure backup.',
     'Book a private viewing. Compare ELYSIUM with any premium Tbilisi project.',
   ];
 
-  const renderPinnedHeadlines = (headlines) => headlines.map(h => {
-    const pinLabel = h.pin ? `<span style="font-size:9px;background:rgba(196,168,100,0.25);color:var(--accent-gold);border-radius:3px;padding:1px 4px;margin-right:4px;font-family:var(--font-mono);vertical-align:middle">${h.pin}</span>` : '';
-    return `<span class="rsa-headline">${pinLabel}${h.text}</span>`;
+  /* ── HELPERS ──────────────────────────────────────────────── */
+  const renderPinned = (arr) => arr.map(h => {
+    const pin = h.pin
+      ? `<span style="font-size:9px;background:rgba(196,168,100,0.25);color:var(--accent-gold);border-radius:3px;padding:1px 4px;margin-right:4px;font-family:var(--font-mono);vertical-align:middle">${h.pin}</span>`
+      : '';
+    return `<span class="rsa-headline">${pin}${h.text}</span>`;
   }).join('');
 
-  const renderHeadlines = (headlines) => headlines.map(h => `<span class="rsa-headline">${h}</span>`).join('');
-  const renderDescs = (descs) => descs.map(d => `<div class="rsa-desc">${d}</div>`).join('');
+  const renderPlain = (arr) => arr.map(h => `<span class="rsa-headline">${h}</span>`).join('');
+  const renderDescs = (arr) => arr.map(d => `<div class="rsa-desc">${d}</div>`).join('');
 
-  const adPreview = (flagEmoji, label, url, headlineText, descText, footnote) => `
+  const preview = (flag, label, url, h1, h2, h3, d1, d2, footnote) => `
     <div style="background:var(--bg-surface);border:1px solid var(--border-subtle);border-radius:8px;padding:16px 20px">
-      <div style="font-size:10px;color:var(--text-tertiary);margin-bottom:6px;text-transform:uppercase;letter-spacing:0.08em">${flagEmoji} Google Ads — ${label}</div>
+      <div style="font-size:10px;color:var(--text-tertiary);margin-bottom:6px;text-transform:uppercase;letter-spacing:0.08em">${flag} Google Ads — ${label}</div>
       <div style="font-size:11px;color:#4CAF50;font-family:var(--font-mono);margin-bottom:4px">🔗 ${url}</div>
-      <div style="font-size:14px;color:#8ab4f8;font-weight:500;line-height:1.4;margin-bottom:8px">${headlineText}</div>
-      <div style="font-size:12px;color:var(--text-secondary);line-height:1.6">${descText}</div>
+      <div style="font-size:14px;color:#8ab4f8;font-weight:500;line-height:1.4;margin-bottom:8px">${h1} | ${h2} | ${h3}</div>
+      <div style="font-size:12px;color:var(--text-secondary);line-height:1.6">${d1}<br>${d2}</div>
       <div style="font-size:10px;color:var(--text-tertiary);margin-top:8px">${footnote}</div>
     </div>`;
 
-  const campaignBlock = (borderColor, bgColor, flagEmoji, title, subtitle, content) => `
-    <div style="border:2px solid ${borderColor};border-radius:10px;overflow:hidden;margin-bottom:32px">
-      <div style="background:${bgColor};padding:16px 20px;border-bottom:1px solid ${borderColor};display:flex;gap:12px;align-items:center">
-        <span style="font-size:20px">${flagEmoji}</span>
+  const headsBlock = (label, inner) => `
+    <div>
+      <div style="font-size:11px;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:8px">${label}</div>
+      <div class="rsa-headlines">${inner}</div>
+    </div>`;
+
+  const descsBlock = (label, inner) => `
+    <div>
+      <div style="font-size:11px;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:8px">${label}</div>
+      <div class="rsa-descriptions">${inner}</div>
+    </div>`;
+
+  const breakdown = (rows) => `
+    <div style="background:var(--bg-hover);border-radius:8px;padding:16px">
+      <div style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-tertiary);margin-bottom:12px">Разбор объявления</div>
+      <div style="display:flex;flex-direction:column;gap:8px;font-size:12px">
+        ${rows.map(([k,v])=>`<div style="display:flex;gap:10px"><span style="color:var(--accent-gold);flex-shrink:0;min-width:150px">${k}</span><span style="color:var(--text-secondary)">${v}</span></div>`).join('')}
+      </div>
+    </div>`;
+
+  const divider = (lbl) => `
+    <div style="display:flex;align-items:center;gap:10px;margin:4px 0">
+      <div style="flex:1;height:1px;background:var(--border-subtle)"></div>
+      <div style="font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-tertiary)">${lbl}</div>
+      <div style="flex:1;height:1px;background:var(--border-subtle)"></div>
+    </div>`;
+
+  const campaignWrap = (border, bg, flag, title, subtitle, content) => `
+    <div style="border:2px solid ${border};border-radius:10px;overflow:hidden;margin-bottom:32px">
+      <div style="background:${bg};padding:16px 20px;border-bottom:1px solid ${border};display:flex;gap:12px;align-items:center">
+        <span style="font-size:20px">${flag}</span>
         <div>
           <div style="font-size:15px;font-weight:500;color:var(--text-primary)">${title}</div>
           <div style="font-size:11px;color:var(--text-tertiary);font-family:var(--font-mono)">${subtitle}</div>
@@ -1130,146 +1145,163 @@ function renderS09() {
       <div style="padding:20px 24px;display:flex;flex-direction:column;gap:20px">${content}</div>
     </div>`;
 
-  const breakdown = (rows) => `
-    <div style="background:var(--bg-hover);border-radius:8px;padding:16px">
-      <div style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-tertiary);margin-bottom:12px">Разбор объявления</div>
-      <div style="display:flex;flex-direction:column;gap:8px;font-size:12px">
-        ${rows.map(([k,v]) => `<div style="display:flex;gap:10px"><span style="color:var(--accent-gold);flex-shrink:0;min-width:160px">${k}</span><span style="color:var(--text-secondary)">${v}</span></div>`).join('')}
-      </div>
-    </div>`;
+  /* ── QA DATA ──────────────────────────────────────────────── */
+  const qaRows = [
+    ['Кампаний в S09 = 4',                         'PASS'],
+    ['RSA-объявлений всего = 5',                    'PASS'],
+    ['К1 Покупка RU — 15 заголовков',              'PASS'],
+    ['К1 Покупка RU — 4 описания',                 'PASS'],
+    ['К1 Покупка RU — P1 «Апартаменты от 130 м²»','PASS'],
+    ['К2 Покупка EN — 15 заголовков',              'PASS'],
+    ['К2 Покупка EN — 4 описания',                 'PASS'],
+    ['К2 Покупка EN — P1 "Apartments from 130 m²"','PASS'],
+    ['К3 Премиум RU — 15 заголовков',              'PASS'],
+    ['К3 Премиум RU — 4 описания',                 'PASS'],
+    ['К3 Премиум RU — P1 «Бутик-резиденция в Тбилиси»','PASS'],
+    ['К4 Конкуренты RU RSA — 15 заголовков',       'PASS'],
+    ['К4 Конкуренты RU RSA — 4 описания',          'PASS'],
+    ['К4 Конкуренты EN RSA — 15 заголовков',       'PASS'],
+    ['К4 Конкуренты EN RSA — 4 описания',          'PASS'],
+    ['Брендовая кампания в S09 отсутствует',        'PASS'],
+    ['Нет блоков «ищущих ELYSIUM по имени»',        'PASS'],
+    ['Все заголовки ≤ 30 символов',                'PASS'],
+    ['Все описания ≤ 90 символов',                 'PASS'],
+    ['Нет «клубный дом» / «club house» в объявлениях','PASS'],
+    ['Нет «купить дом» / «buy house»',             'PASS'],
+    ['Нет «сегодня» в CTA',                        'PASS'],
+    ['«Бутик-резиденция» — использован',           'PASS'],
+    ['«Дом введён в эксплуатацию» — использован',  'PASS'],
+    ['«Не комплекс» — использован',                'PASS'],
+    ['«Записаться на показ» — использован',         'PASS'],
+    ['S01–S08, S10–S17 не изменены',               'PASS'],
+  ];
 
-  const headlinesBlock = (label, content) => `
-    <div>
-      <div style="font-size:11px;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:8px">${label}</div>
-      <div class="rsa-headlines">${content}</div>
-    </div>`;
-
-  const descsBlock = (label, content) => `
-    <div>
-      <div style="font-size:11px;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:8px">${label}</div>
-      <div class="rsa-descriptions">${content}</div>
-    </div>`;
-
-  const langDivider = (label) => `
-    <div style="display:flex;align-items:center;gap:10px;margin:4px 0">
-      <div style="flex:1;height:1px;background:var(--border-subtle)"></div>
-      <div style="font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-tertiary)">${label}</div>
-      <div style="flex:1;height:1px;background:var(--border-subtle)"></div>
-    </div>`;
-
+  /* ── RENDER ───────────────────────────────────────────────── */
   return `
     <div class="section-block-header">
       <div class="section-block-num">09</div>
       <div class="section-block-title-wrap">
         <div class="section-block-title">Объявления и тексты (Ads &amp; Messaging)</div>
-        <div class="section-block-desc">RSA-объявления для всех 4 кампаний — 15 заголовков и 4 описания на каждое объявление</div>
+        <div class="section-block-desc">4 кампании · 5 RSA-объявлений · 15 заголовков + 4 описания в каждом</div>
       </div>
     </div>
 
+    <!-- Ad map -->
     <div class="card" style="margin-bottom:32px">
-      <div style="font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-tertiary);margin-bottom:14px">Какие объявления мы запускаем</div>
+      <div style="font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-tertiary);margin-bottom:14px">Структура объявлений</div>
       <div style="display:flex;flex-direction:column;gap:8px">
         ${[
-          ['1','Брендовая (RU + EN)','Брендовые объявления на двух языках','IL · UA · BY — пользователи, ищущие ELYSIUM по имени'],
-          ['2','Основная покупка — RU','15 заголовков + 4 описания на русском','IL · UA · BY · Первый заголовок закреплён: «Апартаменты от 130 м²»'],
-          ['3','Основная покупка — EN','15 headlines + 4 descriptions in English','IL · UA · BY · First headline pinned: "Apartments from 130 m²"'],
-          ['4','Конкурентная (RU + EN)','Конкурентные объявления на двух языках','IL · UA · BY — аудитория конкурирующих проектов'],
-        ].map(([num, name, adType, audience]) => `
+          ['1','Покупка RU','1 RSA · 15 заголовков · 4 описания · RU','Прямой поисковый спрос на покупку — русский язык'],
+          ['2','Покупка EN','1 RSA · 15 headlines · 4 descriptions · EN','Прямой поисковый спрос на покупку — английский язык'],
+          ['3','Премиум RU','1 RSA · 15 заголовков · 4 описания · RU','Премиальное позиционирование — русский язык'],
+          ['4','Конкуренты','2 RSA (RU + EN) · по 15 заголовков + 4 описания','RU-объявление + EN-объявление в одной кампании'],
+        ].map(([n,name,spec,note])=>`
           <div style="display:flex;gap:12px;align-items:flex-start;padding:10px 14px;background:var(--bg-hover);border-radius:6px">
-            <div style="font-size:11px;font-family:var(--font-mono);color:var(--accent-gold);flex-shrink:0;padding-top:2px">К${num}</div>
-            <div>
-              <div style="font-size:12px;color:var(--text-primary);margin-bottom:2px">${name} → <span style="color:var(--text-secondary)">${adType}</span></div>
-              <div style="font-size:11px;color:var(--text-tertiary)">${audience}</div>
+            <div style="font-size:11px;font-family:var(--font-mono);color:var(--accent-gold);flex-shrink:0;padding-top:2px">К${n}</div>
+            <div style="flex:1">
+              <div style="font-size:12px;color:var(--text-primary);margin-bottom:2px">${name} <span style="color:var(--text-tertiary)">·</span> <span style="color:var(--text-secondary)">${spec}</span></div>
+              <div style="font-size:11px;color:var(--text-tertiary)">${note}</div>
             </div>
-          </div>
-        `).join('')}
+          </div>`).join('')}
+      </div>
+      <div style="margin-top:14px;padding:10px 14px;background:rgba(196,168,100,0.06);border-radius:6px;font-size:11px;color:var(--text-tertiary)">
+        📌 = заголовок закреплён в позиции · Google автоматически подбирает лучшую комбинацию из 3 заголовков и 2 описаний
       </div>
     </div>
 
-    ${campaignBlock('rgba(196,168,100,0.3)','rgba(196,168,100,0.06)','🏷️','Кампания 1 — Брендовая (Brand)','Brand — ELYSIUM · ~15 ключевых слов · Аудитория: IL · UA · BY · RU + EN',`
-      ${langDivider('🇷🇺 RU — Русский')}
-      ${adPreview('🇷🇺','Пример объявления (RU)','elysiumtbilisi.com',
-        'ELYSIUM Тбилиси | Бутик-резиденция ELYSIUM | Дом введён в эксплуатацию',
-        'ELYSIUM — бутик-резиденция. 14 апартаментов от 130 м². Дом введён в эксплуатацию.<br>Открыта к просмотру. Свободная планировка. Без несущих стен. Панорамный вид.',
-        'Google подбирает лучшую комбинацию из 15 заголовков и 4 описаний автоматически')}
-      ${headlinesBlock('Заголовки RU — 15 шт., макс. 30 символов каждый', renderHeadlines(camp1RuHeadlines))}
-      ${descsBlock('Описания RU — 4 шт., макс. 90 символов каждое', renderDescs(camp1RuDescs))}
-      ${langDivider('🇬🇧 EN — English')}
-      ${adPreview('🇬🇧','Ad Preview (EN)','elysiumtbilisi.com',
-        'ELYSIUM Boutique Residence | Building Commissioned &amp; Ready | Open for Private Viewing',
-        'ELYSIUM Boutique Residence in Tbilisi. 14 apartments from 130 m². Building commissioned.<br>Open for private viewing. Free floor plan. Panoramic views from every residence.',
-        'Google selects the best combination from 15 headlines and 4 descriptions automatically')}
-      ${headlinesBlock('Headlines EN — 15 items, max 30 chars each', renderHeadlines(camp1EnHeadlines))}
-      ${descsBlock('Descriptions EN — 4 items, max 90 chars each', renderDescs(camp1EnDescs))}
-      ${breakdown([
-        ['Аудитория:','Пользователи, ищущие «ELYSIUM», «Элизиум Тбилиси», «бутик резиденция элизиум» — самый горячий трафик'],
-        ['Цель:','Защита бренда от конкурентного перехвата, захват пользователей с максимальным намерением купить'],
-        ['CTA:','«Записаться на показ» · «Информация о проекте» / "Book a Private Viewing" · "Full Project Information"'],
-      ])}
-    `)}
+    <!-- К1: Покупка RU -->
+    ${campaignWrap('rgba(116,185,116,0.35)','rgba(116,185,116,0.08)','🇷🇺',
+      'Кампания 1 — Покупка RU',
+      '141 ключевое слово · Пулы A, B, D, E, F, G · Аудитория: IL · UA · BY',
+      preview('🇷🇺','Пример объявления (RU)','elysiumtbilisi.com',
+        'Апартаменты от 130 м²','Бутик-резиденция в Тбилиси','Дом введён в эксплуатацию',
+        'Апартаменты от 130 м² в Тбилиси. Бутик-резиденция. Дом введён в эксплуатацию.',
+        'Свободная планировка. Без несущих стен. Панорамный вид из каждой квартиры.',
+        'Google подбирает лучшую комбинацию из 15 заголовков и 4 описаний автоматически')
+      + headsBlock('Заголовки — 15 шт., макс. 30 символов (📌 = Позиция 1 закреплена)', renderPinned(k1Heads))
+      + descsBlock('Описания — 4 шт., макс. 90 символов', renderDescs(k1Descs))
+      + `<div style="background:rgba(255,160,0,0.06);border:1px solid rgba(255,160,0,0.2);border-radius:8px;padding:14px 16px">
+           <div style="font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:#FFA000;margin-bottom:8px">⛔ Минус-слова кампании 1</div>
+           <div style="display:flex;gap:8px;flex-wrap:wrap">
+             ${['студия','студии'].map(w=>`<span style="font-family:var(--font-mono);font-size:12px;background:rgba(255,80,80,0.1);color:#FF8A80;border-radius:4px;padding:3px 8px">−${w}</span>`).join('')}
+           </div>
+           <div style="font-size:11px;color:var(--text-tertiary);margin-top:8px">Студии исключены: ELYSIUM предлагает апартаменты от 130 м² — студийный трафик нецелевой</div>
+         </div>`
+      + breakdown([
+          ['Для какого спроса:','«купить квартиру в тбилиси», «квартира в Грузии», «элитная недвижимость тбилиси» — прямое намерение на русском'],
+          ['Ключевое сообщение:','Апартаменты от 130 м² · Дом введён в эксплуатацию · Открыта к просмотру'],
+          ['CTA:','«Записаться на показ» · «Информация о проекте»'],
+        ])
+    )}
 
-    ${campaignBlock('rgba(116,185,116,0.3)','rgba(116,185,116,0.08)','🇷🇺','Кампания 2 — Основная покупка RU','Core Premium Purchase — RU · 141 ключевое слово · Аудитория: IL · UA · BY',`
-      ${adPreview('🇷🇺','Пример объявления (RU)','elysiumtbilisi.com',
-        'Апартаменты от 130 м² | Бутик-резиденция в Тбилиси | Дом введён в эксплуатацию',
-        'Апартаменты от 130 м² в Тбилиси. Бутик-резиденция. Дом введён в эксплуатацию.<br>Свободная планировка. Без несущих стен. Панорамный вид из каждой квартиры.',
-        'Google подбирает лучшую комбинацию из 15 заголовков и 4 описаний автоматически')}
-      ${headlinesBlock('Заголовки RU — 15 шт., макс. 30 символов каждый (📌 = Позиция 1 закреплена)', renderPinnedHeadlines(camp2RuHeadlines))}
-      ${descsBlock('Описания RU — 4 шт., макс. 90 символов каждое', renderDescs(camp2RuDescs))}
-      <div style="background:rgba(255,160,0,0.06);border:1px solid rgba(255,160,0,0.2);border-radius:8px;padding:14px 16px">
-        <div style="font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:#FFA000;margin-bottom:8px">⛔ Минус-слова кампании 2</div>
-        <div style="display:flex;gap:8px;flex-wrap:wrap">
-          ${['студия','студии'].map(w => `<span style="font-family:var(--font-mono);font-size:12px;background:rgba(255,80,80,0.1);color:#FF8A80;border-radius:4px;padding:3px 8px">−${w}</span>`).join('')}
-        </div>
-        <div style="font-size:11px;color:var(--text-tertiary);margin-top:8px">Студии исключены: ELYSIUM предлагает апартаменты от 130 м² — студийный трафик нецелевой</div>
-      </div>
-      ${breakdown([
-        ['Для какого спроса:','«купить квартиру в тбилиси», «элитная недвижимость тбилиси», «квартиру в Грузии» — прямое намерение купить на русском'],
-        ['Что продаём:','Готовую бутик-резиденцию в Тбилиси — 14 апартаментов от 130 м², дом введён в эксплуатацию, открыт к просмотру'],
-        ['CTA:','«Записаться на показ» · «Полная информация о проекте»'],
-      ])}
-    `)}
+    <!-- К2: Покупка EN -->
+    ${campaignWrap('rgba(74,106,180,0.35)','rgba(74,106,180,0.08)','🇬🇧',
+      'Кампания 2 — Покупка EN',
+      '83 keywords · Pools A, B, C, D, E, F, G · Audience: IL · UA · BY',
+      preview('🇬🇧','Ad Preview (EN)','elysiumtbilisi.com',
+        'Apartments from 130 m²','Boutique Residence Tbilisi','Building Commissioned &amp; Ready',
+        'Boutique Residence in Tbilisi. 14 apartments from 130 m². Building commissioned.',
+        'Free floor plan. No load-bearing walls. Panoramic city views from every residence.',
+        'Google selects the best combination from 15 headlines and 4 descriptions automatically')
+      + headsBlock('Headlines — 15 items, max 30 chars each (📌 = Position 1 pinned)', renderPinned(k2Heads))
+      + descsBlock('Descriptions — 4 items, max 90 chars each', renderDescs(k2Descs))
+      + breakdown([
+          ['Target demand:','"buy apartment tbilisi", "luxury apartment tbilisi", "property in Tbilisi" — direct purchase intent in English'],
+          ['Key message:','Apartments from 130 m² · Building commissioned · Open for private viewing'],
+          ['CTA:','"Book a Private Viewing" · "Plans &amp; Prices on Request"'],
+        ])
+    )}
 
-    ${campaignBlock('rgba(74,106,140,0.3)','rgba(74,106,140,0.08)','🇬🇧','Кампания 3 — Основная покупка EN','Core Premium Purchase — EN · 83 keywords · Audience: IL · UA · BY',`
-      ${adPreview('🇬🇧','Ad Preview (EN)','elysiumtbilisi.com',
-        'Apartments from 130 m² | Boutique Residence Tbilisi | Building Commissioned &amp; Ready',
-        'Boutique Residence in Tbilisi. 14 apartments from 130 m². Building commissioned.<br>Free floor plan. No load-bearing walls. Panoramic city views from every residence.',
-        'Google selects the best combination from 15 headlines and 4 descriptions automatically')}
-      ${headlinesBlock('Headlines EN — 15 items, max 30 chars each (📌 = Position 1 pinned)', renderPinnedHeadlines(camp3EnHeadlines))}
-      ${descsBlock('Descriptions EN — 4 items, max 90 chars each', renderDescs(camp3EnDescs))}
-      ${breakdown([
-        ['Target demand:','"buy apartment tbilisi", "luxury apartment tbilisi", "boutique residence tbilisi" — direct purchase intent in English, Israel priority'],
-        ['What we sell:','Commissioned boutique residence in Tbilisi — 14 apartments from 130 m², open for private viewing now'],
-        ['CTA:','"Book a Private Viewing" · "Plans & Prices on Request"'],
-      ])}
-    `)}
+    <!-- К3: Премиум RU -->
+    ${campaignWrap('rgba(196,168,100,0.4)','rgba(196,168,100,0.06)','✨',
+      'Кампания 3 — Премиум RU',
+      'Премиальное позиционирование · Пулы B, C, H · Русский язык · Аудитория: IL · UA · BY',
+      preview('🇷🇺','Пример объявления Премиум (RU)','elysiumtbilisi.com',
+        'Бутик-резиденция в Тбилиси','Элитная недвижимость Тбилиси','14 апартаментов от 130 м²',
+        'Бутик-резиденция в Тбилиси. 14 апартаментов от 130 м². Дом введён в эксплуатацию.',
+        'Не комплекс, а бутик-резиденция. Всего 2 квартиры на этаже. Открыта к просмотру.',
+        'Google подбирает лучшую комбинацию из 15 заголовков и 4 описаний автоматически')
+      + headsBlock('Заголовки — 15 шт., макс. 30 символов (📌 = Позиция 1 закреплена)', renderPinned(k3Heads))
+      + descsBlock('Описания — 4 шт., макс. 90 символов', renderDescs(k3Descs))
+      + breakdown([
+          ['Для какого спроса:','«элитная недвижимость тбилиси», «бутик резиденция», «пентхаус тбилиси» — премиальный и luxury-сегмент'],
+          ['Ключевое сообщение:','Не комплекс — бутик-резиденция · Всего 2 квартиры на этаже · Элитная недвижимость'],
+          ['CTA:','«Записаться на показ» · «Информация о проекте»'],
+        ])
+    )}
 
-    ${campaignBlock('rgba(220,120,60,0.3)','rgba(220,120,60,0.06)','⚔️','Кампания 4 — Конкурентная (Competitors)','Competitors · 87 ключевых слов (CHECK_REQUIRED) · Pool I · RU + EN',`
-      <div class="note-box warning" style="margin-bottom:0">
-        <span class="note-box-icon">⚠</span>
-        <div>Все 87 ключевых слов Pool I требуют ручной проверки перед запуском (CHECK_REQUIRED). Объявления показываются, когда пользователь ищет конкурирующий проект. Стратегия: предложить ELYSIUM как лучшую альтернативу.</div>
-      </div>
-      ${langDivider('🇷🇺 RU — Русский')}
-      ${adPreview('🇷🇺','Пример объявления (RU)','elysiumtbilisi.com',
-        'Не комплекс — бутик-резиденция | Дом введён в эксплуатацию | Всего 2 квартиры на этаже',
-        'Дом введён в эксплуатацию. Всего 2 квартиры на этаже. Не комплекс, а бутик-резиденция.<br>Свободная планировка. Без несущих стен. Панорамный вид из каждой квартиры.',
-        'Google подбирает лучшую комбинацию из 15 заголовков и 4 описаний автоматически')}
-      ${headlinesBlock('Заголовки RU — 15 шт., макс. 30 символов каждый', renderHeadlines(camp4RuHeadlines))}
-      ${descsBlock('Описания RU — 4 шт., макс. 90 символов каждое', renderDescs(camp4RuDescs))}
-      ${langDivider('🇬🇧 EN — English')}
-      ${adPreview('🇬🇧','Ad Preview (EN)','elysiumtbilisi.com',
-        'Boutique — Not a Complex | Building Commissioned &amp; Ready | Only 2 Apartments per Floor',
-        'Building commissioned. Only 2 apartments per floor. Boutique — not a complex.<br>Free floor plan. Panoramic views from every residence. Privacy & silence.',
-        'Google selects the best combination from 15 headlines and 4 descriptions automatically')}
-      ${headlinesBlock('Headlines EN — 15 items, max 30 chars each', renderHeadlines(camp4EnHeadlines))}
-      ${descsBlock('Descriptions EN — 4 items, max 90 chars each', renderDescs(camp4EnDescs))}
-      ${breakdown([
-        ['Триггер:','Пользователь ищет конкурирующий проект (Park Home Vake, CityZen, Next Tbilisi, Gergeti Rise...)'],
-        ['Сообщение:','«Не комплекс, а бутик-резиденция» · «Дом введён в эксплуатацию» · «Всего 2 квартиры на этаже»'],
-        ['Ключевые отличия:','Свободная планировка · Панорамный вид · Подземный паркинг · Автономная инфраструктура'],
-        ['CTA:','«Записаться на показ» · «Полная информация о проекте» / "Book a Private Viewing" · "Request Full Project Info"'],
-      ])}
-    `)}
+    <!-- К4: Конкуренты (2 RSA) -->
+    ${campaignWrap('rgba(220,100,60,0.35)','rgba(220,100,60,0.06)','⚔️',
+      'Кампания 4 — Конкуренты',
+      '87 ключевых слов (CHECK_REQUIRED) · Pool I · RU + EN · Аудитория: IL · UA · BY',
+      `<div class="note-box warning" style="margin-bottom:0">
+         <span class="note-box-icon">⚠</span>
+         <div>Все 87 ключевых слов Pool I — CHECK_REQUIRED: ручная проверка перед запуском. В кампании 2 объявления: RU RSA и EN RSA.</div>
+       </div>`
+      + divider('🇷🇺 RSA 1 — Русский')
+      + preview('🇷🇺','Пример объявления (RU)','elysiumtbilisi.com',
+          'Не комплекс — бутик-резиденция','Дом введён в эксплуатацию','Всего 2 квартиры на этаже',
+          'Дом введён в эксплуатацию. Всего 2 квартиры на этаже. Не комплекс, а бутик-резиденция.',
+          'Свободная планировка. Без несущих стен. Панорамный вид из каждой квартиры.',
+          'Google подбирает лучшую комбинацию из 15 заголовков и 4 описаний автоматически')
+      + headsBlock('Заголовки RU — 15 шт., макс. 30 символов', renderPlain(k4RuHeads))
+      + descsBlock('Описания RU — 4 шт., макс. 90 символов', renderDescs(k4RuDescs))
+      + divider('🇬🇧 RSA 2 — English')
+      + preview('🇬🇧','Ad Preview (EN)','elysiumtbilisi.com',
+          'Boutique — Not a Complex','Building Commissioned &amp; Ready','Only 2 Apartments per Floor',
+          'Building commissioned. Only 2 apartments per floor. Boutique — not a complex.',
+          'Free floor plan. Panoramic views from every residence. Privacy &amp; silence.',
+          'Google selects the best combination from 15 headlines and 4 descriptions automatically')
+      + headsBlock('Headlines EN — 15 items, max 30 chars each', renderPlain(k4EnHeads))
+      + descsBlock('Descriptions EN — 4 items, max 90 chars each', renderDescs(k4EnDescs))
+      + breakdown([
+          ['Триггер:','Пользователь ищет конкурирующий проект (Park Home Vake, CityZen, Next Tbilisi, Gergeti Rise...)'],
+          ['Сообщение:','«Не комплекс, а бутик-резиденция» · «Дом введён в эксплуатацию» · «Всего 2 квартиры на этаже»'],
+          ['CTA:','«Записаться на показ» · "Book a Private Viewing"'],
+        ])
+    )}
 
+    <!-- QA Table -->
     <div class="card" style="margin-bottom:32px">
       <div style="font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-tertiary);margin-bottom:16px">QA — Проверка выполнения требований</div>
       <table style="width:100%;border-collapse:collapse;font-size:12px">
@@ -1281,59 +1313,21 @@ function renderS09() {
           </tr>
         </thead>
         <tbody>
-          ${[
-            ['К1 — 15 заголовков RU','PASS'],
-            ['К1 — 4 описания RU','PASS'],
-            ['К1 — 15 заголовков EN','PASS'],
-            ['К1 — 4 описания EN','PASS'],
-            ['К2 — 15 заголовков RU','PASS'],
-            ['К2 — «Апартаменты от 130 м²» закреплён в Позиции 1','PASS'],
-            ['К2 — 4 описания RU','PASS'],
-            ['К2 — Минус-слова «студия/студии» указаны','PASS'],
-            ['К2 — «Квартиру в Грузии» сохранён в объявлении','PASS'],
-            ['К3 — 15 заголовков EN','PASS'],
-            ['К3 — "Apartments from 130 m²" закреплён в Position 1','PASS'],
-            ['К3 — 4 описания EN','PASS'],
-            ['К4 — 15 заголовков RU','PASS'],
-            ['К4 — 4 описания RU','PASS'],
-            ['К4 — 15 заголовков EN','PASS'],
-            ['К4 — 4 описания EN','PASS'],
-            ['Нет «клубный дом» / «club house» / «clubhouse»','PASS'],
-            ['Нет «купить дом» / «buy house»','PASS'],
-            ['Нет «Дом полностью сдан»','PASS'],
-            ['Нет «Записаться на показ сегодня» или «сегодня» в CTA','PASS'],
-            ['Нет «Элия Хилл — приватность рядом»','PASS'],
-            ['«Бутик-резиденция» — использован во всех 4 кампаниях','PASS'],
-            ['«Дом введён в эксплуатацию» — использован','PASS'],
-            ['«Не комплекс» — использован в К1/К4','PASS'],
-            ['«14 апартаментов от 130 м²» — использован','PASS'],
-            ['«Свободная планировка» — использован','PASS'],
-            ['«Панорамный вид из каждой» — использован','PASS'],
-            ['«2 квартиры на этаже» — использован','PASS'],
-            ['«Подземный паркинг» — использован','PASS'],
-            ['«Тишина и приватность» — использован','PASS'],
-            ['«Генератор / Автономность» — использован','PASS'],
-            ['«Записаться на показ» — использован','PASS'],
-            ['«Информация о проекте» — использован','PASS'],
-            ['Все заголовки ≤ 30 символов','PASS'],
-            ['Все описания ≤ 90 символов','PASS'],
-            ['S01–S05, S07–S08, S10–S17 не изменены','PASS'],
-          ].map(([req, status], i) => `
+          ${qaRows.map(([req,status],i)=>`
             <tr style="border-bottom:1px solid var(--border-subtle)">
               <td style="padding:6px 10px;color:var(--text-tertiary);font-family:var(--font-mono)">${i+1}</td>
               <td style="padding:6px 10px;color:var(--text-secondary)">${req}</td>
               <td style="padding:6px 10px;text-align:center">
                 <span style="font-size:11px;font-weight:600;color:${status==='PASS'?'#4CAF50':'#FF5252'};background:${status==='PASS'?'rgba(76,175,80,0.1)':'rgba(255,82,82,0.1)'};border-radius:4px;padding:2px 8px">${status==='PASS'?'✓ PASS':'✗ FAIL'}</span>
               </td>
-            </tr>
-          `).join('')}
+            </tr>`).join('')}
         </tbody>
       </table>
     </div>
 
     <div class="note-box info">
       <span class="note-box-icon">ℹ</span>
-      <div>RSA (адаптивное поисковое объявление) требует минимум 3 заголовка и 2 описания для активации. Все кампании укомплектованы максимальным набором: 15 заголовков + 4 описания — Google автоматически подбирает лучшую комбинацию из 3 заголовков и 2 описаний для каждого показа.</div>
+      <div>RSA требует минимум 3 заголовка и 2 описания для активации. Все объявления укомплектованы максимальным набором: 15 заголовков + 4 описания — Google автоматически тестирует комбинации и показывает лучшую.</div>
     </div>
   `;
 }
