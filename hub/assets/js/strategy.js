@@ -701,6 +701,42 @@ function renderS05(keywords, competitors, negatives) {
       'rgba(220,100,60,0.3)','rgba(220,100,60,0.04)',
       kwSectionComp(k3kw),
       negSection, k3Ads)}
+
+    ${(()=>{
+      const extHead = label =>
+        '<div style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-tertiary);margin-bottom:10px">' + label + '</div>';
+
+      const sitelinkCard = (title, d1, d2, urlNote) =>
+        '<div style="border:1px solid var(--border-subtle);border-radius:8px;padding:12px 16px;background:var(--bg-surface)">' +
+        '<div style="font-size:13px;font-weight:500;color:var(--accent-gold);margin-bottom:4px">' + title + '</div>' +
+        '<div style="font-size:11px;color:var(--text-secondary);line-height:1.5">' + d1 + '</div>' +
+        '<div style="font-size:11px;color:var(--text-secondary);line-height:1.5">' + d2 + '</div>' +
+        '<div style="font-size:10px;color:var(--text-tertiary);font-family:var(--font-mono);margin-top:6px">' + urlNote + '</div>' +
+        '</div>';
+
+      const calloutChip = text =>
+        '<span style="display:inline-block;background:var(--bg-hover);border:1px solid var(--border-subtle);border-radius:5px;padding:4px 10px;font-size:11px;color:var(--text-secondary);font-family:var(--font-mono)">' + text + '</span>';
+
+      const sitelinks =
+        '<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px;margin-bottom:20px">' +
+        sitelinkCard('Планировки','Свободные планировки от 130 м²','Без несущих стен — любая конфигурация','elysiumtbilisi.com/planirovki') +
+        sitelinkCard('Instagram','Проект ELYSIUM в Instagram','Интерьеры, виды, ход строительства','instagram.com/elysium.tbilisi') +
+        '</div>';
+
+      const callouts = [
+        'Подземный паркинг','Свободная планировка','2 квартиры на этаже',
+        'Дом введён в эксплуатацию','14 резиденций','Панорамный вид',
+        'Без несущих стен','Генератор и резервуар','Бутик-резиденция',
+      ];
+
+      return '<div style="border:1px solid var(--border-subtle);border-radius:10px;padding:20px 24px;margin-top:8px">' +
+        '<div style="font-size:13px;font-weight:500;color:var(--text-primary);margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid var(--border-subtle)">Расширения объявлений</div>' +
+        extHead('Дополнительные ссылки (Sitelinks) — 2 шт.') +
+        sitelinks +
+        extHead('Уточнения (Callouts) — ' + callouts.length + ' шт., макс. 25 символов') +
+        '<div style="display:flex;flex-wrap:wrap;gap:6px">' + callouts.map(calloutChip).join('') + '</div>' +
+        '</div>';
+    })()}
   `;
 }
 
