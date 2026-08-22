@@ -83,9 +83,9 @@
         "F",
         "G"
       ],
-      "keyword_count_approx": 124,
+      "keyword_count_approx": 108,
       "priority": "PRIMARY",
-      "notes": "RU-language keywords only. Covers direct purchase RU queries across Pools A, B, D, E, F, G filtered to language=RU. 141 verified RU keywords. Split into focused ad groups by sub-intent.",
+      "notes": "RU-language keywords only. Covers direct purchase RU queries across Pools A, D, E, F, G filtered to language=RU. 108 active RU keywords. Split into focused ad groups by sub-intent.",
       "ad_groups": [
         {
           "name": "Покупка апартаментов — Тбилиси",
@@ -161,9 +161,9 @@
         "F",
         "G"
       ],
-      "keyword_count_approx": 79,
+      "keyword_count_approx": 69,
       "priority": "PRIMARY",
-      "notes": "EN-language keywords only. Pools A, B, C, D, E, F, G filtered to language=EN. 83 verified EN keywords. Israel primary geo. Covers purchase, luxury, penthouse, residence, investment, district EN queries.",
+      "notes": "EN-language keywords only. Pools A, B, C, D, E, F, G filtered to language=EN. 69 active EN keywords. Israel primary geo. Covers purchase, luxury, penthouse, residence, investment, district EN queries.",
       "ad_groups": [
         {
           "name": "Buy Apartment Tbilisi",
@@ -205,6 +205,54 @@
             "large apartment tbilisi",
             "spacious apartment tbilisi",
             "3 bedroom apartment tbilisi"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3.5,
+      "name": "Premium Segment — RU",
+      "name_short": "Premium RU",
+      "budget_pct": 25,
+      "budget_monthly": 125,
+      "budget_daily_approx": 4.2,
+      "intent": "Premium and luxury segment, Russian-language",
+      "geo": [
+        "Israel",
+        "Ukraine",
+        "Belarus"
+      ],
+      "languages": [
+        "RU"
+      ],
+      "match_types": [
+        "Exact",
+        "Phrase"
+      ],
+      "bidding": "Manual CPC → Enhanced CPC after 20+ conv",
+      "landing_page": "elysiumtbilisi.com/?lang=ru",
+      "language_filter": "RU",
+      "pool_sources": [
+        "B"
+      ],
+      "keyword_count_approx": 37,
+      "priority": "PRIMARY",
+      "notes": "RU premium/luxury segment keywords. Pool B filtered to language=RU. 37 active keywords. Covers элитная, премиум, люкс, бутик, эксклюзив, vip, пентхаус, резиденция variants.",
+      "ad_groups": [
+        {
+          "name": "Элитная / Премиум недвижимость",
+          "examples": [
+            "элитная недвижимость тбилиси",
+            "премиум апартаменты тбилиси",
+            "люкс квартиры тбилиси"
+          ]
+        },
+        {
+          "name": "Пентхаус / Резиденция",
+          "examples": [
+            "пентхаус тбилиси",
+            "купить пентхаус в тбилиси",
+            "бутик резиденция тбилиси"
           ]
         }
       ]

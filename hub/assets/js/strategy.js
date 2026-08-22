@@ -376,7 +376,7 @@ function renderS03() {
         <div class="intent-card-header">
           <div class="pool-badge pool-A">К1</div>
           <div class="intent-title">Purchase Intent — RU</div>
-          <span class="intent-count">~141 KW</span>
+          <span class="intent-count">~108 KW</span>
         </div>
         <div class="intent-examples">"купить квартиру в тбилиси"<br>"апартаменты тбилиси"</div>
         <div class="intent-desc">Russian-language buyers actively searching to purchase property in Tbilisi. Highest priority. Exact match first, then Phrase.</div>
@@ -386,7 +386,7 @@ function renderS03() {
         <div class="intent-card-header">
           <div class="pool-badge pool-B">К2</div>
           <div class="intent-title">Purchase Intent — EN</div>
-          <span class="intent-count">~83 KW</span>
+          <span class="intent-count">~69 KW</span>
         </div>
         <div class="intent-examples">"buy apartment in tbilisi"<br>"luxury apartment tbilisi"</div>
         <div class="intent-desc">English-language buyers — primarily Israel market. Covers purchase, luxury, penthouse, boutique residence, and investment queries.</div>
@@ -396,7 +396,7 @@ function renderS03() {
         <div class="intent-card-header">
           <div class="pool-badge pool-C">К3</div>
           <div class="intent-title">Premium Intent — RU</div>
-          <span class="intent-count">~19 KW</span>
+          <span class="intent-count">~37 KW</span>
         </div>
         <div class="intent-examples">"элитная недвижимость тбилиси"<br>"бутик резиденция тбилиси"</div>
         <div class="intent-desc">Russian-language premium and luxury segment. Audience self-selects — high qualification rate. Avg. CPC $1.24. Premium messaging essential.</div>
@@ -461,7 +461,7 @@ function renderS04() {
             <td>Purchase RU</td>
             <td><span class="badge badge-lang badge-lang-RU">RU</span></td>
             <td style="font-size:12px;color:var(--text-secondary)">Direct purchase intent (RU-language)</td>
-            <td style="font-family:var(--font-mono)">~141</td>
+            <td style="font-family:var(--font-mono)">~108</td>
             <td style="font-family:var(--font-mono);color:var(--accent-gold)">$125/mo</td>
           </tr>
           <tr>
@@ -469,7 +469,7 @@ function renderS04() {
             <td>Purchase EN</td>
             <td><span class="badge badge-lang badge-lang-EN">EN</span></td>
             <td style="font-size:12px;color:var(--text-secondary)">Direct purchase intent (EN-language)</td>
-            <td style="font-family:var(--font-mono)">~83</td>
+            <td style="font-family:var(--font-mono)">~69</td>
             <td style="font-family:var(--font-mono);color:var(--accent-gold)">$125/mo</td>
           </tr>
           <tr>
@@ -477,7 +477,7 @@ function renderS04() {
             <td>Premium RU</td>
             <td><span class="badge badge-lang badge-lang-RU">RU</span></td>
             <td style="font-size:12px;color:var(--text-secondary)">Luxury / premium segment (RU)</td>
-            <td style="font-family:var(--font-mono)">~19</td>
+            <td style="font-family:var(--font-mono)">~37</td>
             <td style="font-family:var(--font-mono);color:var(--accent-gold)">$125/mo</td>
           </tr>
           <tr>
@@ -492,7 +492,7 @@ function renderS04() {
             <td colspan="2" style="font-weight:600;color:var(--text-primary)">TOTAL</td>
             <td></td>
             <td></td>
-            <td style="font-family:var(--font-mono);font-weight:600;color:var(--text-primary)">~330</td>
+            <td style="font-family:var(--font-mono);font-weight:600;color:var(--text-primary)">~301</td>
             <td style="font-family:var(--font-mono);font-weight:600;color:var(--accent-gold)">$500/mo</td>
           </tr>
         </tbody>
@@ -696,9 +696,9 @@ function renderS05(keywords, competitors, negatives) {
     </div>
 
     ${campWrap('1','К1 — Покупка RU',
-      k1kw.length + ' ключевых слов · Пулы A, B, D, E, F, G · Язык: RU · Аудитория: IL · UA · BY',
+      k1kw.length + ' ключевых слов · Пулы A, D, E, F, G · Язык: RU · Аудитория: IL · UA · BY',
       'var(--border-medium)','var(--bg-elevated)',
-      kwSection(k1kw,'Пулы A B D E F G · Язык RU'),
+      kwSection(k1kw,'Пулы A D E F G · Язык RU'),
       negSection, k1Ads)}
 
     ${campWrap('2','К2 — Покупка EN',
@@ -1106,7 +1106,7 @@ function renderS09() {
     <!-- К1: Покупка RU -->
     ${campaignWrap('rgba(116,185,116,0.35)','rgba(116,185,116,0.08)','🇷🇺',
       'Кампания 1 — Покупка RU',
-      '141 ключевое слово · Пулы A, B, D, E, F, G · Аудитория: IL · UA · BY',
+      '108 ключевых слов · Пулы A, D, E, F, G · Аудитория: IL · UA · BY',
       preview('🇷🇺','Пример объявления (RU)','elysiumtbilisi.com',
         'Апартаменты от 130 м²','Бутик-резиденция в Тбилиси','Дом введён в эксплуатацию',
         'Апартаменты от 130 м² в Тбилиси. Бутик-резиденция. Дом введён в эксплуатацию.',
@@ -1131,7 +1131,7 @@ function renderS09() {
     <!-- К2: Покупка EN -->
     ${campaignWrap('rgba(74,106,180,0.35)','rgba(74,106,180,0.08)','🇬🇧',
       'Кампания 2 — Покупка EN',
-      '83 keywords · Pools A, B, C, D, E, F, G · Audience: IL · UA · BY',
+      '69 keywords · Pools A, B, C, D, E, F, G · Audience: IL · UA · BY',
       preview('🇬🇧','Ad Preview (EN)','elysiumtbilisi.com',
         'Apartments from 130 m²','Boutique Residence Tbilisi','Building Commissioned &amp; Ready',
         'Boutique Residence in Tbilisi. 14 apartments from 130 m². Building commissioned.',
@@ -1149,7 +1149,7 @@ function renderS09() {
     <!-- К3: Премиум RU -->
     ${campaignWrap('rgba(196,168,100,0.4)','rgba(196,168,100,0.06)','✨',
       'Кампания 3 — Премиум RU',
-      'Премиальное позиционирование · Пулы B, C, H · Русский язык · Аудитория: IL · UA · BY',
+      '37 ключевых слов · Пул B · Русский язык · Аудитория: IL · UA · BY',
       preview('🇷🇺','Пример объявления Премиум (RU)','elysiumtbilisi.com',
         'Бутик-резиденция в Тбилиси','Элитная недвижимость Тбилиси','14 апартаментов от 130 м²',
         'Бутик-резиденция в Тбилиси. 14 апартаментов от 130 м². Дом введён в эксплуатацию.',
