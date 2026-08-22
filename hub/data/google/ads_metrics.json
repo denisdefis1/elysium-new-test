@@ -2,7 +2,7 @@
   "status": "ok",
   "fetched_at": "2026-08-22",
   "period": {
-    "date_from": "2026-02-24",
+    "date_from": "2025-10-09",
     "date_to": "2026-08-22"
   },
   "account": {
@@ -15,6 +15,62 @@
       "6309630233"
     ]
   },
+  "campaigns_meta": [
+    {
+      "id": "23231772234",
+      "name": "Campaign #1",
+      "status": "PAUSED",
+      "channel": "PERFORMANCE_MAX"
+    },
+    {
+      "id": "23288394958",
+      "name": "Видеокампания Эффективный охват – 2025-11-20",
+      "status": "PAUSED",
+      "channel": "VIDEO"
+    },
+    {
+      "id": "23303937097",
+      "name": "Видеокампания Эффективный охват – 2025-11-20 #2",
+      "status": "PAUSED",
+      "channel": "VIDEO"
+    },
+    {
+      "id": "23568655127",
+      "name": "Лиды | квиз | тест 1 | 16.02",
+      "status": "PAUSED",
+      "channel": "DEMAND_GEN"
+    },
+    {
+      "id": "24008188680",
+      "name": "Лиды | тест новый 08.09",
+      "status": "PAUSED",
+      "channel": "SEARCH"
+    },
+    {
+      "id": "23301758607",
+      "name": "Создание спроса (2025-11-27)",
+      "status": "PAUSED",
+      "channel": "DEMAND_GEN"
+    },
+    {
+      "id": "23969066805",
+      "name": "Создание спроса (2026-06-25)",
+      "status": "PAUSED",
+      "channel": "DEMAND_GEN"
+    },
+    {
+      "id": "24060696869",
+      "name": "Создание спроса (2026-07-23)",
+      "status": "PAUSED",
+      "channel": "DEMAND_GEN"
+    },
+    {
+      "id": "23912043113",
+      "name": "каха - трафик на сайт",
+      "status": "PAUSED",
+      "channel": "DEMAND_GEN"
+    }
+  ],
   "daily": [
     {
       "date": "2026-08-22",
@@ -1262,6 +1318,1061 @@
     },
     {
       "date": "2026-02-24",
+      "campaigns": []
+    },
+    {
+      "date": "2026-02-23",
+      "campaigns": []
+    },
+    {
+      "date": "2026-02-22",
+      "campaigns": [
+        {
+          "id": "23568655127",
+          "name": "Лиды | квиз | тест 1 | 16.02",
+          "status": "PAUSED",
+          "impressions": 23759,
+          "clicks": 577,
+          "cost_usd": 43.6759,
+          "ctr_pct": 2.4286,
+          "avg_cpc_usd": 0.0757,
+          "conversions": 0.0,
+          "cpl_usd": null
+        },
+        {
+          "id": "23301758607",
+          "name": "Создание спроса (2025-11-27)",
+          "status": "PAUSED",
+          "impressions": 17378,
+          "clicks": 164,
+          "cost_usd": 5.9825,
+          "ctr_pct": 0.9437,
+          "avg_cpc_usd": 0.0365,
+          "conversions": 148.0,
+          "cpl_usd": 0.04
+        }
+      ]
+    },
+    {
+      "date": "2026-02-21",
+      "campaigns": [
+        {
+          "id": "23568655127",
+          "name": "Лиды | квиз | тест 1 | 16.02",
+          "status": "PAUSED",
+          "impressions": 27369,
+          "clicks": 1439,
+          "cost_usd": 50.2652,
+          "ctr_pct": 5.2578,
+          "avg_cpc_usd": 0.0349,
+          "conversions": 0.0,
+          "cpl_usd": null
+        },
+        {
+          "id": "23301758607",
+          "name": "Создание спроса (2025-11-27)",
+          "status": "PAUSED",
+          "impressions": 40676,
+          "clicks": 475,
+          "cost_usd": 15.4244,
+          "ctr_pct": 1.1678,
+          "avg_cpc_usd": 0.0325,
+          "conversions": 437.0,
+          "cpl_usd": 0.04
+        }
+      ]
+    },
+    {
+      "date": "2026-02-20",
+      "campaigns": [
+        {
+          "id": "23301758607",
+          "name": "Создание спроса (2025-11-27)",
+          "status": "PAUSED",
+          "impressions": 27256,
+          "clicks": 400,
+          "cost_usd": 15.5265,
+          "ctr_pct": 1.4676,
+          "avg_cpc_usd": 0.0388,
+          "conversions": 360.0,
+          "cpl_usd": 0.04
+        },
+        {
+          "id": "23568655127",
+          "name": "Лиды | квиз | тест 1 | 16.02",
+          "status": "PAUSED",
+          "impressions": 989,
+          "clicks": 86,
+          "cost_usd": 1.1966,
+          "ctr_pct": 8.6957,
+          "avg_cpc_usd": 0.0139,
+          "conversions": 0.0,
+          "cpl_usd": null
+        }
+      ]
+    },
+    {
+      "date": "2026-02-19",
+      "campaigns": [
+        {
+          "id": "23301758607",
+          "name": "Создание спроса (2025-11-27)",
+          "status": "PAUSED",
+          "impressions": 45153,
+          "clicks": 406,
+          "cost_usd": 15.6019,
+          "ctr_pct": 0.8992,
+          "avg_cpc_usd": 0.0384,
+          "conversions": 393.0,
+          "cpl_usd": 0.04
+        },
+        {
+          "id": "23568655127",
+          "name": "Лиды | квиз | тест 1 | 16.02",
+          "status": "PAUSED",
+          "impressions": 10,
+          "clicks": 0,
+          "cost_usd": 0.0111,
+          "ctr_pct": 0.0,
+          "avg_cpc_usd": 0.0,
+          "conversions": 0.0,
+          "cpl_usd": null
+        }
+      ]
+    },
+    {
+      "date": "2026-02-18",
+      "campaigns": [
+        {
+          "id": "23301758607",
+          "name": "Создание спроса (2025-11-27)",
+          "status": "PAUSED",
+          "impressions": 43997,
+          "clicks": 437,
+          "cost_usd": 15.5135,
+          "ctr_pct": 0.9932,
+          "avg_cpc_usd": 0.0355,
+          "conversions": 403.0,
+          "cpl_usd": 0.04
+        }
+      ]
+    },
+    {
+      "date": "2026-02-17",
+      "campaigns": [
+        {
+          "id": "23301758607",
+          "name": "Создание спроса (2025-11-27)",
+          "status": "PAUSED",
+          "impressions": 33711,
+          "clicks": 214,
+          "cost_usd": 15.1777,
+          "ctr_pct": 0.6348,
+          "avg_cpc_usd": 0.0709,
+          "conversions": 206.0,
+          "cpl_usd": 0.07
+        }
+      ]
+    },
+    {
+      "date": "2026-02-16",
+      "campaigns": []
+    },
+    {
+      "date": "2026-02-15",
+      "campaigns": []
+    },
+    {
+      "date": "2026-02-14",
+      "campaigns": []
+    },
+    {
+      "date": "2026-02-13",
+      "campaigns": []
+    },
+    {
+      "date": "2026-02-12",
+      "campaigns": []
+    },
+    {
+      "date": "2026-02-11",
+      "campaigns": []
+    },
+    {
+      "date": "2026-02-10",
+      "campaigns": []
+    },
+    {
+      "date": "2026-02-09",
+      "campaigns": []
+    },
+    {
+      "date": "2026-02-08",
+      "campaigns": []
+    },
+    {
+      "date": "2026-02-07",
+      "campaigns": []
+    },
+    {
+      "date": "2026-02-06",
+      "campaigns": []
+    },
+    {
+      "date": "2026-02-05",
+      "campaigns": []
+    },
+    {
+      "date": "2026-02-04",
+      "campaigns": []
+    },
+    {
+      "date": "2026-02-03",
+      "campaigns": []
+    },
+    {
+      "date": "2026-02-02",
+      "campaigns": []
+    },
+    {
+      "date": "2026-02-01",
+      "campaigns": []
+    },
+    {
+      "date": "2026-01-31",
+      "campaigns": []
+    },
+    {
+      "date": "2026-01-30",
+      "campaigns": []
+    },
+    {
+      "date": "2026-01-29",
+      "campaigns": []
+    },
+    {
+      "date": "2026-01-28",
+      "campaigns": []
+    },
+    {
+      "date": "2026-01-27",
+      "campaigns": []
+    },
+    {
+      "date": "2026-01-26",
+      "campaigns": []
+    },
+    {
+      "date": "2026-01-25",
+      "campaigns": []
+    },
+    {
+      "date": "2026-01-24",
+      "campaigns": []
+    },
+    {
+      "date": "2026-01-23",
+      "campaigns": []
+    },
+    {
+      "date": "2026-01-22",
+      "campaigns": []
+    },
+    {
+      "date": "2026-01-21",
+      "campaigns": []
+    },
+    {
+      "date": "2026-01-20",
+      "campaigns": []
+    },
+    {
+      "date": "2026-01-19",
+      "campaigns": []
+    },
+    {
+      "date": "2026-01-18",
+      "campaigns": []
+    },
+    {
+      "date": "2026-01-17",
+      "campaigns": []
+    },
+    {
+      "date": "2026-01-16",
+      "campaigns": []
+    },
+    {
+      "date": "2026-01-15",
+      "campaigns": []
+    },
+    {
+      "date": "2026-01-14",
+      "campaigns": []
+    },
+    {
+      "date": "2026-01-13",
+      "campaigns": []
+    },
+    {
+      "date": "2026-01-12",
+      "campaigns": []
+    },
+    {
+      "date": "2026-01-11",
+      "campaigns": []
+    },
+    {
+      "date": "2026-01-10",
+      "campaigns": []
+    },
+    {
+      "date": "2026-01-09",
+      "campaigns": []
+    },
+    {
+      "date": "2026-01-08",
+      "campaigns": []
+    },
+    {
+      "date": "2026-01-07",
+      "campaigns": []
+    },
+    {
+      "date": "2026-01-06",
+      "campaigns": []
+    },
+    {
+      "date": "2026-01-05",
+      "campaigns": []
+    },
+    {
+      "date": "2026-01-04",
+      "campaigns": []
+    },
+    {
+      "date": "2026-01-03",
+      "campaigns": []
+    },
+    {
+      "date": "2026-01-02",
+      "campaigns": []
+    },
+    {
+      "date": "2026-01-01",
+      "campaigns": []
+    },
+    {
+      "date": "2025-12-31",
+      "campaigns": []
+    },
+    {
+      "date": "2025-12-30",
+      "campaigns": []
+    },
+    {
+      "date": "2025-12-29",
+      "campaigns": []
+    },
+    {
+      "date": "2025-12-28",
+      "campaigns": []
+    },
+    {
+      "date": "2025-12-27",
+      "campaigns": []
+    },
+    {
+      "date": "2025-12-26",
+      "campaigns": []
+    },
+    {
+      "date": "2025-12-25",
+      "campaigns": []
+    },
+    {
+      "date": "2025-12-24",
+      "campaigns": []
+    },
+    {
+      "date": "2025-12-23",
+      "campaigns": []
+    },
+    {
+      "date": "2025-12-22",
+      "campaigns": []
+    },
+    {
+      "date": "2025-12-21",
+      "campaigns": []
+    },
+    {
+      "date": "2025-12-20",
+      "campaigns": []
+    },
+    {
+      "date": "2025-12-19",
+      "campaigns": []
+    },
+    {
+      "date": "2025-12-18",
+      "campaigns": []
+    },
+    {
+      "date": "2025-12-17",
+      "campaigns": []
+    },
+    {
+      "date": "2025-12-16",
+      "campaigns": [
+        {
+          "id": "23301758607",
+          "name": "Создание спроса (2025-11-27)",
+          "status": "PAUSED",
+          "impressions": 1,
+          "clicks": 0,
+          "cost_usd": 0.0002,
+          "ctr_pct": 0.0,
+          "avg_cpc_usd": 0.0,
+          "conversions": 0.0,
+          "cpl_usd": null
+        }
+      ]
+    },
+    {
+      "date": "2025-12-15",
+      "campaigns": [
+        {
+          "id": "23301758607",
+          "name": "Создание спроса (2025-11-27)",
+          "status": "PAUSED",
+          "impressions": 44608,
+          "clicks": 340,
+          "cost_usd": 14.8576,
+          "ctr_pct": 0.7622,
+          "avg_cpc_usd": 0.0437,
+          "conversions": 299.0,
+          "cpl_usd": 0.05
+        }
+      ]
+    },
+    {
+      "date": "2025-12-14",
+      "campaigns": [
+        {
+          "id": "23301758607",
+          "name": "Создание спроса (2025-11-27)",
+          "status": "PAUSED",
+          "impressions": 49316,
+          "clicks": 375,
+          "cost_usd": 15.3026,
+          "ctr_pct": 0.7604,
+          "avg_cpc_usd": 0.0408,
+          "conversions": 341.0,
+          "cpl_usd": 0.04
+        }
+      ]
+    },
+    {
+      "date": "2025-12-13",
+      "campaigns": [
+        {
+          "id": "23301758607",
+          "name": "Создание спроса (2025-11-27)",
+          "status": "PAUSED",
+          "impressions": 68737,
+          "clicks": 343,
+          "cost_usd": 15.0816,
+          "ctr_pct": 0.499,
+          "avg_cpc_usd": 0.044,
+          "conversions": 321.0,
+          "cpl_usd": 0.05
+        }
+      ]
+    },
+    {
+      "date": "2025-12-12",
+      "campaigns": [
+        {
+          "id": "23301758607",
+          "name": "Создание спроса (2025-11-27)",
+          "status": "PAUSED",
+          "impressions": 72676,
+          "clicks": 355,
+          "cost_usd": 15.1151,
+          "ctr_pct": 0.4885,
+          "avg_cpc_usd": 0.0426,
+          "conversions": 340.0,
+          "cpl_usd": 0.04
+        }
+      ]
+    },
+    {
+      "date": "2025-12-11",
+      "campaigns": [
+        {
+          "id": "23301758607",
+          "name": "Создание спроса (2025-11-27)",
+          "status": "PAUSED",
+          "impressions": 55628,
+          "clicks": 298,
+          "cost_usd": 15.1281,
+          "ctr_pct": 0.5357,
+          "avg_cpc_usd": 0.0508,
+          "conversions": 287.0,
+          "cpl_usd": 0.05
+        }
+      ]
+    },
+    {
+      "date": "2025-12-10",
+      "campaigns": [
+        {
+          "id": "23301758607",
+          "name": "Создание спроса (2025-11-27)",
+          "status": "PAUSED",
+          "impressions": 60441,
+          "clicks": 340,
+          "cost_usd": 15.1939,
+          "ctr_pct": 0.5625,
+          "avg_cpc_usd": 0.0447,
+          "conversions": 315.0,
+          "cpl_usd": 0.05
+        }
+      ]
+    },
+    {
+      "date": "2025-12-09",
+      "campaigns": [
+        {
+          "id": "23301758607",
+          "name": "Создание спроса (2025-11-27)",
+          "status": "PAUSED",
+          "impressions": 70718,
+          "clicks": 347,
+          "cost_usd": 15.2095,
+          "ctr_pct": 0.4907,
+          "avg_cpc_usd": 0.0438,
+          "conversions": 343.0,
+          "cpl_usd": 0.04
+        }
+      ]
+    },
+    {
+      "date": "2025-12-08",
+      "campaigns": [
+        {
+          "id": "23301758607",
+          "name": "Создание спроса (2025-11-27)",
+          "status": "PAUSED",
+          "impressions": 67885,
+          "clicks": 372,
+          "cost_usd": 15.2673,
+          "ctr_pct": 0.548,
+          "avg_cpc_usd": 0.041,
+          "conversions": 361.0,
+          "cpl_usd": 0.04
+        }
+      ]
+    },
+    {
+      "date": "2025-12-07",
+      "campaigns": [
+        {
+          "id": "23301758607",
+          "name": "Создание спроса (2025-11-27)",
+          "status": "PAUSED",
+          "impressions": 61745,
+          "clicks": 381,
+          "cost_usd": 15.2696,
+          "ctr_pct": 0.6171,
+          "avg_cpc_usd": 0.0401,
+          "conversions": 367.0,
+          "cpl_usd": 0.04
+        }
+      ]
+    },
+    {
+      "date": "2025-12-06",
+      "campaigns": [
+        {
+          "id": "23301758607",
+          "name": "Создание спроса (2025-11-27)",
+          "status": "PAUSED",
+          "impressions": 60010,
+          "clicks": 396,
+          "cost_usd": 15.31,
+          "ctr_pct": 0.6599,
+          "avg_cpc_usd": 0.0387,
+          "conversions": 383.0,
+          "cpl_usd": 0.04
+        }
+      ]
+    },
+    {
+      "date": "2025-12-05",
+      "campaigns": [
+        {
+          "id": "23301758607",
+          "name": "Создание спроса (2025-11-27)",
+          "status": "PAUSED",
+          "impressions": 51239,
+          "clicks": 334,
+          "cost_usd": 15.3456,
+          "ctr_pct": 0.6518,
+          "avg_cpc_usd": 0.0459,
+          "conversions": 330.0,
+          "cpl_usd": 0.05
+        }
+      ]
+    },
+    {
+      "date": "2025-12-04",
+      "campaigns": [
+        {
+          "id": "23301758607",
+          "name": "Создание спроса (2025-11-27)",
+          "status": "PAUSED",
+          "impressions": 53578,
+          "clicks": 353,
+          "cost_usd": 15.3778,
+          "ctr_pct": 0.6589,
+          "avg_cpc_usd": 0.0436,
+          "conversions": 340.0,
+          "cpl_usd": 0.05
+        }
+      ]
+    },
+    {
+      "date": "2025-12-03",
+      "campaigns": [
+        {
+          "id": "23301758607",
+          "name": "Создание спроса (2025-11-27)",
+          "status": "PAUSED",
+          "impressions": 43228,
+          "clicks": 325,
+          "cost_usd": 15.3945,
+          "ctr_pct": 0.7518,
+          "avg_cpc_usd": 0.0474,
+          "conversions": 323.0,
+          "cpl_usd": 0.05
+        }
+      ]
+    },
+    {
+      "date": "2025-12-02",
+      "campaigns": [
+        {
+          "id": "23301758607",
+          "name": "Создание спроса (2025-11-27)",
+          "status": "PAUSED",
+          "impressions": 39759,
+          "clicks": 251,
+          "cost_usd": 15.3822,
+          "ctr_pct": 0.6313,
+          "avg_cpc_usd": 0.0613,
+          "conversions": 244.0,
+          "cpl_usd": 0.06
+        }
+      ]
+    },
+    {
+      "date": "2025-12-01",
+      "campaigns": [
+        {
+          "id": "23301758607",
+          "name": "Создание спроса (2025-11-27)",
+          "status": "PAUSED",
+          "impressions": 26455,
+          "clicks": 125,
+          "cost_usd": 14.7382,
+          "ctr_pct": 0.4725,
+          "avg_cpc_usd": 0.1179,
+          "conversions": 129.0,
+          "cpl_usd": 0.11
+        }
+      ]
+    },
+    {
+      "date": "2025-11-30",
+      "campaigns": [
+        {
+          "id": "23301758607",
+          "name": "Создание спроса (2025-11-27)",
+          "status": "PAUSED",
+          "impressions": 24050,
+          "clicks": 162,
+          "cost_usd": 14.5243,
+          "ctr_pct": 0.6736,
+          "avg_cpc_usd": 0.0897,
+          "conversions": 167.0,
+          "cpl_usd": 0.09
+        }
+      ]
+    },
+    {
+      "date": "2025-11-29",
+      "campaigns": [
+        {
+          "id": "23301758607",
+          "name": "Создание спроса (2025-11-27)",
+          "status": "PAUSED",
+          "impressions": 16115,
+          "clicks": 102,
+          "cost_usd": 14.979,
+          "ctr_pct": 0.633,
+          "avg_cpc_usd": 0.1469,
+          "conversions": 109.0,
+          "cpl_usd": 0.14
+        }
+      ]
+    },
+    {
+      "date": "2025-11-28",
+      "campaigns": [
+        {
+          "id": "23301758607",
+          "name": "Создание спроса (2025-11-27)",
+          "status": "PAUSED",
+          "impressions": 12008,
+          "clicks": 55,
+          "cost_usd": 15.5345,
+          "ctr_pct": 0.458,
+          "avg_cpc_usd": 0.2824,
+          "conversions": 58.0,
+          "cpl_usd": 0.27
+        }
+      ]
+    },
+    {
+      "date": "2025-11-27",
+      "campaigns": [
+        {
+          "id": "23301758607",
+          "name": "Создание спроса (2025-11-27)",
+          "status": "PAUSED",
+          "impressions": 854,
+          "clicks": 4,
+          "cost_usd": 15.1239,
+          "ctr_pct": 0.4684,
+          "avg_cpc_usd": 3.781,
+          "conversions": 4.0,
+          "cpl_usd": 3.78
+        }
+      ]
+    },
+    {
+      "date": "2025-11-26",
+      "campaigns": []
+    },
+    {
+      "date": "2025-11-25",
+      "campaigns": [
+        {
+          "id": "23288394958",
+          "name": "Видеокампания Эффективный охват – 2025-11-20",
+          "status": "PAUSED",
+          "impressions": 13685,
+          "clicks": 12,
+          "cost_usd": 4.5748,
+          "ctr_pct": 0.0877,
+          "avg_cpc_usd": 0.3812,
+          "conversions": 0.0,
+          "cpl_usd": null
+        }
+      ]
+    },
+    {
+      "date": "2025-11-24",
+      "campaigns": [
+        {
+          "id": "23288394958",
+          "name": "Видеокампания Эффективный охват – 2025-11-20",
+          "status": "PAUSED",
+          "impressions": 32580,
+          "clicks": 19,
+          "cost_usd": 10.2671,
+          "ctr_pct": 0.0583,
+          "avg_cpc_usd": 0.5404,
+          "conversions": 0.0,
+          "cpl_usd": null
+        }
+      ]
+    },
+    {
+      "date": "2025-11-23",
+      "campaigns": [
+        {
+          "id": "23288394958",
+          "name": "Видеокампания Эффективный охват – 2025-11-20",
+          "status": "PAUSED",
+          "impressions": 32014,
+          "clicks": 26,
+          "cost_usd": 10.3554,
+          "ctr_pct": 0.0812,
+          "avg_cpc_usd": 0.3983,
+          "conversions": 0.0,
+          "cpl_usd": null
+        }
+      ]
+    },
+    {
+      "date": "2025-11-22",
+      "campaigns": [
+        {
+          "id": "23288394958",
+          "name": "Видеокампания Эффективный охват – 2025-11-20",
+          "status": "PAUSED",
+          "impressions": 32035,
+          "clicks": 23,
+          "cost_usd": 10.4351,
+          "ctr_pct": 0.0718,
+          "avg_cpc_usd": 0.4537,
+          "conversions": 0.0,
+          "cpl_usd": null
+        }
+      ]
+    },
+    {
+      "date": "2025-11-21",
+      "campaigns": [
+        {
+          "id": "23288394958",
+          "name": "Видеокампания Эффективный охват – 2025-11-20",
+          "status": "PAUSED",
+          "impressions": 46395,
+          "clicks": 7,
+          "cost_usd": 10.4287,
+          "ctr_pct": 0.0151,
+          "avg_cpc_usd": 1.4898,
+          "conversions": 0.0,
+          "cpl_usd": null
+        }
+      ]
+    },
+    {
+      "date": "2025-11-20",
+      "campaigns": [
+        {
+          "id": "23288394958",
+          "name": "Видеокампания Эффективный охват – 2025-11-20",
+          "status": "PAUSED",
+          "impressions": 20237,
+          "clicks": 34,
+          "cost_usd": 9.9949,
+          "ctr_pct": 0.168,
+          "avg_cpc_usd": 0.294,
+          "conversions": 0.0,
+          "cpl_usd": null
+        }
+      ]
+    },
+    {
+      "date": "2025-11-19",
+      "campaigns": []
+    },
+    {
+      "date": "2025-11-18",
+      "campaigns": []
+    },
+    {
+      "date": "2025-11-17",
+      "campaigns": []
+    },
+    {
+      "date": "2025-11-16",
+      "campaigns": []
+    },
+    {
+      "date": "2025-11-15",
+      "campaigns": []
+    },
+    {
+      "date": "2025-11-14",
+      "campaigns": []
+    },
+    {
+      "date": "2025-11-13",
+      "campaigns": []
+    },
+    {
+      "date": "2025-11-12",
+      "campaigns": []
+    },
+    {
+      "date": "2025-11-11",
+      "campaigns": []
+    },
+    {
+      "date": "2025-11-10",
+      "campaigns": [
+        {
+          "id": "23231772234",
+          "name": "Campaign #1",
+          "status": "PAUSED",
+          "impressions": 2803,
+          "clicks": 115,
+          "cost_usd": 3.1503,
+          "ctr_pct": 4.1027,
+          "avg_cpc_usd": 0.0274,
+          "conversions": 0.0,
+          "cpl_usd": null
+        }
+      ]
+    },
+    {
+      "date": "2025-11-09",
+      "campaigns": [
+        {
+          "id": "23231772234",
+          "name": "Campaign #1",
+          "status": "PAUSED",
+          "impressions": 5142,
+          "clicks": 105,
+          "cost_usd": 4.5028,
+          "ctr_pct": 2.042,
+          "avg_cpc_usd": 0.0429,
+          "conversions": 0.0,
+          "cpl_usd": null
+        }
+      ]
+    },
+    {
+      "date": "2025-11-08",
+      "campaigns": [
+        {
+          "id": "23231772234",
+          "name": "Campaign #1",
+          "status": "PAUSED",
+          "impressions": 249,
+          "clicks": 5,
+          "cost_usd": 0.0942,
+          "ctr_pct": 2.008,
+          "avg_cpc_usd": 0.0188,
+          "conversions": 0.0,
+          "cpl_usd": null
+        }
+      ]
+    },
+    {
+      "date": "2025-11-07",
+      "campaigns": []
+    },
+    {
+      "date": "2025-11-06",
+      "campaigns": []
+    },
+    {
+      "date": "2025-11-05",
+      "campaigns": []
+    },
+    {
+      "date": "2025-11-04",
+      "campaigns": []
+    },
+    {
+      "date": "2025-11-03",
+      "campaigns": []
+    },
+    {
+      "date": "2025-11-02",
+      "campaigns": []
+    },
+    {
+      "date": "2025-11-01",
+      "campaigns": []
+    },
+    {
+      "date": "2025-10-31",
+      "campaigns": []
+    },
+    {
+      "date": "2025-10-30",
+      "campaigns": []
+    },
+    {
+      "date": "2025-10-29",
+      "campaigns": []
+    },
+    {
+      "date": "2025-10-28",
+      "campaigns": []
+    },
+    {
+      "date": "2025-10-27",
+      "campaigns": []
+    },
+    {
+      "date": "2025-10-26",
+      "campaigns": []
+    },
+    {
+      "date": "2025-10-25",
+      "campaigns": []
+    },
+    {
+      "date": "2025-10-24",
+      "campaigns": []
+    },
+    {
+      "date": "2025-10-23",
+      "campaigns": []
+    },
+    {
+      "date": "2025-10-22",
+      "campaigns": []
+    },
+    {
+      "date": "2025-10-21",
+      "campaigns": []
+    },
+    {
+      "date": "2025-10-20",
+      "campaigns": []
+    },
+    {
+      "date": "2025-10-19",
+      "campaigns": []
+    },
+    {
+      "date": "2025-10-18",
+      "campaigns": []
+    },
+    {
+      "date": "2025-10-17",
+      "campaigns": []
+    },
+    {
+      "date": "2025-10-16",
+      "campaigns": []
+    },
+    {
+      "date": "2025-10-15",
+      "campaigns": []
+    },
+    {
+      "date": "2025-10-14",
+      "campaigns": []
+    },
+    {
+      "date": "2025-10-13",
+      "campaigns": []
+    },
+    {
+      "date": "2025-10-12",
+      "campaigns": []
+    },
+    {
+      "date": "2025-10-11",
+      "campaigns": []
+    },
+    {
+      "date": "2025-10-10",
+      "campaigns": []
+    },
+    {
+      "date": "2025-10-09",
       "campaigns": []
     }
   ]

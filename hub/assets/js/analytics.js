@@ -34,14 +34,15 @@ function _paintGoogle(el) {
   if (!el) return;
 
   var raw    = (window.__ELYSIUM_DATA__ || {}).ads_metrics || {};
-  var acct   = raw.account   || {};
-  var daily  = raw.daily     || [];
-  var fetchedAt = raw.fetched_at || '—';
+  var acct   = raw.account        || {};
+  var daily  = raw.daily          || [];
+  var meta   = raw.campaigns_meta || [];
+  var fetchedAt = raw.fetched_at  || '—';
 
   var agg = _aggregate(daily, _g.period);
   var chartDays = _chartData(daily, _g.period);
 
-  el.innerHTML = _googleHTML(acct, fetchedAt, agg, chartDays);
+  el.innerHTML = _googleHTML(acct, fetchedAt, agg, chartDays, meta);
   _bindGoogle(el, daily, acct, fetchedAt);
 }
 
@@ -122,7 +123,7 @@ function _chartData(daily, days) {
 /* ============================================================
    HTML BUILDER
    ============================================================ */
-function _googleHTML(acct, fetchedAt, agg, chartDays) {
+function _googleHTML(acct, fetchedAt, agg, chartDays, meta) {
   var rows    = agg.rows;
   var totals  = agg.totals;
   var hasCamp = rows.length > 0;
@@ -133,6 +134,7 @@ function _googleHTML(acct, fetchedAt, agg, chartDays) {
     _kpiGrid(totals) +
     _spendChart(chartDays) +
     _campTable(rows, totals, hasCamp) +
+    _allCampaignsTable(meta, rows) +
     _pipelineCard(acct)
   );
 }
@@ -160,11 +162,13 @@ function _accountBar(acct, fetchedAt) {
 /* ---- period tab bar ---- */
 function _periodBar() {
   var periods = [
-    {days:7,   label:'7 дней'},
-    {days:14,  label:'14 дней'},
-    {days:30,  label:'30 дней'},
-    {days:90,  label:'90 дней'},
-    {days:180, label:'6 мес'},
+    {days:7,    label:'7 дней'},
+    {days:14,   label:'14 дней'},
+    {days:30,   label:'30 дней'},
+    {days:90,   label:'90 дней'},
+    {days:180,  label:'6 мес'},
+    {days:365,  label:'1 год'},
+    {days:9999, label:'Всё время'},
   ];
   var tabs = periods.map(function(p) {
     var active = _g.period === p.days;
@@ -363,6 +367,70 @@ function _campTable(rows, totals, hasCamp) {
   );
 }
 
+/* ---- all campaigns ever (from campaigns_meta) ---- */
+function _allCampaignsTable(meta, activeRows) {
+  if (!meta || meta.length === 0) return '';
+  var activeIds = {};
+  activeRows.forEach(function(r) { activeIds[r.id] = true; });
+
+  var statusColor = {
+    ENABLED:  '#74B974',
+    PAUSED:   '#C4A882',
+    REMOVED:  '#666',
+  };
+  var rows = meta.map(function(c) {
+    var inPeriod = activeIds[c.id];
+    var col = statusColor[c.status] || '#888';
+    var badge = (
+      '<span style="display:inline-block;padding:2px 8px;border-radius:4px;' +
+      'background:' + col + '22;color:' + col + ';font-size:10px;' +
+      'letter-spacing:0.05em;text-transform:uppercase">' + c.status + '</span>'
+    );
+    return (
+      '<tr style="border-bottom:1px solid rgba(255,255,255,0.04);' +
+      (inPeriod ? '' : 'opacity:0.55') + '">' +
+        '<td style="padding:9px 12px;font-size:12px;color:var(--text-primary)">' + c.name + '</td>' +
+        '<td style="padding:9px 12px;text-align:center">' + badge + '</td>' +
+        '<td style="padding:9px 12px;font-size:11px;color:var(--text-tertiary);' +
+        'font-family:var(--font-mono)">' + (c.channel || '—') + '</td>' +
+        '<td style="padding:9px 12px;font-size:11px;' +
+        'color:' + (inPeriod ? 'var(--accent-gold)' : 'var(--text-tertiary)') + '">' +
+        (inPeriod ? '✓ в периоде' : '—') + '</td>' +
+      '</tr>'
+    );
+  }).join('');
+
+  var thead = (
+    '<tr style="border-bottom:1px solid var(--border-medium)">' +
+      ['Кампания','Статус','Тип канала','В периоде'].map(function(h) {
+        return (
+          '<th style="padding:9px 12px;font-size:11px;letter-spacing:0.05em;' +
+          'text-transform:uppercase;font-weight:500;color:var(--text-tertiary);' +
+          'white-space:nowrap;text-align:left">' + h + '</th>'
+        );
+      }).join('') +
+    '</tr>'
+  );
+
+  return (
+    '<div style="background:var(--bg-elevated);border:1px solid var(--border-subtle);' +
+    'border-radius:10px;padding:18px 20px;margin-bottom:16px">' +
+      '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px">' +
+        '<div style="font-size:11px;letter-spacing:0.08em;text-transform:uppercase;' +
+        'color:var(--text-tertiary);font-weight:600">Все кампании в аккаунте</div>' +
+        '<div style="font-size:11px;color:var(--text-tertiary)">' + meta.length + ' кампани' +
+          (meta.length === 1 ? 'я' : meta.length < 5 ? 'и' : 'й') + ' · все периоды</div>' +
+      '</div>' +
+      '<div style="overflow-x:auto">' +
+        '<table style="width:100%;border-collapse:collapse;font-size:13px;min-width:700px">' +
+          '<thead>' + thead + '</thead>' +
+          '<tbody>' + rows + '</tbody>' +
+        '</table>' +
+      '</div>' +
+    '</div>'
+  );
+}
+
 /* ---- pipeline info card ---- */
 function _pipelineCard(acct) {
   var id = acct.id || '3341934882';
@@ -509,6 +577,7 @@ function _fd(v,p) {
 }
 
 function _cutoff(days) {
+  if (days >= 9999) return '2000-01-01';
   var d = new Date();
   d.setDate(d.getDate() - days);
   return d.toISOString().slice(0, 10);

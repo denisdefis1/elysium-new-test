@@ -82,6 +82,33 @@ def fetch_account_info(service, customer_id: str) -> dict:
     return {"id": customer_id}
 
 
+def fetch_all_campaigns_meta(service, customer_id: str) -> list[dict]:
+    """All campaigns ever in this account — no date filter, no metrics."""
+    camps = []
+    try:
+        for row in service.search(
+            customer_id=customer_id,
+            query="""
+                SELECT campaign.id, campaign.name, campaign.status,
+                       campaign.advertising_channel_type
+                FROM campaign
+                ORDER BY campaign.name
+            """,
+        ):
+            c = row.campaign
+            camps.append({
+                "id":      str(c.id),
+                "name":    c.name,
+                "status":  c.status.name,
+                "channel": c.advertising_channel_type.name,
+            })
+    except Exception as e:
+        if "REQUESTED_METRICS_FOR_MANAGER" in str(e):
+            return None
+        print(f"WARNING: fetch_all_campaigns_meta error for {customer_id}: {e}", file=sys.stderr)
+    return camps
+
+
 def fetch_daily_campaigns(service, customer_id: str, date_from: str, date_to: str) -> dict:
     """Returns {date_str: {campaign_id: metrics_dict}}. None if MCC error."""
     daily_map: dict[str, dict] = defaultdict(dict)
@@ -100,7 +127,7 @@ def fetch_daily_campaigns(service, customer_id: str, date_from: str, date_to: st
             metrics.cost_per_conversion
         FROM campaign
         WHERE segments.date BETWEEN '{date_from}' AND '{date_to}'
-          AND metrics.impressions > 0
+          AND metrics.cost_micros > 0
         ORDER BY segments.date DESC, metrics.cost_micros DESC
     """
     try:
@@ -131,7 +158,7 @@ def fetch_daily_campaigns(service, customer_id: str, date_from: str, date_to: st
 def main():
     today     = date.today()
     date_to   = str(today)
-    date_from = str(today - timedelta(days=179))   # 180 days incl. today
+    date_from = "2020-01-01"   # fetch all available history
 
     default_id = os.environ["GOOGLE_ADS_CUSTOMER_ID"]
     client     = get_client()
@@ -153,14 +180,23 @@ def main():
         customer_ids = [default_id]
         account      = fetch_account_info(service, default_id)
 
-    print(f"Fetching {date_from} → {date_to} from account(s): {customer_ids}")
+    # Fetch all campaigns metadata (name/status/dates) regardless of period
+    all_campaigns_meta = []
+    for cid in customer_ids:
+        meta = fetch_all_campaigns_meta(service, cid)
+        if meta:
+            all_campaigns_meta.extend(meta)
+    print(f"Total campaigns in account: {len(all_campaigns_meta)}")
+    for m in all_campaigns_meta:
+        print(f"  [{m['status']}] {m['name']}")
+
+    print(f"Fetching daily metrics {date_from} → {date_to} from account(s): {customer_ids}")
 
     # Merge daily data from all accounts
     merged: dict[str, dict] = defaultdict(dict)
     for cid in customer_ids:
         result = fetch_daily_campaigns(service, cid, date_from, date_to)
         if result is None:
-            # Shouldn't happen after MCC check, but handle gracefully
             print(f"  SKIP {cid}: still returning MCC error", file=sys.stderr)
             continue
         total_days = sum(1 for v in result.values() if v)
@@ -168,13 +204,22 @@ def main():
         for day, camps in result.items():
             merged[day].update(camps)
 
+    # Find actual earliest day with data so daily array isn't bloated with empty years
+    if merged:
+        earliest_data = min(merged.keys())
+        # Start 30 days before first data point, but never before date_from
+        start_str = max(date_from,
+                        str(date.fromisoformat(earliest_data) - timedelta(days=30)))
+    else:
+        start_str = str(today - timedelta(days=90))
+
     days_with_data = sum(1 for v in merged.values() if v)
-    print(f"Total days with data: {days_with_data} / 180")
+    print(f"Total days with data: {days_with_data}  (from {start_str} → {date_to})")
 
     # Build daily array sorted newest-first
     daily_list = []
     cur   = today
-    start = date.fromisoformat(date_from)
+    start = date.fromisoformat(start_str)
     while cur >= start:
         day_str = str(cur)
         camps   = list(merged[day_str].values()) if day_str in merged else []
@@ -182,11 +227,12 @@ def main():
         cur -= timedelta(days=1)
 
     result = {
-        "status":     "ok",
-        "fetched_at": str(today),
-        "period":     {"date_from": date_from, "date_to": date_to},
-        "account":    account,
-        "daily":      daily_list,
+        "status":            "ok",
+        "fetched_at":        str(today),
+        "period":            {"date_from": start_str, "date_to": date_to},
+        "account":           account,
+        "campaigns_meta":    all_campaigns_meta,
+        "daily":             daily_list,
     }
 
     out = os.path.join(
