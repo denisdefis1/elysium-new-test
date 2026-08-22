@@ -188,7 +188,7 @@ function _periodBar() {
   );
 }
 
-/* ---- 8 KPI cards ---- */
+/* ---- 5 KPI cards ---- */
 function _kpiGrid(t) {
   var cards = [
     {label:'Показы',   value:_fn(t.impressions),     sub:'search impressions'},
@@ -196,11 +196,8 @@ function _kpiGrid(t) {
     {label:'CTR',      value:_fp(t.ctr_pct),          sub:'click-through rate'},
     {label:'Avg CPC',  value:_fd(t.avg_cpc_usd,'$'),  sub:'стоимость клика'},
     {label:'Расход',   value:_fd(t.cost_usd,'$'),     sub:'USD за период'},
-    {label:'Лиды',     value:_fn(t.conversions||null),sub:'конверсии · Google Ads'},
-    {label:'CPL',      value:_fd(t.cpl_usd,'$'),      sub:'стоимость лида'},
-    {label:'CPQL',     value:'—',                     sub:'квал. лид · ручной ввод'},
   ];
-  var html = '<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:26px">';
+  var html = '<div style="display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:26px">';
   cards.forEach(function(c) {
     html += (
       '<div style="background:var(--bg-elevated);border:1px solid var(--border-subtle);' +
@@ -264,8 +261,6 @@ var COLS = [
   {key:'ctr_pct',     label:'CTR',       align:'right', usd:false, pct:true},
   {key:'avg_cpc_usd', label:'Avg CPC',   align:'right', usd:true,  pct:false},
   {key:'cost_usd',    label:'Расход $',  align:'right', usd:true,  pct:false, gold:true},
-  {key:'conversions', label:'Лиды',      align:'right', usd:false, pct:false},
-  {key:'cpl_usd',     label:'CPL $',     align:'right', usd:true,  pct:false},
 ];
 
 function _campTable(rows, totals, hasCamp) {
