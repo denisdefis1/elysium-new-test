@@ -30,7 +30,9 @@
         }
       ],
       "website": "https://anagi.ge/en/project/park-home-vake-tbilisi/177",
-      "competitive_note": "Обычный сайт застройщика с посадочной страницей. Есть UX недоработки, но рабочий."
+      "developer": "Anagi",
+      "developer_other_projects": "Другие ЖК Anagi — застройщик с несколькими объектами в Тбилиси",
+      "competitive_note": "Обычный рабочий сайт застройщика с посадочной страницей ЖК. Есть дизайнерские и UX недоработки. Рабочий."
     },
     {
       "name": "Krtsanisi Residence",
@@ -161,7 +163,9 @@
         }
       ],
       "website": "https://www.tbilisihills.com/index_ru.html",
-      "competitive_note": "К1 — построен, К2 — строится. Главный конкурент."
+      "developer": "Tbilisi Hills",
+      "developer_other_projects": "К1 (апартаменты, построен) и К2 (апартаменты, строится) — основные конкурирующие корпуса. Также есть гольф-курорт и виллы.",
+      "competitive_note": "Сильный конкурент. К1 построен, К2 строится. Сайт есть, есть RU-версия."
     },
     {
       "name": "Gergeti Rise Residence",
@@ -200,7 +204,7 @@
         }
       ],
       "website": null,
-      "competitive_note": "Нет сайта. Используют Facebook. Нет посадочной страницы."
+      "competitive_note": "Нет основного сайта. Продвигаются через Facebook. Нет посадочной страницы."
     },
     {
       "name": "Archi Tbilisi",
@@ -410,7 +414,8 @@
         }
       ],
       "website": null,
-      "competitive_note": "Нет сайта. Только Yandex Disk."
+      "plans_url": "https://disk.yandex.ru/i/d8DjR7kqpqnJoQ",
+      "competitive_note": "Нет сайта. Материалы только на Yandex Disk (планировки)."
     },
     {
       "name": "Kings Garden",
@@ -489,7 +494,9 @@
         }
       ],
       "website": "https://ocean.ge/en/project/ocean-vake-plaza/15/close/0",
-      "competitive_note": "Лёгкая посадочная страница, без крутых решений, сухо."
+      "developer": "Ocean",
+      "developer_other_projects": "Ocean.ge — застройщик с несколькими проектами в Тбилиси",
+      "competitive_note": "Лёгкая посадочная страница на сайте застройщика. Без сильных дизайн-решений, сухо."
     },
     {
       "name": "Biograpi",
@@ -643,7 +650,8 @@
         }
       ],
       "website": null,
-      "competitive_note": "Нет сайта и посадочной страницы застройщика. Только Yandex Disk."
+      "plans_url": "https://disk.yandex.ru/i/kC1qV1VwWwoWgg",
+      "competitive_note": "Нет сайта и нет посадочной страницы на сайте застройщика. Планировки только на Yandex Disk."
     },
     {
       "name": "Momaliv",
@@ -767,6 +775,8 @@
         }
       ],
       "website": "https://zion.ge/en",
+      "developer": "Zion",
+      "developer_other_projects": "Zion — застройщик с несколькими проектами (ZION Orangery, Zion Krtsanisi и др.)",
       "competitive_note": "Актуальный сайт."
     },
     {
@@ -816,7 +826,8 @@
         }
       ],
       "website": "https://ino.com.ge",
-      "competitive_note": "Пустой сайт, слабый визуал. Планировки: disk.yandex."
+      "plans_url": "https://disk.yandex.ru/i/7qdzIX_KVRh6XQ",
+      "competitive_note": "Пустой сайт, плохой визуал. Планировки только на Yandex Disk — нет полноценной посадочной."
     },
     {
       "name": "Latteral",

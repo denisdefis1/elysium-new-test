@@ -595,16 +595,51 @@ function renderS05(keywords, competitors, negatives) {
       '</div>';
   };
 
+  // ── COMPETITOR PROFILE TABLE (primary 14 competitors from Google Sheet) ──
+  const primaryComps = compData.filter(c => c.is_google_sheet);
+  const siteStatus = c => {
+    if (c.website) return '<a href="' + c.website + '" target="_blank" rel="noopener" style="color:var(--accent-gold);font-size:11px;font-family:var(--font-mono);word-break:break-all">' + c.website.replace(/^https?:\/\//, '') + '</a>';
+    if (c.plans_url) return '<a href="' + c.plans_url + '" target="_blank" rel="noopener" style="color:#FFA000;font-size:11px;font-family:var(--font-mono)">Yandex Disk (планировки)</a>';
+    return '<span style="color:var(--text-tertiary);font-size:11px">—</span>';
+  };
+  const noSiteTag = c => {
+    if (!c.website && !c.plans_url) return '<span style="font-size:9px;background:rgba(232,112,112,0.15);color:#E87070;border-radius:3px;padding:1px 5px;margin-left:4px">Нет сайта</span>';
+    if (!c.website && c.plans_url)  return '<span style="font-size:9px;background:rgba(255,160,0,0.15);color:#FFA000;border-radius:3px;padding:1px 5px;margin-left:4px">Только Disk</span>';
+    return '';
+  };
+  const compTable =
+    '<div style="overflow-x:auto;margin-bottom:14px">' +
+    '<table style="width:100%;border-collapse:collapse;font-size:12px;min-width:700px">' +
+    '<thead><tr style="border-bottom:1px solid var(--border-medium)">' +
+    ['Конкурент','Сайт / Материалы','Объём / top keyword','Заметка'].map(h =>
+      '<th style="padding:8px 10px;font-size:10px;letter-spacing:0.06em;text-transform:uppercase;font-weight:500;color:var(--text-tertiary);text-align:left;white-space:nowrap">' + h + '</th>'
+    ).join('') +
+    '</tr></thead><tbody>' +
+    primaryComps.sort((a,b) => b.top_volume - a.top_volume).map((c,i) =>
+      '<tr style="border-bottom:1px solid rgba(255,255,255,0.04)' + (i % 2 === 0 ? '' : ';background:rgba(255,255,255,0.012)') + '">' +
+      '<td style="padding:8px 10px;color:var(--text-primary);font-weight:500;white-space:nowrap">' + c.name + noSiteTag(c) + '</td>' +
+      '<td style="padding:8px 10px">' + siteStatus(c) + '</td>' +
+      '<td style="padding:8px 10px;font-family:var(--font-mono);color:var(--text-secondary);white-space:nowrap">' +
+        (c.top_volume > 0 ? c.top_volume.toLocaleString('en-US') + ' /mo' : '—') +
+        '<br><span style="font-size:10px;color:var(--text-tertiary)">' + (c.best_keyword || '—') + '</span>' +
+      '</td>' +
+      '<td style="padding:8px 10px;font-size:11px;color:var(--text-tertiary);max-width:260px">' + (c.competitive_note || '—') + '</td>' +
+      '</tr>'
+    ).join('') +
+    '</tbody></table></div>';
+
   const kwSectionComp = kwArr => {
     const count = kwArr.length;
     const chips = kwArr.map(k =>
       '<code title="' + k.competitor + '" style="background:var(--bg-hover);padding:3px 8px;border-radius:4px;font-size:11px;color:var(--text-secondary);font-family:var(--font-mono)">' + k.keyword + '</code>'
     ).join('');
     return '<div>' +
-      '<div style="font-size:10px;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:8px">Ключевые слова — ' + count +
-      ' <span style="margin-left:8px;font-size:10px;color:var(--accent-gold);background:rgba(196,168,100,0.1);border-radius:3px;padding:1px 6px">' + compData.length + ' конкурирующих проектов · CHECK_REQUIRED</span></div>' +
+      '<div style="font-size:10px;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:10px">Конкуренты — ' + primaryComps.length + ' проектов</div>' +
+      compTable +
+      '<div style="font-size:10px;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:8px;margin-top:14px">Ключевые слова К4 — ' + count +
+      ' <span style="margin-left:8px;font-size:10px;color:var(--accent-gold);background:rgba(196,168,100,0.1);border-radius:3px;padding:1px 6px">' + 'CHECK_REQUIRED · ручная проверка' + '</span></div>' +
       '<div class="note-box warning" style="margin-bottom:8px"><span class="note-box-icon">⚠</span>' +
-      '<div style="font-size:11px">Все ' + count + ' ключевых слов имеют статус CHECK_REQUIRED. Ручная проверка перед запуском. Приоритет: Park Home Vake → Gergeti Rise → CityZen → Next Tbilisi.</div></div>' +
+      '<div style="font-size:11px">Все ' + count + ' ключевых слов имеют статус CHECK_REQUIRED. Приоритет: Park Home Vake → Gergeti Rise → CityZen → Next Tbilisi.</div></div>' +
       '<details>' +
       '<summary style="cursor:pointer;display:inline-flex;align-items:center;gap:6px;background:rgba(196,168,100,0.1);border:1px solid rgba(196,168,100,0.25);border-radius:6px;padding:6px 12px;font-size:12px;color:var(--accent-gold);margin-bottom:10px">' +
       'Показать все ' + count + ' ключевых слов' +
