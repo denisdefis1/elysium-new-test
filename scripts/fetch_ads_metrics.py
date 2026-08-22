@@ -155,6 +155,110 @@ def fetch_daily_campaigns(service, customer_id: str, date_from: str, date_to: st
     return daily_map
 
 
+def fetch_device_daily(service, customer_id: str, date_from: str, date_to: str):
+    """Campaign metrics segmented by device type, daily."""
+    rows = []
+    query = f"""
+        SELECT
+            segments.date,
+            segments.device,
+            campaign.id,
+            campaign.name,
+            metrics.impressions,
+            metrics.clicks,
+            metrics.cost_micros,
+            metrics.ctr,
+            metrics.average_cpc
+        FROM campaign
+        WHERE segments.date BETWEEN '{date_from}' AND '{date_to}'
+          AND metrics.cost_micros > 0
+        ORDER BY segments.date DESC, segments.device
+    """
+    try:
+        for row in service.search(customer_id=customer_id, query=query):
+            m = row.metrics
+            rows.append({
+                "date":        str(row.segments.date),
+                "device":      row.segments.device.name,
+                "campaign_id": str(row.campaign.id),
+                "impressions": int(m.impressions),
+                "clicks":      int(m.clicks),
+                "cost_usd":    round(m.cost_micros / 1_000_000, 4),
+                "ctr_pct":     round(m.ctr * 100, 4),
+                "avg_cpc_usd": round(m.average_cpc / 1_000_000, 4),
+            })
+    except Exception as e:
+        if "REQUESTED_METRICS_FOR_MANAGER" in str(e):
+            return None
+        print(f"WARNING: fetch_device_daily error for {customer_id}: {e}", file=sys.stderr)
+    return rows
+
+
+def fetch_demographics(service, customer_id: str, date_from: str, date_to: str) -> dict:
+    """Gender and age breakdown, date-segmented per campaign."""
+    result: dict[str, list] = {"gender": [], "age": []}
+
+    try:
+        for row in service.search(
+            customer_id=customer_id,
+            query=f"""
+                SELECT
+                    segments.date,
+                    campaign.id,
+                    campaign.name,
+                    ad_group_criterion.gender.type,
+                    metrics.impressions,
+                    metrics.clicks,
+                    metrics.cost_micros
+                FROM gender_view
+                WHERE segments.date BETWEEN '{date_from}' AND '{date_to}'
+                  AND metrics.cost_micros > 0
+            """,
+        ):
+            m = row.metrics
+            result["gender"].append({
+                "date":        str(row.segments.date),
+                "gender":      row.ad_group_criterion.gender.type.name,
+                "campaign_id": str(row.campaign.id),
+                "impressions": int(m.impressions),
+                "clicks":      int(m.clicks),
+                "cost_usd":    round(m.cost_micros / 1_000_000, 4),
+            })
+    except Exception as e:
+        print(f"WARNING: gender_view error for {customer_id}: {e}", file=sys.stderr)
+
+    try:
+        for row in service.search(
+            customer_id=customer_id,
+            query=f"""
+                SELECT
+                    segments.date,
+                    campaign.id,
+                    campaign.name,
+                    ad_group_criterion.age_range.type,
+                    metrics.impressions,
+                    metrics.clicks,
+                    metrics.cost_micros
+                FROM age_range_view
+                WHERE segments.date BETWEEN '{date_from}' AND '{date_to}'
+                  AND metrics.cost_micros > 0
+            """,
+        ):
+            m = row.metrics
+            result["age"].append({
+                "date":        str(row.segments.date),
+                "age":         row.ad_group_criterion.age_range.type.name,
+                "campaign_id": str(row.campaign.id),
+                "impressions": int(m.impressions),
+                "clicks":      int(m.clicks),
+                "cost_usd":    round(m.cost_micros / 1_000_000, 4),
+            })
+    except Exception as e:
+        print(f"WARNING: age_range_view error for {customer_id}: {e}", file=sys.stderr)
+
+    return result
+
+
 def main():
     today     = date.today()
     date_to   = str(today)
@@ -226,6 +330,24 @@ def main():
         daily_list.append({"date": day_str, "campaigns": camps})
         cur -= timedelta(days=1)
 
+    # Device breakdown (daily, per campaign)
+    print("Fetching device breakdown ...")
+    device_rows: list = []
+    for cid in customer_ids:
+        dr = fetch_device_daily(service, cid, start_str, date_to)
+        if dr:
+            device_rows.extend(dr)
+    print(f"  Device rows: {len(device_rows)}")
+
+    # Demographics (gender + age)
+    print("Fetching demographics ...")
+    demographics: dict = {"gender": [], "age": []}
+    for cid in customer_ids:
+        demo = fetch_demographics(service, cid, start_str, date_to)
+        demographics["gender"].extend(demo.get("gender", []))
+        demographics["age"].extend(demo.get("age", []))
+    print(f"  Gender rows: {len(demographics['gender'])}  Age rows: {len(demographics['age'])}")
+
     result = {
         "status":            "ok",
         "fetched_at":        str(today),
@@ -233,6 +355,8 @@ def main():
         "account":           account,
         "campaigns_meta":    all_campaigns_meta,
         "daily":             daily_list,
+        "device_daily":      device_rows,
+        "demographics":      demographics,
     }
 
     out = os.path.join(

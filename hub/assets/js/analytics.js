@@ -3,7 +3,12 @@
    ============================================================ */
 
 /* ---- module state (persists between period switches) ---- */
-const _g = { period: 30, sortCol: 'cost_usd', sortDir: 'desc' };
+const _g = { period: 30, sortCol: 'cost_usd', sortDir: 'desc', customFrom: null, customTo: null };
+
+function _getDateRange() {
+  if (_g.customFrom && _g.customTo) return { from: _g.customFrom, to: _g.customTo };
+  return { from: _cutoff(_g.period), to: null };
+}
 
 /* ============================================================
    PUBLIC ENTRY POINT
@@ -37,22 +42,28 @@ function _paintGoogle(el) {
   var acct   = raw.account        || {};
   var daily  = raw.daily          || [];
   var meta   = raw.campaigns_meta || [];
+  var device = raw.device_daily   || [];
+  var demo   = raw.demographics   || {};
   var fetchedAt = raw.fetched_at  || '—';
 
-  var agg = _aggregate(daily, _g.period);
-  var chartDays = _chartData(daily, _g.period);
+  var range      = _getDateRange();
+  var agg        = _aggregate(daily, range);
+  var chartDays  = _chartData(daily, range);
+  var devData    = _aggDevice(device, range);
+  var genderData = _aggDemographic(demo.gender || [], 'gender', range);
+  var ageData    = _aggDemographic(demo.age    || [], 'age',    range);
 
-  el.innerHTML = _googleHTML(acct, fetchedAt, agg, chartDays, meta);
+  el.innerHTML = _googleHTML(acct, fetchedAt, agg, chartDays, meta, devData, genderData, ageData);
   _bindGoogle(el, daily, acct, fetchedAt);
 }
 
 /* ---- aggregate daily[] into period totals + per-campaign rows ---- */
-function _aggregate(daily, days) {
-  var cutoff = _cutoff(days);
+function _aggregate(daily, range) {
   var campMap = {};
 
   daily.forEach(function(day) {
-    if (day.date < cutoff) return;
+    if (day.date < range.from) return;
+    if (range.to && day.date > range.to) return;
     (day.campaigns || []).forEach(function(c) {
       if (!campMap[c.id]) {
         campMap[c.id] = {
@@ -108,10 +119,11 @@ function _aggregate(daily, days) {
   return { rows: rows, totals: tot };
 }
 
-function _chartData(daily, days) {
-  var cutoff = _cutoff(days);
+function _chartData(daily, range) {
   return daily
-    .filter(function(d) { return d.date >= cutoff; })
+    .filter(function(d) {
+      return d.date >= range.from && (!range.to || d.date <= range.to);
+    })
     .sort(function(a, b) { return a.date.localeCompare(b.date); })
     .map(function(d) {
       var cost = (d.campaigns || []).reduce(function(s,c){ return s + (c.cost_usd||0); }, 0);
@@ -120,10 +132,42 @@ function _chartData(daily, days) {
     });
 }
 
+function _aggDevice(device_daily, range) {
+  var map = {};
+  device_daily.forEach(function(r) {
+    if (r.date < range.from) return;
+    if (range.to && r.date > range.to) return;
+    var k = r.device;
+    if (!map[k]) map[k] = { device: k, impressions: 0, clicks: 0, cost_usd: 0 };
+    map[k].impressions += r.impressions || 0;
+    map[k].clicks      += r.clicks      || 0;
+    map[k].cost_usd    += r.cost_usd    || 0;
+  });
+  var rows = Object.values(map).sort(function(a,b){ return b.cost_usd - a.cost_usd; });
+  rows.forEach(function(r){ r.cost_usd = _r2(r.cost_usd); });
+  return rows;
+}
+
+function _aggDemographic(rows, field, range) {
+  var map = {};
+  rows.forEach(function(r) {
+    if (r.date < range.from) return;
+    if (range.to && r.date > range.to) return;
+    var k = r[field];
+    if (!map[k]) map[k] = { key: k, impressions: 0, clicks: 0, cost_usd: 0 };
+    map[k].impressions += r.impressions || 0;
+    map[k].clicks      += r.clicks      || 0;
+    map[k].cost_usd    += r.cost_usd    || 0;
+  });
+  var result = Object.values(map).sort(function(a,b){ return b.cost_usd - a.cost_usd; });
+  result.forEach(function(r){ r.cost_usd = _r2(r.cost_usd); });
+  return result;
+}
+
 /* ============================================================
    HTML BUILDER
    ============================================================ */
-function _googleHTML(acct, fetchedAt, agg, chartDays, meta) {
+function _googleHTML(acct, fetchedAt, agg, chartDays, meta, devData, genderData, ageData) {
   var rows    = agg.rows;
   var totals  = agg.totals;
   var hasCamp = rows.length > 0;
@@ -133,6 +177,8 @@ function _googleHTML(acct, fetchedAt, agg, chartDays, meta) {
     _periodBar() +
     _kpiGrid(totals) +
     _spendChart(chartDays) +
+    _deviceSection(devData) +
+    _demographicsSection(genderData, ageData) +
     _campTable(rows, totals, hasCamp) +
     _allCampaignsTable(meta, rows) +
     _pipelineCard(acct)
@@ -170,8 +216,9 @@ function _periodBar() {
     {days:365,  label:'1 год'},
     {days:9999, label:'Всё время'},
   ];
+  var isCustom = !!((_g.customFrom && _g.customTo));
   var tabs = periods.map(function(p) {
-    var active = _g.period === p.days;
+    var active = !isCustom && _g.period === p.days;
     return (
       '<button data-days="' + p.days + '" style="' +
         'padding:5px 13px;border-radius:6px;border:1px solid ' +
@@ -183,11 +230,47 @@ function _periodBar() {
       '</button>'
     );
   }).join('');
-  return (
-    '<div style="display:flex;align-items:center;gap:6px;margin-bottom:22px;flex-wrap:wrap">' +
+
+  var today   = new Date().toISOString().slice(0, 10);
+  var fromVal = _g.customFrom || _cutoff(_g.period || 30);
+  var toVal   = _g.customTo   || today;
+  var applyActive = isCustom;
+
+  var customBar = (
+    '<div style="display:flex;align-items:center;gap:6px;margin-top:8px;flex-wrap:wrap">' +
       '<span style="font-size:11px;color:var(--text-tertiary);letter-spacing:0.06em;' +
-      'text-transform:uppercase;margin-right:6px">Период</span>' +
-      tabs +
+      'text-transform:uppercase;margin-right:4px">Свой период</span>' +
+      '<input type="date" id="dp-from" value="' + fromVal + '" style="' +
+        'background:var(--bg-elevated);border:1px solid var(--border-subtle);' +
+        'border-radius:6px;padding:4px 8px;font-size:12px;color:var(--text-primary);' +
+        'color-scheme:dark;cursor:pointer">' +
+      '<span style="color:var(--text-tertiary);font-size:12px">—</span>' +
+      '<input type="date" id="dp-to" value="' + toVal + '" style="' +
+        'background:var(--bg-elevated);border:1px solid var(--border-subtle);' +
+        'border-radius:6px;padding:4px 8px;font-size:12px;color:var(--text-primary);' +
+        'color-scheme:dark;cursor:pointer">' +
+      '<button class="dp-apply" style="' +
+        'padding:5px 13px;border-radius:6px;border:1px solid ' +
+        (applyActive ? 'var(--accent-gold)' : 'var(--border-subtle)') + ';' +
+        'background:' + (applyActive ? 'rgba(196,168,100,0.12)' : 'transparent') + ';' +
+        'color:' + (applyActive ? 'var(--accent-gold)' : 'var(--text-secondary)') + ';' +
+        'font-size:12px;cursor:pointer;transition:all 0.15s">Применить</button>' +
+      (isCustom
+        ? '<button class="dp-clear" style="padding:5px 10px;border-radius:6px;' +
+          'border:1px solid var(--border-subtle);background:transparent;' +
+          'color:var(--text-secondary);font-size:11px;cursor:pointer">✕ Сбросить</button>'
+        : '') +
+    '</div>'
+  );
+
+  return (
+    '<div style="margin-bottom:22px">' +
+      '<div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap">' +
+        '<span style="font-size:11px;color:var(--text-tertiary);letter-spacing:0.06em;' +
+        'text-transform:uppercase;margin-right:6px">Период</span>' +
+        tabs +
+      '</div>' +
+      customBar +
     '</div>'
   );
 }
@@ -367,6 +450,99 @@ function _campTable(rows, totals, hasCamp) {
   );
 }
 
+/* ---- device breakdown ---- */
+function _deviceSection(devData) {
+  if (!devData || devData.length === 0) return '';
+  var LABELS = { MOBILE: 'Mobile', DESKTOP: 'Desktop', TABLET: 'Tablet', CONNECTED_TV: 'CTV', OTHER: 'Other', UNKNOWN: 'Unknown' };
+  var total_cost = devData.reduce(function(s,r){ return s + r.cost_usd; }, 0);
+  var cards = devData.map(function(r) {
+    var pct = total_cost > 0 ? (r.cost_usd / total_cost * 100) : 0;
+    return (
+      '<div style="background:var(--bg-elevated);border:1px solid var(--border-subtle);' +
+      'border-radius:10px;padding:14px 16px">' +
+        '<div style="font-size:10px;letter-spacing:0.08em;text-transform:uppercase;' +
+        'color:var(--text-tertiary);margin-bottom:8px">' + (LABELS[r.device] || r.device) + '</div>' +
+        '<div style="font-size:20px;font-weight:600;color:var(--text-primary);' +
+        'font-family:var(--font-mono)">$' +
+          r.cost_usd.toLocaleString('en-US', {minimumFractionDigits:2, maximumFractionDigits:2}) +
+        '</div>' +
+        '<div style="font-size:11px;color:var(--text-tertiary);margin-top:4px">' +
+          r.impressions.toLocaleString('en-US') + ' показов · ' +
+          r.clicks.toLocaleString('en-US') + ' кликов' +
+        '</div>' +
+        '<div style="height:4px;background:rgba(255,255,255,0.08);border-radius:2px;margin-top:10px">' +
+          '<div style="width:' + pct.toFixed(1) + '%;height:4px;background:var(--accent-gold);border-radius:2px"></div>' +
+        '</div>' +
+        '<div style="font-size:10px;color:var(--accent-gold);margin-top:4px">' + pct.toFixed(1) + '% расхода</div>' +
+      '</div>'
+    );
+  }).join('');
+  return (
+    '<div style="margin-bottom:22px">' +
+      '<div style="font-size:11px;letter-spacing:0.08em;text-transform:uppercase;' +
+      'color:var(--text-tertiary);font-weight:600;margin-bottom:10px">Устройства</div>' +
+      '<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px">' +
+        cards +
+      '</div>' +
+    '</div>'
+  );
+}
+
+/* ---- demographics: gender + age ---- */
+function _demographicsSection(genderData, ageData) {
+  if ((!genderData || !genderData.length) && (!ageData || !ageData.length)) return '';
+
+  var GENDER_LABELS = { MALE:'Мужчины', FEMALE:'Женщины', UNDETERMINED:'Не определено', UNKNOWN:'Неизвестно' };
+  var AGE_LABELS = {
+    AGE_RANGE_18_24:'18–24', AGE_RANGE_25_34:'25–34', AGE_RANGE_35_44:'35–44',
+    AGE_RANGE_45_54:'45–54', AGE_RANGE_55_64:'55–64', AGE_RANGE_65_UP:'65+',
+    AGE_RANGE_UNDETERMINED:'Не определено', UNKNOWN:'Неизвестно',
+  };
+  var GENDER_COLORS = { MALE:'rgba(100,160,220,0.85)', FEMALE:'rgba(220,130,160,0.85)' };
+
+  function _demoBar(data, labels, colors) {
+    if (!data || !data.length) return '<div style="color:var(--text-tertiary);font-size:12px;padding:8px 0">Нет данных</div>';
+    var total = data.reduce(function(s,r){ return s + r.impressions; }, 0);
+    return data.map(function(r) {
+      var pct = total > 0 ? (r.impressions / total * 100) : 0;
+      var lbl = (labels && labels[r.key]) || r.key;
+      var col = (colors && colors[r.key]) || 'rgba(196,168,100,0.7)';
+      return (
+        '<div style="margin-bottom:11px">' +
+          '<div style="display:flex;justify-content:space-between;font-size:11px;margin-bottom:3px">' +
+            '<span style="color:var(--text-secondary)">' + lbl + '</span>' +
+            '<span style="color:var(--text-tertiary);font-family:var(--font-mono)">' +
+              pct.toFixed(1) + '% · $' + r.cost_usd.toFixed(2) + '</span>' +
+          '</div>' +
+          '<div style="height:6px;background:rgba(255,255,255,0.06);border-radius:3px">' +
+            '<div style="width:' + pct.toFixed(1) + '%;height:6px;background:' + col + ';border-radius:3px;transition:width 0.3s"></div>' +
+          '</div>' +
+        '</div>'
+      );
+    }).join('');
+  }
+
+  var gPanel = (
+    '<div style="background:var(--bg-elevated);border:1px solid var(--border-subtle);border-radius:10px;padding:18px 20px">' +
+      '<div style="font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-tertiary);margin-bottom:14px;font-weight:600">Пол</div>' +
+      _demoBar(genderData, GENDER_LABELS, GENDER_COLORS) +
+    '</div>'
+  );
+  var aPanel = (
+    '<div style="background:var(--bg-elevated);border:1px solid var(--border-subtle);border-radius:10px;padding:18px 20px">' +
+      '<div style="font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-tertiary);margin-bottom:14px;font-weight:600">Возраст</div>' +
+      _demoBar(ageData, AGE_LABELS, null) +
+    '</div>'
+  );
+
+  return (
+    '<div style="margin-bottom:22px">' +
+      '<div style="font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-tertiary);font-weight:600;margin-bottom:10px">Демография</div>' +
+      '<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">' + gPanel + aPanel + '</div>' +
+    '</div>'
+  );
+}
+
 /* ---- all campaigns ever (from campaigns_meta) ---- */
 function _allCampaignsTable(meta, activeRows) {
   if (!meta || meta.length === 0) return '';
@@ -454,7 +630,9 @@ function _pipelineCard(acct) {
 function _bindGoogle(el, daily, acct, fetchedAt) {
   el.querySelectorAll('.ptab').forEach(function(btn) {
     btn.addEventListener('click', function() {
-      _g.period = parseInt(btn.dataset.days, 10);
+      _g.period     = parseInt(btn.dataset.days, 10);
+      _g.customFrom = null;
+      _g.customTo   = null;
       _paintGoogle(el);
     });
   });
@@ -470,6 +648,30 @@ function _bindGoogle(el, daily, acct, fetchedAt) {
       _paintGoogle(el);
     });
   });
+
+  var dpApply = el.querySelector('.dp-apply');
+  if (dpApply) {
+    dpApply.addEventListener('click', function() {
+      var from = el.querySelector('#dp-from');
+      var to   = el.querySelector('#dp-to');
+      if (from && to && from.value && to.value && from.value <= to.value) {
+        _g.customFrom = from.value;
+        _g.customTo   = to.value;
+        _g.period     = null;
+        _paintGoogle(el);
+      }
+    });
+  }
+
+  var dpClear = el.querySelector('.dp-clear');
+  if (dpClear) {
+    dpClear.addEventListener('click', function() {
+      _g.customFrom = null;
+      _g.customTo   = null;
+      _g.period     = 30;
+      _paintGoogle(el);
+    });
+  }
 }
 
 /* ============================================================
