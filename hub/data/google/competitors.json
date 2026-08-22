@@ -31,7 +31,7 @@
       ],
       "website": "https://anagi.ge/en/project/park-home-vake-tbilisi/177",
       "developer": "Anagi",
-      "developer_other_projects": "Другие ЖК Anagi — застройщик с несколькими объектами в Тбилиси",
+      "developer_other_projects": "Anagi — генподрядчик, а не девелопер. Строили для других: m², Sakeni (Biograpi), Tbilisi Gardens Tower III и др. Park Home Vake — проект клиента, не собственный ЖК Anagi.",
       "competitive_note": "Обычный рабочий сайт застройщика с посадочной страницей ЖК. Есть дизайнерские и UX недоработки. Рабочий."
     },
     {
@@ -164,8 +164,8 @@
       ],
       "website": "https://www.tbilisihills.com/index_ru.html",
       "developer": "Tbilisi Hills",
-      "developer_other_projects": "К1 (апартаменты, построен) и К2 (апартаменты, строится) — основные конкурирующие корпуса. Также есть гольф-курорт и виллы.",
-      "competitive_note": "Сильный конкурент. К1 построен, К2 строится. Сайт есть, есть RU-версия."
+      "developer_other_projects": "AB1/AB2 (апартаменты, РАСПРОДАНО). AB3/AB4 (апартаменты, строится). Также земельные участки, виллы, таунхаусы, гольф-курорт, клубный дом, школа. 331 га, ~15 мин от центра.",
+      "competitive_note": "Сильный конкурент. AB1/AB2 продано, AB3/AB4 строится. Масштабный проект (331 га). Сайт есть, есть RU-версия."
     },
     {
       "name": "Gergeti Rise Residence",
@@ -347,7 +347,9 @@
         }
       ],
       "website": "https://next-property.com/",
-      "competitive_note": "Актуальный сайт."
+      "developer": "Next Development",
+      "developer_other_projects": "19+ проектов в Тбилиси и Батуми (большинство SOLD OUT): Radisson BLU Apartments, Wyndham Residences, Cinema City Tbilisi, Next Gardens, Next DownTown, Next Collection (18% sold), Next Coral (70% sold), Next Amani и др. Международные: Dubai Islands, Кения, Испания.",
+      "competitive_note": "Актуальный сайт. Масштабный застройщик, большинство тбилисских проектов распроданы."
     },
     {
       "name": "Eagle Hills",
@@ -445,7 +447,9 @@
         }
       ],
       "website": "https://kingsgarden.ge/ru/",
-      "competitive_note": "Актуальный сайт, есть RU версия."
+      "developer": "Kings Garden",
+      "developer_other_projects": "Один проект: Kings Garden, Старый Тбилиси, 100 апартаментов, от €545K до €686K+.",
+      "competitive_note": "Актуальный сайт, есть RU версия. Один проект в старом Тбилиси, высокий ценовой сегмент."
     },
     {
       "name": "Metropol Tbilisi",
@@ -494,8 +498,8 @@
         }
       ],
       "website": "https://ocean.ge/en/project/ocean-vake-plaza/15/close/0",
-      "developer": "Ocean",
-      "developer_other_projects": "Ocean.ge — застройщик с несколькими проектами в Тбилиси",
+      "developer": "Ocean Capital",
+      "developer_other_projects": "4 завершённых проекта в Вейк: Ocean Vake Residences (67 Палиашвили), Ocean Vake Plaza (102 Палиашвили), Ocean Vake Park (26 Мосашвили), Ocean Sky Residences (33 Chavchavadze). Ещё 7 в разработке/строительстве (без публичных названий).",
       "competitive_note": "Лёгкая посадочная страница на сайте застройщика. Без сильных дизайн-решений, сухо."
     },
     {
@@ -672,7 +676,9 @@
         }
       ],
       "website": "https://www.momaliv.ge/",
-      "competitive_note": "Актуальный сайт."
+      "developer": "Avant Group",
+      "developer_other_projects": "Один проект: MoMA LIV, Чугурети, 64 апартамента, сдача Q4 2026. Avant Group работает в Грузии и Азербайджане.",
+      "competitive_note": "Актуальный сайт. Один проект в Тбилиси."
     },
     {
       "name": "Domus",
@@ -776,8 +782,8 @@
       ],
       "website": "https://zion.ge/en",
       "developer": "Zion",
-      "developer_other_projects": "Zion — застройщик с несколькими проектами (ZION Orangery, Zion Krtsanisi и др.)",
-      "competitive_note": "Актуальный сайт."
+      "developer_other_projects": "Zion Krtsanisi Embassies (Тбилиси), ZION Orangery (Тбилиси), Poetica (Кутаиси), Olive Gardens Tsavkisi (виллы), Zion Business Center, Radisson Individuals Kutaisi.",
+      "competitive_note": "Актуальный сайт. Несколько проектов в разных сегментах и городах."
     },
     {
       "name": "Krtsanisi Dev",
@@ -827,6 +833,8 @@
       ],
       "website": "https://ino.com.ge",
       "plans_url": "https://disk.yandex.ru/i/7qdzIX_KVRh6XQ",
+      "developer": "INO",
+      "developer_other_projects": "Один проект: Paliashvili 22, район Вейк-Парк, 1-2BR.",
       "competitive_note": "Пустой сайт, плохой визуал. Планировки только на Yandex Disk — нет полноценной посадочной."
     },
     {

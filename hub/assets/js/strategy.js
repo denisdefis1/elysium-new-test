@@ -623,7 +623,10 @@ function renderS05(keywords, competitors, negatives) {
         (c.top_volume > 0 ? c.top_volume.toLocaleString('en-US') + ' /mo' : '—') +
         '<br><span style="font-size:10px;color:var(--text-tertiary)">' + (c.best_keyword || '—') + '</span>' +
       '</td>' +
-      '<td style="padding:8px 10px;font-size:11px;color:var(--text-tertiary);max-width:260px">' + (c.competitive_note || '—') + '</td>' +
+      '<td style="padding:8px 10px;font-size:11px;color:var(--text-tertiary);max-width:280px">' +
+        (c.competitive_note || '—') +
+        (c.developer_other_projects ? '<div style="margin-top:5px;font-size:10px;color:rgba(196,168,100,0.7);border-top:1px solid rgba(255,255,255,0.06);padding-top:4px"><span style="color:var(--text-tertiary);opacity:0.6">Портфель:</span> ' + c.developer_other_projects + '</div>' : '') +
+      '</td>' +
       '</tr>'
     ).join('') +
     '</tbody></table></div>';
