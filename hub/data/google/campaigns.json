@@ -5,58 +5,8 @@
   "campaigns": [
     {
       "id": 1,
-      "name": "Brand — ELYSIUM",
-      "name_short": "Brand",
-      "budget_pct": 25,
-      "budget_monthly": 125,
-      "budget_daily_approx": 4.2,
-      "intent": "Brand protection & hottest leads",
-      "geo": [
-        "Israel",
-        "Ukraine",
-        "Belarus"
-      ],
-      "languages": [
-        "RU",
-        "EN"
-      ],
-      "match_types": [
-        "Exact",
-        "Phrase"
-      ],
-      "bidding": "Manual CPC",
-      "landing_page": "elysiumtbilisi.com (lang=auto)",
-      "pool_sources": [
-        "Brand terms"
-      ],
-      "keyword_count_approx": 15,
-      "priority": "HIGHEST",
-      "notes": "Always-on. Protect brand from competitor bidding. Highest expected CR.",
-      "ad_groups": [
-        {
-          "name": "Brand — RU",
-          "examples": [
-            "Elysium Тбилиси",
-            "Элизиум Тбилиси",
-            "бутик резиденция элизиум",
-            "резиденция элизиум тбилиси"
-          ]
-        },
-        {
-          "name": "Brand — EN",
-          "examples": [
-            "Elysium Tbilisi",
-            "Elysium residence Tbilisi",
-            "boutique residence elysium",
-            "elysium apartments tbilisi"
-          ]
-        }
-      ]
-    },
-    {
-      "id": 2,
-      "name": "Core Premium Purchase — RU",
-      "name_short": "Core RU",
+      "name": "К1 — Purchase RU",
+      "name_short": "К1 RU",
       "budget_pct": 25,
       "budget_monthly": 125,
       "budget_daily_approx": 4.2,
@@ -130,9 +80,9 @@
       ]
     },
     {
-      "id": 3,
-      "name": "Core Premium Purchase — EN",
-      "name_short": "Core EN",
+      "id": 2,
+      "name": "К2 — Purchase EN",
+      "name_short": "К2 EN",
       "budget_pct": 25,
       "budget_monthly": 125,
       "budget_daily_approx": 4.2,
@@ -210,9 +160,9 @@
       ]
     },
     {
-      "id": 3.5,
-      "name": "Premium Segment — RU",
-      "name_short": "Premium RU",
+      "id": 3,
+      "name": "К3 — Premium RU",
+      "name_short": "К3 Premium",
       "budget_pct": 25,
       "budget_monthly": 125,
       "budget_daily_approx": 4.2,
@@ -259,8 +209,8 @@
     },
     {
       "id": 4,
-      "name": "Competitors",
-      "name_short": "Competitors",
+      "name": "К4 — Competitors",
+      "name_short": "К4 Competitors",
       "budget_pct": 25,
       "budget_monthly": 125,
       "budget_daily_approx": 4.2,

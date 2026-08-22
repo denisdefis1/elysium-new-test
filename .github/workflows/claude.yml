@@ -66,4 +66,4 @@ jobs:
             actions: read
           claude_args: |
             --mcp-config .mcp.json
-            --allowedTools mcp__google-ads__get_customer_info,mcp__google-ads__get_campaigns
+            --allowedTools mcp__google-ads__get_customer_info,mcp__google-ads__get_campaigns,mcp__google-ads__get_account_summary,mcp__google-ads__get_keyword_metrics,mcp__google-ads__get_keyword_ideas

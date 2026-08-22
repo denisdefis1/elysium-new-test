@@ -1,0 +1,23 @@
+{
+  "status": "ok",
+  "fetched_at": "2026-08-22",
+  "period": {
+    "date_from": "2026-02-22",
+    "date_to": "2026-08-22"
+  },
+  "account": {
+    "id": "3341934882",
+    "name": "ИИ менеджер",
+    "currency": "USD",
+    "timezone": "Asia/Tbilisi"
+  },
+  "campaigns": [],
+  "totals": {
+    "impressions": 0,
+    "clicks": 0,
+    "cost_usd": 0,
+    "ctr_pct": 0,
+    "conversions": 0,
+    "cpl_usd": null
+  }
+}

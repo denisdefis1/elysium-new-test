@@ -416,7 +416,7 @@ function renderS03() {
     <div class="card" style="margin-top:24px;border-color:rgba(74,106,140,0.2)">
       <div class="card-title" style="color:var(--data-blue)">Phase 2 — Not in current scope</div>
       <div style="font-size:13px;color:var(--text-secondary);line-height:1.6;margin-top:8px">
-        183 generic real estate keywords ("apartment tbilisi" etc.) are retained for Phase 2 expansion.
+        176 generic real estate keywords (Pool J: "apartment tbilisi", "квартира в тбилиси" etc.) are retained for Phase 2 expansion.
         These require larger budgets and will be evaluated after Phase 1 CPL data is available (6–8 weeks post-launch).
       </div>
     </div>
