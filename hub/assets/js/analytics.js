@@ -10,6 +10,17 @@ function _getDateRange() {
   return { from: _cutoff(_g.period), to: null };
 }
 
+function _getPrevRange(range) {
+  var to   = range.to || new Date().toISOString().slice(0, 10);
+  var from = range.from;
+  var d1   = new Date(from + 'T00:00:00Z');
+  var d2   = new Date(to   + 'T00:00:00Z');
+  var days = Math.round((d2 - d1) / 86400000) + 1;
+  var prevTo   = new Date(d1); prevTo.setUTCDate(prevTo.getUTCDate() - 1);
+  var prevFrom = new Date(prevTo); prevFrom.setUTCDate(prevFrom.getUTCDate() - days + 1);
+  return { from: prevFrom.toISOString().slice(0, 10), to: prevTo.toISOString().slice(0, 10) };
+}
+
 /* ============================================================
    PUBLIC ENTRY POINT
    ============================================================ */
@@ -47,13 +58,15 @@ function _paintGoogle(el) {
   var fetchedAt = raw.fetched_at  || '—';
 
   var range      = _getDateRange();
+  var prevRange  = _getPrevRange(range);
   var agg        = _aggregate(daily, range);
+  var prevAgg    = _aggregate(daily, prevRange);
   var chartDays  = _chartData(daily, range);
   var devData    = _aggDevice(device, range);
   var genderData = _aggDemographic(demo.gender || [], 'gender', range);
   var ageData    = _aggDemographic(demo.age    || [], 'age',    range);
 
-  el.innerHTML = _googleHTML(acct, fetchedAt, agg, chartDays, meta, devData, genderData, ageData);
+  el.innerHTML = _googleHTML(acct, fetchedAt, agg, prevAgg.totals, chartDays, meta, devData, genderData, ageData);
   _bindGoogle(el, daily, acct, fetchedAt);
 }
 
@@ -67,8 +80,11 @@ function _aggregate(daily, range) {
     (day.campaigns || []).forEach(function(c) {
       if (!campMap[c.id]) {
         campMap[c.id] = {
-          id: c.id, name: c.name, status: c.status,
-          impressions: 0, clicks: 0, cost_usd: 0, conversions: 0
+          id: c.id, name: c.name, status: c.status, type: c.type || '—',
+          impressions: 0, clicks: 0, cost_usd: 0, conversions: 0,
+          _is_sum: 0, _is_days: 0,
+          _lb_sum: 0, _lb_days: 0,
+          _lr_sum: 0, _lr_days: 0
         };
       }
       var r = campMap[c.id];
@@ -76,6 +92,9 @@ function _aggregate(daily, range) {
       r.clicks       += c.clicks       || 0;
       r.cost_usd     += c.cost_usd     || 0;
       r.conversions  += c.conversions  || 0;
+      if (c.search_is_pct != null) { r._is_sum += c.search_is_pct; r._is_days++; }
+      if (c.lost_is_budget != null) { r._lb_sum += c.lost_is_budget; r._lb_days++; }
+      if (c.lost_is_rank   != null) { r._lr_sum += c.lost_is_rank;   r._lr_days++; }
     });
   });
 
@@ -84,13 +103,18 @@ function _aggregate(daily, range) {
       id:          r.id,
       name:        r.name,
       status:      r.status,
+      type:        r.type,
       impressions: r.impressions,
       clicks:      r.clicks,
       cost_usd:    _r2(r.cost_usd),
       conversions: _r2(r.conversions),
       ctr_pct:     r.impressions > 0 ? _r2(r.clicks / r.impressions * 100) : 0,
       avg_cpc_usd: r.clicks > 0      ? _r2(r.cost_usd / r.clicks)          : 0,
-      cpl_usd:     r.conversions > 0 ? _r2(r.cost_usd / r.conversions)     : null,
+      cpm_usd:     r.impressions > 0 ? _r2(r.cost_usd / r.impressions * 1000) : 0,
+      search_is_pct:  r._is_days > 0  ? _r2(r._is_sum / r._is_days)  : null,
+      lost_is_budget: r._lb_days > 0  ? _r2(r._lb_sum / r._lb_days)  : null,
+      lost_is_rank:   r._lr_days > 0  ? _r2(r._lr_sum / r._lr_days)  : null,
+      cpl_usd:        r.conversions > 0 ? _r2(r.cost_usd / r.conversions) : null,
     };
   });
 
@@ -114,7 +138,13 @@ function _aggregate(daily, range) {
   tot.cost_usd    = _r2(tot.cost_usd);
   tot.ctr_pct     = tot.impressions > 0 ? _r2(tot.clicks / tot.impressions * 100) : 0;
   tot.avg_cpc_usd = tot.clicks > 0      ? _r2(tot.cost_usd / tot.clicks)          : 0;
+  tot.cpm_usd     = tot.impressions > 0 ? _r2(tot.cost_usd / tot.impressions * 1000) : 0;
   tot.cpl_usd     = tot.conversions > 0 ? _r2(tot.cost_usd / tot.conversions)     : null;
+  var _isW = 0, _isWt = 0;
+  rows.forEach(function(r) {
+    if (r.search_is_pct != null) { _isW += r.search_is_pct * r.impressions; _isWt += r.impressions; }
+  });
+  tot.search_is_pct = _isWt > 0 ? _r2(_isW / _isWt) : null;
 
   return { rows: rows, totals: tot };
 }
@@ -167,7 +197,7 @@ function _aggDemographic(rows, field, range) {
 /* ============================================================
    HTML BUILDER
    ============================================================ */
-function _googleHTML(acct, fetchedAt, agg, chartDays, meta, devData, genderData, ageData) {
+function _googleHTML(acct, fetchedAt, agg, prevTotals, chartDays, meta, devData, genderData, ageData) {
   var rows    = agg.rows;
   var totals  = agg.totals;
   var hasCamp = rows.length > 0;
@@ -175,11 +205,12 @@ function _googleHTML(acct, fetchedAt, agg, chartDays, meta, devData, genderData,
   return (
     _accountBar(acct, fetchedAt) +
     _periodBar() +
-    _kpiGrid(totals) +
+    _kpiGrid(totals, prevTotals) +
     _spendChart(chartDays) +
     _deviceSection(devData) +
     _demographicsSection(genderData, ageData) +
     _campTable(rows, totals, hasCamp) +
+    _isSection(rows) +
     _allCampaignsTable(meta, rows) +
     _pipelineCard(acct)
   );
@@ -275,25 +306,43 @@ function _periodBar() {
   );
 }
 
-/* ---- 5 KPI cards ---- */
-function _kpiGrid(t) {
+/* ---- 6 KPI cards ---- */
+function _kpiGrid(t, prev) {
+  /* lowerIsBetter: CPC and CPM cost metrics — down is good */
   var cards = [
-    {label:'Показы',   value:_fn(t.impressions),     sub:'search impressions'},
-    {label:'Клики',    value:_fn(t.clicks),           sub:'переходы на сайт'},
-    {label:'CTR',      value:_fp(t.ctr_pct),          sub:'click-through rate'},
-    {label:'Avg CPC',  value:_fd(t.avg_cpc_usd,'$'),  sub:'стоимость клика'},
-    {label:'Расход',   value:_fd(t.cost_usd,'$'),     sub:'USD за период'},
+    {key:'impressions', label:'Показы',  value:_fn(t.impressions),     sub:'search impressions',     up:'good'},
+    {key:'clicks',      label:'Клики',   value:_fn(t.clicks),           sub:'переходы на сайт',       up:'good'},
+    {key:'ctr_pct',     label:'CTR',     value:_fp(t.ctr_pct),          sub:'click-through rate',     up:'good'},
+    {key:'avg_cpc_usd', label:'Avg CPC', value:_fd(t.avg_cpc_usd,'$'), sub:'стоимость клика',        up:'bad'},
+    {key:'cpm_usd',     label:'CPM',     value:_fd(t.cpm_usd,'$'),     sub:'стоимость 1000 показов', up:'bad'},
+    {key:'cost_usd',    label:'Расход',  value:_fd(t.cost_usd,'$'),    sub:'USD за период',          up:'neutral', gold:true},
   ];
-  var html = '<div style="display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:26px">';
+  var html = '<div style="display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-bottom:26px">';
   cards.forEach(function(c) {
+    var borderCol = c.gold ? 'rgba(196,168,100,0.3)' : 'var(--border-subtle)';
+    var valCol    = c.gold ? 'var(--accent-gold)'    : 'var(--text-primary)';
+    var wowHtml   = '';
+    if (prev && prev[c.key] != null && t[c.key] != null && prev[c.key] > 0) {
+      var chg = ((t[c.key] - prev[c.key]) / prev[c.key]) * 100;
+      var isUp = chg >= 0;
+      var absPct = Math.abs(chg).toFixed(1);
+      var wowColor = c.up === 'neutral' ? 'var(--text-tertiary)'
+                   : (isUp === (c.up === 'good')) ? '#74B974' : '#E87070';
+      wowHtml = (
+        '<div style="font-size:10px;color:' + wowColor + ';margin-top:4px">' +
+          (isUp ? '▲' : '▼') + ' ' + absPct + '% vs пред. период' +
+        '</div>'
+      );
+    }
     html += (
-      '<div style="background:var(--bg-elevated);border:1px solid var(--border-subtle);' +
-      'border-radius:10px;padding:16px 18px">' +
+      '<div style="background:var(--bg-elevated);border:1px solid ' + borderCol + ';' +
+      'border-radius:10px;padding:14px 16px">' +
         '<div style="font-size:10px;letter-spacing:0.08em;text-transform:uppercase;' +
-        'color:var(--text-tertiary);margin-bottom:8px">' + c.label + '</div>' +
-        '<div style="font-size:22px;font-weight:600;color:var(--text-primary);' +
+        'color:var(--text-tertiary);margin-bottom:6px">' + c.label + '</div>' +
+        '<div style="font-size:20px;font-weight:600;color:' + valCol + ';' +
         'font-family:var(--font-mono);line-height:1">' + c.value + '</div>' +
-        '<div style="font-size:11px;color:var(--text-tertiary);margin-top:6px">' + c.sub + '</div>' +
+        '<div style="font-size:10px;color:var(--text-tertiary);margin-top:5px">' + c.sub + '</div>' +
+        wowHtml +
       '</div>'
     );
   });
@@ -340,14 +389,22 @@ function _spendChart(chartDays) {
 }
 
 /* ---- campaign table ---- */
+var TYPE_SHORT = {
+  SEARCH: 'Search', DISPLAY: 'Display', VIDEO: 'Video',
+  SHOPPING: 'Shopping', SMART: 'Smart', PERFORMANCE_MAX: 'PMax',
+  DEMAND_GEN: 'DemGen', LOCAL: 'Local', MULTI_CHANNEL: 'Multi', UNKNOWN: '?'
+};
 var COLS = [
-  {key:'name',        label:'Кампания',  align:'left',  usd:false, pct:false},
-  {key:'status',      label:'Статус',    align:'center',usd:false, pct:false, badge:true},
-  {key:'impressions', label:'Показы',    align:'right', usd:false, pct:false},
-  {key:'clicks',      label:'Клики',     align:'right', usd:false, pct:false},
-  {key:'ctr_pct',     label:'CTR',       align:'right', usd:false, pct:true},
-  {key:'avg_cpc_usd', label:'Avg CPC',   align:'right', usd:true,  pct:false},
-  {key:'cost_usd',    label:'Расход $',  align:'right', usd:true,  pct:false, gold:true},
+  {key:'name',          label:'Кампания',  align:'left',   usd:false, pct:false},
+  {key:'type',          label:'Тип',       align:'center', usd:false, pct:false, typ:true},
+  {key:'status',        label:'Статус',    align:'center', usd:false, pct:false, badge:true},
+  {key:'impressions',   label:'Показы',    align:'right',  usd:false, pct:false},
+  {key:'clicks',        label:'Клики',     align:'right',  usd:false, pct:false},
+  {key:'ctr_pct',       label:'CTR',       align:'right',  usd:false, pct:true},
+  {key:'avg_cpc_usd',   label:'Avg CPC',   align:'right',  usd:true,  pct:false},
+  {key:'cpm_usd',       label:'CPM $',     align:'right',  usd:true,  pct:false},
+  {key:'cost_usd',      label:'Расход $',  align:'right',  usd:true,  pct:false, gold:true},
+  {key:'search_is_pct', label:'IS %',      align:'right',  usd:false, pct:true,  nullable:true},
 ];
 
 function _campTable(rows, totals, hasCamp) {
@@ -387,12 +444,17 @@ function _campTable(rows, totals, hasCamp) {
           v = '<span style="color:var(--text-primary);font-weight:500">' + r.name + '</span>';
           return '<td style="padding:9px 12px;text-align:left">' + v + '</td>';
         }
+        if (c.typ) {
+          v = '<span style="font-size:10px;color:var(--text-tertiary)">' + (TYPE_SHORT[r.type] || r.type || '—') + '</span>';
+          return '<td style="padding:9px 12px;text-align:center">' + v + '</td>';
+        }
         if (c.badge) {
           v = '<span style="font-size:10px;padding:2px 7px;border-radius:4px;' +
               'background:' + sc + '18;color:' + sc + '">' + (r.status||'—') + '</span>';
           return '<td style="padding:9px 12px;text-align:center">' + v + '</td>';
         }
-        if (c.pct) v = _fp(r[c.key]);
+        if (c.nullable && r[c.key] == null) v = '<span style="color:var(--text-tertiary)">—</span>';
+        else if (c.pct) v = _fp(r[c.key]);
         else if (c.usd) v = _fd(r[c.key], '$');
         else v = _fn(r[c.key]);
         return (
@@ -415,8 +477,10 @@ function _campTable(rows, totals, hasCamp) {
     var tcells = COLS.map(function(c) {
       var v;
       if (c.key === 'name') return '<td style="padding:9px 12px;font-weight:700;color:var(--text-primary)">ИТОГО</td>';
+      if (c.typ)  return '<td></td>';
       if (c.badge) return '<td></td>';
-      if (c.pct) v = _fp(totals[c.key]);
+      if (c.nullable && totals[c.key] == null) v = '<span style="color:var(--text-tertiary)">—</span>';
+      else if (c.pct) v = _fp(totals[c.key]);
       else if (c.usd) v = _fd(totals[c.key], '$');
       else v = _fn(totals[c.key]);
       return (
@@ -539,6 +603,55 @@ function _demographicsSection(genderData, ageData) {
     '<div style="margin-bottom:22px">' +
       '<div style="font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-tertiary);font-weight:600;margin-bottom:10px">Демография</div>' +
       '<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">' + gPanel + aPanel + '</div>' +
+    '</div>'
+  );
+}
+
+/* ---- impression share breakdown ---- */
+function _isSection(rows) {
+  var hasIS = rows.some(function(r) { return r.search_is_pct != null; });
+  if (!hasIS) return '';
+
+  var bars = rows.map(function(r) {
+    if (r.search_is_pct == null) return '';
+    var is   = Math.max(0, Math.min(100, r.search_is_pct    || 0));
+    var lb   = Math.max(0, Math.min(100 - is, r.lost_is_budget || 0));
+    var lr   = Math.max(0, Math.min(100 - is - lb, r.lost_is_rank   || 0));
+    var rest = Math.max(0, 100 - is - lb - lr);
+    return (
+      '<div style="margin-bottom:12px">' +
+        '<div style="display:flex;justify-content:space-between;margin-bottom:4px">' +
+          '<span style="font-size:11px;color:var(--text-primary)">' + r.name + '</span>' +
+          '<span style="font-size:11px;font-family:var(--font-mono);color:var(--text-secondary)">' +
+            'IS: ' + _fp(is) +
+            (r.lost_is_budget != null ? ' · −Бюджет: ' + _fp(lb) : '') +
+            (r.lost_is_rank   != null ? ' · −Ранг: '   + _fp(lr) : '') +
+          '</span>' +
+        '</div>' +
+        '<div style="display:flex;height:6px;border-radius:3px;overflow:hidden;gap:1px">' +
+          '<div title="IS ' + _fp(is) + '" style="width:' + is.toFixed(1) + '%;background:var(--accent-gold);border-radius:3px 0 0 3px"></div>' +
+          (lb > 0 ? '<div title="Потери — бюджет ' + _fp(lb) + '" style="width:' + lb.toFixed(1) + '%;background:#E87070"></div>' : '') +
+          (lr > 0 ? '<div title="Потери — ранг ' + _fp(lr) + '" style="width:' + lr.toFixed(1) + '%;background:#FFA000"></div>' : '') +
+          (rest > 0 ? '<div style="flex:1;background:rgba(255,255,255,0.07);border-radius:0 3px 3px 0"></div>' : '') +
+        '</div>' +
+      '</div>'
+    );
+  }).join('');
+
+  return (
+    '<div style="background:var(--bg-elevated);border:1px solid var(--border-subtle);' +
+    'border-radius:10px;padding:18px 20px;margin-bottom:22px">' +
+      '<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px">' +
+        '<div style="font-size:11px;letter-spacing:0.08em;text-transform:uppercase;' +
+        'color:var(--text-tertiary);font-weight:600">Impression Share</div>' +
+        '<div style="display:flex;gap:14px;font-size:10px">' +
+          '<span style="color:var(--accent-gold)">■ IS завоёванный</span>' +
+          '<span style="color:#E87070">■ Потери — бюджет</span>' +
+          '<span style="color:#FFA000">■ Потери — ранг</span>' +
+          '<span style="color:rgba(255,255,255,0.2)">■ Не учтено</span>' +
+        '</div>' +
+      '</div>' +
+      bars +
     '</div>'
   );
 }

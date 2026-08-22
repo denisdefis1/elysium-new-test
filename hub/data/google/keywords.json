@@ -2751,7 +2751,7 @@
       "competition": "MEDIUM",
       "competition_index": 43,
       "cpc": 0.75,
-      "status": "KEEP",
+      "status": "EXCLUDED_USER",
       "intent": "PURCHASE",
       "district": "",
       "geo_signal": "GEORGIA",
@@ -2759,7 +2759,8 @@
       "investment_signal": 0,
       "purchase_signal": 1,
       "historical_impressions": "",
-      "historical_conversions": 0
+      "historical_conversions": 0,
+      "exclude_reason": "contains дом — user request 2026-08-22"
     },
     {
       "keyword": "купить землю в грузии иностранцу",
@@ -3031,7 +3032,7 @@
       "competition": "MEDIUM",
       "competition_index": 38,
       "cpc": 0,
-      "status": "KEEP",
+      "status": "EXCLUDED_USER",
       "intent": "PURCHASE",
       "district": "",
       "geo_signal": "GEORGIA",
@@ -3039,7 +3040,8 @@
       "investment_signal": 0,
       "purchase_signal": 1,
       "historical_impressions": "",
-      "historical_conversions": 0
+      "historical_conversions": 0,
+      "exclude_reason": "contains дом — user request 2026-08-22"
     },
     {
       "keyword": "покупка недвижимости в грузии для россиян",
@@ -3071,7 +3073,7 @@
       "competition": "MEDIUM",
       "competition_index": 63,
       "cpc": 0.75,
-      "status": "KEEP",
+      "status": "EXCLUDED_USER",
       "intent": "PURCHASE",
       "district": "",
       "geo_signal": "GEORGIA",
@@ -3079,7 +3081,8 @@
       "investment_signal": 0,
       "purchase_signal": 1,
       "historical_impressions": "",
-      "historical_conversions": 0
+      "historical_conversions": 0,
+      "exclude_reason": "contains дом — user request 2026-08-22"
     },
     {
       "keyword": "купить жилье грузия",
@@ -4271,7 +4274,7 @@
       "competition": "UNSPECIFIED",
       "competition_index": 0,
       "cpc": 0,
-      "status": "EXCLUDED_BUDGET_SEGMENT",
+      "status": "EXCLUDED_USER",
       "intent": "GENERAL",
       "district": "",
       "geo_signal": "TBILISI",
@@ -4279,7 +4282,8 @@
       "investment_signal": 0,
       "purchase_signal": 0,
       "historical_impressions": "",
-      "historical_conversions": 0
+      "historical_conversions": 0,
+      "exclude_reason": "studio — contradicts 130m²+ positioning"
     },
     {
       "keyword": "super luxury apartments tbilisi",
@@ -4751,7 +4755,7 @@
       "competition": "MEDIUM",
       "competition_index": 53,
       "cpc": 0.73,
-      "status": "KEEP",
+      "status": "EXCLUDED_USER",
       "intent": "PURCHASE",
       "district": "",
       "geo_signal": "TBILISI",
@@ -4759,7 +4763,8 @@
       "investment_signal": 0,
       "purchase_signal": 1,
       "historical_impressions": "",
-      "historical_conversions": 0
+      "historical_conversions": 0,
+      "exclude_reason": "contains дом — user request 2026-08-22"
     },
     {
       "keyword": "апартаменты грузия тбилиси",
@@ -5591,7 +5596,7 @@
       "competition": "HIGH",
       "competition_index": 86,
       "cpc": 0,
-      "status": "KEEP",
+      "status": "EXCLUDED_USER",
       "intent": "RESEARCH",
       "district": "",
       "geo_signal": "TBILISI",
@@ -5599,7 +5604,8 @@
       "investment_signal": 0,
       "purchase_signal": 0,
       "historical_impressions": "",
-      "historical_conversions": 0
+      "historical_conversions": 0,
+      "exclude_reason": "contains дом — user request 2026-08-22"
     },
     {
       "keyword": "недвижимость грузии тбилиси",
@@ -7751,7 +7757,7 @@
       "competition": "no data",
       "competition_index": 0,
       "cpc": 0,
-      "status": "KEEP",
+      "status": "EXCLUDED_USER",
       "intent": "PURCHASE",
       "district": "",
       "geo_signal": "TBILISI",
@@ -7759,7 +7765,8 @@
       "investment_signal": 0,
       "purchase_signal": 1,
       "historical_impressions": 8,
-      "historical_conversions": 0
+      "historical_conversions": 0,
+      "exclude_reason": "contains дом — user request 2026-08-22"
     },
     {
       "keyword": "Alliance Tbilisi",

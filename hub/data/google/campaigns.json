@@ -1,7 +1,8 @@
 {
   "budget_total_monthly": 500,
   "budget_currency": "USD",
-  "allocation_principle": "25% per campaign",
+  "allocation_principle": "25% per campaign — equal distribution across all 4",
+  "positioning": "Бутик-резиденция · 14 апартаментов · Дом введён в эксплуатацию · Апартаменты от 130 м²",
   "campaigns": [
     {
       "id": 1,
@@ -11,71 +12,60 @@
       "budget_monthly": 125,
       "budget_daily_approx": 4.2,
       "intent": "Direct purchase intent, Russian-language",
-      "geo": [
-        "Ukraine",
-        "Belarus",
-        "Israel"
-      ],
-      "languages": [
-        "RU"
-      ],
-      "match_types": [
-        "Exact",
-        "Phrase"
-      ],
+      "geo": ["Ukraine", "Belarus", "Israel"],
+      "languages": ["RU"],
+      "match_types": ["Exact", "Phrase"],
       "bidding": "Manual CPC → Enhanced CPC after 20+ conv",
       "landing_page": "elysiumtbilisi.com/?lang=ru",
-      "language_filter": "RU",
-      "pool_sources": [
-        "A",
-        "D",
-        "E",
-        "F",
-        "G"
-      ],
+      "pool_sources": ["A", "D", "E", "F", "G"],
       "keyword_count_approx": 108,
       "priority": "PRIMARY",
-      "notes": "RU-language keywords only. Covers direct purchase RU queries across Pools A, D, E, F, G filtered to language=RU. 108 active RU keywords. Split into focused ad groups by sub-intent.",
+      "notes": "RU-language keywords only. Pools A, D, E, F, G. «Дом» keywords excluded. Focus: premium apartments Tbilisi/Georgia only.",
+      "headlines_ru": [
+        "Бутик-резиденция Тбилиси",
+        "Апартаменты от 130 м²",
+        "Дом введён в эксплуатацию",
+        "Только 14 апартаментов",
+        "Купить апартаменты в Тбилиси",
+        "Премиум недвижимость Грузия",
+        "Всего 2 квартиры на этаже",
+        "Свободная планировка",
+        "Подземный паркинг",
+        "Записаться на показ",
+        "Панорамный вид",
+        "Тишина и приватность",
+        "Квартира в Грузии",
+        "Инвестиции в недвижимость",
+        "Полная информация"
+      ],
+      "headlines_char_check": "All ≤ 30 chars ✓",
+      "descriptions_ru": [
+        "Бутик-резиденция — комфорт и приватность каждого жителя. Запросите планировки и цены.",
+        "Дом введён в эксплуатацию. Апартаменты от 130 м². Личный показ — без обязательств.",
+        "Автономность: генератор и резервуар с водой. Полная независимость от городских коммуникаций.",
+        "Запросите полную информацию — планировки, цены и личный показ."
+      ],
+      "negative_keywords_added": ["студия", "студии", "дом купить", "продажа домов"],
       "ad_groups": [
         {
           "name": "Покупка апартаментов — Тбилиси",
-          "examples": [
-            "купить квартиру в тбилиси",
-            "купить апартаменты тбилиси",
-            "апартаменты в тбилиси купить"
-          ]
+          "examples": ["купить апартаменты тбилиси", "апартаменты в тбилиси купить", "продажа апартаментов тбилиси"]
         },
         {
           "name": "Покупка недвижимости — Грузия",
-          "examples": [
-            "купить квартиру в грузии",
-            "недвижимость тбилиси купить",
-            "продажа квартир тбилиси"
-          ]
+          "examples": ["купить квартиру в грузии", "недвижимость тбилиси купить", "квартира в грузии"]
         },
         {
-          "name": "Премиум / Элитная",
-          "examples": [
-            "элитная квартира тбилиси",
-            "элитная недвижимость тбилиси",
-            "премиум недвижимость тбилиси"
-          ]
+          "name": "Премиум / Бутик",
+          "examples": ["элитная квартира тбилиси", "бутик резиденция тбилиси", "премиум апартаменты тбилиси"]
         },
         {
           "name": "Инвестиции",
-          "examples": [
-            "инвестиции в недвижимость грузии",
-            "инвестиционная квартира тбилиси",
-            "купить квартиру для инвестиций"
-          ]
+          "examples": ["инвестиции в недвижимость грузии", "инвестиционная квартира тбилиси"]
         },
         {
           "name": "Районы Тбилиси",
-          "examples": [
-            "квартира ваке тбилиси",
-            "апартаменты вера тбилиси",
-            "квартира мтацминда тбилиси"
-          ]
+          "examples": ["квартира ваке тбилиси", "апартаменты вера тбилиси", "квартира мтацминда тбилиси"]
         }
       ]
     },
@@ -87,75 +77,60 @@
       "budget_monthly": 125,
       "budget_daily_approx": 4.2,
       "intent": "Direct purchase intent, English-language",
-      "geo": [
-        "Israel",
-        "Ukraine",
-        "Belarus"
-      ],
-      "languages": [
-        "EN"
-      ],
-      "match_types": [
-        "Exact",
-        "Phrase"
-      ],
+      "geo": ["Israel", "Ukraine", "Belarus"],
+      "languages": ["EN"],
+      "match_types": ["Exact", "Phrase"],
       "bidding": "Manual CPC → Enhanced CPC after 20+ conv",
       "landing_page": "elysiumtbilisi.com/?lang=en",
-      "language_filter": "EN",
-      "pool_sources": [
-        "A",
-        "B",
-        "C",
-        "D",
-        "E",
-        "F",
-        "G"
-      ],
+      "pool_sources": ["A", "B", "C", "D", "E", "F", "G"],
       "keyword_count_approx": 69,
       "priority": "PRIMARY",
-      "notes": "EN-language keywords only. Pools A, B, C, D, E, F, G filtered to language=EN. 69 active EN keywords. Israel primary geo. Covers purchase, luxury, penthouse, residence, investment, district EN queries.",
+      "notes": "EN-language keywords only. «Studio» keywords excluded. Focus: luxury/boutique apartments, Tbilisi/Georgia only.",
+      "headlines_en": [
+        "Boutique Residence Tbilisi",
+        "Apartments from 130 m²",
+        "Building Commissioned",
+        "Only 14 Apartments",
+        "Buy Apartment in Tbilisi",
+        "Luxury Real Estate Georgia",
+        "2 Apartments Per Floor Only",
+        "Open Layout — No Load Walls",
+        "Underground Parking",
+        "Schedule a Viewing",
+        "Panoramic Views",
+        "Privacy & Security",
+        "Apartment in Georgia",
+        "Premium Investment Property",
+        "Full Info Available"
+      ],
+      "headlines_char_check": "All ≤ 30 chars ✓",
+      "descriptions_en": [
+        "Boutique residence — comfort and privacy for every resident. Request floor plans and pricing.",
+        "Building commissioned. Apartments from 130 m². Personal viewing — no obligation.",
+        "Autonomous: generator and water reserve. Full independence from city utilities.",
+        "Request full information — floor plans, prices and a personal viewing."
+      ],
+      "negative_keywords_added": ["studio", "studio apartment", "studio flat"],
       "ad_groups": [
         {
           "name": "Buy Apartment Tbilisi",
-          "examples": [
-            "buy apartment in tbilisi",
-            "apartments for sale tbilisi",
-            "buy flat tbilisi",
-            "flat for sale in tbilisi"
-          ]
+          "examples": ["buy apartment in tbilisi", "apartments for sale tbilisi", "flat for sale tbilisi"]
         },
         {
-          "name": "Luxury / Premium Residence",
-          "examples": [
-            "luxury apartment tbilisi",
-            "luxury apartments tbilisi",
-            "premium apartment tbilisi",
-            "exclusive apartment tbilisi"
-          ]
+          "name": "Luxury / Boutique Residence",
+          "examples": ["luxury apartment tbilisi", "boutique residence tbilisi", "exclusive apartment tbilisi"]
         },
         {
           "name": "Penthouse Tbilisi",
-          "examples": [
-            "penthouse in tbilisi",
-            "penthouse tbilisi",
-            "tbilisi penthouse"
-          ]
+          "examples": ["penthouse in tbilisi", "penthouse tbilisi", "tbilisi penthouse"]
         },
         {
           "name": "Investment Property",
-          "examples": [
-            "investment property georgia",
-            "investment apartment tbilisi",
-            "buy property for investment tbilisi"
-          ]
+          "examples": ["investment property georgia", "investment apartment tbilisi"]
         },
         {
           "name": "Large Format / 130+ m²",
-          "examples": [
-            "large apartment tbilisi",
-            "spacious apartment tbilisi",
-            "3 bedroom apartment tbilisi"
-          ]
+          "examples": ["large apartment tbilisi", "spacious apartment tbilisi", "3 bedroom apartment tbilisi"]
         }
       ]
     },
@@ -167,43 +142,47 @@
       "budget_monthly": 125,
       "budget_daily_approx": 4.2,
       "intent": "Premium and luxury segment, Russian-language",
-      "geo": [
-        "Israel",
-        "Ukraine",
-        "Belarus"
-      ],
-      "languages": [
-        "RU"
-      ],
-      "match_types": [
-        "Exact",
-        "Phrase"
-      ],
+      "geo": ["Israel", "Ukraine", "Belarus"],
+      "languages": ["RU"],
+      "match_types": ["Exact", "Phrase"],
       "bidding": "Manual CPC → Enhanced CPC after 20+ conv",
       "landing_page": "elysiumtbilisi.com/?lang=ru",
-      "language_filter": "RU",
-      "pool_sources": [
-        "B"
-      ],
+      "pool_sources": ["B"],
       "keyword_count_approx": 37,
       "priority": "PRIMARY",
-      "notes": "RU premium/luxury segment keywords. Pool B filtered to language=RU. 37 active keywords. Covers элитная, премиум, люкс, бутик, эксклюзив, vip, пентхаус, резиденция variants.",
+      "notes": "RU premium/luxury. Pool B. Апартаменты от 130 м² — закреплено в заголовках. «Бутик-резиденция» вместо «клубный дом».",
+      "headlines_ru": [
+        "Бутик-резиденция Тбилиси",
+        "Апартаменты от 130 м²",
+        "Дом введён в эксплуатацию",
+        "Только 14 апартаментов",
+        "Элитная недвижимость Грузия",
+        "Всего 2 квартиры на этаже",
+        "Пентхаус Тбилиси",
+        "Свободная планировка",
+        "Подземный паркинг",
+        "Записаться на показ",
+        "Панорамный вид",
+        "Тишина и приватность",
+        "Люкс апартаменты Тбилиси",
+        "VIP резиденция Тбилиси",
+        "Полная информация"
+      ],
+      "headlines_char_check": "All ≤ 30 chars ✓",
+      "descriptions_ru": [
+        "Бутик-резиденция — комфорт и приватность каждого жителя. Запросите планировки и цены.",
+        "Дом введён в эксплуатацию. Только 14 апартаментов от 130 м². Показ по записи.",
+        "Автономность: генератор и резервуар с водой. Полная независимость от городских коммуникаций.",
+        "Запросите полную информацию — планировки, цены и личный показ."
+      ],
       "ad_groups": [
         {
-          "name": "Элитная / Премиум недвижимость",
-          "examples": [
-            "элитная недвижимость тбилиси",
-            "премиум апартаменты тбилиси",
-            "люкс квартиры тбилиси"
-          ]
+          "name": "Элитная / Бутик недвижимость",
+          "examples": ["элитная недвижимость тбилиси", "бутик резиденция тбилиси", "люкс квартиры тбилиси"]
         },
         {
           "name": "Пентхаус / Резиденция",
-          "examples": [
-            "пентхаус тбилиси",
-            "купить пентхаус в тбилиси",
-            "бутик резиденция тбилиси"
-          ]
+          "examples": ["пентхаус тбилиси", "купить пентхаус в тбилиси", "бутик резиденция тбилиси"]
         }
       ]
     },
@@ -215,51 +194,92 @@
       "budget_monthly": 125,
       "budget_daily_approx": 4.2,
       "intent": "Intercept audience researching comparable premium projects",
-      "geo": [
-        "Israel",
-        "Ukraine",
-        "Belarus"
-      ],
-      "languages": [
-        "RU",
-        "EN"
-      ],
-      "match_types": [
-        "Phrase"
-      ],
+      "geo": ["Israel", "Ukraine", "Belarus"],
+      "languages": ["RU", "EN"],
+      "match_types": ["Phrase"],
       "bidding": "Manual CPC (conservative, review after 30d)",
       "landing_page": "elysiumtbilisi.com (differentiation messaging)",
-      "pool_sources": [
-        "I"
-      ],
+      "pool_sources": ["I"],
       "keyword_count_approx": 87,
       "priority": "SECONDARY",
       "requires_manual_review": true,
-      "notes": "All 87 Pool I keywords are CHECK_REQUIRED — manual review before enabling. Source of truth: Pool I in keyword research database (87 verified). Launch highest-volume competitors first.",
+      "notes": "All 87 Pool I keywords are CHECK_REQUIRED — manual review before enabling. Launch highest-volume competitors first.",
+      "differentiation_headlines_ru": [
+        "Дом введён в эксплуатацию",
+        "Всего 2 квартиры на этаже",
+        "Не комплекс — бутик-резиденция",
+        "Только 14 апартаментов",
+        "Свободная планировка",
+        "Записаться на показ",
+        "Подземный паркинг",
+        "Тишина и приватность",
+        "Полная информация",
+        "Бутик-резиденция открыта",
+        "Апартаменты от 130 м²",
+        "Панорамный вид",
+        "Без несущих стен",
+        "Безопасность 24/7",
+        "Грузия · Тбилиси"
+      ],
+      "differentiation_headlines_char_check": {
+        "Дом введён в эксплуатацию": 25,
+        "Всего 2 квартиры на этаже": 25,
+        "Не комплекс — бутик-резиденция": 30,
+        "Только 14 апартаментов": 22,
+        "Свободная планировка": 20,
+        "Записаться на показ": 19,
+        "Подземный паркинг": 17,
+        "Тишина и приватность": 20,
+        "Полная информация": 17,
+        "Бутик-резиденция открыта": 24,
+        "Апартаменты от 130 м²": 21,
+        "Панорамный вид": 14,
+        "Без несущих стен": 16,
+        "Безопасность 24/7": 17,
+        "note": "All ≤ 30 chars ✓"
+      },
+      "differentiation_descriptions_ru": [
+        "Дом введён в эксплуатацию — бутик-резиденция открыта к просмотру.",
+        "Бутик-резиденция: только 14 апартаментов. Комфорт и приватность каждого жителя.",
+        "Автономность: генератор и резервуар с водой. Полная независимость от городских коммуникаций.",
+        "Запросите полную информацию — планировки, цены и личный показ."
+      ],
+      "sitelinks": [
+        "Полная информация о проекте",
+        "Тишина, приватность, безопасность",
+        "Записаться на показ",
+        "Подземный паркинг"
+      ],
+      "removed_from_copy": [
+        "Элия Хилл — приватность рядом",
+        "клубный дом",
+        "дом полностью сдан",
+        "по 2 квартиры на этаж",
+        "Записаться на показ сегодня"
+      ],
       "launch_priority": [
         "park home vake",
-        "krtsanisi villa residence",
+        "tbilisi hills",
         "gergeti rise residence",
         "cityzen tbilisi",
         "next tbilisi",
-        "mtatsminda panorama"
+        "mtatsminda panorama",
+        "biograpi tbilisi",
+        "kings garden tbilisi",
+        "momaliv tbilisi"
       ],
       "ad_groups": [
         {
-          "name": "Premium Competitors — EN",
-          "examples": [
-            "park home vake",
-            "gergeti rise residence",
-            "cityzen tbilisi",
-            "next tbilisi"
-          ]
+          "name": "Конкуренты — Прямые Конкуренты EN",
+          "examples": ["park home vake", "gergeti rise residence", "cityzen tbilisi", "next tbilisi", "tbilisi hills"]
         },
         {
-          "name": "Premium Competitors — RU",
-          "examples": [
-            "крцаниси резиденция",
-            "парк хоум вейк"
-          ]
+          "name": "Конкуренты — Прямые Конкуренты RU",
+          "examples": ["парк хоум вейк", "тбилиси хиллс", "kings garden тбилиси"]
+        },
+        {
+          "name": "Конкуренты — Смежные Проекты",
+          "examples": ["biograpi tbilisi", "kings garden tbilisi", "momaliv tbilisi", "ocean vake park"]
         }
       ]
     }

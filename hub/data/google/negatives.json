@@ -138,6 +138,21 @@
         "продам квартиру в тбилиси",
         "продам квартиру в грузии"
       ]
+    },
+    {
+      "pool": "Q",
+      "label": "Studios / Small Format",
+      "status": "EXCLUDED_USER",
+      "reason": "Contradicts 130m²+ boutique positioning — added 2026-08-22",
+      "count": 6,
+      "examples": [
+        "студия",
+        "студии",
+        "studio apartment",
+        "studio flat",
+        "studio tbilisi",
+        "студия тбилиси"
+      ]
     }
   ],
   "total": 3143

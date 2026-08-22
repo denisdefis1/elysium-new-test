@@ -118,13 +118,17 @@ def fetch_daily_campaigns(service, customer_id: str, date_from: str, date_to: st
             campaign.id,
             campaign.name,
             campaign.status,
+            campaign.advertising_channel_type,
             metrics.impressions,
             metrics.clicks,
             metrics.cost_micros,
             metrics.ctr,
             metrics.average_cpc,
             metrics.conversions,
-            metrics.cost_per_conversion
+            metrics.cost_per_conversion,
+            metrics.search_impression_share,
+            metrics.search_budget_lost_impression_share,
+            metrics.search_rank_lost_impression_share
         FROM campaign
         WHERE segments.date BETWEEN '{date_from}' AND '{date_to}'
           AND metrics.cost_micros > 0
@@ -135,24 +139,33 @@ def fetch_daily_campaigns(service, customer_id: str, date_from: str, date_to: st
             m   = row.metrics
             day = str(row.segments.date)
             cid = str(row.campaign.id)
+
+            def _pct(v):
+                return round(float(v) * 100, 2) if v and float(v) > 0 else None
+
             daily_map[day][cid] = {
-                "id":          cid,
-                "name":        row.campaign.name,
-                "status":      row.campaign.status.name,
-                "impressions": int(m.impressions),
-                "clicks":      int(m.clicks),
-                "cost_usd":    round(m.cost_micros / 1_000_000, 4),
-                "ctr_pct":     round(m.ctr * 100, 4),
-                "avg_cpc_usd": round(m.average_cpc / 1_000_000, 4),
-                "conversions": round(m.conversions, 2),
-                "cpl_usd":     (round(m.cost_per_conversion / 1_000_000, 2)
-                                if m.conversions > 0 else None),
+                "id":              cid,
+                "name":            row.campaign.name,
+                "status":          row.campaign.status.name,
+                "type":            row.campaign.advertising_channel_type.name,
+                "impressions":     int(m.impressions),
+                "clicks":          int(m.clicks),
+                "cost_usd":        round(m.cost_micros / 1_000_000, 4),
+                "ctr_pct":         round(m.ctr * 100, 4),
+                "avg_cpc_usd":     round(m.average_cpc / 1_000_000, 4),
+                "conversions":     round(m.conversions, 2),
+                "cpl_usd":         (round(m.cost_per_conversion / 1_000_000, 2)
+                                    if m.conversions > 0 else None),
+                "search_is_pct":   _pct(m.search_impression_share),
+                "lost_is_budget":  _pct(m.search_budget_lost_impression_share),
+                "lost_is_rank":    _pct(m.search_rank_lost_impression_share),
             }
     except Exception as e:
         if "REQUESTED_METRICS_FOR_MANAGER" in str(e):
             return None   # caller should retry with child accounts
         print(f"WARNING: fetch error for {customer_id}: {e}", file=sys.stderr)
     return daily_map
+
 
 
 def fetch_device_daily(service, customer_id: str, date_from: str, date_to: str):
