@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
-"""Fetch Google Ads daily campaign data → hub/data/google/ads_metrics.json."""
+"""Fetch Google Ads daily campaign data → hub/data/google/ads_metrics.json.
+Handles both direct accounts and MCC (manager) accounts automatically.
+"""
 
 import json
 import os
@@ -17,57 +19,93 @@ from google.ads.googleads.client import GoogleAdsClient
 
 def get_client():
     return GoogleAdsClient.load_from_dict({
-        "developer_token":    os.environ["GOOGLE_ADS_DEVELOPER_TOKEN"],
-        "client_id":          os.environ["GOOGLE_ADS_CLIENT_ID"],
-        "client_secret":      os.environ["GOOGLE_ADS_CLIENT_SECRET"],
-        "refresh_token":      os.environ["GOOGLE_ADS_REFRESH_TOKEN"],
-        "login_customer_id":  os.environ["GOOGLE_ADS_LOGIN_CUSTOMER_ID"],
-        "use_proto_plus":     True,
+        "developer_token":   os.environ["GOOGLE_ADS_DEVELOPER_TOKEN"],
+        "client_id":         os.environ["GOOGLE_ADS_CLIENT_ID"],
+        "client_secret":     os.environ["GOOGLE_ADS_CLIENT_SECRET"],
+        "refresh_token":     os.environ["GOOGLE_ADS_REFRESH_TOKEN"],
+        "login_customer_id": os.environ["GOOGLE_ADS_LOGIN_CUSTOMER_ID"],
+        "use_proto_plus":    True,
     })
 
 
-def fetch(client, customer_id: str, date_from: str, date_to: str) -> dict:
-    service = client.get_service("GoogleAdsService")
-
-    # Account info
-    account = {}
+def is_manager_account(service, customer_id: str) -> bool:
+    """Return True if this account is an MCC (manager) account."""
     try:
-        for row in service.search(customer_id=customer_id, query="""
-            SELECT customer.id, customer.descriptive_name,
-                   customer.currency_code, customer.time_zone
-            FROM customer LIMIT 1
-        """):
-            account = {
+        for row in service.search(
+            customer_id=customer_id,
+            query="SELECT customer.manager FROM customer LIMIT 1",
+        ):
+            return bool(row.customer.manager)
+    except Exception as e:
+        print(f"WARNING: cannot check manager status: {e}", file=sys.stderr)
+    return False
+
+
+def get_client_account_ids(service, manager_id: str) -> list[str]:
+    """Discover all enabled non-manager sub-accounts under an MCC."""
+    try:
+        resp = service.search(
+            customer_id=manager_id,
+            query="""
+                SELECT customer_client.id, customer_client.manager, customer_client.status
+                FROM customer_client
+                WHERE customer_client.status = 'ENABLED'
+                  AND customer_client.manager = false
+            """,
+        )
+        ids = [str(row.customer_client.id) for row in resp]
+        print(f"  MCC {manager_id} → client accounts: {ids}")
+        return ids
+    except Exception as e:
+        print(f"WARNING: could not list sub-accounts under {manager_id}: {e}", file=sys.stderr)
+        return []
+
+
+def fetch_account_info(service, customer_id: str) -> dict:
+    try:
+        for row in service.search(
+            customer_id=customer_id,
+            query="""
+                SELECT customer.id, customer.descriptive_name,
+                       customer.currency_code, customer.time_zone
+                FROM customer LIMIT 1
+            """,
+        ):
+            return {
                 "id":       str(row.customer.id),
                 "name":     row.customer.descriptive_name,
                 "currency": row.customer.currency_code,
                 "timezone": row.customer.time_zone,
             }
     except Exception as e:
-        account = {"error": str(e)}
+        return {"id": customer_id, "error": str(e)}
+    return {"id": customer_id}
 
-    # Daily campaign metrics
-    daily_map = defaultdict(dict)  # date → campaign_id → metrics dict
 
+def fetch_daily_campaigns(service, customer_id: str, date_from: str, date_to: str) -> dict:
+    """Returns {date_str: {campaign_id: metrics_dict}}. None if MCC error."""
+    daily_map: dict[str, dict] = defaultdict(dict)
+    query = f"""
+        SELECT
+            segments.date,
+            campaign.id,
+            campaign.name,
+            campaign.status,
+            metrics.impressions,
+            metrics.clicks,
+            metrics.cost_micros,
+            metrics.ctr,
+            metrics.average_cpc,
+            metrics.conversions,
+            metrics.cost_per_conversion
+        FROM campaign
+        WHERE segments.date BETWEEN '{date_from}' AND '{date_to}'
+          AND metrics.impressions > 0
+        ORDER BY segments.date DESC, metrics.cost_micros DESC
+    """
     try:
-        for row in service.search(customer_id=customer_id, query=f"""
-            SELECT
-                segments.date,
-                campaign.id,
-                campaign.name,
-                campaign.status,
-                metrics.impressions,
-                metrics.clicks,
-                metrics.cost_micros,
-                metrics.ctr,
-                metrics.average_cpc,
-                metrics.conversions,
-                metrics.cost_per_conversion
-            FROM campaign
-            WHERE segments.date BETWEEN '{date_from}' AND '{date_to}'
-            ORDER BY segments.date DESC, metrics.cost_micros DESC
-        """):
-            m = row.metrics
+        for row in service.search(customer_id=customer_id, query=query):
+            m   = row.metrics
             day = str(row.segments.date)
             cid = str(row.campaign.id)
             daily_map[day][cid] = {
@@ -80,51 +118,83 @@ def fetch(client, customer_id: str, date_from: str, date_to: str) -> dict:
                 "ctr_pct":     round(m.ctr * 100, 4),
                 "avg_cpc_usd": round(m.average_cpc / 1_000_000, 4),
                 "conversions": round(m.conversions, 2),
-                "cpl_usd":     round(m.cost_per_conversion / 1_000_000, 2) if m.conversions > 0 else None,
+                "cpl_usd":     (round(m.cost_per_conversion / 1_000_000, 2)
+                                if m.conversions > 0 else None),
             }
     except Exception as e:
-        print(f"WARNING: campaign data fetch error: {e}", file=sys.stderr)
-
-    # Build daily array (all 180 days, empty if no data)
-    today = date.fromisoformat(date_to)
-    start = date.fromisoformat(date_from)
-    daily = []
-    cur = today
-    while cur >= start:
-        day_str = str(cur)
-        camps = list(daily_map[day_str].values()) if day_str in daily_map else []
-        daily.append({"date": day_str, "campaigns": camps})
-        cur -= timedelta(days=1)
-
-    return {
-        "status":     "ok",
-        "fetched_at": str(date.today()),
-        "period":     {"date_from": date_from, "date_to": date_to},
-        "account":    account,
-        "daily":      daily,
-    }
+        if "REQUESTED_METRICS_FOR_MANAGER" in str(e):
+            return None   # caller should retry with child accounts
+        print(f"WARNING: fetch error for {customer_id}: {e}", file=sys.stderr)
+    return daily_map
 
 
 def main():
-    today    = date.today()
-    date_to  = str(today)
-    date_from = str(today - timedelta(days=179))  # 180 days incl. today
+    today     = date.today()
+    date_to   = str(today)
+    date_from = str(today - timedelta(days=179))   # 180 days incl. today
 
-    customer_id = os.environ["GOOGLE_ADS_CUSTOMER_ID"]
-    client = get_client()
+    default_id = os.environ["GOOGLE_ADS_CUSTOMER_ID"]
+    client     = get_client()
+    service    = client.get_service("GoogleAdsService")
 
-    print(f"Fetching {date_from} → {date_to} for account {customer_id} ...")
-    data = fetch(client, customer_id, date_from, date_to)
+    print(f"Connecting to account {default_id} ...")
 
-    days_with_data = sum(1 for d in data["daily"] if d["campaigns"])
-    print(f"Done. Days with data: {days_with_data}/{len(data['daily'])}")
+    # Check whether default account is an MCC
+    if is_manager_account(service, default_id):
+        print(f"  → MCC detected")
+        customer_ids = get_client_account_ids(service, default_id)
+        if not customer_ids:
+            print("ERROR: MCC has no enabled client sub-accounts.", file=sys.stderr)
+            sys.exit(1)
+        account = fetch_account_info(service, customer_ids[0])
+        account["mcc_id"]     = default_id
+        account["client_ids"] = customer_ids
+    else:
+        customer_ids = [default_id]
+        account      = fetch_account_info(service, default_id)
+
+    print(f"Fetching {date_from} → {date_to} from account(s): {customer_ids}")
+
+    # Merge daily data from all accounts
+    merged: dict[str, dict] = defaultdict(dict)
+    for cid in customer_ids:
+        result = fetch_daily_campaigns(service, cid, date_from, date_to)
+        if result is None:
+            # Shouldn't happen after MCC check, but handle gracefully
+            print(f"  SKIP {cid}: still returning MCC error", file=sys.stderr)
+            continue
+        total_days = sum(1 for v in result.values() if v)
+        print(f"  Account {cid}: {total_days} days with data")
+        for day, camps in result.items():
+            merged[day].update(camps)
+
+    days_with_data = sum(1 for v in merged.values() if v)
+    print(f"Total days with data: {days_with_data} / 180")
+
+    # Build daily array sorted newest-first
+    daily_list = []
+    cur   = today
+    start = date.fromisoformat(date_from)
+    while cur >= start:
+        day_str = str(cur)
+        camps   = list(merged[day_str].values()) if day_str in merged else []
+        daily_list.append({"date": day_str, "campaigns": camps})
+        cur -= timedelta(days=1)
+
+    result = {
+        "status":     "ok",
+        "fetched_at": str(today),
+        "period":     {"date_from": date_from, "date_to": date_to},
+        "account":    account,
+        "daily":      daily_list,
+    }
 
     out = os.path.join(
         os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
-        "hub", "data", "google", "ads_metrics.json"
+        "hub", "data", "google", "ads_metrics.json",
     )
     with open(out, "w", encoding="utf-8") as f:
-        json.dump(data, f, ensure_ascii=False, indent=2)
+        json.dump(result, f, ensure_ascii=False, indent=2)
     print(f"Written → {out}")
 
 

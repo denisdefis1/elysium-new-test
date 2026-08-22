@@ -116,37 +116,65 @@ async def get_customer_info() -> str:
 
 @mcp.tool()
 async def get_campaigns() -> str:
-    """Get all Google Ads campaigns and their current status."""
+    """Get all Google Ads campaigns and their current status.
+    Automatically handles MCC manager accounts by querying all client sub-accounts."""
 
     client = get_client()
     customer_id = os.environ["GOOGLE_ADS_CUSTOMER_ID"]
-
     service = client.get_service("GoogleAdsService")
 
     query = """
         SELECT
+            customer.id,
             campaign.id,
             campaign.name,
-            campaign.status
+            campaign.status,
+            campaign.serving_status,
+            campaign.advertising_channel_type,
+            metrics.impressions,
+            metrics.clicks,
+            metrics.cost_micros
         FROM campaign
         ORDER BY campaign.id
     """
 
-    response = service.search(
-        customer_id=customer_id,
-        query=query,
-    )
+    def _query_account(cid):
+        rows = []
+        try:
+            for row in service.search(customer_id=cid, query=query):
+                cost = round(row.metrics.cost_micros / 1_000_000, 2)
+                rows.append(
+                    f"Account: {cid} | "
+                    f"Campaign ID: {row.campaign.id} | "
+                    f"Name: {row.campaign.name} | "
+                    f"Status: {row.campaign.status.name} | "
+                    f"Serving: {row.campaign.serving_status.name} | "
+                    f"Impressions: {row.metrics.impressions} | "
+                    f"Clicks: {row.metrics.clicks} | "
+                    f"Cost: ${cost}"
+                )
+        except Exception as e:
+            err = str(e)
+            if "REQUESTED_METRICS_FOR_MANAGER" in err:
+                return None  # signal: this is an MCC
+            rows.append(f"Account {cid} error: {err}")
+        return rows
 
-    results = []
+    results = _query_account(customer_id)
 
-    for row in response:
-        results.append(
-            f"ID: {row.campaign.id} | "
-            f"Name: {row.campaign.name} | "
-            f"Status: {row.campaign.status.name}"
-        )
+    # If MCC account — discover and query all client sub-accounts
+    if results is None:
+        client_ids = _get_client_account_ids(client, customer_id)
+        if not client_ids:
+            return f"Account {customer_id} is a manager (MCC) with no enabled client accounts."
+        results = []
+        results.append(f"Manager account {customer_id} — querying {len(client_ids)} client account(s): {', '.join(client_ids)}")
+        for cid in client_ids:
+            sub = _query_account(cid)
+            if sub:
+                results.extend(sub)
 
-    return "\n".join(results) if results else "No campaigns found."
+    return "\n".join(results) if results else "No campaigns found in any account."
 
 
 @mcp.tool()
@@ -417,6 +445,7 @@ async def get_account_summary(
     date_to: str,
 ) -> str:
     """Get campaign-level performance summary for the Google Ads account.
+    Automatically handles MCC manager accounts by querying all client sub-accounts.
 
     Args:
         date_from: Start date in YYYY-MM-DD format (e.g. 2026-02-01)
@@ -426,33 +455,12 @@ async def get_account_summary(
     avg CPC, conversions, CPL) plus account-level totals and metadata.
     """
     client = get_client()
-    customer_id = os.environ["GOOGLE_ADS_CUSTOMER_ID"]
+    default_id = os.environ["GOOGLE_ADS_CUSTOMER_ID"]
     service = client.get_service("GoogleAdsService")
 
-    # Account info
-    account_query = """
-        SELECT
-            customer.id,
-            customer.descriptive_name,
-            customer.currency_code,
-            customer.time_zone
-        FROM customer LIMIT 1
-    """
-    account_info = {}
-    try:
-        for row in service.search(customer_id=customer_id, query=account_query):
-            account_info = {
-                "id": str(row.customer.id),
-                "name": row.customer.descriptive_name,
-                "currency": row.customer.currency_code,
-                "timezone": row.customer.time_zone,
-            }
-    except Exception as e:
-        account_info = {"error": str(e)}
-
-    # Campaign metrics
     campaign_query = f"""
         SELECT
+            customer.id,
             campaign.id,
             campaign.name,
             campaign.status,
@@ -468,14 +476,15 @@ async def get_account_summary(
         ORDER BY metrics.cost_micros DESC
     """
 
-    campaigns = []
-    try:
-        for row in service.search(customer_id=customer_id, query=campaign_query):
+    def _query_campaigns(cid):
+        rows = []
+        for row in service.search(customer_id=cid, query=campaign_query):
             m = row.metrics
             cost = round(m.cost_micros / 1_000_000, 2)
             avg_cpc = round(m.average_cpc / 1_000_000, 2)
             cpl = round(m.cost_per_conversion / 1_000_000, 2) if m.conversions > 0 else None
-            campaigns.append({
+            rows.append({
+                "account_id": str(row.customer.id),
                 "id": str(row.campaign.id),
                 "name": row.campaign.name,
                 "status": row.campaign.status.name,
@@ -487,30 +496,72 @@ async def get_account_summary(
                 "conversions": round(m.conversions, 2),
                 "cpl_usd": cpl,
             })
-    except Exception as e:
-        campaigns = [{"error": str(e)}]
+        return rows
 
-    # Totals
-    total_impressions = sum(c.get("impressions", 0) for c in campaigns if "error" not in c)
-    total_clicks = sum(c.get("clicks", 0) for c in campaigns if "error" not in c)
-    total_cost = round(sum(c.get("cost_usd", 0) for c in campaigns if "error" not in c), 2)
-    total_conv = round(sum(c.get("conversions", 0) for c in campaigns if "error" not in c), 2)
-    blended_ctr = round(total_clicks / total_impressions * 100, 3) if total_impressions > 0 else 0
-    blended_cpl = round(total_cost / total_conv, 2) if total_conv > 0 else None
+    # Resolve target account(s) — handle MCC transparently
+    campaigns = []
+    account_info = {"id": default_id}
+    client_ids_used = []
+
+    try:
+        campaigns = _query_campaigns(default_id)
+        client_ids_used = [default_id]
+    except Exception as e:
+        if "REQUESTED_METRICS_FOR_MANAGER" in str(e):
+            # MCC account — discover and query all client accounts
+            client_ids = _get_client_account_ids(client, default_id)
+            client_ids_used = client_ids
+            account_info["mcc_id"] = default_id
+            account_info["client_ids"] = client_ids
+            for cid in client_ids:
+                try:
+                    campaigns.extend(_query_campaigns(cid))
+                except Exception as sub_e:
+                    campaigns.append({"error": f"Account {cid}: {str(sub_e)}"})
+        else:
+            campaigns = [{"error": str(e)}]
+
+    # Fetch account info from first usable account
+    for cid in client_ids_used:
+        try:
+            for row in service.search(customer_id=cid, query="""
+                SELECT customer.id, customer.descriptive_name,
+                       customer.currency_code, customer.time_zone
+                FROM customer LIMIT 1
+            """):
+                account_info.update({
+                    "id": str(row.customer.id),
+                    "name": row.customer.descriptive_name,
+                    "currency": row.customer.currency_code,
+                    "timezone": row.customer.time_zone,
+                })
+            break
+        except Exception:
+            pass
+
+    # Sort by cost desc, compute totals
+    campaigns.sort(key=lambda c: c.get("cost_usd", 0), reverse=True)
+    clean = [c for c in campaigns if "error" not in c]
+    total_imp  = sum(c["impressions"] for c in clean)
+    total_clk  = sum(c["clicks"]      for c in clean)
+    total_cost = round(sum(c["cost_usd"] for c in clean), 2)
+    total_conv = round(sum(c["conversions"] for c in clean), 2)
 
     result = {
         "status": "ok",
         "fetched_at": date_to,
         "period": {"date_from": date_from, "date_to": date_to},
+        "mcc_id": default_id,
         "account": account_info,
         "campaigns": campaigns,
         "totals": {
-            "impressions": total_impressions,
-            "clicks": total_clicks,
-            "cost_usd": total_cost,
-            "ctr_pct": blended_ctr,
+            "impressions": total_imp,
+            "clicks":      total_clk,
+            "cost_usd":    total_cost,
+            "ctr_pct":     round(total_clk / total_imp * 100, 3) if total_imp > 0 else 0,
+            "avg_cpc_usd": round(total_cost / total_clk, 2)      if total_clk > 0 else 0,
             "conversions": total_conv,
-            "cpl_usd": blended_cpl,
+            "cpl_usd":     round(total_cost / total_conv, 2)     if total_conv > 0 else None,
         },
     }
     return json.dumps(result, ensure_ascii=False, indent=2)

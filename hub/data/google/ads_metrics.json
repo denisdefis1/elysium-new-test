@@ -1,11 +1,19 @@
 {
   "status": "ok",
   "fetched_at": "2026-08-22",
+  "period": {
+    "date_from": "2026-02-24",
+    "date_to": "2026-08-22"
+  },
   "account": {
-    "id": "3341934882",
-    "name": "ИИ менеджер",
+    "id": "6309630233",
+    "name": "Elysium",
     "currency": "USD",
-    "timezone": "Asia/Tbilisi"
+    "timezone": "Asia/Tbilisi",
+    "mcc_id": "3341934882",
+    "client_ids": [
+      "6309630233"
+    ]
   },
   "daily": [
     {
@@ -102,35 +110,199 @@
     },
     {
       "date": "2026-07-30",
-      "campaigns": []
+      "campaigns": [
+        {
+          "id": "24008188680",
+          "name": "Лиды | тест новый 08.09",
+          "status": "PAUSED",
+          "impressions": 2908,
+          "clicks": 27,
+          "cost_usd": 13.9775,
+          "ctr_pct": 0.9285,
+          "avg_cpc_usd": 0.5177,
+          "conversions": 0.0,
+          "cpl_usd": null
+        }
+      ]
     },
     {
       "date": "2026-07-29",
-      "campaigns": []
+      "campaigns": [
+        {
+          "id": "24008188680",
+          "name": "Лиды | тест новый 08.09",
+          "status": "PAUSED",
+          "impressions": 2351,
+          "clicks": 38,
+          "cost_usd": 13.9683,
+          "ctr_pct": 1.6163,
+          "avg_cpc_usd": 0.3676,
+          "conversions": 0.0,
+          "cpl_usd": null
+        }
+      ]
     },
     {
       "date": "2026-07-28",
-      "campaigns": []
+      "campaigns": [
+        {
+          "id": "24008188680",
+          "name": "Лиды | тест новый 08.09",
+          "status": "PAUSED",
+          "impressions": 3074,
+          "clicks": 28,
+          "cost_usd": 13.9908,
+          "ctr_pct": 0.9109,
+          "avg_cpc_usd": 0.4997,
+          "conversions": 0.0,
+          "cpl_usd": null
+        },
+        {
+          "id": "24060696869",
+          "name": "Создание спроса (2026-07-23)",
+          "status": "PAUSED",
+          "impressions": 4900,
+          "clicks": 234,
+          "cost_usd": 4.8764,
+          "ctr_pct": 4.7755,
+          "avg_cpc_usd": 0.0208,
+          "conversions": 0.0,
+          "cpl_usd": null
+        }
+      ]
     },
     {
       "date": "2026-07-27",
-      "campaigns": []
+      "campaigns": [
+        {
+          "id": "24060696869",
+          "name": "Создание спроса (2026-07-23)",
+          "status": "PAUSED",
+          "impressions": 18860,
+          "clicks": 913,
+          "cost_usd": 15.1489,
+          "ctr_pct": 4.8409,
+          "avg_cpc_usd": 0.0166,
+          "conversions": 0.0,
+          "cpl_usd": null
+        },
+        {
+          "id": "24008188680",
+          "name": "Лиды | тест новый 08.09",
+          "status": "PAUSED",
+          "impressions": 6889,
+          "clicks": 44,
+          "cost_usd": 13.9602,
+          "ctr_pct": 0.6387,
+          "avg_cpc_usd": 0.3173,
+          "conversions": 0.0,
+          "cpl_usd": null
+        }
+      ]
     },
     {
       "date": "2026-07-26",
-      "campaigns": []
+      "campaigns": [
+        {
+          "id": "24060696869",
+          "name": "Создание спроса (2026-07-23)",
+          "status": "PAUSED",
+          "impressions": 17469,
+          "clicks": 855,
+          "cost_usd": 15.6136,
+          "ctr_pct": 4.8944,
+          "avg_cpc_usd": 0.0183,
+          "conversions": 1.0,
+          "cpl_usd": 15.61
+        },
+        {
+          "id": "24008188680",
+          "name": "Лиды | тест новый 08.09",
+          "status": "PAUSED",
+          "impressions": 5648,
+          "clicks": 26,
+          "cost_usd": 7.1417,
+          "ctr_pct": 0.4603,
+          "avg_cpc_usd": 0.2747,
+          "conversions": 0.0,
+          "cpl_usd": null
+        }
+      ]
     },
     {
       "date": "2026-07-25",
-      "campaigns": []
+      "campaigns": [
+        {
+          "id": "24060696869",
+          "name": "Создание спроса (2026-07-23)",
+          "status": "PAUSED",
+          "impressions": 19810,
+          "clicks": 862,
+          "cost_usd": 15.5751,
+          "ctr_pct": 4.3513,
+          "avg_cpc_usd": 0.0181,
+          "conversions": 0.0,
+          "cpl_usd": null
+        },
+        {
+          "id": "24008188680",
+          "name": "Лиды | тест новый 08.09",
+          "status": "PAUSED",
+          "impressions": 1646,
+          "clicks": 14,
+          "cost_usd": 3.7546,
+          "ctr_pct": 0.8505,
+          "avg_cpc_usd": 0.2682,
+          "conversions": 0.0,
+          "cpl_usd": null
+        }
+      ]
     },
     {
       "date": "2026-07-24",
-      "campaigns": []
+      "campaigns": [
+        {
+          "id": "24060696869",
+          "name": "Создание спроса (2026-07-23)",
+          "status": "PAUSED",
+          "impressions": 23252,
+          "clicks": 496,
+          "cost_usd": 15.192,
+          "ctr_pct": 2.1331,
+          "avg_cpc_usd": 0.0306,
+          "conversions": 0.0,
+          "cpl_usd": null
+        },
+        {
+          "id": "24008188680",
+          "name": "Лиды | тест новый 08.09",
+          "status": "PAUSED",
+          "impressions": 284,
+          "clicks": 1,
+          "cost_usd": 0.0371,
+          "ctr_pct": 0.3521,
+          "avg_cpc_usd": 0.0371,
+          "conversions": 0.0,
+          "cpl_usd": null
+        }
+      ]
     },
     {
       "date": "2026-07-23",
-      "campaigns": []
+      "campaigns": [
+        {
+          "id": "24060696869",
+          "name": "Создание спроса (2026-07-23)",
+          "status": "PAUSED",
+          "impressions": 21896,
+          "clicks": 385,
+          "cost_usd": 15.4524,
+          "ctr_pct": 1.7583,
+          "avg_cpc_usd": 0.0401,
+          "conversions": 0.0,
+          "cpl_usd": null
+        }
+      ]
     },
     {
       "date": "2026-07-22",
@@ -150,43 +322,173 @@
     },
     {
       "date": "2026-07-18",
-      "campaigns": []
+      "campaigns": [
+        {
+          "id": "24008188680",
+          "name": "Лиды | тест новый 08.09",
+          "status": "PAUSED",
+          "impressions": 3125,
+          "clicks": 37,
+          "cost_usd": 11.0633,
+          "ctr_pct": 1.184,
+          "avg_cpc_usd": 0.299,
+          "conversions": 0.0,
+          "cpl_usd": null
+        }
+      ]
     },
     {
       "date": "2026-07-17",
-      "campaigns": []
+      "campaigns": [
+        {
+          "id": "24008188680",
+          "name": "Лиды | тест новый 08.09",
+          "status": "PAUSED",
+          "impressions": 2008,
+          "clicks": 19,
+          "cost_usd": 5.2249,
+          "ctr_pct": 0.9462,
+          "avg_cpc_usd": 0.275,
+          "conversions": 0.0,
+          "cpl_usd": null
+        }
+      ]
     },
     {
       "date": "2026-07-16",
-      "campaigns": []
+      "campaigns": [
+        {
+          "id": "24008188680",
+          "name": "Лиды | тест новый 08.09",
+          "status": "PAUSED",
+          "impressions": 2337,
+          "clicks": 23,
+          "cost_usd": 4.9871,
+          "ctr_pct": 0.9842,
+          "avg_cpc_usd": 0.2168,
+          "conversions": 0.0,
+          "cpl_usd": null
+        }
+      ]
     },
     {
       "date": "2026-07-15",
-      "campaigns": []
+      "campaigns": [
+        {
+          "id": "24008188680",
+          "name": "Лиды | тест новый 08.09",
+          "status": "PAUSED",
+          "impressions": 3186,
+          "clicks": 29,
+          "cost_usd": 3.6538,
+          "ctr_pct": 0.9102,
+          "avg_cpc_usd": 0.126,
+          "conversions": 0.0,
+          "cpl_usd": null
+        }
+      ]
     },
     {
       "date": "2026-07-14",
-      "campaigns": []
+      "campaigns": [
+        {
+          "id": "24008188680",
+          "name": "Лиды | тест новый 08.09",
+          "status": "PAUSED",
+          "impressions": 10889,
+          "clicks": 18,
+          "cost_usd": 3.9178,
+          "ctr_pct": 0.1653,
+          "avg_cpc_usd": 0.2177,
+          "conversions": 0.0,
+          "cpl_usd": null
+        }
+      ]
     },
     {
       "date": "2026-07-13",
-      "campaigns": []
+      "campaigns": [
+        {
+          "id": "24008188680",
+          "name": "Лиды | тест новый 08.09",
+          "status": "PAUSED",
+          "impressions": 1916,
+          "clicks": 6,
+          "cost_usd": 4.3579,
+          "ctr_pct": 0.3132,
+          "avg_cpc_usd": 0.7263,
+          "conversions": 0.0,
+          "cpl_usd": null
+        }
+      ]
     },
     {
       "date": "2026-07-12",
-      "campaigns": []
+      "campaigns": [
+        {
+          "id": "24008188680",
+          "name": "Лиды | тест новый 08.09",
+          "status": "PAUSED",
+          "impressions": 3649,
+          "clicks": 16,
+          "cost_usd": 3.6721,
+          "ctr_pct": 0.4385,
+          "avg_cpc_usd": 0.2295,
+          "conversions": 0.0,
+          "cpl_usd": null
+        }
+      ]
     },
     {
       "date": "2026-07-11",
-      "campaigns": []
+      "campaigns": [
+        {
+          "id": "24008188680",
+          "name": "Лиды | тест новый 08.09",
+          "status": "PAUSED",
+          "impressions": 1303,
+          "clicks": 9,
+          "cost_usd": 3.5801,
+          "ctr_pct": 0.6907,
+          "avg_cpc_usd": 0.3978,
+          "conversions": 0.0,
+          "cpl_usd": null
+        }
+      ]
     },
     {
       "date": "2026-07-10",
-      "campaigns": []
+      "campaigns": [
+        {
+          "id": "24008188680",
+          "name": "Лиды | тест новый 08.09",
+          "status": "PAUSED",
+          "impressions": 741,
+          "clicks": 16,
+          "cost_usd": 3.69,
+          "ctr_pct": 2.1592,
+          "avg_cpc_usd": 0.2306,
+          "conversions": 0.0,
+          "cpl_usd": null
+        }
+      ]
     },
     {
       "date": "2026-07-09",
-      "campaigns": []
+      "campaigns": [
+        {
+          "id": "24008188680",
+          "name": "Лиды | тест новый 08.09",
+          "status": "PAUSED",
+          "impressions": 159,
+          "clicks": 4,
+          "cost_usd": 1.16,
+          "ctr_pct": 2.5157,
+          "avg_cpc_usd": 0.29,
+          "conversions": 0.0,
+          "cpl_usd": null
+        }
+      ]
     },
     {
       "date": "2026-07-08",
@@ -194,55 +496,224 @@
     },
     {
       "date": "2026-07-07",
-      "campaigns": []
+      "campaigns": [
+        {
+          "id": "23969066805",
+          "name": "Создание спроса (2026-06-25)",
+          "status": "PAUSED",
+          "impressions": 2958,
+          "clicks": 222,
+          "cost_usd": 2.8689,
+          "ctr_pct": 7.5051,
+          "avg_cpc_usd": 0.0129,
+          "conversions": 1.0,
+          "cpl_usd": 2.87
+        }
+      ]
     },
     {
       "date": "2026-07-06",
-      "campaigns": []
+      "campaigns": [
+        {
+          "id": "23969066805",
+          "name": "Создание спроса (2026-06-25)",
+          "status": "PAUSED",
+          "impressions": 3755,
+          "clicks": 214,
+          "cost_usd": 5.1216,
+          "ctr_pct": 5.6991,
+          "avg_cpc_usd": 0.0239,
+          "conversions": 31.98,
+          "cpl_usd": 0.16
+        }
+      ]
     },
     {
       "date": "2026-07-05",
-      "campaigns": []
+      "campaigns": [
+        {
+          "id": "23969066805",
+          "name": "Создание спроса (2026-06-25)",
+          "status": "PAUSED",
+          "impressions": 4567,
+          "clicks": 340,
+          "cost_usd": 5.0915,
+          "ctr_pct": 7.4447,
+          "avg_cpc_usd": 0.015,
+          "conversions": 2.01,
+          "cpl_usd": 2.53
+        }
+      ]
     },
     {
       "date": "2026-07-04",
-      "campaigns": []
+      "campaigns": [
+        {
+          "id": "23969066805",
+          "name": "Создание спроса (2026-06-25)",
+          "status": "PAUSED",
+          "impressions": 4136,
+          "clicks": 219,
+          "cost_usd": 5.1098,
+          "ctr_pct": 5.295,
+          "avg_cpc_usd": 0.0233,
+          "conversions": 4.0,
+          "cpl_usd": 1.28
+        }
+      ]
     },
     {
       "date": "2026-07-03",
-      "campaigns": []
+      "campaigns": [
+        {
+          "id": "23969066805",
+          "name": "Создание спроса (2026-06-25)",
+          "status": "PAUSED",
+          "impressions": 4147,
+          "clicks": 224,
+          "cost_usd": 5.2277,
+          "ctr_pct": 5.4015,
+          "avg_cpc_usd": 0.0233,
+          "conversions": 7.0,
+          "cpl_usd": 0.75
+        }
+      ]
     },
     {
       "date": "2026-07-02",
-      "campaigns": []
+      "campaigns": [
+        {
+          "id": "23969066805",
+          "name": "Создание спроса (2026-06-25)",
+          "status": "PAUSED",
+          "impressions": 4167,
+          "clicks": 256,
+          "cost_usd": 5.0451,
+          "ctr_pct": 6.1435,
+          "avg_cpc_usd": 0.0197,
+          "conversions": 18.0,
+          "cpl_usd": 0.28
+        }
+      ]
     },
     {
       "date": "2026-07-01",
-      "campaigns": []
+      "campaigns": [
+        {
+          "id": "23969066805",
+          "name": "Создание спроса (2026-06-25)",
+          "status": "PAUSED",
+          "impressions": 3738,
+          "clicks": 208,
+          "cost_usd": 4.8936,
+          "ctr_pct": 5.5645,
+          "avg_cpc_usd": 0.0235,
+          "conversions": 2.0,
+          "cpl_usd": 2.45
+        }
+      ]
     },
     {
       "date": "2026-06-30",
-      "campaigns": []
+      "campaigns": [
+        {
+          "id": "23969066805",
+          "name": "Создание спроса (2026-06-25)",
+          "status": "PAUSED",
+          "impressions": 5509,
+          "clicks": 353,
+          "cost_usd": 9.3171,
+          "ctr_pct": 6.4077,
+          "avg_cpc_usd": 0.0264,
+          "conversions": 2.0,
+          "cpl_usd": 4.66
+        }
+      ]
     },
     {
       "date": "2026-06-29",
-      "campaigns": []
+      "campaigns": [
+        {
+          "id": "23969066805",
+          "name": "Создание спроса (2026-06-25)",
+          "status": "PAUSED",
+          "impressions": 5270,
+          "clicks": 310,
+          "cost_usd": 9.9463,
+          "ctr_pct": 5.8824,
+          "avg_cpc_usd": 0.0321,
+          "conversions": 2.01,
+          "cpl_usd": 4.96
+        }
+      ]
     },
     {
       "date": "2026-06-28",
-      "campaigns": []
+      "campaigns": [
+        {
+          "id": "23969066805",
+          "name": "Создание спроса (2026-06-25)",
+          "status": "PAUSED",
+          "impressions": 6493,
+          "clicks": 393,
+          "cost_usd": 10.1277,
+          "ctr_pct": 6.0527,
+          "avg_cpc_usd": 0.0258,
+          "conversions": 0.0,
+          "cpl_usd": null
+        }
+      ]
     },
     {
       "date": "2026-06-27",
-      "campaigns": []
+      "campaigns": [
+        {
+          "id": "23969066805",
+          "name": "Создание спроса (2026-06-25)",
+          "status": "PAUSED",
+          "impressions": 6403,
+          "clicks": 294,
+          "cost_usd": 10.2591,
+          "ctr_pct": 4.5916,
+          "avg_cpc_usd": 0.0349,
+          "conversions": 2.0,
+          "cpl_usd": 5.13
+        }
+      ]
     },
     {
       "date": "2026-06-26",
-      "campaigns": []
+      "campaigns": [
+        {
+          "id": "23969066805",
+          "name": "Создание спроса (2026-06-25)",
+          "status": "PAUSED",
+          "impressions": 7576,
+          "clicks": 186,
+          "cost_usd": 10.3857,
+          "ctr_pct": 2.4551,
+          "avg_cpc_usd": 0.0558,
+          "conversions": 1.0,
+          "cpl_usd": 10.39
+        }
+      ]
     },
     {
       "date": "2026-06-25",
-      "campaigns": []
+      "campaigns": [
+        {
+          "id": "23969066805",
+          "name": "Создание спроса (2026-06-25)",
+          "status": "PAUSED",
+          "impressions": 1319,
+          "clicks": 23,
+          "cost_usd": 10.0116,
+          "ctr_pct": 1.7437,
+          "avg_cpc_usd": 0.4353,
+          "conversions": 1.0,
+          "cpl_usd": 10.01
+        }
+      ]
     },
     {
       "date": "2026-06-24",
@@ -306,23 +777,88 @@
     },
     {
       "date": "2026-06-09",
-      "campaigns": []
+      "campaigns": [
+        {
+          "id": "23912043113",
+          "name": "каха - трафик на сайт",
+          "status": "PAUSED",
+          "impressions": 3945,
+          "clicks": 67,
+          "cost_usd": 7.2833,
+          "ctr_pct": 1.6984,
+          "avg_cpc_usd": 0.1087,
+          "conversions": 0.0,
+          "cpl_usd": null
+        }
+      ]
     },
     {
       "date": "2026-06-08",
-      "campaigns": []
+      "campaigns": [
+        {
+          "id": "23912043113",
+          "name": "каха - трафик на сайт",
+          "status": "PAUSED",
+          "impressions": 16132,
+          "clicks": 439,
+          "cost_usd": 20.2959,
+          "ctr_pct": 2.7213,
+          "avg_cpc_usd": 0.0462,
+          "conversions": 0.0,
+          "cpl_usd": null
+        }
+      ]
     },
     {
       "date": "2026-06-07",
-      "campaigns": []
+      "campaigns": [
+        {
+          "id": "23912043113",
+          "name": "каха - трафик на сайт",
+          "status": "PAUSED",
+          "impressions": 14031,
+          "clicks": 517,
+          "cost_usd": 21.3308,
+          "ctr_pct": 3.6847,
+          "avg_cpc_usd": 0.0413,
+          "conversions": 0.0,
+          "cpl_usd": null
+        }
+      ]
     },
     {
       "date": "2026-06-06",
-      "campaigns": []
+      "campaigns": [
+        {
+          "id": "23912043113",
+          "name": "каха - трафик на сайт",
+          "status": "PAUSED",
+          "impressions": 15250,
+          "clicks": 562,
+          "cost_usd": 21.2481,
+          "ctr_pct": 3.6852,
+          "avg_cpc_usd": 0.0378,
+          "conversions": 0.0,
+          "cpl_usd": null
+        }
+      ]
     },
     {
       "date": "2026-06-05",
-      "campaigns": []
+      "campaigns": [
+        {
+          "id": "23912043113",
+          "name": "каха - трафик на сайт",
+          "status": "PAUSED",
+          "impressions": 25367,
+          "clicks": 442,
+          "cost_usd": 19.6025,
+          "ctr_pct": 1.7424,
+          "avg_cpc_usd": 0.0443,
+          "conversions": 0.0,
+          "cpl_usd": null
+        }
+      ]
     },
     {
       "date": "2026-06-04",
