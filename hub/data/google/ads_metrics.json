@@ -1,23 +1,732 @@
 {
   "status": "ok",
   "fetched_at": "2026-08-22",
-  "period": {
-    "date_from": "2026-02-22",
-    "date_to": "2026-08-22"
-  },
   "account": {
     "id": "3341934882",
     "name": "ИИ менеджер",
     "currency": "USD",
     "timezone": "Asia/Tbilisi"
   },
-  "campaigns": [],
-  "totals": {
-    "impressions": 0,
-    "clicks": 0,
-    "cost_usd": 0,
-    "ctr_pct": 0,
-    "conversions": 0,
-    "cpl_usd": null
-  }
+  "daily": [
+    {
+      "date": "2026-08-22",
+      "campaigns": []
+    },
+    {
+      "date": "2026-08-21",
+      "campaigns": []
+    },
+    {
+      "date": "2026-08-20",
+      "campaigns": []
+    },
+    {
+      "date": "2026-08-19",
+      "campaigns": []
+    },
+    {
+      "date": "2026-08-18",
+      "campaigns": []
+    },
+    {
+      "date": "2026-08-17",
+      "campaigns": []
+    },
+    {
+      "date": "2026-08-16",
+      "campaigns": []
+    },
+    {
+      "date": "2026-08-15",
+      "campaigns": []
+    },
+    {
+      "date": "2026-08-14",
+      "campaigns": []
+    },
+    {
+      "date": "2026-08-13",
+      "campaigns": []
+    },
+    {
+      "date": "2026-08-12",
+      "campaigns": []
+    },
+    {
+      "date": "2026-08-11",
+      "campaigns": []
+    },
+    {
+      "date": "2026-08-10",
+      "campaigns": []
+    },
+    {
+      "date": "2026-08-09",
+      "campaigns": []
+    },
+    {
+      "date": "2026-08-08",
+      "campaigns": []
+    },
+    {
+      "date": "2026-08-07",
+      "campaigns": []
+    },
+    {
+      "date": "2026-08-06",
+      "campaigns": []
+    },
+    {
+      "date": "2026-08-05",
+      "campaigns": []
+    },
+    {
+      "date": "2026-08-04",
+      "campaigns": []
+    },
+    {
+      "date": "2026-08-03",
+      "campaigns": []
+    },
+    {
+      "date": "2026-08-02",
+      "campaigns": []
+    },
+    {
+      "date": "2026-08-01",
+      "campaigns": []
+    },
+    {
+      "date": "2026-07-31",
+      "campaigns": []
+    },
+    {
+      "date": "2026-07-30",
+      "campaigns": []
+    },
+    {
+      "date": "2026-07-29",
+      "campaigns": []
+    },
+    {
+      "date": "2026-07-28",
+      "campaigns": []
+    },
+    {
+      "date": "2026-07-27",
+      "campaigns": []
+    },
+    {
+      "date": "2026-07-26",
+      "campaigns": []
+    },
+    {
+      "date": "2026-07-25",
+      "campaigns": []
+    },
+    {
+      "date": "2026-07-24",
+      "campaigns": []
+    },
+    {
+      "date": "2026-07-23",
+      "campaigns": []
+    },
+    {
+      "date": "2026-07-22",
+      "campaigns": []
+    },
+    {
+      "date": "2026-07-21",
+      "campaigns": []
+    },
+    {
+      "date": "2026-07-20",
+      "campaigns": []
+    },
+    {
+      "date": "2026-07-19",
+      "campaigns": []
+    },
+    {
+      "date": "2026-07-18",
+      "campaigns": []
+    },
+    {
+      "date": "2026-07-17",
+      "campaigns": []
+    },
+    {
+      "date": "2026-07-16",
+      "campaigns": []
+    },
+    {
+      "date": "2026-07-15",
+      "campaigns": []
+    },
+    {
+      "date": "2026-07-14",
+      "campaigns": []
+    },
+    {
+      "date": "2026-07-13",
+      "campaigns": []
+    },
+    {
+      "date": "2026-07-12",
+      "campaigns": []
+    },
+    {
+      "date": "2026-07-11",
+      "campaigns": []
+    },
+    {
+      "date": "2026-07-10",
+      "campaigns": []
+    },
+    {
+      "date": "2026-07-09",
+      "campaigns": []
+    },
+    {
+      "date": "2026-07-08",
+      "campaigns": []
+    },
+    {
+      "date": "2026-07-07",
+      "campaigns": []
+    },
+    {
+      "date": "2026-07-06",
+      "campaigns": []
+    },
+    {
+      "date": "2026-07-05",
+      "campaigns": []
+    },
+    {
+      "date": "2026-07-04",
+      "campaigns": []
+    },
+    {
+      "date": "2026-07-03",
+      "campaigns": []
+    },
+    {
+      "date": "2026-07-02",
+      "campaigns": []
+    },
+    {
+      "date": "2026-07-01",
+      "campaigns": []
+    },
+    {
+      "date": "2026-06-30",
+      "campaigns": []
+    },
+    {
+      "date": "2026-06-29",
+      "campaigns": []
+    },
+    {
+      "date": "2026-06-28",
+      "campaigns": []
+    },
+    {
+      "date": "2026-06-27",
+      "campaigns": []
+    },
+    {
+      "date": "2026-06-26",
+      "campaigns": []
+    },
+    {
+      "date": "2026-06-25",
+      "campaigns": []
+    },
+    {
+      "date": "2026-06-24",
+      "campaigns": []
+    },
+    {
+      "date": "2026-06-23",
+      "campaigns": []
+    },
+    {
+      "date": "2026-06-22",
+      "campaigns": []
+    },
+    {
+      "date": "2026-06-21",
+      "campaigns": []
+    },
+    {
+      "date": "2026-06-20",
+      "campaigns": []
+    },
+    {
+      "date": "2026-06-19",
+      "campaigns": []
+    },
+    {
+      "date": "2026-06-18",
+      "campaigns": []
+    },
+    {
+      "date": "2026-06-17",
+      "campaigns": []
+    },
+    {
+      "date": "2026-06-16",
+      "campaigns": []
+    },
+    {
+      "date": "2026-06-15",
+      "campaigns": []
+    },
+    {
+      "date": "2026-06-14",
+      "campaigns": []
+    },
+    {
+      "date": "2026-06-13",
+      "campaigns": []
+    },
+    {
+      "date": "2026-06-12",
+      "campaigns": []
+    },
+    {
+      "date": "2026-06-11",
+      "campaigns": []
+    },
+    {
+      "date": "2026-06-10",
+      "campaigns": []
+    },
+    {
+      "date": "2026-06-09",
+      "campaigns": []
+    },
+    {
+      "date": "2026-06-08",
+      "campaigns": []
+    },
+    {
+      "date": "2026-06-07",
+      "campaigns": []
+    },
+    {
+      "date": "2026-06-06",
+      "campaigns": []
+    },
+    {
+      "date": "2026-06-05",
+      "campaigns": []
+    },
+    {
+      "date": "2026-06-04",
+      "campaigns": []
+    },
+    {
+      "date": "2026-06-03",
+      "campaigns": []
+    },
+    {
+      "date": "2026-06-02",
+      "campaigns": []
+    },
+    {
+      "date": "2026-06-01",
+      "campaigns": []
+    },
+    {
+      "date": "2026-05-31",
+      "campaigns": []
+    },
+    {
+      "date": "2026-05-30",
+      "campaigns": []
+    },
+    {
+      "date": "2026-05-29",
+      "campaigns": []
+    },
+    {
+      "date": "2026-05-28",
+      "campaigns": []
+    },
+    {
+      "date": "2026-05-27",
+      "campaigns": []
+    },
+    {
+      "date": "2026-05-26",
+      "campaigns": []
+    },
+    {
+      "date": "2026-05-25",
+      "campaigns": []
+    },
+    {
+      "date": "2026-05-24",
+      "campaigns": []
+    },
+    {
+      "date": "2026-05-23",
+      "campaigns": []
+    },
+    {
+      "date": "2026-05-22",
+      "campaigns": []
+    },
+    {
+      "date": "2026-05-21",
+      "campaigns": []
+    },
+    {
+      "date": "2026-05-20",
+      "campaigns": []
+    },
+    {
+      "date": "2026-05-19",
+      "campaigns": []
+    },
+    {
+      "date": "2026-05-18",
+      "campaigns": []
+    },
+    {
+      "date": "2026-05-17",
+      "campaigns": []
+    },
+    {
+      "date": "2026-05-16",
+      "campaigns": []
+    },
+    {
+      "date": "2026-05-15",
+      "campaigns": []
+    },
+    {
+      "date": "2026-05-14",
+      "campaigns": []
+    },
+    {
+      "date": "2026-05-13",
+      "campaigns": []
+    },
+    {
+      "date": "2026-05-12",
+      "campaigns": []
+    },
+    {
+      "date": "2026-05-11",
+      "campaigns": []
+    },
+    {
+      "date": "2026-05-10",
+      "campaigns": []
+    },
+    {
+      "date": "2026-05-09",
+      "campaigns": []
+    },
+    {
+      "date": "2026-05-08",
+      "campaigns": []
+    },
+    {
+      "date": "2026-05-07",
+      "campaigns": []
+    },
+    {
+      "date": "2026-05-06",
+      "campaigns": []
+    },
+    {
+      "date": "2026-05-05",
+      "campaigns": []
+    },
+    {
+      "date": "2026-05-04",
+      "campaigns": []
+    },
+    {
+      "date": "2026-05-03",
+      "campaigns": []
+    },
+    {
+      "date": "2026-05-02",
+      "campaigns": []
+    },
+    {
+      "date": "2026-05-01",
+      "campaigns": []
+    },
+    {
+      "date": "2026-04-30",
+      "campaigns": []
+    },
+    {
+      "date": "2026-04-29",
+      "campaigns": []
+    },
+    {
+      "date": "2026-04-28",
+      "campaigns": []
+    },
+    {
+      "date": "2026-04-27",
+      "campaigns": []
+    },
+    {
+      "date": "2026-04-26",
+      "campaigns": []
+    },
+    {
+      "date": "2026-04-25",
+      "campaigns": []
+    },
+    {
+      "date": "2026-04-24",
+      "campaigns": []
+    },
+    {
+      "date": "2026-04-23",
+      "campaigns": []
+    },
+    {
+      "date": "2026-04-22",
+      "campaigns": []
+    },
+    {
+      "date": "2026-04-21",
+      "campaigns": []
+    },
+    {
+      "date": "2026-04-20",
+      "campaigns": []
+    },
+    {
+      "date": "2026-04-19",
+      "campaigns": []
+    },
+    {
+      "date": "2026-04-18",
+      "campaigns": []
+    },
+    {
+      "date": "2026-04-17",
+      "campaigns": []
+    },
+    {
+      "date": "2026-04-16",
+      "campaigns": []
+    },
+    {
+      "date": "2026-04-15",
+      "campaigns": []
+    },
+    {
+      "date": "2026-04-14",
+      "campaigns": []
+    },
+    {
+      "date": "2026-04-13",
+      "campaigns": []
+    },
+    {
+      "date": "2026-04-12",
+      "campaigns": []
+    },
+    {
+      "date": "2026-04-11",
+      "campaigns": []
+    },
+    {
+      "date": "2026-04-10",
+      "campaigns": []
+    },
+    {
+      "date": "2026-04-09",
+      "campaigns": []
+    },
+    {
+      "date": "2026-04-08",
+      "campaigns": []
+    },
+    {
+      "date": "2026-04-07",
+      "campaigns": []
+    },
+    {
+      "date": "2026-04-06",
+      "campaigns": []
+    },
+    {
+      "date": "2026-04-05",
+      "campaigns": []
+    },
+    {
+      "date": "2026-04-04",
+      "campaigns": []
+    },
+    {
+      "date": "2026-04-03",
+      "campaigns": []
+    },
+    {
+      "date": "2026-04-02",
+      "campaigns": []
+    },
+    {
+      "date": "2026-04-01",
+      "campaigns": []
+    },
+    {
+      "date": "2026-03-31",
+      "campaigns": []
+    },
+    {
+      "date": "2026-03-30",
+      "campaigns": []
+    },
+    {
+      "date": "2026-03-29",
+      "campaigns": []
+    },
+    {
+      "date": "2026-03-28",
+      "campaigns": []
+    },
+    {
+      "date": "2026-03-27",
+      "campaigns": []
+    },
+    {
+      "date": "2026-03-26",
+      "campaigns": []
+    },
+    {
+      "date": "2026-03-25",
+      "campaigns": []
+    },
+    {
+      "date": "2026-03-24",
+      "campaigns": []
+    },
+    {
+      "date": "2026-03-23",
+      "campaigns": []
+    },
+    {
+      "date": "2026-03-22",
+      "campaigns": []
+    },
+    {
+      "date": "2026-03-21",
+      "campaigns": []
+    },
+    {
+      "date": "2026-03-20",
+      "campaigns": []
+    },
+    {
+      "date": "2026-03-19",
+      "campaigns": []
+    },
+    {
+      "date": "2026-03-18",
+      "campaigns": []
+    },
+    {
+      "date": "2026-03-17",
+      "campaigns": []
+    },
+    {
+      "date": "2026-03-16",
+      "campaigns": []
+    },
+    {
+      "date": "2026-03-15",
+      "campaigns": []
+    },
+    {
+      "date": "2026-03-14",
+      "campaigns": []
+    },
+    {
+      "date": "2026-03-13",
+      "campaigns": []
+    },
+    {
+      "date": "2026-03-12",
+      "campaigns": []
+    },
+    {
+      "date": "2026-03-11",
+      "campaigns": []
+    },
+    {
+      "date": "2026-03-10",
+      "campaigns": []
+    },
+    {
+      "date": "2026-03-09",
+      "campaigns": []
+    },
+    {
+      "date": "2026-03-08",
+      "campaigns": []
+    },
+    {
+      "date": "2026-03-07",
+      "campaigns": []
+    },
+    {
+      "date": "2026-03-06",
+      "campaigns": []
+    },
+    {
+      "date": "2026-03-05",
+      "campaigns": []
+    },
+    {
+      "date": "2026-03-04",
+      "campaigns": []
+    },
+    {
+      "date": "2026-03-03",
+      "campaigns": []
+    },
+    {
+      "date": "2026-03-02",
+      "campaigns": []
+    },
+    {
+      "date": "2026-03-01",
+      "campaigns": []
+    },
+    {
+      "date": "2026-02-28",
+      "campaigns": []
+    },
+    {
+      "date": "2026-02-27",
+      "campaigns": []
+    },
+    {
+      "date": "2026-02-26",
+      "campaigns": []
+    },
+    {
+      "date": "2026-02-25",
+      "campaigns": []
+    },
+    {
+      "date": "2026-02-24",
+      "campaigns": []
+    }
+  ]
 }
