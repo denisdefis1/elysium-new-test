@@ -172,8 +172,8 @@
       "descriptions_ru": [
         "Бутик не значит меньше: 130 м², свободная планировка, панорамный вид.",
         "Дом введён в эксплуатацию. Только 14 апартаментов от 130 м². Показ по записи.",
-        "Два апартамента на этаже. Тишина, панорамный вид, подземный паркинг.",
-        "Панорамный вид, тишина, паркинг — не как дополнение, а как стандарт."
+        "Автономность: генератор и резервуар с водой. Полная независимость от коммуникаций.",
+        "Камерный дом — 14 апартаментов. Показ по предварительной записи."
       ],
       "ad_groups": [
         {
@@ -200,10 +200,10 @@
       "bidding": "Manual CPC (conservative, review after 30d)",
       "landing_page": "elysiumtbilisi.com (differentiation messaging)",
       "pool_sources": ["I"],
-      "keyword_count_approx": 87,
+      "keyword_count_approx": 126,
       "priority": "SECONDARY",
       "requires_manual_review": true,
-      "notes": "All 87 Pool I keywords are CHECK_REQUIRED — manual review before enabling. Launch highest-volume competitors first.",
+      "notes": "All Pool I keywords are CHECK_REQUIRED — manual review before enabling. Includes EN and RU transliterations of all major competitors. Launch highest-volume competitors first.",
       "differentiation_headlines_ru": [
         "Дом введён в эксплуатацию",
         "Всего 2 квартиры на этаже",
@@ -241,7 +241,7 @@
       "differentiation_descriptions_ru": [
         "Дом введён в эксплуатацию — бутик-резиденция открыта к просмотру.",
         "Бутик-резиденция: только 14 апартаментов. Камерность и полная приватность.",
-        "Генератор, резервуар с водой, паркинг — в готовом доме. Пока другие строятся.",
+        "Автономность: генератор и резервуар с водой. Полная независимость от коммуникаций.",
         "Запросите полную информацию — планировки, цены и личный показ."
       ],
       "sitelinks": [
@@ -258,28 +258,32 @@
         "Записаться на показ сегодня"
       ],
       "launch_priority": [
-        "park home vake",
-        "tbilisi hills",
-        "gergeti rise residence",
-        "cityzen tbilisi",
-        "next tbilisi",
-        "mtatsminda panorama",
-        "biograpi tbilisi",
-        "kings garden tbilisi",
-        "momaliv tbilisi"
+        "park home vake", "парк хоум вейк",
+        "tbilisi hills", "тбилиси хиллс",
+        "gergeti rise residence", "гергети резиденция",
+        "cityzen tbilisi", "ситизен тбилиси",
+        "next tbilisi", "некст тбилиси",
+        "mtatsminda panorama", "мтацминда панорама",
+        "biograpi tbilisi", "биографи тбилиси",
+        "kings garden tbilisi", "кингс гарден тбилиси",
+        "momaliv tbilisi", "момалив тбилиси"
       ],
       "ad_groups": [
         {
           "name": "Конкуренты — Прямые Конкуренты EN",
-          "examples": ["park home vake", "gergeti rise residence", "cityzen tbilisi", "next tbilisi", "tbilisi hills"]
+          "examples": ["park home vake", "park home vake tbilisi", "tbilisi hills", "tbilisi hills apartments", "gergeti rise residence", "cityzen tbilisi", "next tbilisi", "mtatsminda panorama"]
         },
         {
           "name": "Конкуренты — Прямые Конкуренты RU",
-          "examples": ["парк хоум вейк", "тбилиси хиллс", "kings garden тбилиси"]
+          "examples": ["парк хоум вейк", "парк хом вейк", "тбилиси хиллс", "гергети резиденция", "гергети райз", "ситизен тбилиси", "некст тбилиси", "мтацминда панорама", "кингс гарден тбилиси", "момалив тбилиси", "мома лив тбилиси"]
         },
         {
-          "name": "Конкуренты — Смежные Проекты",
-          "examples": ["biograpi tbilisi", "kings garden tbilisi", "momaliv tbilisi", "ocean vake park"]
+          "name": "Конкуренты — Смежные Проекты EN",
+          "examples": ["biograpi tbilisi", "kings garden tbilisi", "momaliv tbilisi", "ocean vake park", "zion orangery tbilisi", "ino tbilisi", "paliashvili 22 tbilisi"]
+        },
+        {
+          "name": "Конкуренты — Смежные Проекты RU",
+          "examples": ["биографи тбилиси", "океан вейк парк", "зион тбилиси", "зион оранжери тбилиси", "ино тбилиси", "палиашвили 22 тбилиси"]
         }
       ]
     }
