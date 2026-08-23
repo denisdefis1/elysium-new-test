@@ -15,7 +15,7 @@ const RSA_K1_HEADS = [
   {text:'Дом введён в эксплуатацию',         pin:null},
   {text:'Только 14 апартаментов',            pin:null},
   {text:'Купить апартаменты в Тбилиси',      pin:null},
-  {text:'Премиум недвижимость Грузия',       pin:null},
+  {text:'Премиум недвижимость Грузии',       pin:null},
   {text:'Всего 2 квартиры на этаже',         pin:null},
   {text:'Свободная планировка',              pin:null},
   {text:'Подземный паркинг',                 pin:null},
@@ -24,13 +24,13 @@ const RSA_K1_HEADS = [
   {text:'Тишина и приватность',              pin:null},
   {text:'Квартира в Грузии',                 pin:null},
   {text:'Инвестиции в недвижимость',         pin:null},
-  {text:'Полная информация',                 pin:null},
+  {text:'Планировки и цены на сайте',        pin:null},
 ];
 const RSA_K1_DESCS = [
-  'Бутик-резиденция — комфорт и приватность каждого жителя. Запросите планировки и цены.',
+  'Бутик-резиденция — комфорт и приватность. Запросите планировки и цены.',
   'Дом введён в эксплуатацию. Апартаменты от 130 м². Личный показ по записи.',
-  'Автономность: генератор и резервуар с водой. Полная независимость от городских коммуникаций.',
-  'Запросите полную информацию — планировки, цены и личный показ.',
+  'Автономность: генератор и резервуар с водой. Полная независимость от коммуникаций.',
+  'Два апартамента на этаже, от 130 м², подземный паркинг. Запросите цены.',
 ];
 
 const RSA_K2_HEADS = [
@@ -41,11 +41,11 @@ const RSA_K2_HEADS = [
   {text:'Open for Private Viewing',      pin:null},
   {text:'Luxury Tbilisi Real Estate',    pin:null},
   {text:'Free Floor Plan — No Walls',    pin:null},
-  {text:'Panoramic Views — Every Unit',  pin:null},
+  {text:'Panoramic Views. Open Layout.',  pin:null},
   {text:'Privacy. Security. Silence.',   pin:null},
   {text:'Underground Parking Included',  pin:null},
   {text:'Generator & Water Reserve',     pin:null},
-  {text:'Book a Private Viewing',        pin:null},
+  {text:'All Details on First Call',     pin:null},
   {text:'Plans & Prices on Request',     pin:null},
   {text:'2 Apartments per Floor Only',   pin:null},
   {text:'Boutique — Not a Complex',      pin:null},
@@ -53,7 +53,7 @@ const RSA_K2_HEADS = [
 const RSA_K2_DESCS = [
   'Boutique Residence in Tbilisi. 14 apartments from 130 m². Building commissioned.',
   'Free floor plan. No load-bearing walls. Panoramic city views.',
-  'Full infrastructure independence. Generator. 70-ton water reserve. 24/7 security.',
+  'Generator. 70-ton water reserve. 24/7 security. Complete utility independence.',
   'Book a private viewing. Request plans, pricing, and full project details.',
 ];
 
@@ -62,7 +62,7 @@ const RSA_K3_HEADS = [
   {text:'Апартаменты от 130 м²',            pin:null},
   {text:'Дом введён в эксплуатацию',        pin:null},
   {text:'Только 14 апартаментов',           pin:null},
-  {text:'Элитная недвижимость Грузия',      pin:null},
+  {text:'Элитная недвижимость Грузии',      pin:null},
   {text:'Всего 2 квартиры на этаже',        pin:null},
   {text:'Пентхаус Тбилиси',                 pin:null},
   {text:'Свободная планировка',             pin:null},
@@ -70,15 +70,15 @@ const RSA_K3_HEADS = [
   {text:'Записаться на показ',              pin:null},
   {text:'Панорамный вид',                   pin:null},
   {text:'Тишина и приватность',             pin:null},
-  {text:'Люкс апартаменты Тбилиси',         pin:null},
-  {text:'VIP резиденция Тбилиси',           pin:null},
-  {text:'Полная информация',                pin:null},
+  {text:'Апартаменты премиум-класса',        pin:null},
+  {text:'Закрытый формат Тбилиси',          pin:null},
+  {text:'Планировки и цены на сайте',       pin:null},
 ];
 const RSA_K3_DESCS = [
-  'Бутик-резиденция — комфорт и приватность каждого жителя. Запросите планировки и цены.',
+  'Бутик-резиденция — комфорт и приватность. Запросите планировки и цены.',
   'Дом введён в эксплуатацию. Только 14 апартаментов от 130 м². Показ по записи.',
-  'Автономность: генератор и резервуар с водой. Полная независимость от городских коммуникаций.',
-  'Запросите полную информацию — планировки, цены и личный показ.',
+  'Автономность: генератор и резервуар с водой. Полная независимость от коммуникаций.',
+  'Камерный дом — 14 апартаментов. Показ по предварительной записи.',
 ];
 
 const RSA_K4_RU_HEADS = [
@@ -90,7 +90,7 @@ const RSA_K4_RU_HEADS = [
   'Записаться на показ',
   'Подземный паркинг',
   'Тишина и приватность',
-  'Полная информация',
+  'Планировки и цены на сайте',
   'Бутик-резиденция открыта',
   'Апартаменты от 130 м²',
   'Панорамный вид',
@@ -100,8 +100,8 @@ const RSA_K4_RU_HEADS = [
 ];
 const RSA_K4_RU_DESCS = [
   'Дом введён в эксплуатацию — бутик-резиденция открыта к просмотру.',
-  'Бутик-резиденция: только 14 апартаментов. Комфорт и приватность каждого жителя.',
-  'Автономность: генератор и резервуар с водой. Полная независимость от городских коммуникаций.',
+  'Бутик-резиденция: только 14 апартаментов. Камерность и полная приватность.',
+  'Автономность: генератор и резервуар с водой. Полная независимость от коммуникаций.',
   'Запросите полную информацию — планировки, цены и личный показ.',
 ];
 
@@ -111,21 +111,21 @@ const RSA_K4_EN_HEADS = [
   'Only 2 Apartments per Floor',
   'ELYSIUM Boutique Residence',
   '14 Apartments from 130 m²',
-  'Panoramic Views — Every Unit',
+  'Panoramic Views. Open Layout.',
   'Free Floor Plan — No Walls',
   'Privacy. Security. Silence.',
   'Underground Parking Included',
   'Generator & Water Reserve',
   'Open for Private Viewing',
-  'Full Infrastructure Backup',
-  'Book a Private Viewing',
-  'Request Full Project Info',
+  'Power & Water — Always On',
+  'All Details on First Call',
+  'Request Full Project Details',
   'Compare Before You Choose',
 ];
 const RSA_K4_EN_DESCS = [
   'Building commissioned. Only 2 apartments per floor. Boutique — not a complex.',
-  'Free floor plan. Panoramic views from every residence. Privacy & silence.',
-  'Underground parking. Generator. 70-ton water reserve. Full infrastructure backup.',
+  'Free floor plan. Panoramic views. Privacy & silence.',
+  'Underground parking. Generator. 70-ton water reserve. 24/7 power & water.',
   'Book a private viewing. Compare ELYSIUM with any premium Tbilisi project.',
 ];
 
@@ -1147,7 +1147,7 @@ function renderS09() {
       '108 ключевых слов · Пулы A, D, E, F, G · Аудитория: IL · UA · BY',
       preview('🇷🇺','Пример объявления (RU)','elysiumtbilisi.com',
         'Апартаменты от 130 м²','Бутик-резиденция в Тбилиси','Дом введён в эксплуатацию',
-        'Бутик-резиденция — комфорт и приватность каждого жителя. Запросите планировки и цены.',
+        'Бутик-резиденция — комфорт и приватность. Запросите планировки и цены.',
         'Дом введён в эксплуатацию. Апартаменты от 130 м². Личный показ по записи.',
         'Google подбирает лучшую комбинацию из 15 заголовков и 4 описаний автоматически')
       + headsBlock('Заголовки — 15 шт., макс. 30 символов (📌 = Позиция 1 закреплена)', renderPinned(k1Heads))
@@ -1190,7 +1190,7 @@ function renderS09() {
       '37 ключевых слов · Пул B · Русский язык · Аудитория: IL · UA · BY',
       preview('🇷🇺','Пример объявления Премиум (RU)','elysiumtbilisi.com',
         'Бутик-резиденция Тбилиси','Элитная недвижимость Грузия','Только 14 апартаментов',
-        'Бутик-резиденция — комфорт и приватность каждого жителя. Запросите планировки и цены.',
+        'Бутик-резиденция — комфорт и приватность. Запросите планировки и цены.',
         'Дом введён в эксплуатацию. Только 14 апартаментов от 130 м². Показ по записи.',
         'Google подбирает лучшую комбинацию из 15 заголовков и 4 описаний автоматически')
       + headsBlock('Заголовки — 15 шт., макс. 30 символов (📌 = Позиция 1 закреплена)', renderPinned(k3Heads))
@@ -1214,7 +1214,7 @@ function renderS09() {
       + preview('🇷🇺','Пример объявления (RU)','elysiumtbilisi.com',
           'Не комплекс — бутик-резиденция','Дом введён в эксплуатацию','Всего 2 квартиры на этаже',
           'Дом введён в эксплуатацию — бутик-резиденция открыта к просмотру.',
-          'Бутик-резиденция: только 14 апартаментов. Комфорт и приватность каждого жителя.',
+          'Бутик-резиденция: только 14 апартаментов. Камерность и полная приватность.',
           'Google подбирает лучшую комбинацию из 15 заголовков и 4 описаний автоматически')
       + headsBlock('Заголовки RU — 15 шт., макс. 30 символов', renderPlain(k4RuHeads))
       + descsBlock('Описания RU — 4 шт., макс. 90 символов', renderDescs(k4RuDescs))
