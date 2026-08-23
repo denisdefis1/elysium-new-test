@@ -41,7 +41,7 @@
       "headlines_char_check": "All ≤ 30 chars ✓",
       "descriptions_ru": [
         "Бутик-резиденция — комфорт и приватность каждого жителя. Запросите планировки и цены.",
-        "Дом введён в эксплуатацию. Апартаменты от 130 м². Личный показ — без обязательств.",
+        "Дом введён в эксплуатацию. Апартаменты от 130 м². Личный показ по записи.",
         "Автономность: генератор и резервуар с водой. Полная независимость от городских коммуникаций.",
         "Запросите полную информацию — планировки, цены и личный показ."
       ],
@@ -105,10 +105,10 @@
       ],
       "headlines_char_check": "All ≤ 30 chars ✓",
       "descriptions_en": [
-        "Boutique residence — comfort and privacy for every resident. Request floor plans and pricing.",
-        "Building commissioned. Apartments from 130 m². Personal viewing — no obligation.",
-        "Autonomous: generator and water reserve. Full independence from city utilities.",
-        "Request full information — floor plans, prices and a personal viewing."
+        "Boutique Residence in Tbilisi. 14 apartments from 130 m². Building commissioned.",
+        "Free floor plan. No load-bearing walls. Panoramic city views.",
+        "Full infrastructure independence. Generator. 70-ton water reserve. 24/7 security.",
+        "Book a private viewing. Request plans, pricing, and full project details."
       ],
       "negative_keywords_added": ["studio", "studio apartment", "studio flat"],
       "ad_groups": [

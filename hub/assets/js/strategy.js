@@ -28,7 +28,7 @@ const RSA_K1_HEADS = [
 ];
 const RSA_K1_DESCS = [
   'Бутик-резиденция — комфорт и приватность каждого жителя. Запросите планировки и цены.',
-  'Дом введён в эксплуатацию. Апартаменты от 130 м². Личный показ — без обязательств.',
+  'Дом введён в эксплуатацию. Апартаменты от 130 м². Личный показ по записи.',
   'Автономность: генератор и резервуар с водой. Полная независимость от городских коммуникаций.',
   'Запросите полную информацию — планировки, цены и личный показ.',
 ];
@@ -52,7 +52,7 @@ const RSA_K2_HEADS = [
 ];
 const RSA_K2_DESCS = [
   'Boutique Residence in Tbilisi. 14 apartments from 130 m². Building commissioned.',
-  'Free floor plan. No load-bearing walls. Panoramic city views from every residence.',
+  'Free floor plan. No load-bearing walls. Panoramic city views.',
   'Full infrastructure independence. Generator. 70-ton water reserve. 24/7 security.',
   'Book a private viewing. Request plans, pricing, and full project details.',
 ];
@@ -1148,7 +1148,7 @@ function renderS09() {
       preview('🇷🇺','Пример объявления (RU)','elysiumtbilisi.com',
         'Апартаменты от 130 м²','Бутик-резиденция в Тбилиси','Дом введён в эксплуатацию',
         'Бутик-резиденция — комфорт и приватность каждого жителя. Запросите планировки и цены.',
-        'Дом введён в эксплуатацию. Апартаменты от 130 м². Личный показ — без обязательств.',
+        'Дом введён в эксплуатацию. Апартаменты от 130 м². Личный показ по записи.',
         'Google подбирает лучшую комбинацию из 15 заголовков и 4 описаний автоматически')
       + headsBlock('Заголовки — 15 шт., макс. 30 символов (📌 = Позиция 1 закреплена)', renderPinned(k1Heads))
       + descsBlock('Описания — 4 шт., макс. 90 символов', renderDescs(k1Descs))
@@ -1173,7 +1173,7 @@ function renderS09() {
       preview('🇬🇧','Ad Preview (EN)','elysiumtbilisi.com',
         'Apartments from 130 m²','Boutique Residence Tbilisi','Building Commissioned &amp; Ready',
         'Boutique Residence in Tbilisi. 14 apartments from 130 m². Building commissioned.',
-        'Free floor plan. No load-bearing walls. Panoramic city views from every residence.',
+        'Free floor plan. No load-bearing walls. Panoramic city views.',
         'Google selects the best combination from 15 headlines and 4 descriptions automatically')
       + headsBlock('Headlines — 15 items, max 30 chars each (📌 = Position 1 pinned)', renderPinned(k2Heads))
       + descsBlock('Descriptions — 4 items, max 90 chars each', renderDescs(k2Descs))
