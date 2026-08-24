@@ -38,7 +38,7 @@ const RSA_K2_HEADS = [
   {text:'Buy Apartment in Tbilisi',      pin:null},
   {text:'Boutique Residence Tbilisi',    pin:null},
   {text:'Building Commissioned & Ready', pin:null},
-  {text:'Open for Private Viewing',      pin:null},
+  {text:'Request Plans & Pricing',       pin:null},
   {text:'Luxury Tbilisi Real Estate',    pin:null},
   {text:'Free Floor Plan — No Walls',    pin:null},
   {text:'Panoramic Views. Open Layout.',  pin:null},
@@ -54,7 +54,7 @@ const RSA_K2_DESCS = [
   'Boutique Residence in Tbilisi. 14 apartments from 130 m². Building commissioned.',
   'Free floor plan. No load-bearing walls. Panoramic city views.',
   'Generator. 70-ton water reserve. 24/7 security. Complete utility independence.',
-  'Book a private viewing. Request plans, pricing, and full project details.',
+  'Request plans, pricing, and full project details.',
 ];
 
 const RSA_K3_HEADS = [
@@ -116,7 +116,7 @@ const RSA_K4_EN_HEADS = [
   'Privacy. Security. Silence.',
   'Underground Parking Included',
   'Generator & Water Reserve',
-  'Open for Private Viewing',
+  'Request Project Details',
   'Power & Water — Always On',
   'All Details on First Call',
   'Request Full Project Details',
@@ -126,7 +126,7 @@ const RSA_K4_EN_DESCS = [
   'Building commissioned. Only 2 apartments per floor. Boutique — not a complex.',
   'Free floor plan. Panoramic views. Privacy & silence.',
   'Underground parking. Generator. 70-ton water reserve. 24/7 power & water.',
-  'Book a private viewing. Compare ELYSIUM with any premium Tbilisi project.',
+  'Request full project details. Compare ELYSIUM with any premium Tbilisi project.',
 ];
 
 /* ============================================================
