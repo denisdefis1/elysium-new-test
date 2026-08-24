@@ -204,7 +204,9 @@
         }
       ],
       "website": null,
-      "competitive_note": "Нет основного сайта. Продвигаются через Facebook. Нет посадочной страницы."
+      "competitive_note": "Нет основного сайта. Продвигаются через Facebook. Нет посадочной страницы.",
+      "developer": "Данные недоступны",
+      "developer_other_projects": "Нет сайта, нет публичных данных о девелопере. Продвижение только через Facebook."
     },
     {
       "name": "Archi Tbilisi",
@@ -281,7 +283,9 @@
         }
       ],
       "website": "https://cityzen.ge/",
-      "competitive_note": "Актуальный сайт."
+      "competitive_note": "Актуальный сайт.",
+      "developer": "CityZen Development",
+      "developer_other_projects": "Данные о портфеле девелопера недоступны публично — сайт cityzen.ge не раскрывает информацию о других проектах."
     },
     {
       "name": "Next",
@@ -417,7 +421,9 @@
       ],
       "website": null,
       "plans_url": "https://disk.yandex.ru/i/d8DjR7kqpqnJoQ",
-      "competitive_note": "Нет сайта. Материалы только на Yandex Disk (планировки)."
+      "competitive_note": "Нет сайта. Материалы только на Yandex Disk (планировки).",
+      "developer": "Данные недоступны",
+      "developer_other_projects": "Нет сайта, нет публичных данных о девелопере. Материалы только на Yandex Disk."
     },
     {
       "name": "Kings Garden",
@@ -530,7 +536,9 @@
         }
       ],
       "website": "https://biograpi.ge/",
-      "competitive_note": "Актуальный сайт."
+      "competitive_note": "Актуальный сайт.",
+      "developer": "Sakeni",
+      "developer_other_projects": "Один проект: Biograpi, Тбилиси. Sakeni — девелопер, Anagi — генподрядчик (подтверждено из данных Park Home Vake)."
     },
     {
       "name": "Domus Tbilisi",
@@ -655,7 +663,9 @@
       ],
       "website": null,
       "plans_url": "https://disk.yandex.ru/i/kC1qV1VwWwoWgg",
-      "competitive_note": "Нет сайта и нет посадочной страницы на сайте застройщика. Планировки только на Yandex Disk."
+      "competitive_note": "Нет сайта и нет посадочной страницы на сайте застройщика. Планировки только на Yandex Disk.",
+      "developer": "Данные недоступны",
+      "developer_other_projects": "Нет сайта, нет публичных данных о девелопере. Материалы только на Yandex Disk."
     },
     {
       "name": "Momaliv",
@@ -856,7 +866,9 @@
         }
       ],
       "website": null,
-      "competitive_note": "Нет информации о сайте."
+      "competitive_note": "Нет информации о сайте.",
+      "developer": "Данные недоступны",
+      "developer_other_projects": "Нет сайта, нет публичных данных о девелопере или портфеле проектов."
     },
     {
       "name": "Archi",
