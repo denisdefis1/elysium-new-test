@@ -44,7 +44,7 @@ const RSA_K2_HEADS = [
   {text:'Panoramic Views. Open Layout.',  pin:null},
   {text:'Privacy. Security. Silence.',   pin:null},
   {text:'Underground Parking Included',  pin:null},
-  {text:'Generator & Water Reserve',     pin:null},
+  {text:'Generator & Water Tank',     pin:null},
   {text:'All Details on First Call',     pin:null},
   {text:'Plans & Prices on Request',     pin:null},
   {text:'2 Apartments per Floor Only',   pin:null},
@@ -53,7 +53,7 @@ const RSA_K2_HEADS = [
 const RSA_K2_DESCS = [
   'Boutique Residence in Tbilisi. 14 apartments from 130 m². Building commissioned.',
   'Free floor plan. No load-bearing walls. Panoramic city views.',
-  'Generator. 70-ton water reserve. 24/7 security. Complete utility independence.',
+  'Generator. 70-ton water tank. 24/7 security. Complete utility independence.',
   'Request plans, pricing, and full project details.',
 ];
 
@@ -115,7 +115,7 @@ const RSA_K4_EN_HEADS = [
   'Free Floor Plan — No Walls',
   'Privacy. Security. Silence.',
   'Underground Parking Included',
-  'Generator & Water Reserve',
+  'Generator & Water Tank',
   'Request Project Details',
   'Power & Water — Always On',
   'All Details on First Call',
@@ -125,7 +125,7 @@ const RSA_K4_EN_HEADS = [
 const RSA_K4_EN_DESCS = [
   'Building commissioned. Only 2 apartments per floor. Boutique — not a complex.',
   'Free floor plan. Panoramic views. Privacy & silence.',
-  'Underground parking. Generator. 70-ton water reserve. 24/7 power & water.',
+  'Underground parking. Generator. 70-ton water tank. 24/7 power & water.',
   'Request full project details. Compare ELYSIUM with any premium Tbilisi project.',
 ];
 
@@ -252,7 +252,7 @@ function renderS01() {
           ${fact('Size', '130 m² – 191 m²')}
           ${fact('Layout', 'Free floor plan · No load-bearing walls')}
           ${fact('Views', 'Panoramic city views from every residence')}
-          ${fact('Infrastructure', 'Generator · 70-ton water reserve')}
+          ${fact('Infrastructure', 'Generator · 70-ton water tank')}
           ${fact('Parking', 'Underground parking included')}
           ${fact('Rooftop', 'Jacuzzi · Fitness · Outdoor kitchen')}
           ${fact('Security', '24/7 CCTV & on-site security')}
@@ -789,7 +789,7 @@ function renderS05(keywords, competitors, negatives) {
       const sitelinks =
         '<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px;margin-bottom:20px">' +
         sitelinkCard('Планировки','Свободные планировки от 130 м²','Без несущих стен — любая конфигурация','elysiumtbilisi.com/planirovki') +
-        sitelinkCard('Instagram','Проект ELYSIUM в Instagram','Интерьеры, виды, ход строительства','instagram.com/elysium.tbilisi') +
+        sitelinkCard('Instagram','Проект ELYSIUM в Instagram','Интерьеры, виды, жизнь проекта','instagram.com/elysium.tbilisi') +
         '</div>';
 
       const callouts = [
