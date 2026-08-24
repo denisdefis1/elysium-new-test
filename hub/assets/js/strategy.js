@@ -556,28 +556,41 @@ function renderS05(keywords, competitors, negatives) {
 
   const gap = '<div style="height:12px"></div>';
 
-  // ── NEGATIVES SECTION (shared across all campaigns) ──
-  const catLabels = {O:'Аренда', N:'Другие города Грузии', M:'Штат Джорджия США', L:'Отели', K:'Нерелевантные', P:'Намерение продать'};
+  // ── NEGATIVES SECTION (campaign-language-aware) ──
+  const catLabels = {O:'Rental',N:'Other Georgian Cities',M:'US State of Georgia',L:'Hotels',K:'Irrelevant',P:'Seller Intent',Q:'Studios / Small Format'};
+  const catLabelsRU = {O:'Аренда',N:'Другие города Грузии',M:'Штат Джорджия США',L:'Отели',K:'Нерелевантные',P:'Намерение продать',Q:'Студии / Малый формат'};
 
-  const negSection =
-    '<div style="background:rgba(255,80,80,0.04);border:1px solid rgba(255,80,80,0.2);border-radius:8px;padding:16px 20px">' +
-    '<div style="font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:#FF5252;margin-bottom:12px;font-weight:600">🚫 Минус-слова — ' + negData.total.toLocaleString('ru-RU') + ' слов · 6 категорий · применяются глобально</div>' +
-    '<div style="display:flex;flex-direction:column;gap:8px">' +
-    negData.categories.map(cat => {
-      const isComplete = cat.examples.length >= cat.count;
-      const lbl = catLabels[cat.pool] || cat.label;
-      const countStr = cat.count.toLocaleString('ru-RU') + ' слов' + (isComplete ? ' · полный список' : ' · ' + cat.examples.length + ' примеров');
+  const isCyrillic = s => /[а-яёА-ЯЁ]/.test(s);
+
+  const makeNegSection = (lang) => {
+    const isEN = lang === 'EN';
+    const labels = isEN ? catLabels : catLabelsRU;
+    const cats = negData.categories.map(cat => {
+      const examples = isEN ? cat.examples.filter(e => !isCyrillic(e)) : cat.examples;
+      if (examples.length === 0) return null;
+      const lbl = labels[cat.pool] || cat.label;
+      const countStr = (isEN ? examples.length : cat.count).toLocaleString('ru-RU') + (isEN ? ' shown' : ' слов') + (!isEN && examples.length < cat.count ? ' · ' + examples.length + ' примеров' : '');
       return '<details style="border:1px solid var(--border-subtle);border-radius:6px;overflow:hidden">' +
         '<summary style="padding:8px 12px;cursor:pointer;background:var(--bg-hover);display:flex;justify-content:space-between;align-items:center;font-size:12px">' +
         '<span style="color:var(--text-primary)">' + lbl + '</span>' +
         '<span style="color:var(--text-tertiary);font-size:11px">' + countStr + '</span>' +
         '</summary>' +
-        '<div style="padding:10px 12px;display:flex;flex-wrap:wrap;gap:5px">' + cat.examples.map(chipNeg).join('') + '</div>' +
+        '<div style="padding:10px 12px;display:flex;flex-wrap:wrap;gap:5px">' + examples.map(chipNeg).join('') + '</div>' +
         '</details>';
-    }).join('') +
-    '</div>' +
-    '<div style="margin-top:10px;font-size:11px;color:var(--text-tertiary)">Показаны все доступные примеры из backend-базы. Для категорий с тысячами вариаций приводятся наиболее репрезентативные запросы.</div>' +
-    '</div>';
+    }).filter(Boolean);
+    const header = isEN
+      ? '🚫 Negative keywords — EN only · ' + cats.length + ' categories'
+      : '🚫 Минус-слова — ' + negData.total.toLocaleString('ru-RU') + ' слов · ' + cats.length + ' категорий · применяются глобально';
+    return '<div style="background:rgba(255,80,80,0.04);border:1px solid rgba(255,80,80,0.2);border-radius:8px;padding:16px 20px">' +
+      '<div style="font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:#FF5252;margin-bottom:12px;font-weight:600">' + header + '</div>' +
+      '<div style="display:flex;flex-direction:column;gap:8px">' + cats.join('') + '</div>' +
+      '<div style="margin-top:10px;font-size:11px;color:var(--text-tertiary)">' +
+      (isEN ? 'English-language negatives only. RU-language terms excluded — not applicable to EN-targeted campaigns.' : 'Показаны все доступные примеры из backend-базы. Для категорий с тысячами вариаций приводятся наиболее репрезентативные запросы.') +
+      '</div></div>';
+  };
+
+  const negSection   = makeNegSection('RU');
+  const negSectionEN = makeNegSection('EN');
 
   // ── KEYWORD SECTIONS ──
   const kwSection = (kwArr, poolLabel) => {
@@ -743,7 +756,7 @@ function renderS05(keywords, competitors, negatives) {
       k2kw.length + ' ключевых слов · Пулы A, B, C, D, E, F, G · Язык: EN · Аудитория: IL · UA · BY',
       'var(--border-medium)','var(--bg-elevated)',
       kwSection(k2kw,'Пулы A B C D E F G · Язык EN'),
-      negSection, k2Ads)}
+      negSectionEN, k2Ads)}
 
     ${campWrap('3','К3 — Премиум RU',
       k4kw.length + ' ключевых слов · Пул B · Язык: RU · Luxury intent · Аудитория: IL · UA · BY',
