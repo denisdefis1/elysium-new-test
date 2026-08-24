@@ -1,9 +1,9 @@
 {
   "status": "ok",
-  "fetched_at": "2026-08-23",
+  "fetched_at": "2026-08-24",
   "period": {
     "date_from": "2025-10-09",
-    "date_to": "2026-08-23"
+    "date_to": "2026-08-24"
   },
   "account": {
     "id": "6309630233",
@@ -72,6 +72,10 @@
     }
   ],
   "daily": [
+    {
+      "date": "2026-08-24",
+      "campaigns": []
+    },
     {
       "date": "2026-08-23",
       "campaigns": []
