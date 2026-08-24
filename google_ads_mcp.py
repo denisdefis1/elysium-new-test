@@ -6,6 +6,7 @@ from typing import Optional
 
 from dotenv import load_dotenv
 from google.ads.googleads.client import GoogleAdsClient
+from google.api_core import protobuf_helpers
 from mcp.server.mcpserver import MCPServer
 
 load_dotenv()
@@ -565,6 +566,486 @@ async def get_account_summary(
         },
     }
     return json.dumps(result, ensure_ascii=False, indent=2)
+
+
+def _resolve_customer_id(client, override: Optional[str] = None) -> str:
+    """Return the operative (non-MCC) customer ID to use for mutations."""
+    default = os.environ["GOOGLE_ADS_CUSTOMER_ID"]
+    if override:
+        return override
+    try:
+        ids = _get_client_account_ids(client, default)
+        return ids[0] if ids else default
+    except Exception:
+        return default
+
+
+@mcp.tool()
+async def create_campaign_budget(
+    name: str,
+    amount_usd: float,
+    customer_id: Optional[str] = None,
+) -> str:
+    """Create a shared campaign budget.
+
+    Args:
+        name: Budget name, e.g. "К1 — Purchase RU Budget"
+        amount_usd: Daily budget in USD, e.g. 4.2
+        customer_id: Optional client account ID override
+
+    Returns JSON with budget_id and resource_name — pass budget_id to create_campaign.
+    """
+    client = get_client()
+    cid = _resolve_customer_id(client, customer_id)
+    service = client.get_service("CampaignBudgetService")
+
+    op = client.get_type("CampaignBudgetOperation")
+    b = op.create
+    b.name = name
+    b.amount_micros = int(amount_usd * 1_000_000)
+    b.delivery_method = client.enums.BudgetDeliveryMethodEnum.STANDARD
+
+    try:
+        resp = service.mutate_campaign_budgets(customer_id=cid, operations=[op])
+        rn = resp.results[0].resource_name
+        return json.dumps({
+            "status": "ok",
+            "budget_id": rn.split("/")[-1],
+            "resource_name": rn,
+            "name": name,
+            "amount_usd": amount_usd,
+            "customer_id": cid,
+        }, ensure_ascii=False, indent=2)
+    except Exception as e:
+        return json.dumps({"status": "error", "error": str(e)}, ensure_ascii=False, indent=2)
+
+
+@mcp.tool()
+async def create_campaign(
+    name: str,
+    budget_id: str,
+    geo_target_ids: Optional[str] = "2804,2376,2612",
+    language_ids: Optional[str] = "1031",
+    customer_id: Optional[str] = None,
+) -> str:
+    """Create a Search campaign in PAUSED status with geo and language targeting.
+
+    Geo target IDs (comma-separated):
+      2804=Ukraine  2376=Israel  2612=Belarus
+      2268=Georgia  2643=Russia  2840=US  2826=UK
+
+    Language IDs (comma-separated):
+      1031=Russian  1000=English  1082=Georgian
+
+    Args:
+        name: Campaign name, e.g. "К1 — Purchase RU"
+        budget_id: ID returned by create_campaign_budget
+        geo_target_ids: Comma-separated geo criterion IDs (default: Ukraine+Israel+Belarus)
+        language_ids: Comma-separated language constant IDs (default: Russian)
+        customer_id: Optional client account ID override
+
+    Returns JSON with campaign_id — pass to create_ad_group and add_* tools.
+    Campaign is created in PAUSED status. Use enable_campaign to go live.
+    """
+    client = get_client()
+    cid = _resolve_customer_id(client, customer_id)
+    camp_service = client.get_service("CampaignService")
+    crit_service = client.get_service("CampaignCriterionService")
+
+    op = client.get_type("CampaignOperation")
+    c = op.create
+    c.name = name
+    c.status = client.enums.CampaignStatusEnum.PAUSED
+    c.advertising_channel_type = client.enums.AdvertisingChannelTypeEnum.SEARCH
+    c.campaign_budget = f"customers/{cid}/campaignBudgets/{budget_id}"
+    c.manual_cpc.enhanced_cpc_enabled = False
+    c.network_settings.target_google_search = True
+    c.network_settings.target_search_network = True
+    c.network_settings.target_content_network = False
+
+    try:
+        resp = camp_service.mutate_campaigns(customer_id=cid, operations=[op])
+        camp_rn = resp.results[0].resource_name
+        camp_id = camp_rn.split("/")[-1]
+
+        # Add geo targets
+        geo_ops = []
+        for geo_id in [g.strip() for g in (geo_target_ids or "").split(",") if g.strip()]:
+            gop = client.get_type("CampaignCriterionOperation")
+            g = gop.create
+            g.campaign = camp_rn
+            g.location.geo_target_constant = f"geoTargetConstants/{geo_id}"
+            geo_ops.append(gop)
+        if geo_ops:
+            crit_service.mutate_campaign_criteria(customer_id=cid, operations=geo_ops)
+
+        # Add language targets
+        lang_ops = []
+        for lang_id in [l.strip() for l in (language_ids or "").split(",") if l.strip()]:
+            lop = client.get_type("CampaignCriterionOperation")
+            l = lop.create
+            l.campaign = camp_rn
+            l.language.language_constant = f"languageConstants/{lang_id}"
+            lang_ops.append(lop)
+        if lang_ops:
+            crit_service.mutate_campaign_criteria(customer_id=cid, operations=lang_ops)
+
+        return json.dumps({
+            "status": "ok",
+            "campaign_id": camp_id,
+            "resource_name": camp_rn,
+            "name": name,
+            "campaign_status": "PAUSED",
+            "geo_target_ids": geo_target_ids,
+            "language_ids": language_ids,
+            "customer_id": cid,
+        }, ensure_ascii=False, indent=2)
+    except Exception as e:
+        return json.dumps({"status": "error", "error": str(e)}, ensure_ascii=False, indent=2)
+
+
+@mcp.tool()
+async def create_ad_group(
+    name: str,
+    campaign_id: str,
+    cpc_bid_usd: Optional[float] = 0.50,
+    customer_id: Optional[str] = None,
+) -> str:
+    """Create an ad group inside a campaign.
+
+    Args:
+        name: Ad group name, e.g. "Покупка апартаментов — Тбилиси"
+        campaign_id: Campaign ID returned by create_campaign
+        cpc_bid_usd: Default max CPC bid in USD (default 0.50)
+        customer_id: Optional client account ID override
+
+    Returns JSON with ad_group_id — pass to create_rsa_ad and add_keywords.
+    """
+    client = get_client()
+    cid = _resolve_customer_id(client, customer_id)
+    service = client.get_service("AdGroupService")
+
+    op = client.get_type("AdGroupOperation")
+    ag = op.create
+    ag.name = name
+    ag.campaign = f"customers/{cid}/campaigns/{campaign_id}"
+    ag.status = client.enums.AdGroupStatusEnum.ENABLED
+    ag.cpc_bid_micros = int((cpc_bid_usd or 0.50) * 1_000_000)
+
+    try:
+        resp = service.mutate_ad_groups(customer_id=cid, operations=[op])
+        rn = resp.results[0].resource_name
+        return json.dumps({
+            "status": "ok",
+            "ad_group_id": rn.split("/")[-1],
+            "resource_name": rn,
+            "name": name,
+            "campaign_id": campaign_id,
+            "cpc_bid_usd": cpc_bid_usd,
+            "customer_id": cid,
+        }, ensure_ascii=False, indent=2)
+    except Exception as e:
+        return json.dumps({"status": "error", "error": str(e)}, ensure_ascii=False, indent=2)
+
+
+@mcp.tool()
+async def create_rsa_ad(
+    ad_group_id: str,
+    campaign_id: str,
+    headlines_json: str,
+    descriptions_json: str,
+    final_url: str,
+    customer_id: Optional[str] = None,
+) -> str:
+    """Create a Responsive Search Ad (RSA) in an ad group.
+
+    Args:
+        ad_group_id: Ad group ID from create_ad_group
+        campaign_id: Campaign ID (needed to build the resource name)
+        headlines_json: JSON array of headline objects, e.g.:
+            [{"text": "Бутик-резиденция Тбилиси", "pin": "P1"},
+             {"text": "Апартаменты от 130 м²", "pin": null}]
+            Pins: "P1", "P2", "P3" or null. Max 15 headlines, max 30 chars each.
+        descriptions_json: JSON array of description objects, e.g.:
+            [{"text": "Бутик-резиденция — комфорт и приватность.", "pin": null}]
+            Max 4 descriptions, max 90 chars each.
+        final_url: Landing page URL, e.g. "https://elysiumtbilisi.com/?lang=ru"
+        customer_id: Optional client account ID override
+
+    Returns JSON with ad_id on success.
+    """
+    client = get_client()
+    cid = _resolve_customer_id(client, customer_id)
+    service = client.get_service("AdGroupAdService")
+
+    PIN_MAP = {
+        "P1": client.enums.ServedAssetFieldTypeEnum.HEADLINE_1,
+        "P2": client.enums.ServedAssetFieldTypeEnum.HEADLINE_2,
+        "P3": client.enums.ServedAssetFieldTypeEnum.HEADLINE_3,
+        "D1": client.enums.ServedAssetFieldTypeEnum.DESCRIPTION_1,
+        "D2": client.enums.ServedAssetFieldTypeEnum.DESCRIPTION_2,
+    }
+
+    try:
+        headlines = json.loads(headlines_json)
+        descriptions = json.loads(descriptions_json)
+    except Exception as e:
+        return json.dumps({"status": "error", "error": f"JSON parse error: {e}"}, ensure_ascii=False, indent=2)
+
+    op = client.get_type("AdGroupAdOperation")
+    aga = op.create
+    aga.ad_group = f"customers/{cid}/adGroups/{ad_group_id}"
+    aga.status = client.enums.AdGroupAdStatusEnum.ENABLED
+    aga.ad.final_urls.append(final_url)
+
+    for h in headlines:
+        asset = client.get_type("AdTextAsset")
+        asset.text = h["text"]
+        pin = h.get("pin")
+        if pin and pin in PIN_MAP:
+            asset.pinned_field = PIN_MAP[pin]
+        aga.ad.responsive_search_ad.headlines.append(asset)
+
+    for d in descriptions:
+        asset = client.get_type("AdTextAsset")
+        asset.text = d["text"]
+        pin = d.get("pin")
+        if pin and pin in PIN_MAP:
+            asset.pinned_field = PIN_MAP[pin]
+        aga.ad.responsive_search_ad.descriptions.append(asset)
+
+    try:
+        resp = service.mutate_ad_group_ads(customer_id=cid, operations=[op])
+        rn = resp.results[0].resource_name
+        return json.dumps({
+            "status": "ok",
+            "ad_id": rn.split("/")[-1],
+            "resource_name": rn,
+            "ad_group_id": ad_group_id,
+            "final_url": final_url,
+            "headlines_count": len(headlines),
+            "descriptions_count": len(descriptions),
+            "customer_id": cid,
+        }, ensure_ascii=False, indent=2)
+    except Exception as e:
+        return json.dumps({"status": "error", "error": str(e)}, ensure_ascii=False, indent=2)
+
+
+@mcp.tool()
+async def add_keywords(
+    ad_group_id: str,
+    campaign_id: str,
+    keywords_json: str,
+    customer_id: Optional[str] = None,
+) -> str:
+    """Add keywords to an ad group.
+
+    Args:
+        ad_group_id: Ad group ID from create_ad_group
+        campaign_id: Campaign ID (used to build resource name)
+        keywords_json: JSON array of keyword objects, e.g.:
+            [{"text": "купить апартаменты тбилиси", "match_type": "EXACT"},
+             {"text": "недвижимость тбилиси", "match_type": "PHRASE"}]
+            match_type: "EXACT", "PHRASE", or "BROAD"
+        customer_id: Optional client account ID override
+
+    Returns JSON with count of added keywords.
+    """
+    client = get_client()
+    cid = _resolve_customer_id(client, customer_id)
+    service = client.get_service("AdGroupCriterionService")
+
+    MATCH_TYPES = {
+        "EXACT":  client.enums.KeywordMatchTypeEnum.EXACT,
+        "PHRASE": client.enums.KeywordMatchTypeEnum.PHRASE,
+        "BROAD":  client.enums.KeywordMatchTypeEnum.BROAD,
+    }
+
+    try:
+        keywords = json.loads(keywords_json)
+    except Exception as e:
+        return json.dumps({"status": "error", "error": f"JSON parse error: {e}"}, ensure_ascii=False, indent=2)
+
+    ops = []
+    for kw in keywords:
+        op = client.get_type("AdGroupCriterionOperation")
+        c = op.create
+        c.ad_group = f"customers/{cid}/adGroups/{ad_group_id}"
+        c.status = client.enums.AdGroupCriterionStatusEnum.ENABLED
+        c.keyword.text = kw["text"]
+        c.keyword.match_type = MATCH_TYPES.get(kw.get("match_type", "EXACT").upper(), MATCH_TYPES["EXACT"])
+        ops.append(op)
+
+    try:
+        resp = service.mutate_ad_group_criteria(customer_id=cid, operations=ops)
+        return json.dumps({
+            "status": "ok",
+            "added": len(resp.results),
+            "ad_group_id": ad_group_id,
+            "customer_id": cid,
+        }, ensure_ascii=False, indent=2)
+    except Exception as e:
+        return json.dumps({"status": "error", "error": str(e)}, ensure_ascii=False, indent=2)
+
+
+@mcp.tool()
+async def add_campaign_negative_keywords(
+    campaign_id: str,
+    keywords_json: str,
+    customer_id: Optional[str] = None,
+) -> str:
+    """Add negative keywords at the campaign level.
+
+    Args:
+        campaign_id: Campaign ID from create_campaign
+        keywords_json: JSON array, e.g.:
+            [{"text": "студия", "match_type": "BROAD"},
+             {"text": "аренда", "match_type": "BROAD"}]
+        customer_id: Optional client account ID override
+
+    Returns JSON with count of added negative keywords.
+    """
+    client = get_client()
+    cid = _resolve_customer_id(client, customer_id)
+    service = client.get_service("CampaignCriterionService")
+
+    MATCH_TYPES = {
+        "EXACT":  client.enums.KeywordMatchTypeEnum.EXACT,
+        "PHRASE": client.enums.KeywordMatchTypeEnum.PHRASE,
+        "BROAD":  client.enums.KeywordMatchTypeEnum.BROAD,
+    }
+
+    try:
+        keywords = json.loads(keywords_json)
+    except Exception as e:
+        return json.dumps({"status": "error", "error": f"JSON parse error: {e}"}, ensure_ascii=False, indent=2)
+
+    ops = []
+    for kw in keywords:
+        op = client.get_type("CampaignCriterionOperation")
+        c = op.create
+        c.campaign = f"customers/{cid}/campaigns/{campaign_id}"
+        c.negative = True
+        c.keyword.text = kw["text"]
+        c.keyword.match_type = MATCH_TYPES.get(kw.get("match_type", "BROAD").upper(), MATCH_TYPES["BROAD"])
+        ops.append(op)
+
+    try:
+        resp = service.mutate_campaign_criteria(customer_id=cid, operations=ops)
+        return json.dumps({
+            "status": "ok",
+            "added": len(resp.results),
+            "campaign_id": campaign_id,
+            "customer_id": cid,
+        }, ensure_ascii=False, indent=2)
+    except Exception as e:
+        return json.dumps({"status": "error", "error": str(e)}, ensure_ascii=False, indent=2)
+
+
+@mcp.tool()
+async def add_sitelinks(
+    campaign_id: str,
+    sitelinks_json: str,
+    customer_id: Optional[str] = None,
+) -> str:
+    """Add sitelink assets to a campaign.
+
+    Args:
+        campaign_id: Campaign ID from create_campaign
+        sitelinks_json: JSON array of sitelink objects, e.g.:
+            [{"text": "Планировки и цены",
+              "description1": "Свободная планировка от 130 м²",
+              "description2": "Подземный паркинг включён",
+              "final_url": "https://elysiumtbilisi.com/?lang=ru#plans"}]
+            text max 25 chars, description1/2 max 35 chars each.
+        customer_id: Optional client account ID override
+
+    Returns JSON with count of added sitelinks.
+    """
+    client = get_client()
+    cid = _resolve_customer_id(client, customer_id)
+    asset_service = client.get_service("AssetService")
+    camp_asset_service = client.get_service("CampaignAssetService")
+
+    try:
+        sitelinks = json.loads(sitelinks_json)
+    except Exception as e:
+        return json.dumps({"status": "error", "error": f"JSON parse error: {e}"}, ensure_ascii=False, indent=2)
+
+    try:
+        added = []
+        for sl in sitelinks:
+            # Create sitelink asset
+            asset_op = client.get_type("AssetOperation")
+            a = asset_op.create
+            a.sitelink_asset.link_text = sl["text"]
+            a.sitelink_asset.description1 = sl.get("description1", "")
+            a.sitelink_asset.description2 = sl.get("description2", "")
+            if sl.get("final_url"):
+                a.final_urls.append(sl["final_url"])
+
+            asset_resp = asset_service.mutate_assets(customer_id=cid, operations=[asset_op])
+            asset_rn = asset_resp.results[0].resource_name
+
+            # Link asset to campaign
+            ca_op = client.get_type("CampaignAssetOperation")
+            ca = ca_op.create
+            ca.asset = asset_rn
+            ca.campaign = f"customers/{cid}/campaigns/{campaign_id}"
+            ca.field_type = client.enums.AssetFieldTypeEnum.SITELINK
+            camp_asset_service.mutate_campaign_assets(customer_id=cid, operations=[ca_op])
+
+            added.append({"text": sl["text"], "asset_resource_name": asset_rn})
+
+        return json.dumps({
+            "status": "ok",
+            "added": len(added),
+            "sitelinks": added,
+            "campaign_id": campaign_id,
+            "customer_id": cid,
+        }, ensure_ascii=False, indent=2)
+    except Exception as e:
+        return json.dumps({"status": "error", "error": str(e)}, ensure_ascii=False, indent=2)
+
+
+@mcp.tool()
+async def enable_campaign(
+    campaign_id: str,
+    customer_id: Optional[str] = None,
+) -> str:
+    """Enable a campaign (PAUSED → ENABLED). This starts spending the budget.
+
+    IMPORTANT: Only call this after verifying all campaign settings in Google Ads UI.
+    Campaigns created by create_campaign start in PAUSED status for safety.
+
+    Args:
+        campaign_id: Campaign ID to enable
+        customer_id: Optional client account ID override
+
+    Returns JSON confirming the status change.
+    """
+    client = get_client()
+    cid = _resolve_customer_id(client, customer_id)
+    service = client.get_service("CampaignService")
+
+    op = client.get_type("CampaignOperation")
+    c = op.update
+    c.resource_name = f"customers/{cid}/campaigns/{campaign_id}"
+    c.status = client.enums.CampaignStatusEnum.ENABLED
+
+    client.copy_from(op.update_mask, protobuf_helpers.field_mask(None, c._pb))
+
+    try:
+        resp = service.mutate_campaigns(customer_id=cid, operations=[op])
+        return json.dumps({
+            "status": "ok",
+            "campaign_id": campaign_id,
+            "new_status": "ENABLED",
+            "resource_name": resp.results[0].resource_name,
+            "customer_id": cid,
+        }, ensure_ascii=False, indent=2)
+    except Exception as e:
+        return json.dumps({"status": "error", "error": str(e)}, ensure_ascii=False, indent=2)
 
 
 if __name__ == "__main__":
