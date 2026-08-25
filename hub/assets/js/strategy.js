@@ -1922,97 +1922,145 @@ const YD_CAMPS = [
   },
 ];
 
+/* ── stat pill used in title block ── */
+function ydStat(val, lbl) {
+  return '<div style="display:flex;flex-direction:column;align-items:center;justify-content:center;padding:12px 20px;background:var(--bg-elevated);border:1px solid var(--border-subtle);border-radius:10px;min-width:90px">' +
+    '<div style="font-size:20px;font-weight:700;color:var(--text-primary);letter-spacing:-0.02em;line-height:1">' + val + '</div>' +
+    '<div style="font-size:10px;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:0.07em;margin-top:4px">' + lbl + '</div>' +
+    '</div>';
+}
+
 function ydCampOverview() {
-  return '<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:20px 0 24px">' +
+  return '<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:24px 0">' +
     YD_CAMPS.map(c =>
-      '<div style="border:1px solid ' + c.border + ';border-radius:8px;padding:13px 16px;background:' + c.bg + '">' +
-      '<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px">' +
-      '<span style="font-size:10px;font-weight:700;letter-spacing:0.09em;text-transform:uppercase;color:var(--text-tertiary)">' + escHtml(c.id) + '</span>' +
-      '<span style="font-size:9px;background:var(--bg-hover);border:1px solid var(--border-subtle);border-radius:3px;padding:1px 6px;color:var(--text-tertiary)">' + escHtml(c.type || 'Поиск') + '</span>' +
+      '<div style="border:1px solid ' + c.border + ';border-radius:10px;overflow:hidden">' +
+      '<div style="height:3px;background:' + c.clr + '"></div>' +
+      '<div style="padding:14px 16px;background:' + c.bg + '">' +
+      '<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">' +
+      '<span style="font-size:11px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:' + c.clr.replace('.7','1') + '">' + escHtml(c.id) + '</span>' +
+      '<span style="font-size:9px;border:1px solid var(--border-subtle);border-radius:12px;padding:2px 8px;color:var(--text-tertiary);background:var(--bg-elevated)">' + escHtml(c.type || 'Поиск') + '</span>' +
       '</div>' +
-      '<div style="font-size:13px;font-weight:500;color:var(--text-primary);margin-bottom:9px;line-height:1.3">' + escHtml(c.label) + '</div>' +
-      '<div style="display:flex;gap:6px;flex-wrap:wrap">' +
-      '<span style="font-size:10px;border:1px solid var(--border-subtle);border-radius:3px;padding:2px 7px;color:var(--text-tertiary)">Приоритет: ' + escHtml(c.priority) + '</span>' +
-      '<span style="font-size:10px;background:rgba(255,166,35,.1);border:1px solid rgba(255,166,35,.3);border-radius:3px;padding:2px 7px;color:#FFA623">25% · ' + c.budget.toLocaleString('ru-RU') + ' ₽</span>' +
-      '</div></div>'
+      '<div style="font-size:13px;font-weight:600;color:var(--text-primary);margin-bottom:12px;line-height:1.35">' + escHtml(c.label) + '</div>' +
+      '<div style="display:flex;align-items:center;justify-content:space-between">' +
+      '<span style="font-size:11px;color:var(--text-tertiary)">Приоритет: <strong style="color:var(--text-secondary)">' + escHtml(c.priority) + '</strong></span>' +
+      '<span style="font-size:11px;font-weight:600;color:#FFA623;background:rgba(255,166,35,.1);border:1px solid rgba(255,166,35,.25);border-radius:6px;padding:3px 9px">' + c.budget.toLocaleString('ru-RU') + ' ₽ · 25%</span>' +
+      '</div></div></div>'
     ).join('') +
   '</div>';
 }
 
 function ydBudgetWidget() {
-  return '<div style="background:var(--bg-elevated);border:1px solid var(--border-subtle);border-radius:10px;padding:18px 20px;margin:0 0 4px">' +
-    '<div style="display:flex;align-items:baseline;gap:10px;margin-bottom:14px">' +
-    '<span style="font-size:20px;font-weight:600;color:var(--text-primary)">~45 000 ₽/мес</span>' +
-    '<span style="font-size:12px;color:var(--text-tertiary)">≈ $500 · Равномерно по 25% на каждую кампанию</span>' +
+  return '<div style="background:var(--bg-elevated);border:1px solid var(--border-subtle);border-radius:12px;padding:20px 24px;margin:0 0 4px">' +
+    '<div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:18px;flex-wrap:wrap;gap:8px">' +
+    '<div>' +
+    '<div style="font-size:28px;font-weight:700;color:var(--text-primary);letter-spacing:-0.03em;line-height:1">~45 000 <span style="font-size:18px;font-weight:400;color:var(--text-tertiary)">₽/мес</span></div>' +
+    '<div style="font-size:12px;color:var(--text-tertiary);margin-top:4px">≈ $500 · Равномерно: 25% на каждую кампанию</div>' +
     '</div>' +
-    '<div style="display:flex;height:6px;border-radius:3px;overflow:hidden;gap:3px;margin-bottom:14px">' +
-    YD_CAMPS.map(c => '<div style="flex:1;background:' + c.clr + ';border-radius:2px"></div>').join('') +
+    '<div style="display:flex;gap:6px;align-items:center">' +
+    YD_CAMPS.map(c => '<div style="width:10px;height:10px;border-radius:50%;background:' + c.clr + '"></div>').join('') +
     '</div>' +
-    '<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px">' +
+    '</div>' +
+    '<div style="display:flex;height:10px;border-radius:5px;overflow:hidden;gap:2px;margin-bottom:18px">' +
+    YD_CAMPS.map(c => '<div style="flex:1;background:' + c.clr + '"></div>').join('') +
+    '</div>' +
+    '<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px">' +
     YD_CAMPS.map(c =>
-      '<div style="text-align:center">' +
-      '<div style="font-size:10px;font-weight:700;color:var(--text-tertiary);margin-bottom:2px">' + escHtml(c.id) + '</div>' +
-      '<div style="font-size:14px;font-weight:600;color:var(--text-primary)">' + c.budget.toLocaleString('ru-RU') + ' ₽</div>' +
-      '<div style="font-size:10px;color:var(--text-tertiary)">25%</div>' +
+      '<div style="text-align:center;padding:10px 8px;background:var(--bg-surface);border:1px solid var(--border-subtle);border-radius:8px">' +
+      '<div style="display:flex;align-items:center;justify-content:center;gap:4px;margin-bottom:4px">' +
+      '<div style="width:7px;height:7px;border-radius:50%;background:' + c.clr + '"></div>' +
+      '<span style="font-size:10px;font-weight:700;color:var(--text-tertiary)">' + escHtml(c.id) + '</span>' +
+      '</div>' +
+      '<div style="font-size:15px;font-weight:700;color:var(--text-primary)">' + c.budget.toLocaleString('ru-RU') + ' ₽</div>' +
+      '<div style="font-size:10px;color:var(--text-tertiary);margin-top:2px">25% / мес</div>' +
       '</div>'
     ).join('') +
     '</div></div>';
 }
 
+/* Yandex search bar mockup + ad result */
 function ydSerp(camp) {
   const headline = camp.heads.slice(0, 3).join(' | ');
-  return '<div style="background:var(--bg-surface);border:1px solid var(--border-subtle);border-radius:8px;padding:14px 18px;font-family:Arial,sans-serif">' +
-    '<div style="display:flex;align-items:center;gap:8px;margin-bottom:5px">' +
-    '<span style="background:#F5A623;color:#fff;font-size:9px;font-weight:700;padding:2px 6px;border-radius:3px;letter-spacing:0.05em;flex-shrink:0">Реклама</span>' +
-    '<span style="font-size:11px;color:var(--text-tertiary);overflow:hidden;text-overflow:ellipsis;white-space:nowrap">● ' + escHtml(camp.url) + '</span>' +
+  const query    = camp.heads[0]; // first headline as fake search query
+  return '<div style="background:var(--bg-elevated);border:1px solid var(--border-subtle);border-radius:10px;overflow:hidden;font-family:Arial,Helvetica,sans-serif">' +
+    /* search bar */
+    '<div style="padding:10px 14px;border-bottom:1px solid var(--border-subtle);display:flex;align-items:center;gap:10px;background:var(--bg-surface)">' +
+    '<div style="font-size:14px;font-weight:900;color:#FF0000;letter-spacing:-0.04em;flex-shrink:0">Я</div>' +
+    '<div style="flex:1;background:var(--bg-elevated);border:1px solid var(--border-subtle);border-radius:6px;padding:6px 12px;font-size:11px;color:var(--text-secondary);overflow:hidden;text-overflow:ellipsis;white-space:nowrap">' + escHtml(query) + '</div>' +
+    '<div style="font-size:10px;color:var(--text-tertiary);flex-shrink:0">Найти</div>' +
     '</div>' +
-    '<div style="font-size:16px;font-weight:400;color:#5B9BD5;line-height:1.35;margin-bottom:6px">' + escHtml(headline) + '</div>' +
-    camp.texts.map(t => '<div style="font-size:12px;color:var(--text-secondary);line-height:1.55;margin-bottom:3px">' + escHtml(t) + '</div>').join('') +
-    '<div style="display:flex;flex-wrap:wrap;gap:5px;margin-top:10px;padding-top:10px;border-top:1px solid var(--border-subtle)">' +
+    /* ad result */
+    '<div style="padding:16px 18px">' +
+    '<div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">' +
+    '<span style="background:#F5A623;color:#fff;font-size:9px;font-weight:700;padding:2px 7px;border-radius:3px;letter-spacing:0.04em;flex-shrink:0">Реклама</span>' +
+    '<div style="display:flex;align-items:center;gap:5px;overflow:hidden">' +
+    '<div style="width:14px;height:14px;border-radius:2px;background:var(--bg-hover);border:1px solid var(--border-subtle);flex-shrink:0"></div>' +
+    '<span style="font-size:11px;color:#6AAB4F;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">' + escHtml(camp.url) + '</span>' +
+    '</div>' +
+    '</div>' +
+    '<div style="font-size:17px;color:#5B9BD5;line-height:1.3;margin-bottom:7px;cursor:pointer">' + escHtml(headline) + '</div>' +
+    camp.texts.map(t => '<div style="font-size:12.5px;color:var(--text-secondary);line-height:1.6;margin-bottom:3px">' + escHtml(t) + '</div>').join('') +
+    '<div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:12px;padding-top:11px;border-top:1px solid var(--border-subtle)">' +
     camp.sitelinks.map(sl =>
-      '<span style="font-size:11px;color:#5B9BD5;border:1px solid rgba(91,155,213,.3);border-radius:4px;padding:3px 9px">' + escHtml(sl) + '</span>'
+      '<div style="font-size:11.5px;color:#5B9BD5;border:1px solid rgba(91,155,213,.25);border-radius:5px;padding:4px 11px;cursor:pointer;transition:background .15s">' + escHtml(sl) + '</div>'
     ).join('') +
-    '</div></div>';
+    '</div></div></div>';
 }
 
+/* Interest campaign block (RSY / YD-04) */
 function ydInterestBlock(c) {
-  const rows = (c.interests || []).map(it =>
-    '<div style="margin-bottom:12px">' +
-    '<div style="font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:0.07em;color:var(--text-tertiary);margin-bottom:5px">' + escHtml(it.cat) + '</div>' +
-    '<div style="display:flex;flex-wrap:wrap;gap:5px">' +
-    it.segs.map(s => '<span style="font-size:11px;background:rgba(140,100,220,.12);border:1px solid rgba(140,100,220,.25);border-radius:4px;padding:3px 9px;color:var(--text-secondary)">' + escHtml(s) + '</span>').join('') +
+  const catColors = ['rgba(80,180,120,.15)','rgba(196,168,100,.15)','rgba(100,160,220,.15)','rgba(220,100,60,.15)'];
+  const catBorder = ['rgba(80,180,120,.3)','rgba(196,168,100,.3)','rgba(100,160,220,.3)','rgba(220,100,60,.3)'];
+  const catText   = ['#50b478','#c4a864','#64a0dc','#dc643c'];
+  const grid = (c.interests || []).map((it, idx) =>
+    '<div style="background:' + catColors[idx % 4] + ';border:1px solid ' + catBorder[idx % 4] + ';border-radius:8px;padding:12px 14px">' +
+    '<div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:' + catText[idx % 4] + ';margin-bottom:8px">' + escHtml(it.cat) + '</div>' +
+    '<div style="display:flex;flex-direction:column;gap:5px">' +
+    it.segs.map(s =>
+      '<div style="display:flex;align-items:center;gap:6px">' +
+      '<div style="width:5px;height:5px;border-radius:50%;background:' + catText[idx % 4] + ';flex-shrink:0"></div>' +
+      '<span style="font-size:12px;color:var(--text-secondary)">' + escHtml(s) + '</span>' +
+      '</div>'
+    ).join('') +
     '</div></div>'
   ).join('');
-  return '<div style="background:var(--bg-surface);border:1px solid var(--border-subtle);border-radius:8px;padding:14px 18px">' +
-    '<div style="font-size:11px;color:var(--text-tertiary);margin-bottom:12px">Таргетирование по интересам и поведению — не по ключевым словам (РСЯ)</div>' +
-    rows +
-    '<div style="margin-top:12px;padding-top:12px;border-top:1px solid var(--border-subtle)">' +
-    '<div style="font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:0.07em;color:var(--text-tertiary);margin-bottom:6px">Объявление РСЯ</div>' +
-    '<div style="background:var(--bg-hover);border:1px solid var(--border-subtle);border-radius:6px;padding:12px 14px">' +
-    '<div style="display:flex;align-items:center;gap:6px;margin-bottom:4px">' +
-    '<span style="background:#F5A623;color:#fff;font-size:9px;font-weight:700;padding:2px 6px;border-radius:3px">Реклама</span>' +
-    '<span style="font-size:11px;color:var(--text-tertiary)">● ' + escHtml(c.url) + '</span>' +
+  return '<div style="display:flex;flex-direction:column;gap:10px">' +
+    '<div style="font-size:11px;color:var(--text-tertiary);padding:10px 14px;background:var(--bg-elevated);border:1px solid var(--border-subtle);border-radius:8px">Таргетирование по интересам и поведению (РСЯ) — охватывает аудиторию на этапе формирования интереса к переезду и инвестициям</div>' +
+    '<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">' + grid + '</div>' +
+    '<div style="margin-top:4px">' +
+    '<div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-tertiary);margin-bottom:8px;padding-left:2px">Объявление РСЯ (медийно-текстовое)</div>' +
+    '<div style="background:var(--bg-elevated);border:1px solid rgba(140,100,220,.3);border-radius:10px;overflow:hidden;font-family:Arial,Helvetica,sans-serif">' +
+    '<div style="height:3px;background:rgba(140,100,220,.6)"></div>' +
+    '<div style="padding:14px 18px">' +
+    '<div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">' +
+    '<span style="background:#F5A623;color:#fff;font-size:9px;font-weight:700;padding:2px 7px;border-radius:3px">Реклама</span>' +
+    '<span style="font-size:11px;color:#6AAB4F">' + escHtml(c.url) + '</span>' +
     '</div>' +
-    '<div style="font-size:15px;font-weight:500;color:#5B9BD5;margin-bottom:5px">' + escHtml(c.heads[0]) + '</div>' +
-    '<div style="font-size:12px;color:var(--text-secondary);line-height:1.5;margin-bottom:8px">' + escHtml(c.texts[0]) + '</div>' +
-    '<div style="display:flex;flex-wrap:wrap;gap:5px">' +
-    c.sitelinks.map(sl => '<span style="font-size:11px;color:#5B9BD5;border:1px solid rgba(91,155,213,.3);border-radius:4px;padding:2px 9px">' + escHtml(sl) + '</span>').join('') +
-    '</div></div></div></div>';
+    '<div style="font-size:16px;color:#5B9BD5;margin-bottom:6px;line-height:1.3">' + escHtml(c.heads[0]) + '</div>' +
+    '<div style="font-size:12.5px;color:var(--text-secondary);line-height:1.6;margin-bottom:12px">' + escHtml(c.texts[0]) + '</div>' +
+    '<div style="display:flex;flex-wrap:wrap;gap:6px">' +
+    c.sitelinks.map(sl => '<div style="font-size:11px;color:#5B9BD5;border:1px solid rgba(91,155,213,.25);border-radius:5px;padding:4px 11px">' + escHtml(sl) + '</div>').join('') +
+    '</div></div></div></div></div>';
 }
 
 function ydAdPreviews() {
-  return YD_CAMPS.map(c =>
-    '<div style="border:1px solid ' + c.border + ';border-radius:10px;overflow:hidden;margin-bottom:16px">' +
-    '<div style="padding:10px 18px;background:' + c.bg + ';border-bottom:1px solid ' + c.border + ';display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px">' +
-    '<div style="display:flex;align-items:center;gap:8px">' +
-    '<span style="font-size:11px;font-weight:700;color:var(--text-primary)">' + escHtml(c.id) + '</span>' +
-    '<span style="font-size:11px;color:var(--text-secondary)">' + escHtml(c.label) + '</span>' +
-    '</div>' +
-    '<span style="font-size:9px;background:var(--bg-elevated);border:1px solid var(--border-subtle);border-radius:3px;padding:2px 7px;color:var(--text-tertiary)">' + escHtml(c.type || 'Поиск') + ' · ' + c.heads.length + ' заголовков</span>' +
-    '</div>' +
-    '<div style="padding:14px 18px">' + (c.isInterest ? ydInterestBlock(c) : ydSerp(c)) + '</div>' +
-    '</div>'
-  ).join('');
+  return '<div style="display:flex;flex-direction:column;gap:20px">' +
+    YD_CAMPS.map(c =>
+      '<div style="border:1px solid ' + c.border + ';border-radius:12px;overflow:hidden">' +
+      '<div style="height:3px;background:' + c.clr + '"></div>' +
+      '<div style="padding:12px 20px;background:' + c.bg + ';border-bottom:1px solid ' + c.border + ';display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px">' +
+      '<div style="display:flex;align-items:center;gap:10px">' +
+      '<span style="font-size:12px;font-weight:800;letter-spacing:0.08em;color:' + c.clr.replace('.7','1') + '">' + escHtml(c.id) + '</span>' +
+      '<span style="font-size:12px;color:var(--text-primary);font-weight:500">' + escHtml(c.label) + '</span>' +
+      '</div>' +
+      '<div style="display:flex;align-items:center;gap:6px">' +
+      '<span style="font-size:9px;border:1px solid var(--border-subtle);border-radius:10px;padding:2px 8px;color:var(--text-tertiary)">' + escHtml(c.type || 'Поиск') + '</span>' +
+      '<span style="font-size:9px;color:var(--text-tertiary)">' + c.heads.length + ' заголовков</span>' +
+      '</div>' +
+      '</div>' +
+      '<div style="padding:16px 20px">' + (c.isInterest ? ydInterestBlock(c) : ydSerp(c)) + '</div>' +
+      '</div>'
+    ).join('') +
+  '</div>';
 }
 
 export function renderYandexStrategy(container) {
@@ -2047,10 +2095,16 @@ function ydRender(md) {
       const title  = (chunk.match(/^# (.+)/m)              || [])[1] || '';
       const status = (chunk.match(/\*\*СТАТУС:\s*(.+?)\*\*/) || [])[1] || '';
       html +=
-        '<div class="section-block" style="padding-bottom:20px;border-bottom:1px solid var(--border-subtle);margin-bottom:8px">' +
-        '<div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:16px">' +
-        '<div style="font-size:20px;font-weight:600;color:var(--text-primary);letter-spacing:-0.01em">' + escHtml(title) + '</div>' +
-        (status ? '<span style="font-size:11px;background:rgba(80,200,120,0.15);color:#6fcf97;border-radius:4px;padding:3px 10px;font-weight:500;letter-spacing:0.04em;flex-shrink:0">✓ ' + escHtml(status) + '</span>' : '') +
+        '<div class="section-block" style="padding-bottom:24px;border-bottom:1px solid var(--border-subtle);margin-bottom:8px">' +
+        '<div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:20px">' +
+        '<div style="font-size:22px;font-weight:700;color:var(--text-primary);letter-spacing:-0.02em">' + escHtml(title) + '</div>' +
+        (status ? '<span style="font-size:11px;background:rgba(80,200,120,0.15);color:#6fcf97;border-radius:6px;padding:3px 11px;font-weight:600;letter-spacing:0.04em;flex-shrink:0">✓ ' + escHtml(status) + '</span>' : '') +
+        '</div>' +
+        '<div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:24px">' +
+        ydStat('4', 'кампании') +
+        ydStat('~45 000 ₽', 'в месяц') +
+        ydStat('≈ $500', 'бюджет') +
+        ydStat('РФ', 'география') +
         '</div>' +
         ydCampOverview() +
         ydBudgetWidget() +
