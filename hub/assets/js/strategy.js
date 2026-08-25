@@ -1871,48 +1871,54 @@ function renderS17(research) {
 /* ── Campaign data (ads + budget) ── */
 const YD_CAMPS = [
   {
-    id:'YD-01', label:'Покупка недвижимости в Тбилиси', priority:'Высокий', budget:11250,
+    id:'YD-01', label:'Покупка недвижимости в Тбилиси', type:'Поиск', priority:'Высокий', budget:11250,
     bg:'rgba(80,180,120,.06)', border:'rgba(80,180,120,.28)', clr:'rgba(80,180,120,.7)',
     url:'elysiumtbilisi.com › квартиры-тбилиси',
-    heads:['Купить квартиру в Тбилиси','Бутик-резиденция — 14 апартаментов','Дом введён в эксплуатацию','Апартаменты от 130 м²','Новостройка от застройщика'],
+    heads:['Купить квартиру в Тбилиси','Бутик-резиденция — 14 апартаментов','Дом введён в эксплуатацию','Апартаменты от 130 м²','Новостройка. Возможен ВНЖ.'],
     texts:[
-      'Бутик-резиденция в Тбилиси. Только 14 апартаментов от 130 м². Дом введён в эксплуатацию. Запросите планировки.',
-      '2 апартамента на этаже. Свободная планировка, паркинг, панорамный вид. Дом сдан. Запросить информацию.',
+      'Бутик-резиденция в Тбилиси. 14 апартаментов от 130 м². Дом сдан. Покупка — основание для ВНЖ в Грузии. Узнать подробную информацию.',
+      '2 апартамента на этаже. Свободная планировка, паркинг, панорамный вид. Дом введён в эксплуатацию. Узнать подробную информацию.',
     ],
-    sitelinks:['Запросить планировки','Апартаменты от 130 м²','14 апартаментов','Дом сдан'],
+    sitelinks:['Узнать подробную информацию','ВНЖ в Грузии','Апартаменты от 130 м²','Дом сдан'],
   },
   {
-    id:'YD-02', label:'Премиум / элитная недвижимость', priority:'Высокий', budget:11250,
+    id:'YD-02', label:'Премиум / элитная недвижимость', type:'Поиск', priority:'Высокий', budget:11250,
     bg:'rgba(196,168,100,.06)', border:'rgba(196,168,100,.28)', clr:'rgba(196,168,100,.7)',
     url:'elysiumtbilisi.com › элитная-недвижимость',
-    heads:['Элитная резиденция в Тбилиси','Бутик — не жилой комплекс','Только 14 апартаментов','2 соседа на этаже','Дом сдан. От 130 м².'],
+    heads:['Элитная резиденция в Тбилиси','Бутик — не жилой комплекс','Только 14 апартаментов','2 соседа на этаже','Апартаменты от 130 м². ВНЖ.'],
     texts:[
-      'ELYSIUM — бутик-резиденция, не ЖК. 14 апартаментов от 130 м². Панорамный вид, паркинг, автономность. Дом введён в эксплуатацию.',
-      'Приватность: 2 апартамента на этаже. Свободная планировка. Дом сдан — въезжайте сразу. Запросите информацию.',
+      'ELYSIUM — бутик-резиденция, не ЖК. 14 апартаментов от 130 м². Дом сдан. Покупка открывает ВНЖ в Грузии. Узнать подробную информацию.',
+      'Приватность: 2 апартамента на этаже. Паркинг, панорамный вид, автономность. Инвестиция с возможностью ВНЖ. Узнать подробную информацию.',
     ],
-    sitelinks:['Запросить информацию','Элитные апартаменты','О резиденции','Контакты'],
+    sitelinks:['Узнать подробную информацию','ВНЖ в Грузии','О резиденции','Инвестиции'],
   },
   {
-    id:'YD-03', label:'Районы / локация', priority:'Средний', budget:11250,
-    bg:'rgba(100,160,220,.06)', border:'rgba(100,160,220,.28)', clr:'rgba(100,160,220,.7)',
-    url:'elysiumtbilisi.com › апартаменты-тбилиси',
-    heads:['Квартиры в Тбилиси','Бутик-резиденция. 14 апартаментов.','Дом введён в эксплуатацию','Апартаменты от 130 м²','Рассмотрите ELYSIUM'],
-    texts:[
-      'Рассматриваете квартиры в Тбилиси? ELYSIUM — бутик-резиденция, 14 апартаментов от 130 м². Дом сдан. Запросите планировки.',
-      'Только 14 апартаментов в доме. 2 квартиры на этаже. Паркинг, панорамный вид, автономность. Дом введён в эксплуатацию.',
-    ],
-    sitelinks:['Запросить планировки','Районы Тбилиси','О резиденции','Контакты'],
-  },
-  {
-    id:'YD-04', label:'Конкуренты', priority:'Средний', budget:11250,
+    id:'YD-03', label:'Конкуренты', type:'Поиск', priority:'Средний', budget:11250,
     bg:'rgba(220,100,60,.06)', border:'rgba(220,100,60,.28)', clr:'rgba(220,100,60,.7)',
     url:'elysiumtbilisi.com › выбрать',
-    heads:['Рассматриваете недвижимость Тбилиси?','ELYSIUM — бутик. 14 апартаментов.','Дом введён в эксплуатацию','Сравните варианты','Апартаменты от 130 м²'],
+    heads:['Рассматриваете недвижимость Тбилиси?','ELYSIUM — бутик. 14 апартаментов.','Дом введён в эксплуатацию','Сравните варианты','Апартаменты от 130 м². ВНЖ.'],
     texts:[
-      'Выбираете недвижимость в Тбилиси? ELYSIUM — бутик-резиденция, только 14 апартаментов от 130 м². Дом сдан. Запросите информацию.',
-      '14 апартаментов. 2 соседа на этаже. Панорамный вид, паркинг, автономность. Дом введён в эксплуатацию. Запросить планировки.',
+      'Выбираете недвижимость в Тбилиси? ELYSIUM — 14 апартаментов от 130 м². Дом сдан. Покупка — основание для ВНЖ в Грузии. Узнать подробную информацию.',
+      '14 апартаментов. 2 соседа на этаже. Панорамный вид, паркинг, автономность. Дом введён в эксплуатацию. Узнать подробную информацию.',
     ],
-    sitelinks:['Запросить информацию','Апартаменты от 130 м²','О проекте','Контакты'],
+    sitelinks:['Узнать подробную информацию','ВНЖ в Грузии','Апартаменты от 130 м²','О проекте'],
+  },
+  {
+    id:'YD-04', label:'Интересы (РСЯ)', type:'Аудитории', priority:'Средний', budget:11250,
+    bg:'rgba(140,100,220,.06)', border:'rgba(140,100,220,.28)', clr:'rgba(140,100,220,.7)',
+    url:'elysiumtbilisi.com › внж-апартаменты',
+    heads:['Апартаменты в Тбилиси — ВНЖ Грузии','Бутик-резиденция. 14 апартаментов.','Переезд в Грузию: старт от 130 м²'],
+    texts:[
+      'ELYSIUM — 14 апартаментов от 130 м² в Тбилиси. Дом сдан. Покупка открывает ВНЖ в Грузии. Узнать подробную информацию.',
+    ],
+    sitelinks:['Узнать подробную информацию','ВНЖ в Грузии','О резиденции','Апартаменты'],
+    isInterest: true,
+    interests:[
+      {cat:'Недвижимость', segs:['Покупка недвижимости','Зарубежная недвижимость','Новостройки','Инвестиции в недвижимость']},
+      {cat:'Эмиграция', segs:['Переезд за рубеж','Эмиграция','ВНЖ и гражданство','Релокация']},
+      {cat:'Финансы', segs:['Зарубежные инвестиции','Сохранение капитала','Валютные активы']},
+      {cat:'Поведение', segs:['Посещали сайты недвижимости Грузии','Look-alike по базе заявок','Искали «купить квартиру тбилиси»']},
+    ],
   },
 ];
 
@@ -1920,7 +1926,10 @@ function ydCampOverview() {
   return '<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:20px 0 24px">' +
     YD_CAMPS.map(c =>
       '<div style="border:1px solid ' + c.border + ';border-radius:8px;padding:13px 16px;background:' + c.bg + '">' +
-      '<div style="font-size:10px;font-weight:700;letter-spacing:0.09em;text-transform:uppercase;color:var(--text-tertiary);margin-bottom:4px">' + escHtml(c.id) + '</div>' +
+      '<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px">' +
+      '<span style="font-size:10px;font-weight:700;letter-spacing:0.09em;text-transform:uppercase;color:var(--text-tertiary)">' + escHtml(c.id) + '</span>' +
+      '<span style="font-size:9px;background:var(--bg-hover);border:1px solid var(--border-subtle);border-radius:3px;padding:1px 6px;color:var(--text-tertiary)">' + escHtml(c.type || 'Поиск') + '</span>' +
+      '</div>' +
       '<div style="font-size:13px;font-weight:500;color:var(--text-primary);margin-bottom:9px;line-height:1.3">' + escHtml(c.label) + '</div>' +
       '<div style="display:flex;gap:6px;flex-wrap:wrap">' +
       '<span style="font-size:10px;border:1px solid var(--border-subtle);border-radius:3px;padding:2px 7px;color:var(--text-tertiary)">Приоритет: ' + escHtml(c.priority) + '</span>' +
@@ -1966,22 +1975,44 @@ function ydSerp(camp) {
     '</div></div>';
 }
 
+function ydInterestBlock(c) {
+  const rows = (c.interests || []).map(it =>
+    '<div style="margin-bottom:12px">' +
+    '<div style="font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:0.07em;color:var(--text-tertiary);margin-bottom:5px">' + escHtml(it.cat) + '</div>' +
+    '<div style="display:flex;flex-wrap:wrap;gap:5px">' +
+    it.segs.map(s => '<span style="font-size:11px;background:rgba(140,100,220,.12);border:1px solid rgba(140,100,220,.25);border-radius:4px;padding:3px 9px;color:var(--text-secondary)">' + escHtml(s) + '</span>').join('') +
+    '</div></div>'
+  ).join('');
+  return '<div style="background:var(--bg-surface);border:1px solid var(--border-subtle);border-radius:8px;padding:14px 18px">' +
+    '<div style="font-size:11px;color:var(--text-tertiary);margin-bottom:12px">Таргетирование по интересам и поведению — не по ключевым словам (РСЯ)</div>' +
+    rows +
+    '<div style="margin-top:12px;padding-top:12px;border-top:1px solid var(--border-subtle)">' +
+    '<div style="font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:0.07em;color:var(--text-tertiary);margin-bottom:6px">Объявление РСЯ</div>' +
+    '<div style="background:var(--bg-hover);border:1px solid var(--border-subtle);border-radius:6px;padding:12px 14px">' +
+    '<div style="display:flex;align-items:center;gap:6px;margin-bottom:4px">' +
+    '<span style="background:#F5A623;color:#fff;font-size:9px;font-weight:700;padding:2px 6px;border-radius:3px">Реклама</span>' +
+    '<span style="font-size:11px;color:var(--text-tertiary)">● ' + escHtml(c.url) + '</span>' +
+    '</div>' +
+    '<div style="font-size:15px;font-weight:500;color:#5B9BD5;margin-bottom:5px">' + escHtml(c.heads[0]) + '</div>' +
+    '<div style="font-size:12px;color:var(--text-secondary);line-height:1.5;margin-bottom:8px">' + escHtml(c.texts[0]) + '</div>' +
+    '<div style="display:flex;flex-wrap:wrap;gap:5px">' +
+    c.sitelinks.map(sl => '<span style="font-size:11px;color:#5B9BD5;border:1px solid rgba(91,155,213,.3);border-radius:4px;padding:2px 9px">' + escHtml(sl) + '</span>').join('') +
+    '</div></div></div></div>';
+}
+
 function ydAdPreviews() {
-  return '<div style="margin-top:28px">' +
-    '<div style="font-size:11px;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:16px;font-weight:600">Превью объявлений — как выглядят в Яндексе</div>' +
-    YD_CAMPS.map(c =>
-      '<div style="border:1px solid ' + c.border + ';border-radius:10px;overflow:hidden;margin-bottom:16px">' +
-      '<div style="padding:10px 18px;background:' + c.bg + ';border-bottom:1px solid ' + c.border + ';display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px">' +
-      '<div style="display:flex;align-items:center;gap:8px">' +
-      '<span style="font-size:11px;font-weight:700;color:var(--text-primary)">' + escHtml(c.id) + '</span>' +
-      '<span style="font-size:11px;color:var(--text-secondary)">' + escHtml(c.label) + '</span>' +
-      '</div>' +
-      '<span style="font-size:10px;color:var(--text-tertiary)">' + c.heads.length + ' заголовков · 2 текста · ' + c.sitelinks.length + ' быстрых ссылки</span>' +
-      '</div>' +
-      '<div style="padding:14px 18px">' + ydSerp(c) + '</div>' +
-      '</div>'
-    ).join('') +
-  '</div>';
+  return YD_CAMPS.map(c =>
+    '<div style="border:1px solid ' + c.border + ';border-radius:10px;overflow:hidden;margin-bottom:16px">' +
+    '<div style="padding:10px 18px;background:' + c.bg + ';border-bottom:1px solid ' + c.border + ';display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px">' +
+    '<div style="display:flex;align-items:center;gap:8px">' +
+    '<span style="font-size:11px;font-weight:700;color:var(--text-primary)">' + escHtml(c.id) + '</span>' +
+    '<span style="font-size:11px;color:var(--text-secondary)">' + escHtml(c.label) + '</span>' +
+    '</div>' +
+    '<span style="font-size:9px;background:var(--bg-elevated);border:1px solid var(--border-subtle);border-radius:3px;padding:2px 7px;color:var(--text-tertiary)">' + escHtml(c.type || 'Поиск') + ' · ' + c.heads.length + ' заголовков</span>' +
+    '</div>' +
+    '<div style="padding:14px 18px">' + (c.isInterest ? ydInterestBlock(c) : ydSerp(c)) + '</div>' +
+    '</div>'
+  ).join('');
 }
 
 export function renderYandexStrategy(container) {
@@ -2033,9 +2064,9 @@ function ydRender(md) {
       const num   = m[1];
       const title = m[2];
       const body  = chunk.replace(/^## \d+\. .+/, '').trim();
-      const bodyHtml = ydBody(body);
-      // Section 07 — append ad previews
-      const extra = num === '07' ? ydAdPreviews() : '';
+      // Section 07 — previews only, no body text
+      const bodyHtml = num === '07' ? ydAdPreviews() : ydBody(body);
+      const extra = '';
       html +=
         '<div class="section-block" id="yd' + num + '">' +
         '<div class="section-block-header">' +
