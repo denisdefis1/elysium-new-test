@@ -2120,15 +2120,35 @@ function ydRender(md) {
       const body  = chunk.replace(/^## \d+\. .+/, '').trim();
       // Section 07 — previews only, no body text
       const bodyHtml = num === '07' ? ydAdPreviews() : ydBody(body);
-      const extra = '';
+      const YD_SECTION_DESC = {
+        '01':'Зачем и для кого запускаем рекламу',
+        '02':'Что продаём и почему покупают',
+        '03':'Где показываем объявления',
+        '04':'Как устроены кампании',
+        '05':'Ключевые слова по каждой кампании',
+        '06':'Что исключаем из показов',
+        '07':'Как выглядят объявления в Яндексе',
+        '08':'Как считаем результат',
+        '09':'На что смотрим',
+        '10':'Как улучшаем',
+        '11':'Открытые вопросы',
+        '12':'Настройки по регионам',
+        '13':'Итоговая структура и бюджет',
+        '14':'С чего начинаем',
+        '15':'Краткое резюме',
+      };
+      const desc = YD_SECTION_DESC[num] || '';
       html +=
         '<div class="section-block" id="yd' + num + '">' +
-        '<div class="section-block-header">' +
-        '<div class="section-block-num">' + num + '</div>' +
-        '<div class="section-block-title-wrap">' +
-        '<div class="section-block-title">' + escHtml(title) + '</div>' +
+        '<div style="display:flex;align-items:flex-start;gap:14px;margin-bottom:20px">' +
+        '<div style="display:flex;flex-direction:column;align-items:center;flex-shrink:0">' +
+        '<div style="width:34px;height:34px;border-radius:8px;background:rgba(255,200,0,.1);border:1px solid rgba(255,200,0,.25);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#FFC800;letter-spacing:0.02em">' + num + '</div>' +
+        '</div>' +
+        '<div style="flex:1;min-width:0;padding-top:4px">' +
+        '<div style="font-size:16px;font-weight:700;color:var(--text-primary);letter-spacing:-0.01em;line-height:1.2">' + escHtml(title) + '</div>' +
+        (desc ? '<div style="font-size:12px;color:var(--text-tertiary);margin-top:3px">' + escHtml(desc) + '</div>' : '') +
         '</div></div>' +
-        '<div>' + bodyHtml + extra + '</div>' +
+        '<div>' + bodyHtml + '</div>' +
         '</div>';
     }
   }
@@ -2146,7 +2166,7 @@ function ydBody(md) {
 
     // Horizontal rule (--- between subsections inside a section)
     if (line.trim() === '---') {
-      html += '<div style="height:1px;background:var(--border-subtle);margin:16px 0"></div>';
+      html += '<div style="display:flex;align-items:center;gap:10px;margin:22px 0"><div style="flex:1;height:1px;background:var(--border-subtle)"></div></div>';
       i++;
       continue;
     }
@@ -2175,9 +2195,13 @@ function ydBody(md) {
       continue;
     }
 
-    // ### ⚠️ НА УТВЕРЖДЕНИЕ — amber heading
+    // ### ⚠️ НА УТВЕРЖДЕНИЕ — amber banner
     if (line.startsWith('### ⚠️')) {
-      html += '<div style="display:flex;align-items:center;gap:8px;margin:18px 0 10px;font-size:13px;font-weight:600;color:#FFA000">' + escHtml(line.replace(/^### /, '').trim()) + '</div>';
+      const txt = escHtml(line.replace(/^### ⚠️\s*/, '').trim());
+      html += '<div style="display:flex;align-items:center;gap:10px;margin:18px 0 12px;padding:10px 16px;background:rgba(255,160,0,.08);border:1px solid rgba(255,160,0,.25);border-radius:8px;border-left:3px solid #FFA000">' +
+        '<span style="font-size:14px;flex-shrink:0">⚠️</span>' +
+        '<span style="font-size:13px;font-weight:600;color:#FFA000">' + txt + '</span>' +
+        '</div>';
       i++;
       continue;
     }
@@ -2188,48 +2212,63 @@ function ydBody(md) {
       const c = YD_CAMPS[idx] || {};
       const label = line.replace(/^### /, '').trim();
       html +=
-        '<div style="display:flex;align-items:center;gap:10px;margin:22px 0 10px;padding:9px 14px;background:' + (c.bg || 'var(--bg-elevated)') + ';border:1px solid ' + (c.border || 'var(--border-subtle)') + ';border-radius:6px">' +
-        '<span style="font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-tertiary);flex-shrink:0">' + escHtml(c.id || '') + '</span>' +
+        '<div style="display:flex;align-items:center;gap:10px;margin:24px 0 10px;padding:10px 16px;background:' + (c.bg || 'var(--bg-elevated)') + ';border:1px solid ' + (c.border || 'var(--border-subtle)') + ';border-radius:8px;border-left:3px solid ' + (c.clr || 'var(--border-subtle)') + '">' +
+        '<span style="font-size:10px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:' + (c.clr ? c.clr.replace('.7','1') : 'var(--text-tertiary)') + ';flex-shrink:0">' + escHtml(c.id || '') + '</span>' +
         '<span style="font-size:13px;font-weight:600;color:var(--text-primary)">' + ydInline(label.replace(/^YD-0\d\s*[—–-]\s*/, '')) + '</span>' +
         '</div>';
       i++;
       continue;
     }
 
-    // ### Regular subsection heading
+    // ### Regular subsection heading — left accent bar
     if (line.startsWith('### ')) {
-      html += '<div style="font-size:14px;font-weight:600;color:var(--text-primary);margin:20px 0 8px;padding-bottom:6px;border-bottom:1px solid var(--border-subtle)">' + ydInline(line.replace(/^### /, '').trim()) + '</div>';
+      html += '<div style="display:flex;align-items:center;gap:10px;margin:22px 0 10px">' +
+        '<div style="width:3px;height:16px;border-radius:2px;background:rgba(255,200,0,.5);flex-shrink:0"></div>' +
+        '<div style="font-size:14px;font-weight:700;color:var(--text-primary)">' + ydInline(line.replace(/^### /, '').trim()) + '</div>' +
+        '</div>';
       i++;
       continue;
     }
 
-    // Unordered list
+    // Unordered list — colored dot markers
     if (line.startsWith('- ')) {
       const items = [];
       while (i < lines.length && lines[i].startsWith('- ')) {
         items.push(lines[i].replace(/^- /, '').trim());
         i++;
       }
-      html += `<ul style="margin:8px 0 12px;padding-left:20px;display:flex;flex-direction:column;gap:4px">${items.map(it => `<li style="font-size:13px;color:var(--text-secondary);line-height:1.6">${ydInline(it)}</li>`).join('')}</ul>`;
+      html += '<div style="display:flex;flex-direction:column;gap:6px;margin:10px 0 14px">' +
+        items.map(it =>
+          '<div style="display:flex;align-items:flex-start;gap:10px">' +
+          '<div style="width:6px;height:6px;border-radius:50%;background:rgba(255,200,0,.5);flex-shrink:0;margin-top:6px"></div>' +
+          '<div style="font-size:13px;color:var(--text-primary);line-height:1.65">' + ydInline(it) + '</div>' +
+          '</div>'
+        ).join('') + '</div>';
       continue;
     }
 
-    // Ordered list
+    // Ordered list — numbered with accent
     if (/^\d+\. /.test(line)) {
       const items = [];
       while (i < lines.length && /^\d+\. /.test(lines[i])) {
         items.push(lines[i].replace(/^\d+\. /, '').trim());
         i++;
       }
-      html += `<ol style="margin:8px 0 12px;padding-left:20px;display:flex;flex-direction:column;gap:4px">${items.map(it => `<li style="font-size:13px;color:var(--text-secondary);line-height:1.6">${ydInline(it)}</li>`).join('')}</ol>`;
+      html += '<div style="display:flex;flex-direction:column;gap:6px;margin:10px 0 14px">' +
+        items.map((it, n) =>
+          '<div style="display:flex;align-items:flex-start;gap:10px">' +
+          '<div style="width:20px;height:20px;border-radius:5px;background:rgba(255,200,0,.1);border:1px solid rgba(255,200,0,.2);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:#FFC800;flex-shrink:0;margin-top:2px">' + (n + 1) + '</div>' +
+          '<div style="font-size:13px;color:var(--text-primary);line-height:1.65;flex:1">' + ydInline(it) + '</div>' +
+          '</div>'
+        ).join('') + '</div>';
       continue;
     }
 
     // Empty line
     if (!line.trim()) { i++; continue; }
 
-    // Paragraph
-    html += `<p style="font-size:13px;color:var(--text-secondary);line-height:1.7;margin:4px 0 10px">${ydInline(line)}</p>`;
+    // Paragraph — primary text for readability
+    html += '<p style="font-size:13px;color:var(--text-primary);line-height:1.75;margin:4px 0 10px;opacity:0.85">' + ydInline(line) + '</p>';
     i++;
   }
 
@@ -2242,11 +2281,11 @@ function ydTable(rows) {
   const cells = row => row.split('|').map(c => c.trim()).filter((_, idx, a) => idx > 0 && idx < a.length - 1);
   const header = cells(rows[0]);
   const body   = rows.slice(2); // skip separator row (|---|---|)
-  return `<div class="table-wrapper" style="margin:12px 0 16px">
-    <table class="kpi-table">
-      <thead><tr>${header.map(h => `<th style="text-align:left">${ydInline(h)}</th>`).join('')}</tr></thead>
+  return `<div class="table-wrapper" style="margin:12px 0 18px;border-radius:10px;overflow:hidden;border:1px solid var(--border-subtle)">
+    <table class="kpi-table" style="border:none;border-radius:0">
+      <thead><tr style="background:rgba(255,200,0,.06)">${header.map(h => `<th style="text-align:left;font-size:11px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:rgba(255,200,0,.7);padding:10px 14px;border-bottom:1px solid var(--border-subtle)">${ydInline(h)}</th>`).join('')}</tr></thead>
       <tbody>${body.map((r, idx) =>
-        `<tr style="${idx % 2 ? 'background:rgba(255,255,255,0.012)' : ''}">${cells(r).map(c => `<td style="font-size:12px">${ydInline(c)}</td>`).join('')}</tr>`
+        `<tr style="${idx % 2 ? 'background:rgba(255,255,255,0.018)' : ''}">${cells(r).map(c => `<td style="font-size:12.5px;color:var(--text-primary);padding:9px 14px;border-bottom:1px solid rgba(255,255,255,0.04)">${ydInline(c)}</td>`).join('')}</tr>`
       ).join('')}</tbody>
     </table>
   </div>`;
@@ -2255,8 +2294,8 @@ function ydTable(rows) {
 /* Inline formatting: escape HTML first, then apply **bold** and `code` */
 function ydInline(text) {
   return escHtml(text)
-    .replace(/\*\*(.+?)\*\*/g, '<strong style="color:var(--text-primary)">$1</strong>')
-    .replace(/`([^`]+)`/g,     '<code style="background:var(--bg-hover);padding:1px 5px;border-radius:3px;font-size:11px;font-family:var(--font-mono)">$1</code>');
+    .replace(/\*\*(.+?)\*\*/g, '<strong style="color:var(--text-primary);font-weight:700">$1</strong>')
+    .replace(/`([^`]+)`/g,     '<code style="background:rgba(255,200,0,.1);border:1px solid rgba(255,200,0,.2);color:#FFC800;padding:1px 6px;border-radius:4px;font-size:11px;font-family:var(--font-mono)">$1</code>');
 }
 
 /* ============================================================
