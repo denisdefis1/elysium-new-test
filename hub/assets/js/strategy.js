@@ -1868,6 +1868,122 @@ function renderS17(research) {
    Bundled via scripts/build_bundle.js → window.__ELYSIUM_DATA__.yandexStrategy
    ============================================================ */
 
+/* ── Campaign data (ads + budget) ── */
+const YD_CAMPS = [
+  {
+    id:'YD-01', label:'Покупка недвижимости в Тбилиси', priority:'Высокий', budget:11250,
+    bg:'rgba(80,180,120,.06)', border:'rgba(80,180,120,.28)', clr:'rgba(80,180,120,.7)',
+    url:'elysiumtbilisi.com › квартиры-тбилиси',
+    heads:['Купить квартиру в Тбилиси','Бутик-резиденция — 14 апартаментов','Дом введён в эксплуатацию','Апартаменты от 130 м²','Новостройка от застройщика'],
+    texts:[
+      'Бутик-резиденция в Тбилиси. Только 14 апартаментов от 130 м². Дом введён в эксплуатацию. Запросите планировки.',
+      '2 апартамента на этаже. Свободная планировка, паркинг, панорамный вид. Дом сдан. Запросить информацию.',
+    ],
+    sitelinks:['Запросить планировки','Апартаменты от 130 м²','14 апартаментов','Дом сдан'],
+  },
+  {
+    id:'YD-02', label:'Премиум / элитная недвижимость', priority:'Высокий', budget:11250,
+    bg:'rgba(196,168,100,.06)', border:'rgba(196,168,100,.28)', clr:'rgba(196,168,100,.7)',
+    url:'elysiumtbilisi.com › элитная-недвижимость',
+    heads:['Элитная резиденция в Тбилиси','Бутик — не жилой комплекс','Только 14 апартаментов','2 соседа на этаже','Дом сдан. От 130 м².'],
+    texts:[
+      'ELYSIUM — бутик-резиденция, не ЖК. 14 апартаментов от 130 м². Панорамный вид, паркинг, автономность. Дом введён в эксплуатацию.',
+      'Приватность: 2 апартамента на этаже. Свободная планировка. Дом сдан — въезжайте сразу. Запросите информацию.',
+    ],
+    sitelinks:['Запросить информацию','Элитные апартаменты','О резиденции','Контакты'],
+  },
+  {
+    id:'YD-03', label:'Районы / локация', priority:'Средний', budget:11250,
+    bg:'rgba(100,160,220,.06)', border:'rgba(100,160,220,.28)', clr:'rgba(100,160,220,.7)',
+    url:'elysiumtbilisi.com › апартаменты-тбилиси',
+    heads:['Квартиры в Тбилиси','Бутик-резиденция. 14 апартаментов.','Дом введён в эксплуатацию','Апартаменты от 130 м²','Рассмотрите ELYSIUM'],
+    texts:[
+      'Рассматриваете квартиры в Тбилиси? ELYSIUM — бутик-резиденция, 14 апартаментов от 130 м². Дом сдан. Запросите планировки.',
+      'Только 14 апартаментов в доме. 2 квартиры на этаже. Паркинг, панорамный вид, автономность. Дом введён в эксплуатацию.',
+    ],
+    sitelinks:['Запросить планировки','Районы Тбилиси','О резиденции','Контакты'],
+  },
+  {
+    id:'YD-04', label:'Конкуренты', priority:'Средний', budget:11250,
+    bg:'rgba(220,100,60,.06)', border:'rgba(220,100,60,.28)', clr:'rgba(220,100,60,.7)',
+    url:'elysiumtbilisi.com › выбрать',
+    heads:['Рассматриваете недвижимость Тбилиси?','ELYSIUM — бутик. 14 апартаментов.','Дом введён в эксплуатацию','Сравните варианты','Апартаменты от 130 м²'],
+    texts:[
+      'Выбираете недвижимость в Тбилиси? ELYSIUM — бутик-резиденция, только 14 апартаментов от 130 м². Дом сдан. Запросите информацию.',
+      '14 апартаментов. 2 соседа на этаже. Панорамный вид, паркинг, автономность. Дом введён в эксплуатацию. Запросить планировки.',
+    ],
+    sitelinks:['Запросить информацию','Апартаменты от 130 м²','О проекте','Контакты'],
+  },
+];
+
+function ydCampOverview() {
+  return '<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:20px 0 24px">' +
+    YD_CAMPS.map(c =>
+      '<div style="border:1px solid ' + c.border + ';border-radius:8px;padding:13px 16px;background:' + c.bg + '">' +
+      '<div style="font-size:10px;font-weight:700;letter-spacing:0.09em;text-transform:uppercase;color:var(--text-tertiary);margin-bottom:4px">' + escHtml(c.id) + '</div>' +
+      '<div style="font-size:13px;font-weight:500;color:var(--text-primary);margin-bottom:9px;line-height:1.3">' + escHtml(c.label) + '</div>' +
+      '<div style="display:flex;gap:6px;flex-wrap:wrap">' +
+      '<span style="font-size:10px;border:1px solid var(--border-subtle);border-radius:3px;padding:2px 7px;color:var(--text-tertiary)">Приоритет: ' + escHtml(c.priority) + '</span>' +
+      '<span style="font-size:10px;background:rgba(255,166,35,.1);border:1px solid rgba(255,166,35,.3);border-radius:3px;padding:2px 7px;color:#FFA623">25% · ' + c.budget.toLocaleString('ru-RU') + ' ₽</span>' +
+      '</div></div>'
+    ).join('') +
+  '</div>';
+}
+
+function ydBudgetWidget() {
+  return '<div style="background:var(--bg-elevated);border:1px solid var(--border-subtle);border-radius:10px;padding:18px 20px;margin:0 0 4px">' +
+    '<div style="display:flex;align-items:baseline;gap:10px;margin-bottom:14px">' +
+    '<span style="font-size:20px;font-weight:600;color:var(--text-primary)">~45 000 ₽/мес</span>' +
+    '<span style="font-size:12px;color:var(--text-tertiary)">≈ $500 · Равномерно по 25% на каждую кампанию</span>' +
+    '</div>' +
+    '<div style="display:flex;height:6px;border-radius:3px;overflow:hidden;gap:3px;margin-bottom:14px">' +
+    YD_CAMPS.map(c => '<div style="flex:1;background:' + c.clr + ';border-radius:2px"></div>').join('') +
+    '</div>' +
+    '<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px">' +
+    YD_CAMPS.map(c =>
+      '<div style="text-align:center">' +
+      '<div style="font-size:10px;font-weight:700;color:var(--text-tertiary);margin-bottom:2px">' + escHtml(c.id) + '</div>' +
+      '<div style="font-size:14px;font-weight:600;color:var(--text-primary)">' + c.budget.toLocaleString('ru-RU') + ' ₽</div>' +
+      '<div style="font-size:10px;color:var(--text-tertiary)">25%</div>' +
+      '</div>'
+    ).join('') +
+    '</div></div>';
+}
+
+function ydSerp(camp) {
+  const headline = camp.heads.slice(0, 3).join(' | ');
+  return '<div style="background:var(--bg-surface);border:1px solid var(--border-subtle);border-radius:8px;padding:14px 18px;font-family:Arial,sans-serif">' +
+    '<div style="display:flex;align-items:center;gap:8px;margin-bottom:5px">' +
+    '<span style="background:#F5A623;color:#fff;font-size:9px;font-weight:700;padding:2px 6px;border-radius:3px;letter-spacing:0.05em;flex-shrink:0">Реклама</span>' +
+    '<span style="font-size:11px;color:var(--text-tertiary);overflow:hidden;text-overflow:ellipsis;white-space:nowrap">● ' + escHtml(camp.url) + '</span>' +
+    '</div>' +
+    '<div style="font-size:16px;font-weight:400;color:#5B9BD5;line-height:1.35;margin-bottom:6px">' + escHtml(headline) + '</div>' +
+    camp.texts.map(t => '<div style="font-size:12px;color:var(--text-secondary);line-height:1.55;margin-bottom:3px">' + escHtml(t) + '</div>').join('') +
+    '<div style="display:flex;flex-wrap:wrap;gap:5px;margin-top:10px;padding-top:10px;border-top:1px solid var(--border-subtle)">' +
+    camp.sitelinks.map(sl =>
+      '<span style="font-size:11px;color:#5B9BD5;border:1px solid rgba(91,155,213,.3);border-radius:4px;padding:3px 9px">' + escHtml(sl) + '</span>'
+    ).join('') +
+    '</div></div>';
+}
+
+function ydAdPreviews() {
+  return '<div style="margin-top:28px">' +
+    '<div style="font-size:11px;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:16px;font-weight:600">Превью объявлений — как выглядят в Яндексе</div>' +
+    YD_CAMPS.map(c =>
+      '<div style="border:1px solid ' + c.border + ';border-radius:10px;overflow:hidden;margin-bottom:16px">' +
+      '<div style="padding:10px 18px;background:' + c.bg + ';border-bottom:1px solid ' + c.border + ';display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px">' +
+      '<div style="display:flex;align-items:center;gap:8px">' +
+      '<span style="font-size:11px;font-weight:700;color:var(--text-primary)">' + escHtml(c.id) + '</span>' +
+      '<span style="font-size:11px;color:var(--text-secondary)">' + escHtml(c.label) + '</span>' +
+      '</div>' +
+      '<span style="font-size:10px;color:var(--text-tertiary)">' + c.heads.length + ' заголовков · 2 текста · ' + c.sitelinks.length + ' быстрых ссылки</span>' +
+      '</div>' +
+      '<div style="padding:14px 18px">' + ydSerp(c) + '</div>' +
+      '</div>'
+    ).join('') +
+  '</div>';
+}
+
 export function renderYandexStrategy(container) {
   const md = window.__ELYSIUM_DATA__ && window.__ELYSIUM_DATA__.yandexStrategy;
   if (!md) {
@@ -1877,9 +1993,8 @@ export function renderYandexStrategy(container) {
   container.innerHTML = ydRender(md);
 }
 
-/* Split markdown by --- dividers, render each block */
+/* Split markdown by top-level headings, render each block with design enhancements */
 function ydRender(md) {
-  // Split by top-level headings (# or ## NN.) to preserve --- dividers inside sections
   const chunks = [];
   let cur = '';
   for (const line of md.split('\n')) {
@@ -1896,17 +2011,19 @@ function ydRender(md) {
   for (const chunk of chunks) {
     if (!chunk) continue;
 
-    // Title block (H1 + status line)
+    // Title block (H1 + status)
     if (chunk.startsWith('# ')) {
       const title  = (chunk.match(/^# (.+)/m)              || [])[1] || '';
       const status = (chunk.match(/\*\*СТАТУС:\s*(.+?)\*\*/) || [])[1] || '';
-      html += `
-        <div class="section-block" style="padding-bottom:24px;border-bottom:1px solid var(--border-subtle);margin-bottom:8px">
-          <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap">
-            <div style="font-size:20px;font-weight:600;color:var(--text-primary);letter-spacing:-0.01em">${escHtml(title)}</div>
-            ${status ? `<span style="font-size:11px;background:rgba(80,200,120,0.15);color:#6fcf97;border-radius:4px;padding:3px 10px;font-weight:500;letter-spacing:0.04em;flex-shrink:0">✓ ${escHtml(status)}</span>` : ''}
-          </div>
-        </div>`;
+      html +=
+        '<div class="section-block" style="padding-bottom:20px;border-bottom:1px solid var(--border-subtle);margin-bottom:8px">' +
+        '<div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:16px">' +
+        '<div style="font-size:20px;font-weight:600;color:var(--text-primary);letter-spacing:-0.01em">' + escHtml(title) + '</div>' +
+        (status ? '<span style="font-size:11px;background:rgba(80,200,120,0.15);color:#6fcf97;border-radius:4px;padding:3px 10px;font-weight:500;letter-spacing:0.04em;flex-shrink:0">✓ ' + escHtml(status) + '</span>' : '') +
+        '</div>' +
+        ydCampOverview() +
+        ydBudgetWidget() +
+        '</div>';
       continue;
     }
 
@@ -1916,16 +2033,18 @@ function ydRender(md) {
       const num   = m[1];
       const title = m[2];
       const body  = chunk.replace(/^## \d+\. .+/, '').trim();
-      html += `
-        <div class="section-block" id="yd${num}">
-          <div class="section-block-header">
-            <div class="section-block-num">${num}</div>
-            <div class="section-block-title-wrap">
-              <div class="section-block-title">${escHtml(title)}</div>
-            </div>
-          </div>
-          <div>${ydBody(body)}</div>
-        </div>`;
+      const bodyHtml = ydBody(body);
+      // Section 07 — append ad previews
+      const extra = num === '07' ? ydAdPreviews() : '';
+      html +=
+        '<div class="section-block" id="yd' + num + '">' +
+        '<div class="section-block-header">' +
+        '<div class="section-block-num">' + num + '</div>' +
+        '<div class="section-block-title-wrap">' +
+        '<div class="section-block-title">' + escHtml(title) + '</div>' +
+        '</div></div>' +
+        '<div>' + bodyHtml + extra + '</div>' +
+        '</div>';
     }
   }
   return html;
@@ -1973,14 +2092,28 @@ function ydBody(md) {
 
     // ### ⚠️ НА УТВЕРЖДЕНИЕ — amber heading
     if (line.startsWith('### ⚠️')) {
-      html += `<div style="display:flex;align-items:center;gap:8px;margin:18px 0 10px;font-size:13px;font-weight:600;color:#FFA000">${escHtml(line.replace(/^### /, '').trim())}</div>`;
+      html += '<div style="display:flex;align-items:center;gap:8px;margin:18px 0 10px;font-size:13px;font-weight:600;color:#FFA000">' + escHtml(line.replace(/^### /, '').trim()) + '</div>';
+      i++;
+      continue;
+    }
+
+    // ### YD-0N campaign heading — colored by campaign
+    if (/^### YD-0(\d)/.test(line)) {
+      const idx = parseInt(line.match(/YD-0(\d)/)[1]) - 1;
+      const c = YD_CAMPS[idx] || {};
+      const label = line.replace(/^### /, '').trim();
+      html +=
+        '<div style="display:flex;align-items:center;gap:10px;margin:22px 0 10px;padding:9px 14px;background:' + (c.bg || 'var(--bg-elevated)') + ';border:1px solid ' + (c.border || 'var(--border-subtle)') + ';border-radius:6px">' +
+        '<span style="font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-tertiary);flex-shrink:0">' + escHtml(c.id || '') + '</span>' +
+        '<span style="font-size:13px;font-weight:600;color:var(--text-primary)">' + ydInline(label.replace(/^YD-0\d\s*[—–-]\s*/, '')) + '</span>' +
+        '</div>';
       i++;
       continue;
     }
 
     // ### Regular subsection heading
     if (line.startsWith('### ')) {
-      html += `<div style="font-size:14px;font-weight:600;color:var(--text-primary);margin:20px 0 8px;padding-bottom:6px;border-bottom:1px solid var(--border-subtle)">${ydInline(line.replace(/^### /, '').trim())}</div>`;
+      html += '<div style="font-size:14px;font-weight:600;color:var(--text-primary);margin:20px 0 8px;padding-bottom:6px;border-bottom:1px solid var(--border-subtle)">' + ydInline(line.replace(/^### /, '').trim()) + '</div>';
       i++;
       continue;
     }
