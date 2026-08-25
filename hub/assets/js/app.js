@@ -3,9 +3,9 @@
    app.js — Main Controller & Router
    ============================================================ */
 
-import { loadAllGoogleData } from './data.js';
-import { renderGoogleStrategy, renderYandexStrategy, renderMetaStrategy } from './strategy.js';
-import { renderAnalytics } from './analytics.js';
+import { loadAllGoogleData } from './data.js?v=2';
+import { renderGoogleStrategy, renderYandexStrategy, renderMetaStrategy } from './strategy.js?v=2';
+import { renderAnalytics } from './analytics.js?v=2';
 
 /* ============================================================
    STATE

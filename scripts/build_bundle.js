@@ -28,5 +28,15 @@ for (const [key, file] of Object.entries(files)) {
   out += `window.__ELYSIUM_DATA__.${key} = ${json};\n`;
 }
 
+// Yandex Direct strategy markdown
+const yandexMdPath = path.join(__dirname, '..', 'hub', 'data', 'yandex', 'strategy.md');
+if (fs.existsSync(yandexMdPath)) {
+  const md = fs.readFileSync(yandexMdPath, 'utf8');
+  out += `window.__ELYSIUM_DATA__.yandexStrategy = ${JSON.stringify(md)};\n`;
+  console.log('  + yandexStrategy (hub/data/yandex/strategy.md)');
+} else {
+  console.warn('  SKIP (not found): hub/data/yandex/strategy.md');
+}
+
 fs.writeFileSync(outFile, out, 'utf8');
 console.log('data-bundle.js rebuilt OK');

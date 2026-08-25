@@ -1864,82 +1864,181 @@ function renderS17(research) {
 }
 
 /* ============================================================
-   YANDEX STRATEGY (DATA PENDING)
+   YANDEX DIRECT STRATEGY — rendered from hub/data/yandex/strategy.md
+   Bundled via scripts/build_bundle.js → window.__ELYSIUM_DATA__.yandexStrategy
    ============================================================ */
 
 export function renderYandexStrategy(container) {
-  const sections = [
-    ['00','Executive Summary'],['01','Business & Product'],['02','Market & Search Demand'],
-    ['03','Geo & Language Strategy'],['04','Search Intent'],['05','Keyword Architecture'],
-    ['06','Campaign Architecture'],['07','Competitor Strategy'],['08','Negative Keywords'],
-    ['09','Ads & Messaging'],['10','Landing Page Strategy'],['11','Budget & Bidding'],
-    ['12','Conversion & Analytics'],['13','Optimization System'],['14','Testing Framework'],
-    ['15','KPI Framework'],['16','90-Day Roadmap'],['17','Research & QA'],
-  ];
-
-  container.innerHTML = `
-    <div class="note-box warning" style="margin-bottom:40px">
-      <span class="note-box-icon">⚠</span>
-      <div>
-        <strong>Yandex Direct не входит в текущий охват стратегии.</strong>
-        Вкладка сохранена для будущего планирования. Google Ads — единственный активный канал в текущей стратегии.
-        Статус: <strong>Не в охвате / Данные ожидаются</strong>
-      </div>
-    </div>
-
-    ${sections.map(([num, title]) => num === '03' ? renderYandexGeo(num, title) : renderPendingSection(num, title)).join('')}
-  `;
+  const md = window.__ELYSIUM_DATA__ && window.__ELYSIUM_DATA__.yandexStrategy;
+  if (!md) {
+    container.innerHTML = '<div class="note-box warning" style="margin-top:40px"><span class="note-box-icon">⚠</span><div><strong>Yandex Direct strategy not loaded.</strong> Rebuild the bundle: <code>node scripts/build_bundle.js</code></div></div>';
+    return;
+  }
+  container.innerHTML = ydRender(md);
 }
 
-function renderYandexGeo(num, title) {
-  return `
-    <div class="section-block" id="y${num}">
-      <div class="section-block-header">
-        <div class="section-block-num">${num}</div>
-        <div class="section-block-title-wrap">
-          <div class="section-block-title">${title}</div>
-        </div>
-      </div>
-      <div class="three-col">
-        <div class="geo-card"><div class="geo-flag">🇮🇱</div><div class="geo-name">Israel</div>
-          <div class="geo-facts">
-            <div class="geo-fact">RU primary · EN secondary</div>
-            <div class="geo-fact">Significant Russian-speaking population</div>
+/* Split markdown by --- dividers, render each block */
+function ydRender(md) {
+  // Split by top-level headings (# or ## NN.) to preserve --- dividers inside sections
+  const chunks = [];
+  let cur = '';
+  for (const line of md.split('\n')) {
+    if (line.startsWith('# ') || /^## \d+\./.test(line)) {
+      if (cur.trim()) chunks.push(cur.trim());
+      cur = line + '\n';
+    } else {
+      cur += line + '\n';
+    }
+  }
+  if (cur.trim()) chunks.push(cur.trim());
+
+  let html = '';
+  for (const chunk of chunks) {
+    if (!chunk) continue;
+
+    // Title block (H1 + status line)
+    if (chunk.startsWith('# ')) {
+      const title  = (chunk.match(/^# (.+)/m)              || [])[1] || '';
+      const status = (chunk.match(/\*\*СТАТУС:\s*(.+?)\*\*/) || [])[1] || '';
+      html += `
+        <div class="section-block" style="padding-bottom:24px;border-bottom:1px solid var(--border-subtle);margin-bottom:8px">
+          <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap">
+            <div style="font-size:20px;font-weight:600;color:var(--text-primary);letter-spacing:-0.01em">${escHtml(title)}</div>
+            ${status ? `<span style="font-size:11px;background:rgba(80,200,120,0.15);color:#6fcf97;border-radius:4px;padding:3px 10px;font-weight:500;letter-spacing:0.04em;flex-shrink:0">✓ ${escHtml(status)}</span>` : ''}
           </div>
-        </div>
-        <div class="geo-card"><div class="geo-flag">🇺🇦</div><div class="geo-name">Ukraine</div>
-          <div class="geo-facts">
-            <div class="geo-fact">RU primary market</div>
-            <div class="geo-fact">Historically significant Yandex presence</div>
+        </div>`;
+      continue;
+    }
+
+    // Numbered section ## NN. Title
+    const m = chunk.match(/^## (\d+)\. (.+)/m);
+    if (m) {
+      const num   = m[1];
+      const title = m[2];
+      const body  = chunk.replace(/^## \d+\. .+/, '').trim();
+      html += `
+        <div class="section-block" id="yd${num}">
+          <div class="section-block-header">
+            <div class="section-block-num">${num}</div>
+            <div class="section-block-title-wrap">
+              <div class="section-block-title">${escHtml(title)}</div>
+            </div>
           </div>
-        </div>
-        <div class="geo-card"><div class="geo-flag">🇧🇾</div><div class="geo-name">Belarus</div>
-          <div class="geo-facts">
-            <div class="geo-fact">RU primary market</div>
-            <div class="geo-fact">Strong Yandex historical presence</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  `;
+          <div>${ydBody(body)}</div>
+        </div>`;
+    }
+  }
+  return html;
 }
 
-function renderPendingSection(num, title) {
-  return `
-    <div class="section-block" id="y${num}">
-      <div class="section-block-header">
-        <div class="section-block-num">${num}</div>
-        <div class="section-block-title-wrap">
-          <div class="section-block-title">${title}</div>
-        </div>
-      </div>
-      <div class="data-pending">
-        <div class="data-pending-icon">⏳</div>
-        <div class="data-pending-label">Данные ожидаются</div>
-        <div class="data-pending-desc">Не в текущем охвате. Канал сохранён для будущего стратегического решения.</div>
-      </div>
-    </div>
-  `;
+/* Inline Markdown-to-HTML for section bodies */
+function ydBody(md) {
+  const lines = md.split('\n');
+  let html = '';
+  let i = 0;
+
+  while (i < lines.length) {
+    const line = lines[i];
+
+    // Horizontal rule (--- between subsections inside a section)
+    if (line.trim() === '---') {
+      html += '<div style="height:1px;background:var(--border-subtle);margin:16px 0"></div>';
+      i++;
+      continue;
+    }
+
+    // Fenced code block
+    if (line.startsWith('```')) {
+      const codeLines = [];
+      i++;
+      while (i < lines.length && !lines[i].startsWith('```')) {
+        codeLines.push(lines[i]);
+        i++;
+      }
+      i++; // closing ```
+      html += `<div style="background:var(--bg-elevated);border:1px solid var(--border-subtle);border-radius:8px;padding:16px 20px;margin:12px 0;overflow-x:auto"><pre style="margin:0;font-family:var(--font-mono);font-size:12px;color:var(--text-secondary);line-height:1.8;white-space:pre-wrap;word-break:break-word">${escHtml(codeLines.join('\n').trim())}</pre></div>`;
+      continue;
+    }
+
+    // Markdown table
+    if (line.startsWith('|')) {
+      const tableLines = [];
+      while (i < lines.length && lines[i].startsWith('|')) {
+        tableLines.push(lines[i]);
+        i++;
+      }
+      html += ydTable(tableLines);
+      continue;
+    }
+
+    // ### ⚠️ НА УТВЕРЖДЕНИЕ — amber heading
+    if (line.startsWith('### ⚠️')) {
+      html += `<div style="display:flex;align-items:center;gap:8px;margin:18px 0 10px;font-size:13px;font-weight:600;color:#FFA000">${escHtml(line.replace(/^### /, '').trim())}</div>`;
+      i++;
+      continue;
+    }
+
+    // ### Regular subsection heading
+    if (line.startsWith('### ')) {
+      html += `<div style="font-size:14px;font-weight:600;color:var(--text-primary);margin:20px 0 8px;padding-bottom:6px;border-bottom:1px solid var(--border-subtle)">${ydInline(line.replace(/^### /, '').trim())}</div>`;
+      i++;
+      continue;
+    }
+
+    // Unordered list
+    if (line.startsWith('- ')) {
+      const items = [];
+      while (i < lines.length && lines[i].startsWith('- ')) {
+        items.push(lines[i].replace(/^- /, '').trim());
+        i++;
+      }
+      html += `<ul style="margin:8px 0 12px;padding-left:20px;display:flex;flex-direction:column;gap:4px">${items.map(it => `<li style="font-size:13px;color:var(--text-secondary);line-height:1.6">${ydInline(it)}</li>`).join('')}</ul>`;
+      continue;
+    }
+
+    // Ordered list
+    if (/^\d+\. /.test(line)) {
+      const items = [];
+      while (i < lines.length && /^\d+\. /.test(lines[i])) {
+        items.push(lines[i].replace(/^\d+\. /, '').trim());
+        i++;
+      }
+      html += `<ol style="margin:8px 0 12px;padding-left:20px;display:flex;flex-direction:column;gap:4px">${items.map(it => `<li style="font-size:13px;color:var(--text-secondary);line-height:1.6">${ydInline(it)}</li>`).join('')}</ol>`;
+      continue;
+    }
+
+    // Empty line
+    if (!line.trim()) { i++; continue; }
+
+    // Paragraph
+    html += `<p style="font-size:13px;color:var(--text-secondary);line-height:1.7;margin:4px 0 10px">${ydInline(line)}</p>`;
+    i++;
+  }
+
+  return html;
+}
+
+/* Render a markdown table (array of | row | strings) */
+function ydTable(rows) {
+  if (rows.length < 2) return '';
+  const cells = row => row.split('|').map(c => c.trim()).filter((_, idx, a) => idx > 0 && idx < a.length - 1);
+  const header = cells(rows[0]);
+  const body   = rows.slice(2); // skip separator row (|---|---|)
+  return `<div class="table-wrapper" style="margin:12px 0 16px">
+    <table class="kpi-table">
+      <thead><tr>${header.map(h => `<th style="text-align:left">${ydInline(h)}</th>`).join('')}</tr></thead>
+      <tbody>${body.map((r, idx) =>
+        `<tr style="${idx % 2 ? 'background:rgba(255,255,255,0.012)' : ''}">${cells(r).map(c => `<td style="font-size:12px">${ydInline(c)}</td>`).join('')}</tr>`
+      ).join('')}</tbody>
+    </table>
+  </div>`;
+}
+
+/* Inline formatting: escape HTML first, then apply **bold** and `code` */
+function ydInline(text) {
+  return escHtml(text)
+    .replace(/\*\*(.+?)\*\*/g, '<strong style="color:var(--text-primary)">$1</strong>')
+    .replace(/`([^`]+)`/g,     '<code style="background:var(--bg-hover);padding:1px 5px;border-radius:3px;font-size:11px;font-family:var(--font-mono)">$1</code>');
 }
 
 /* ============================================================
