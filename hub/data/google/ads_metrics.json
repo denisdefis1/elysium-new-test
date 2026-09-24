@@ -1,9 +1,9 @@
 {
   "status": "ok",
-  "fetched_at": "2026-09-23",
+  "fetched_at": "2026-09-24",
   "period": {
     "date_from": "2025-10-09",
-    "date_to": "2026-09-23"
+    "date_to": "2026-09-24"
   },
   "account": {
     "id": "6309630233",
@@ -31,7 +31,7 @@
     {
       "id": "24255437888",
       "name": "Competitors RU+EN v2",
-      "status": "ENABLED",
+      "status": "PAUSED",
       "channel": "SEARCH"
     },
     {
@@ -49,12 +49,24 @@
     {
       "id": "24255437492",
       "name": "Purchase EN v2",
+      "status": "PAUSED",
+      "channel": "SEARCH"
+    },
+    {
+      "id": "24289325719",
+      "name": "Purchase EN — GEO",
       "status": "ENABLED",
       "channel": "SEARCH"
     },
     {
       "id": "24254001344",
       "name": "Purchase IL",
+      "status": "PAUSED",
+      "channel": "SEARCH"
+    },
+    {
+      "id": "24283624229",
+      "name": "Purchase IL — GEO",
       "status": "ENABLED",
       "channel": "SEARCH"
     },
@@ -67,6 +79,12 @@
     {
       "id": "24249924945",
       "name": "Purchase RU v2",
+      "status": "PAUSED",
+      "channel": "SEARCH"
+    },
+    {
+      "id": "24278182941",
+      "name": "Purchase RU — GEO",
       "status": "ENABLED",
       "channel": "SEARCH"
     },
@@ -139,71 +157,124 @@
   ],
   "daily": [
     {
+      "date": "2026-09-24",
+      "campaigns": [
+        {
+          "id": "24255437492",
+          "name": "Purchase EN v2",
+          "status": "PAUSED",
+          "type": "SEARCH",
+          "impressions": 35,
+          "clicks": 6,
+          "cost_usd": 7.36,
+          "ctr_pct": 17.1429,
+          "avg_cpc_usd": 1.2267,
+          "conversions": 0.0,
+          "cpl_usd": null,
+          "search_is_pct": 9.99,
+          "lost_is_budget": 90.01,
+          "lost_is_rank": 0.91
+        },
+        {
+          "id": "24249924945",
+          "name": "Purchase RU v2",
+          "status": "PAUSED",
+          "type": "SEARCH",
+          "impressions": 23,
+          "clicks": 4,
+          "cost_usd": 5.6,
+          "ctr_pct": 17.3913,
+          "avg_cpc_usd": 1.4,
+          "conversions": 0.0,
+          "cpl_usd": null,
+          "search_is_pct": 9.99,
+          "lost_is_budget": 89.96,
+          "lost_is_rank": 3.72
+        },
+        {
+          "id": "24255437888",
+          "name": "Competitors RU+EN v2",
+          "status": "PAUSED",
+          "type": "SEARCH",
+          "impressions": 50,
+          "clicks": 3,
+          "cost_usd": 1.49,
+          "ctr_pct": 6.0,
+          "avg_cpc_usd": 0.4967,
+          "conversions": 0.0,
+          "cpl_usd": null,
+          "search_is_pct": 16.13,
+          "lost_is_budget": null,
+          "lost_is_rank": 83.87
+        }
+      ]
+    },
+    {
       "date": "2026-09-23",
       "campaigns": [
         {
           "id": "24254001344",
           "name": "Purchase IL",
-          "status": "ENABLED",
+          "status": "PAUSED",
           "type": "SEARCH",
-          "impressions": 123,
-          "clicks": 11,
-          "cost_usd": 24.45,
-          "ctr_pct": 8.9431,
-          "avg_cpc_usd": 2.2227,
+          "impressions": 166,
+          "clicks": 14,
+          "cost_usd": 25.81,
+          "ctr_pct": 8.4337,
+          "avg_cpc_usd": 1.8436,
           "conversions": 0.0,
           "cpl_usd": null,
-          "search_is_pct": null,
-          "lost_is_budget": null,
-          "lost_is_rank": null
+          "search_is_pct": 45.81,
+          "lost_is_budget": 0.99,
+          "lost_is_rank": 53.2
         },
         {
           "id": "24249924945",
           "name": "Purchase RU v2",
-          "status": "ENABLED",
+          "status": "PAUSED",
           "type": "SEARCH",
-          "impressions": 49,
-          "clicks": 9,
-          "cost_usd": 13.07,
-          "ctr_pct": 18.3673,
-          "avg_cpc_usd": 1.4522,
+          "impressions": 97,
+          "clicks": 13,
+          "cost_usd": 18.03,
+          "ctr_pct": 13.4021,
+          "avg_cpc_usd": 1.3869,
           "conversions": 0.0,
           "cpl_usd": null,
-          "search_is_pct": null,
-          "lost_is_budget": null,
-          "lost_is_rank": null
+          "search_is_pct": 9.99,
+          "lost_is_budget": 90.01,
+          "lost_is_rank": 3.9
         },
         {
           "id": "24255437492",
           "name": "Purchase EN v2",
-          "status": "ENABLED",
+          "status": "PAUSED",
           "type": "SEARCH",
-          "impressions": 137,
-          "clicks": 12,
-          "cost_usd": 11.66,
-          "ctr_pct": 8.7591,
-          "avg_cpc_usd": 0.9717,
+          "impressions": 166,
+          "clicks": 16,
+          "cost_usd": 17.25,
+          "ctr_pct": 9.6386,
+          "avg_cpc_usd": 1.0781,
           "conversions": 0.0,
           "cpl_usd": null,
-          "search_is_pct": null,
-          "lost_is_budget": null,
-          "lost_is_rank": null
+          "search_is_pct": 9.99,
+          "lost_is_budget": 90.01,
+          "lost_is_rank": 1.48
         },
         {
           "id": "24255437888",
           "name": "Competitors RU+EN v2",
-          "status": "ENABLED",
+          "status": "PAUSED",
           "type": "SEARCH",
-          "impressions": 190,
-          "clicks": 9,
-          "cost_usd": 2.95,
-          "ctr_pct": 4.7368,
-          "avg_cpc_usd": 0.3278,
+          "impressions": 358,
+          "clicks": 17,
+          "cost_usd": 6.05,
+          "ctr_pct": 4.7486,
+          "avg_cpc_usd": 0.3559,
           "conversions": 0.0,
           "cpl_usd": null,
-          "search_is_pct": null,
+          "search_is_pct": 17.0,
           "lost_is_budget": null,
-          "lost_is_rank": null
+          "lost_is_rank": 83.0
         }
       ]
     },
@@ -213,7 +284,7 @@
         {
           "id": "24254001344",
           "name": "Purchase IL",
-          "status": "ENABLED",
+          "status": "PAUSED",
           "type": "SEARCH",
           "impressions": 201,
           "clicks": 25,
@@ -229,7 +300,7 @@
         {
           "id": "24255437492",
           "name": "Purchase EN v2",
-          "status": "ENABLED",
+          "status": "PAUSED",
           "type": "SEARCH",
           "impressions": 430,
           "clicks": 32,
@@ -245,7 +316,7 @@
         {
           "id": "24249924945",
           "name": "Purchase RU v2",
-          "status": "ENABLED",
+          "status": "PAUSED",
           "type": "SEARCH",
           "impressions": 182,
           "clicks": 15,
@@ -261,7 +332,7 @@
         {
           "id": "24255437888",
           "name": "Competitors RU+EN v2",
-          "status": "ENABLED",
+          "status": "PAUSED",
           "type": "SEARCH",
           "impressions": 388,
           "clicks": 15,
@@ -282,7 +353,7 @@
         {
           "id": "24249924945",
           "name": "Purchase RU v2",
-          "status": "ENABLED",
+          "status": "PAUSED",
           "type": "SEARCH",
           "impressions": 314,
           "clicks": 36,
@@ -298,7 +369,7 @@
         {
           "id": "24255437492",
           "name": "Purchase EN v2",
-          "status": "ENABLED",
+          "status": "PAUSED",
           "type": "SEARCH",
           "impressions": 484,
           "clicks": 50,
@@ -314,7 +385,7 @@
         {
           "id": "24255437888",
           "name": "Competitors RU+EN v2",
-          "status": "ENABLED",
+          "status": "PAUSED",
           "type": "SEARCH",
           "impressions": 416,
           "clicks": 23,
@@ -330,7 +401,7 @@
         {
           "id": "24254001344",
           "name": "Purchase IL",
-          "status": "ENABLED",
+          "status": "PAUSED",
           "type": "SEARCH",
           "impressions": 47,
           "clicks": 3,
@@ -351,7 +422,7 @@
         {
           "id": "24249924945",
           "name": "Purchase RU v2",
-          "status": "ENABLED",
+          "status": "PAUSED",
           "type": "SEARCH",
           "impressions": 264,
           "clicks": 24,
@@ -367,7 +438,7 @@
         {
           "id": "24255437492",
           "name": "Purchase EN v2",
-          "status": "ENABLED",
+          "status": "PAUSED",
           "type": "SEARCH",
           "impressions": 483,
           "clicks": 29,
@@ -383,7 +454,7 @@
         {
           "id": "24255437888",
           "name": "Competitors RU+EN v2",
-          "status": "ENABLED",
+          "status": "PAUSED",
           "type": "SEARCH",
           "impressions": 342,
           "clicks": 21,
@@ -399,7 +470,7 @@
         {
           "id": "24254001344",
           "name": "Purchase IL",
-          "status": "ENABLED",
+          "status": "PAUSED",
           "type": "SEARCH",
           "impressions": 49,
           "clicks": 9,
@@ -420,7 +491,7 @@
         {
           "id": "24249924945",
           "name": "Purchase RU v2",
-          "status": "ENABLED",
+          "status": "PAUSED",
           "type": "SEARCH",
           "impressions": 198,
           "clicks": 24,
@@ -436,7 +507,7 @@
         {
           "id": "24255437492",
           "name": "Purchase EN v2",
-          "status": "ENABLED",
+          "status": "PAUSED",
           "type": "SEARCH",
           "impressions": 382,
           "clicks": 35,
@@ -452,7 +523,7 @@
         {
           "id": "24255437888",
           "name": "Competitors RU+EN v2",
-          "status": "ENABLED",
+          "status": "PAUSED",
           "type": "SEARCH",
           "impressions": 258,
           "clicks": 15,
@@ -468,7 +539,7 @@
         {
           "id": "24254001344",
           "name": "Purchase IL",
-          "status": "ENABLED",
+          "status": "PAUSED",
           "type": "SEARCH",
           "impressions": 30,
           "clicks": 5,
@@ -489,7 +560,7 @@
         {
           "id": "24249924945",
           "name": "Purchase RU v2",
-          "status": "ENABLED",
+          "status": "PAUSED",
           "type": "SEARCH",
           "impressions": 241,
           "clicks": 25,
@@ -505,7 +576,7 @@
         {
           "id": "24255437492",
           "name": "Purchase EN v2",
-          "status": "ENABLED",
+          "status": "PAUSED",
           "type": "SEARCH",
           "impressions": 297,
           "clicks": 37,
@@ -521,7 +592,7 @@
         {
           "id": "24255437888",
           "name": "Competitors RU+EN v2",
-          "status": "ENABLED",
+          "status": "PAUSED",
           "type": "SEARCH",
           "impressions": 297,
           "clicks": 10,
@@ -537,12 +608,12 @@
         {
           "id": "24254001344",
           "name": "Purchase IL",
-          "status": "ENABLED",
+          "status": "PAUSED",
           "type": "SEARCH",
-          "impressions": 34,
+          "impressions": 33,
           "clicks": 5,
           "cost_usd": 1.79,
-          "ctr_pct": 14.7059,
+          "ctr_pct": 15.1515,
           "avg_cpc_usd": 0.358,
           "conversions": 0.0,
           "cpl_usd": null,
@@ -558,7 +629,7 @@
         {
           "id": "24255437492",
           "name": "Purchase EN v2",
-          "status": "ENABLED",
+          "status": "PAUSED",
           "type": "SEARCH",
           "impressions": 248,
           "clicks": 30,
@@ -574,7 +645,7 @@
         {
           "id": "24249924945",
           "name": "Purchase RU v2",
-          "status": "ENABLED",
+          "status": "PAUSED",
           "type": "SEARCH",
           "impressions": 294,
           "clicks": 24,
@@ -590,7 +661,7 @@
         {
           "id": "24255437888",
           "name": "Competitors RU+EN v2",
-          "status": "ENABLED",
+          "status": "PAUSED",
           "type": "SEARCH",
           "impressions": 339,
           "clicks": 23,
@@ -611,7 +682,7 @@
         {
           "id": "24249924945",
           "name": "Purchase RU v2",
-          "status": "ENABLED",
+          "status": "PAUSED",
           "type": "SEARCH",
           "impressions": 197,
           "clicks": 22,
@@ -627,7 +698,7 @@
         {
           "id": "24255437492",
           "name": "Purchase EN v2",
-          "status": "ENABLED",
+          "status": "PAUSED",
           "type": "SEARCH",
           "impressions": 488,
           "clicks": 32,
@@ -643,7 +714,7 @@
         {
           "id": "24255437888",
           "name": "Competitors RU+EN v2",
-          "status": "ENABLED",
+          "status": "PAUSED",
           "type": "SEARCH",
           "impressions": 322,
           "clicks": 21,
@@ -707,12 +778,12 @@
         {
           "id": "24254001344",
           "name": "Purchase IL",
-          "status": "ENABLED",
+          "status": "PAUSED",
           "type": "SEARCH",
-          "impressions": 23,
+          "impressions": 20,
           "clicks": 3,
           "cost_usd": 1.15,
-          "ctr_pct": 13.0435,
+          "ctr_pct": 15.0,
           "avg_cpc_usd": 0.3833,
           "conversions": 0.0,
           "cpl_usd": null,
@@ -776,12 +847,12 @@
         {
           "id": "24254001344",
           "name": "Purchase IL",
-          "status": "ENABLED",
+          "status": "PAUSED",
           "type": "SEARCH",
-          "impressions": 3,
+          "impressions": 2,
           "clicks": 1,
           "cost_usd": 0.11,
-          "ctr_pct": 33.3333,
+          "ctr_pct": 50.0,
           "avg_cpc_usd": 0.11,
           "conversions": 0.0,
           "cpl_usd": null,
@@ -4137,64 +4208,104 @@
   ],
   "device_daily": [
     {
+      "date": "2026-09-24",
+      "device": "DESKTOP",
+      "campaign_id": "24255437888",
+      "impressions": 13,
+      "clicks": 2,
+      "cost_usd": 1.0,
+      "ctr_pct": 15.3846,
+      "avg_cpc_usd": 0.5
+    },
+    {
+      "date": "2026-09-24",
+      "device": "MOBILE",
+      "campaign_id": "24249924945",
+      "impressions": 23,
+      "clicks": 4,
+      "cost_usd": 5.6,
+      "ctr_pct": 17.3913,
+      "avg_cpc_usd": 1.4
+    },
+    {
+      "date": "2026-09-24",
+      "device": "MOBILE",
+      "campaign_id": "24255437492",
+      "impressions": 32,
+      "clicks": 6,
+      "cost_usd": 7.36,
+      "ctr_pct": 18.75,
+      "avg_cpc_usd": 1.2267
+    },
+    {
+      "date": "2026-09-24",
+      "device": "MOBILE",
+      "campaign_id": "24255437888",
+      "impressions": 37,
+      "clicks": 1,
+      "cost_usd": 0.49,
+      "ctr_pct": 2.7027,
+      "avg_cpc_usd": 0.49
+    },
+    {
       "date": "2026-09-23",
       "device": "DESKTOP",
       "campaign_id": "24255437492",
-      "impressions": 34,
-      "clicks": 3,
-      "cost_usd": 4.32,
-      "ctr_pct": 8.8235,
-      "avg_cpc_usd": 1.44
+      "impressions": 39,
+      "clicks": 5,
+      "cost_usd": 7.16,
+      "ctr_pct": 12.8205,
+      "avg_cpc_usd": 1.432
     },
     {
       "date": "2026-09-23",
       "device": "DESKTOP",
       "campaign_id": "24255437888",
-      "impressions": 24,
-      "clicks": 1,
-      "cost_usd": 0.5,
-      "ctr_pct": 4.1667,
-      "avg_cpc_usd": 0.5
+      "impressions": 50,
+      "clicks": 2,
+      "cost_usd": 0.87,
+      "ctr_pct": 4.0,
+      "avg_cpc_usd": 0.435
     },
     {
       "date": "2026-09-23",
       "device": "MOBILE",
       "campaign_id": "24249924945",
-      "impressions": 47,
-      "clicks": 9,
-      "cost_usd": 13.07,
-      "ctr_pct": 19.1489,
-      "avg_cpc_usd": 1.4522
+      "impressions": 91,
+      "clicks": 13,
+      "cost_usd": 18.03,
+      "ctr_pct": 14.2857,
+      "avg_cpc_usd": 1.3869
     },
     {
       "date": "2026-09-23",
       "device": "MOBILE",
       "campaign_id": "24254001344",
-      "impressions": 94,
-      "clicks": 11,
-      "cost_usd": 24.45,
-      "ctr_pct": 11.7021,
-      "avg_cpc_usd": 2.2227
+      "impressions": 129,
+      "clicks": 14,
+      "cost_usd": 25.81,
+      "ctr_pct": 10.8527,
+      "avg_cpc_usd": 1.8436
     },
     {
       "date": "2026-09-23",
       "device": "MOBILE",
       "campaign_id": "24255437492",
-      "impressions": 102,
-      "clicks": 9,
-      "cost_usd": 7.34,
-      "ctr_pct": 8.8235,
-      "avg_cpc_usd": 0.8156
+      "impressions": 126,
+      "clicks": 11,
+      "cost_usd": 10.09,
+      "ctr_pct": 8.7302,
+      "avg_cpc_usd": 0.9173
     },
     {
       "date": "2026-09-23",
       "device": "MOBILE",
       "campaign_id": "24255437888",
-      "impressions": 165,
-      "clicks": 8,
-      "cost_usd": 2.45,
-      "ctr_pct": 4.8485,
-      "avg_cpc_usd": 0.3063
+      "impressions": 305,
+      "clicks": 15,
+      "cost_usd": 5.18,
+      "ctr_pct": 4.918,
+      "avg_cpc_usd": 0.3453
     },
     {
       "date": "2026-09-22",
@@ -4520,10 +4631,10 @@
       "date": "2026-09-18",
       "device": "MOBILE",
       "campaign_id": "24254001344",
-      "impressions": 34,
+      "impressions": 33,
       "clicks": 5,
       "cost_usd": 1.79,
-      "ctr_pct": 14.7059,
+      "ctr_pct": 15.1515,
       "avg_cpc_usd": 0.358
     },
     {
@@ -4710,10 +4821,10 @@
       "date": "2026-09-16",
       "device": "MOBILE",
       "campaign_id": "24254001344",
-      "impressions": 21,
+      "impressions": 18,
       "clicks": 3,
       "cost_usd": 1.15,
-      "ctr_pct": 14.2857,
+      "ctr_pct": 16.6667,
       "avg_cpc_usd": 0.3833
     },
     {
@@ -4780,10 +4891,10 @@
       "date": "2026-09-15",
       "device": "MOBILE",
       "campaign_id": "24254001344",
-      "impressions": 3,
+      "impressions": 2,
       "clicks": 1,
       "cost_usd": 0.11,
-      "ctr_pct": 33.3333,
+      "ctr_pct": 50.0,
       "avg_cpc_usd": 0.11
     },
     {
@@ -7370,150 +7481,6 @@
   "demographics": {
     "gender": [
       {
-        "date": "2025-11-20",
-        "gender": "MALE",
-        "campaign_id": "23288394958",
-        "impressions": 9037,
-        "clicks": 14,
-        "cost_usd": 4.012
-      },
-      {
-        "date": "2025-11-20",
-        "gender": "FEMALE",
-        "campaign_id": "23288394958",
-        "impressions": 9583,
-        "clicks": 12,
-        "cost_usd": 4.7542
-      },
-      {
-        "date": "2025-11-20",
-        "gender": "UNDETERMINED",
-        "campaign_id": "23288394958",
-        "impressions": 1617,
-        "clicks": 8,
-        "cost_usd": 1.2287
-      },
-      {
-        "date": "2025-11-21",
-        "gender": "MALE",
-        "campaign_id": "23288394958",
-        "impressions": 24841,
-        "clicks": 2,
-        "cost_usd": 5.5754
-      },
-      {
-        "date": "2025-11-21",
-        "gender": "FEMALE",
-        "campaign_id": "23288394958",
-        "impressions": 20612,
-        "clicks": 5,
-        "cost_usd": 4.6226
-      },
-      {
-        "date": "2025-11-21",
-        "gender": "UNDETERMINED",
-        "campaign_id": "23288394958",
-        "impressions": 942,
-        "clicks": 0,
-        "cost_usd": 0.2307
-      },
-      {
-        "date": "2025-11-22",
-        "gender": "MALE",
-        "campaign_id": "23288394958",
-        "impressions": 16310,
-        "clicks": 10,
-        "cost_usd": 5.4655
-      },
-      {
-        "date": "2025-11-22",
-        "gender": "FEMALE",
-        "campaign_id": "23288394958",
-        "impressions": 14915,
-        "clicks": 12,
-        "cost_usd": 4.6924
-      },
-      {
-        "date": "2025-11-22",
-        "gender": "UNDETERMINED",
-        "campaign_id": "23288394958",
-        "impressions": 810,
-        "clicks": 1,
-        "cost_usd": 0.2773
-      },
-      {
-        "date": "2025-11-23",
-        "gender": "MALE",
-        "campaign_id": "23288394958",
-        "impressions": 16527,
-        "clicks": 14,
-        "cost_usd": 5.4558
-      },
-      {
-        "date": "2025-11-23",
-        "gender": "FEMALE",
-        "campaign_id": "23288394958",
-        "impressions": 14553,
-        "clicks": 6,
-        "cost_usd": 4.5757
-      },
-      {
-        "date": "2025-11-23",
-        "gender": "UNDETERMINED",
-        "campaign_id": "23288394958",
-        "impressions": 934,
-        "clicks": 6,
-        "cost_usd": 0.324
-      },
-      {
-        "date": "2025-11-24",
-        "gender": "MALE",
-        "campaign_id": "23288394958",
-        "impressions": 16482,
-        "clicks": 5,
-        "cost_usd": 5.3978
-      },
-      {
-        "date": "2025-11-24",
-        "gender": "FEMALE",
-        "campaign_id": "23288394958",
-        "impressions": 15223,
-        "clicks": 14,
-        "cost_usd": 4.5617
-      },
-      {
-        "date": "2025-11-24",
-        "gender": "UNDETERMINED",
-        "campaign_id": "23288394958",
-        "impressions": 875,
-        "clicks": 0,
-        "cost_usd": 0.3076
-      },
-      {
-        "date": "2025-11-25",
-        "gender": "MALE",
-        "campaign_id": "23288394958",
-        "impressions": 7408,
-        "clicks": 6,
-        "cost_usd": 2.5448
-      },
-      {
-        "date": "2025-11-25",
-        "gender": "FEMALE",
-        "campaign_id": "23288394958",
-        "impressions": 6052,
-        "clicks": 6,
-        "cost_usd": 1.9478
-      },
-      {
-        "date": "2025-11-25",
-        "gender": "UNDETERMINED",
-        "campaign_id": "23288394958",
-        "impressions": 225,
-        "clicks": 0,
-        "cost_usd": 0.0822
-      },
-      {
         "date": "2025-11-27",
         "gender": "MALE",
         "campaign_id": "23301758607",
@@ -8122,20 +8089,220 @@
         "cost_usd": 0.1691
       },
       {
-        "date": "2026-02-19",
+        "date": "2025-11-20",
         "gender": "MALE",
-        "campaign_id": "23568655127",
-        "impressions": 4,
-        "clicks": 0,
-        "cost_usd": 0.0024
+        "campaign_id": "23288394958",
+        "impressions": 9037,
+        "clicks": 14,
+        "cost_usd": 4.012
       },
       {
-        "date": "2026-02-19",
+        "date": "2025-11-20",
         "gender": "FEMALE",
-        "campaign_id": "23568655127",
-        "impressions": 6,
+        "campaign_id": "23288394958",
+        "impressions": 9583,
+        "clicks": 12,
+        "cost_usd": 4.7542
+      },
+      {
+        "date": "2025-11-20",
+        "gender": "UNDETERMINED",
+        "campaign_id": "23288394958",
+        "impressions": 1617,
+        "clicks": 8,
+        "cost_usd": 1.2287
+      },
+      {
+        "date": "2025-11-21",
+        "gender": "MALE",
+        "campaign_id": "23288394958",
+        "impressions": 24841,
+        "clicks": 2,
+        "cost_usd": 5.5754
+      },
+      {
+        "date": "2025-11-21",
+        "gender": "FEMALE",
+        "campaign_id": "23288394958",
+        "impressions": 20612,
+        "clicks": 5,
+        "cost_usd": 4.6226
+      },
+      {
+        "date": "2025-11-21",
+        "gender": "UNDETERMINED",
+        "campaign_id": "23288394958",
+        "impressions": 942,
         "clicks": 0,
-        "cost_usd": 0.0087
+        "cost_usd": 0.2307
+      },
+      {
+        "date": "2025-11-22",
+        "gender": "MALE",
+        "campaign_id": "23288394958",
+        "impressions": 16310,
+        "clicks": 10,
+        "cost_usd": 5.4655
+      },
+      {
+        "date": "2025-11-22",
+        "gender": "FEMALE",
+        "campaign_id": "23288394958",
+        "impressions": 14915,
+        "clicks": 12,
+        "cost_usd": 4.6924
+      },
+      {
+        "date": "2025-11-22",
+        "gender": "UNDETERMINED",
+        "campaign_id": "23288394958",
+        "impressions": 810,
+        "clicks": 1,
+        "cost_usd": 0.2773
+      },
+      {
+        "date": "2025-11-23",
+        "gender": "MALE",
+        "campaign_id": "23288394958",
+        "impressions": 16527,
+        "clicks": 14,
+        "cost_usd": 5.4558
+      },
+      {
+        "date": "2025-11-23",
+        "gender": "FEMALE",
+        "campaign_id": "23288394958",
+        "impressions": 14553,
+        "clicks": 6,
+        "cost_usd": 4.5757
+      },
+      {
+        "date": "2025-11-23",
+        "gender": "UNDETERMINED",
+        "campaign_id": "23288394958",
+        "impressions": 934,
+        "clicks": 6,
+        "cost_usd": 0.324
+      },
+      {
+        "date": "2025-11-24",
+        "gender": "MALE",
+        "campaign_id": "23288394958",
+        "impressions": 16482,
+        "clicks": 5,
+        "cost_usd": 5.3978
+      },
+      {
+        "date": "2025-11-24",
+        "gender": "FEMALE",
+        "campaign_id": "23288394958",
+        "impressions": 15223,
+        "clicks": 14,
+        "cost_usd": 4.5617
+      },
+      {
+        "date": "2025-11-24",
+        "gender": "UNDETERMINED",
+        "campaign_id": "23288394958",
+        "impressions": 875,
+        "clicks": 0,
+        "cost_usd": 0.3076
+      },
+      {
+        "date": "2025-11-25",
+        "gender": "MALE",
+        "campaign_id": "23288394958",
+        "impressions": 7408,
+        "clicks": 6,
+        "cost_usd": 2.5448
+      },
+      {
+        "date": "2025-11-25",
+        "gender": "FEMALE",
+        "campaign_id": "23288394958",
+        "impressions": 6052,
+        "clicks": 6,
+        "cost_usd": 1.9478
+      },
+      {
+        "date": "2025-11-25",
+        "gender": "UNDETERMINED",
+        "campaign_id": "23288394958",
+        "impressions": 225,
+        "clicks": 0,
+        "cost_usd": 0.0822
+      },
+      {
+        "date": "2026-09-04",
+        "gender": "MALE",
+        "campaign_id": "24169112079",
+        "impressions": 52,
+        "clicks": 1,
+        "cost_usd": 0.5
+      },
+      {
+        "date": "2026-09-04",
+        "gender": "FEMALE",
+        "campaign_id": "24169112079",
+        "impressions": 28,
+        "clicks": 2,
+        "cost_usd": 0.6
+      },
+      {
+        "date": "2026-09-04",
+        "gender": "UNDETERMINED",
+        "campaign_id": "24169112079",
+        "impressions": 28,
+        "clicks": 1,
+        "cost_usd": 0.5
+      },
+      {
+        "date": "2026-09-05",
+        "gender": "MALE",
+        "campaign_id": "24169112079",
+        "impressions": 78,
+        "clicks": 8,
+        "cost_usd": 3.96
+      },
+      {
+        "date": "2026-09-05",
+        "gender": "FEMALE",
+        "campaign_id": "24169112079",
+        "impressions": 49,
+        "clicks": 1,
+        "cost_usd": 0.43
+      },
+      {
+        "date": "2026-09-05",
+        "gender": "UNDETERMINED",
+        "campaign_id": "24169112079",
+        "impressions": 51,
+        "clicks": 1,
+        "cost_usd": 0.47
+      },
+      {
+        "date": "2026-09-06",
+        "gender": "MALE",
+        "campaign_id": "24169112079",
+        "impressions": 34,
+        "clicks": 1,
+        "cost_usd": 0.5
+      },
+      {
+        "date": "2026-09-06",
+        "gender": "FEMALE",
+        "campaign_id": "24169112079",
+        "impressions": 31,
+        "clicks": 1,
+        "cost_usd": 0.5
+      },
+      {
+        "date": "2026-09-06",
+        "gender": "UNDETERMINED",
+        "campaign_id": "24169112079",
+        "impressions": 17,
+        "clicks": 1,
+        "cost_usd": 0.5
       },
       {
         "date": "2026-02-20",
@@ -8160,6 +8327,70 @@
         "impressions": 52,
         "clicks": 13,
         "cost_usd": 0.13
+      },
+      {
+        "date": "2026-02-21",
+        "gender": "MALE",
+        "campaign_id": "23568655127",
+        "impressions": 3279,
+        "clicks": 251,
+        "cost_usd": 13.6398
+      },
+      {
+        "date": "2026-02-21",
+        "gender": "FEMALE",
+        "campaign_id": "23568655127",
+        "impressions": 2224,
+        "clicks": 255,
+        "cost_usd": 6.1333
+      },
+      {
+        "date": "2026-02-21",
+        "gender": "UNDETERMINED",
+        "campaign_id": "23568655127",
+        "impressions": 1744,
+        "clicks": 287,
+        "cost_usd": 5.9059
+      },
+      {
+        "date": "2026-02-22",
+        "gender": "MALE",
+        "campaign_id": "23568655127",
+        "impressions": 961,
+        "clicks": 65,
+        "cost_usd": 4.9493
+      },
+      {
+        "date": "2026-02-22",
+        "gender": "FEMALE",
+        "campaign_id": "23568655127",
+        "impressions": 1111,
+        "clicks": 46,
+        "cost_usd": 2.841
+      },
+      {
+        "date": "2026-02-22",
+        "gender": "UNDETERMINED",
+        "campaign_id": "23568655127",
+        "impressions": 618,
+        "clicks": 59,
+        "cost_usd": 2.6918
+      },
+      {
+        "date": "2026-02-19",
+        "gender": "MALE",
+        "campaign_id": "23568655127",
+        "impressions": 4,
+        "clicks": 0,
+        "cost_usd": 0.0024
+      },
+      {
+        "date": "2026-02-19",
+        "gender": "FEMALE",
+        "campaign_id": "23568655127",
+        "impressions": 6,
+        "clicks": 0,
+        "cost_usd": 0.0087
       },
       {
         "date": "2026-02-20",
@@ -8189,30 +8420,6 @@
         "date": "2026-02-21",
         "gender": "MALE",
         "campaign_id": "23568655127",
-        "impressions": 3279,
-        "clicks": 251,
-        "cost_usd": 13.6398
-      },
-      {
-        "date": "2026-02-21",
-        "gender": "FEMALE",
-        "campaign_id": "23568655127",
-        "impressions": 2224,
-        "clicks": 255,
-        "cost_usd": 6.1333
-      },
-      {
-        "date": "2026-02-21",
-        "gender": "UNDETERMINED",
-        "campaign_id": "23568655127",
-        "impressions": 1744,
-        "clicks": 287,
-        "cost_usd": 5.9059
-      },
-      {
-        "date": "2026-02-21",
-        "gender": "MALE",
-        "campaign_id": "23568655127",
         "impressions": 10331,
         "clicks": 281,
         "cost_usd": 12.4456
@@ -8237,30 +8444,6 @@
         "date": "2026-02-22",
         "gender": "MALE",
         "campaign_id": "23568655127",
-        "impressions": 961,
-        "clicks": 65,
-        "cost_usd": 4.9493
-      },
-      {
-        "date": "2026-02-22",
-        "gender": "FEMALE",
-        "campaign_id": "23568655127",
-        "impressions": 1111,
-        "clicks": 46,
-        "cost_usd": 2.841
-      },
-      {
-        "date": "2026-02-22",
-        "gender": "UNDETERMINED",
-        "campaign_id": "23568655127",
-        "impressions": 618,
-        "clicks": 59,
-        "cost_usd": 2.6918
-      },
-      {
-        "date": "2026-02-22",
-        "gender": "MALE",
-        "campaign_id": "23568655127",
         "impressions": 12160,
         "clicks": 180,
         "cost_usd": 20.6321
@@ -8280,630 +8463,6 @@
         "impressions": 857,
         "clicks": 12,
         "cost_usd": 0.8696
-      },
-      {
-        "date": "2026-06-05",
-        "gender": "MALE",
-        "campaign_id": "23912043113",
-        "impressions": 13975,
-        "clicks": 230,
-        "cost_usd": 11.392
-      },
-      {
-        "date": "2026-06-05",
-        "gender": "FEMALE",
-        "campaign_id": "23912043113",
-        "impressions": 10291,
-        "clicks": 187,
-        "cost_usd": 7.2495
-      },
-      {
-        "date": "2026-06-05",
-        "gender": "UNDETERMINED",
-        "campaign_id": "23912043113",
-        "impressions": 1101,
-        "clicks": 25,
-        "cost_usd": 0.9611
-      },
-      {
-        "date": "2026-06-06",
-        "gender": "MALE",
-        "campaign_id": "23912043113",
-        "impressions": 8128,
-        "clicks": 240,
-        "cost_usd": 12.9023
-      },
-      {
-        "date": "2026-06-06",
-        "gender": "FEMALE",
-        "campaign_id": "23912043113",
-        "impressions": 5894,
-        "clicks": 289,
-        "cost_usd": 7.4099
-      },
-      {
-        "date": "2026-06-06",
-        "gender": "UNDETERMINED",
-        "campaign_id": "23912043113",
-        "impressions": 1228,
-        "clicks": 33,
-        "cost_usd": 0.9359
-      },
-      {
-        "date": "2026-06-07",
-        "gender": "MALE",
-        "campaign_id": "23912043113",
-        "impressions": 8202,
-        "clicks": 237,
-        "cost_usd": 11.5263
-      },
-      {
-        "date": "2026-06-07",
-        "gender": "FEMALE",
-        "campaign_id": "23912043113",
-        "impressions": 4924,
-        "clicks": 256,
-        "cost_usd": 9.2062
-      },
-      {
-        "date": "2026-06-07",
-        "gender": "UNDETERMINED",
-        "campaign_id": "23912043113",
-        "impressions": 905,
-        "clicks": 24,
-        "cost_usd": 0.5982
-      },
-      {
-        "date": "2026-06-08",
-        "gender": "MALE",
-        "campaign_id": "23912043113",
-        "impressions": 9396,
-        "clicks": 224,
-        "cost_usd": 12.4917
-      },
-      {
-        "date": "2026-06-08",
-        "gender": "FEMALE",
-        "campaign_id": "23912043113",
-        "impressions": 5795,
-        "clicks": 199,
-        "cost_usd": 7.2353
-      },
-      {
-        "date": "2026-06-08",
-        "gender": "UNDETERMINED",
-        "campaign_id": "23912043113",
-        "impressions": 941,
-        "clicks": 16,
-        "cost_usd": 0.569
-      },
-      {
-        "date": "2026-06-09",
-        "gender": "MALE",
-        "campaign_id": "23912043113",
-        "impressions": 2595,
-        "clicks": 41,
-        "cost_usd": 4.3763
-      },
-      {
-        "date": "2026-06-09",
-        "gender": "FEMALE",
-        "campaign_id": "23912043113",
-        "impressions": 1147,
-        "clicks": 21,
-        "cost_usd": 2.7384
-      },
-      {
-        "date": "2026-06-09",
-        "gender": "UNDETERMINED",
-        "campaign_id": "23912043113",
-        "impressions": 203,
-        "clicks": 5,
-        "cost_usd": 0.1687
-      },
-      {
-        "date": "2026-06-25",
-        "gender": "MALE",
-        "campaign_id": "23969066805",
-        "impressions": 567,
-        "clicks": 7,
-        "cost_usd": 4.4672
-      },
-      {
-        "date": "2026-06-25",
-        "gender": "FEMALE",
-        "campaign_id": "23969066805",
-        "impressions": 599,
-        "clicks": 12,
-        "cost_usd": 3.569
-      },
-      {
-        "date": "2026-06-25",
-        "gender": "UNDETERMINED",
-        "campaign_id": "23969066805",
-        "impressions": 153,
-        "clicks": 4,
-        "cost_usd": 1.9755
-      },
-      {
-        "date": "2026-06-26",
-        "gender": "MALE",
-        "campaign_id": "23969066805",
-        "impressions": 2860,
-        "clicks": 69,
-        "cost_usd": 2.936
-      },
-      {
-        "date": "2026-06-26",
-        "gender": "FEMALE",
-        "campaign_id": "23969066805",
-        "impressions": 3936,
-        "clicks": 97,
-        "cost_usd": 4.4195
-      },
-      {
-        "date": "2026-06-26",
-        "gender": "UNDETERMINED",
-        "campaign_id": "23969066805",
-        "impressions": 433,
-        "clicks": 8,
-        "cost_usd": 0.2957
-      },
-      {
-        "date": "2026-06-26",
-        "gender": "MALE",
-        "campaign_id": "23969066805",
-        "impressions": 182,
-        "clicks": 7,
-        "cost_usd": 1.4362
-      },
-      {
-        "date": "2026-06-26",
-        "gender": "FEMALE",
-        "campaign_id": "23969066805",
-        "impressions": 141,
-        "clicks": 5,
-        "cost_usd": 1.2733
-      },
-      {
-        "date": "2026-06-26",
-        "gender": "UNDETERMINED",
-        "campaign_id": "23969066805",
-        "impressions": 24,
-        "clicks": 0,
-        "cost_usd": 0.025
-      },
-      {
-        "date": "2026-06-27",
-        "gender": "MALE",
-        "campaign_id": "23969066805",
-        "impressions": 3439,
-        "clicks": 147,
-        "cost_usd": 5.7663
-      },
-      {
-        "date": "2026-06-27",
-        "gender": "FEMALE",
-        "campaign_id": "23969066805",
-        "impressions": 2645,
-        "clicks": 128,
-        "cost_usd": 3.7283
-      },
-      {
-        "date": "2026-06-27",
-        "gender": "UNDETERMINED",
-        "campaign_id": "23969066805",
-        "impressions": 214,
-        "clicks": 16,
-        "cost_usd": 0.2707
-      },
-      {
-        "date": "2026-06-27",
-        "gender": "MALE",
-        "campaign_id": "23969066805",
-        "impressions": 74,
-        "clicks": 2,
-        "cost_usd": 0.2502
-      },
-      {
-        "date": "2026-06-27",
-        "gender": "FEMALE",
-        "campaign_id": "23969066805",
-        "impressions": 26,
-        "clicks": 1,
-        "cost_usd": 0.2357
-      },
-      {
-        "date": "2026-06-27",
-        "gender": "UNDETERMINED",
-        "campaign_id": "23969066805",
-        "impressions": 5,
-        "clicks": 0,
-        "cost_usd": 0.008
-      },
-      {
-        "date": "2026-06-28",
-        "gender": "MALE",
-        "campaign_id": "23969066805",
-        "impressions": 3249,
-        "clicks": 168,
-        "cost_usd": 5.2512
-      },
-      {
-        "date": "2026-06-28",
-        "gender": "FEMALE",
-        "campaign_id": "23969066805",
-        "impressions": 2882,
-        "clicks": 204,
-        "cost_usd": 4.454
-      },
-      {
-        "date": "2026-06-28",
-        "gender": "UNDETERMINED",
-        "campaign_id": "23969066805",
-        "impressions": 348,
-        "clicks": 20,
-        "cost_usd": 0.2994
-      },
-      {
-        "date": "2026-06-28",
-        "gender": "MALE",
-        "campaign_id": "23969066805",
-        "impressions": 10,
-        "clicks": 1,
-        "cost_usd": 0.0972
-      },
-      {
-        "date": "2026-06-28",
-        "gender": "FEMALE",
-        "campaign_id": "23969066805",
-        "impressions": 4,
-        "clicks": 0,
-        "cost_usd": 0.0258
-      },
-      {
-        "date": "2026-06-29",
-        "gender": "MALE",
-        "campaign_id": "23969066805",
-        "impressions": 2952,
-        "clicks": 154,
-        "cost_usd": 5.4667
-      },
-      {
-        "date": "2026-06-29",
-        "gender": "FEMALE",
-        "campaign_id": "23969066805",
-        "impressions": 2092,
-        "clicks": 147,
-        "cost_usd": 3.6948
-      },
-      {
-        "date": "2026-06-29",
-        "gender": "UNDETERMINED",
-        "campaign_id": "23969066805",
-        "impressions": 200,
-        "clicks": 8,
-        "cost_usd": 0.1633
-      },
-      {
-        "date": "2026-06-29",
-        "gender": "MALE",
-        "campaign_id": "23969066805",
-        "impressions": 19,
-        "clicks": 1,
-        "cost_usd": 0.3378
-      },
-      {
-        "date": "2026-06-29",
-        "gender": "FEMALE",
-        "campaign_id": "23969066805",
-        "impressions": 6,
-        "clicks": 0,
-        "cost_usd": 0.2805
-      },
-      {
-        "date": "2026-06-29",
-        "gender": "UNDETERMINED",
-        "campaign_id": "23969066805",
-        "impressions": 1,
-        "clicks": 0,
-        "cost_usd": 0.0031
-      },
-      {
-        "date": "2026-06-30",
-        "gender": "MALE",
-        "campaign_id": "23969066805",
-        "impressions": 3094,
-        "clicks": 180,
-        "cost_usd": 5.1346
-      },
-      {
-        "date": "2026-06-30",
-        "gender": "FEMALE",
-        "campaign_id": "23969066805",
-        "impressions": 2161,
-        "clicks": 152,
-        "cost_usd": 3.5612
-      },
-      {
-        "date": "2026-06-30",
-        "gender": "UNDETERMINED",
-        "campaign_id": "23969066805",
-        "impressions": 239,
-        "clicks": 20,
-        "cost_usd": 0.208
-      },
-      {
-        "date": "2026-06-30",
-        "gender": "MALE",
-        "campaign_id": "23969066805",
-        "impressions": 11,
-        "clicks": 1,
-        "cost_usd": 0.3801
-      },
-      {
-        "date": "2026-06-30",
-        "gender": "FEMALE",
-        "campaign_id": "23969066805",
-        "impressions": 4,
-        "clicks": 0,
-        "cost_usd": 0.0333
-      },
-      {
-        "date": "2026-07-01",
-        "gender": "MALE",
-        "campaign_id": "23969066805",
-        "impressions": 2167,
-        "clicks": 108,
-        "cost_usd": 3.1795
-      },
-      {
-        "date": "2026-07-01",
-        "gender": "FEMALE",
-        "campaign_id": "23969066805",
-        "impressions": 1424,
-        "clicks": 84,
-        "cost_usd": 1.5448
-      },
-      {
-        "date": "2026-07-01",
-        "gender": "UNDETERMINED",
-        "campaign_id": "23969066805",
-        "impressions": 144,
-        "clicks": 16,
-        "cost_usd": 0.0885
-      },
-      {
-        "date": "2026-07-01",
-        "gender": "MALE",
-        "campaign_id": "23969066805",
-        "impressions": 3,
-        "clicks": 0,
-        "cost_usd": 0.0808
-      },
-      {
-        "date": "2026-07-02",
-        "gender": "MALE",
-        "campaign_id": "23969066805",
-        "impressions": 2331,
-        "clicks": 134,
-        "cost_usd": 2.6192
-      },
-      {
-        "date": "2026-07-02",
-        "gender": "FEMALE",
-        "campaign_id": "23969066805",
-        "impressions": 1573,
-        "clicks": 107,
-        "cost_usd": 2.124
-      },
-      {
-        "date": "2026-07-02",
-        "gender": "UNDETERMINED",
-        "campaign_id": "23969066805",
-        "impressions": 252,
-        "clicks": 14,
-        "cost_usd": 0.2775
-      },
-      {
-        "date": "2026-07-02",
-        "gender": "MALE",
-        "campaign_id": "23969066805",
-        "impressions": 8,
-        "clicks": 1,
-        "cost_usd": 0.0235
-      },
-      {
-        "date": "2026-07-02",
-        "gender": "FEMALE",
-        "campaign_id": "23969066805",
-        "impressions": 2,
-        "clicks": 0,
-        "cost_usd": 0.0008
-      },
-      {
-        "date": "2026-07-02",
-        "gender": "UNDETERMINED",
-        "campaign_id": "23969066805",
-        "impressions": 1,
-        "clicks": 0,
-        "cost_usd": 0.0001
-      },
-      {
-        "date": "2026-07-03",
-        "gender": "MALE",
-        "campaign_id": "23969066805",
-        "impressions": 2142,
-        "clicks": 103,
-        "cost_usd": 2.4661
-      },
-      {
-        "date": "2026-07-03",
-        "gender": "FEMALE",
-        "campaign_id": "23969066805",
-        "impressions": 1730,
-        "clicks": 99,
-        "cost_usd": 2.0568
-      },
-      {
-        "date": "2026-07-03",
-        "gender": "UNDETERMINED",
-        "campaign_id": "23969066805",
-        "impressions": 250,
-        "clicks": 22,
-        "cost_usd": 0.4696
-      },
-      {
-        "date": "2026-07-03",
-        "gender": "MALE",
-        "campaign_id": "23969066805",
-        "impressions": 13,
-        "clicks": 0,
-        "cost_usd": 0.1244
-      },
-      {
-        "date": "2026-07-03",
-        "gender": "FEMALE",
-        "campaign_id": "23969066805",
-        "impressions": 10,
-        "clicks": 0,
-        "cost_usd": 0.1085
-      },
-      {
-        "date": "2026-07-03",
-        "gender": "UNDETERMINED",
-        "campaign_id": "23969066805",
-        "impressions": 2,
-        "clicks": 0,
-        "cost_usd": 0.0023
-      },
-      {
-        "date": "2026-07-04",
-        "gender": "MALE",
-        "campaign_id": "23969066805",
-        "impressions": 2283,
-        "clicks": 129,
-        "cost_usd": 2.8258
-      },
-      {
-        "date": "2026-07-04",
-        "gender": "FEMALE",
-        "campaign_id": "23969066805",
-        "impressions": 1638,
-        "clicks": 74,
-        "cost_usd": 1.9016
-      },
-      {
-        "date": "2026-07-04",
-        "gender": "UNDETERMINED",
-        "campaign_id": "23969066805",
-        "impressions": 198,
-        "clicks": 14,
-        "cost_usd": 0.1346
-      },
-      {
-        "date": "2026-07-04",
-        "gender": "MALE",
-        "campaign_id": "23969066805",
-        "impressions": 8,
-        "clicks": 1,
-        "cost_usd": 0.0381
-      },
-      {
-        "date": "2026-07-04",
-        "gender": "FEMALE",
-        "campaign_id": "23969066805",
-        "impressions": 9,
-        "clicks": 1,
-        "cost_usd": 0.2096
-      },
-      {
-        "date": "2026-07-05",
-        "gender": "MALE",
-        "campaign_id": "23969066805",
-        "impressions": 2666,
-        "clicks": 175,
-        "cost_usd": 3.0686
-      },
-      {
-        "date": "2026-07-05",
-        "gender": "FEMALE",
-        "campaign_id": "23969066805",
-        "impressions": 1668,
-        "clicks": 146,
-        "cost_usd": 1.8989
-      },
-      {
-        "date": "2026-07-05",
-        "gender": "UNDETERMINED",
-        "campaign_id": "23969066805",
-        "impressions": 230,
-        "clicks": 19,
-        "cost_usd": 0.1198
-      },
-      {
-        "date": "2026-07-05",
-        "gender": "MALE",
-        "campaign_id": "23969066805",
-        "impressions": 3,
-        "clicks": 0,
-        "cost_usd": 0.0043
-      },
-      {
-        "date": "2026-07-06",
-        "gender": "MALE",
-        "campaign_id": "23969066805",
-        "impressions": 2325,
-        "clicks": 120,
-        "cost_usd": 3.1074
-      },
-      {
-        "date": "2026-07-06",
-        "gender": "FEMALE",
-        "campaign_id": "23969066805",
-        "impressions": 1281,
-        "clicks": 84,
-        "cost_usd": 1.2526
-      },
-      {
-        "date": "2026-07-06",
-        "gender": "UNDETERMINED",
-        "campaign_id": "23969066805",
-        "impressions": 148,
-        "clicks": 10,
-        "cost_usd": 0.7615
-      },
-      {
-        "date": "2026-07-06",
-        "gender": "FEMALE",
-        "campaign_id": "23969066805",
-        "impressions": 1,
-        "clicks": 0,
-        "cost_usd": 0.0001
-      },
-      {
-        "date": "2026-07-07",
-        "gender": "MALE",
-        "campaign_id": "23969066805",
-        "impressions": 1804,
-        "clicks": 115,
-        "cost_usd": 1.6163
-      },
-      {
-        "date": "2026-07-07",
-        "gender": "FEMALE",
-        "campaign_id": "23969066805",
-        "impressions": 1031,
-        "clicks": 98,
-        "cost_usd": 1.1764
-      },
-      {
-        "date": "2026-07-07",
-        "gender": "UNDETERMINED",
-        "campaign_id": "23969066805",
-        "impressions": 123,
-        "clicks": 9,
-        "cost_usd": 0.0762
       },
       {
         "date": "2026-07-09",
@@ -9250,6 +8809,1254 @@
         "cost_usd": 1.8168
       },
       {
+        "date": "2026-08-26",
+        "gender": "FEMALE",
+        "campaign_id": "24175048454",
+        "impressions": 3,
+        "clicks": 1,
+        "cost_usd": 0.1
+      },
+      {
+        "date": "2026-08-29",
+        "gender": "FEMALE",
+        "campaign_id": "24175048454",
+        "impressions": 4,
+        "clicks": 1,
+        "cost_usd": 0.47
+      },
+      {
+        "date": "2026-08-29",
+        "gender": "UNDETERMINED",
+        "campaign_id": "24175048454",
+        "impressions": 23,
+        "clicks": 1,
+        "cost_usd": 0.49
+      },
+      {
+        "date": "2026-08-30",
+        "gender": "MALE",
+        "campaign_id": "24175048454",
+        "impressions": 10,
+        "clicks": 2,
+        "cost_usd": 0.98
+      },
+      {
+        "date": "2026-08-30",
+        "gender": "UNDETERMINED",
+        "campaign_id": "24175048454",
+        "impressions": 21,
+        "clicks": 3,
+        "cost_usd": 0.21
+      },
+      {
+        "date": "2026-09-01",
+        "gender": "MALE",
+        "campaign_id": "24175048454",
+        "impressions": 9,
+        "clicks": 1,
+        "cost_usd": 0.48
+      },
+      {
+        "date": "2026-09-01",
+        "gender": "FEMALE",
+        "campaign_id": "24175048454",
+        "impressions": 5,
+        "clicks": 1,
+        "cost_usd": 0.5
+      },
+      {
+        "date": "2026-09-02",
+        "gender": "MALE",
+        "campaign_id": "24175048454",
+        "impressions": 11,
+        "clicks": 1,
+        "cost_usd": 0.49
+      },
+      {
+        "date": "2026-09-02",
+        "gender": "FEMALE",
+        "campaign_id": "24175048454",
+        "impressions": 7,
+        "clicks": 1,
+        "cost_usd": 0.5
+      },
+      {
+        "date": "2026-09-02",
+        "gender": "UNDETERMINED",
+        "campaign_id": "24175048454",
+        "impressions": 6,
+        "clicks": 1,
+        "cost_usd": 0.49
+      },
+      {
+        "date": "2026-09-04",
+        "gender": "MALE",
+        "campaign_id": "24175048454",
+        "impressions": 31,
+        "clicks": 5,
+        "cost_usd": 2.49
+      },
+      {
+        "date": "2026-09-04",
+        "gender": "FEMALE",
+        "campaign_id": "24175048454",
+        "impressions": 22,
+        "clicks": 6,
+        "cost_usd": 2.99
+      },
+      {
+        "date": "2026-09-04",
+        "gender": "UNDETERMINED",
+        "campaign_id": "24175048454",
+        "impressions": 21,
+        "clicks": 1,
+        "cost_usd": 0.5
+      },
+      {
+        "date": "2026-06-05",
+        "gender": "MALE",
+        "campaign_id": "23912043113",
+        "impressions": 13975,
+        "clicks": 230,
+        "cost_usd": 11.392
+      },
+      {
+        "date": "2026-06-05",
+        "gender": "FEMALE",
+        "campaign_id": "23912043113",
+        "impressions": 10291,
+        "clicks": 187,
+        "cost_usd": 7.2495
+      },
+      {
+        "date": "2026-06-05",
+        "gender": "UNDETERMINED",
+        "campaign_id": "23912043113",
+        "impressions": 1101,
+        "clicks": 25,
+        "cost_usd": 0.9611
+      },
+      {
+        "date": "2026-06-06",
+        "gender": "MALE",
+        "campaign_id": "23912043113",
+        "impressions": 8128,
+        "clicks": 240,
+        "cost_usd": 12.9023
+      },
+      {
+        "date": "2026-06-06",
+        "gender": "FEMALE",
+        "campaign_id": "23912043113",
+        "impressions": 5894,
+        "clicks": 289,
+        "cost_usd": 7.4099
+      },
+      {
+        "date": "2026-06-06",
+        "gender": "UNDETERMINED",
+        "campaign_id": "23912043113",
+        "impressions": 1228,
+        "clicks": 33,
+        "cost_usd": 0.9359
+      },
+      {
+        "date": "2026-06-07",
+        "gender": "MALE",
+        "campaign_id": "23912043113",
+        "impressions": 8202,
+        "clicks": 237,
+        "cost_usd": 11.5263
+      },
+      {
+        "date": "2026-06-07",
+        "gender": "FEMALE",
+        "campaign_id": "23912043113",
+        "impressions": 4924,
+        "clicks": 256,
+        "cost_usd": 9.2062
+      },
+      {
+        "date": "2026-06-07",
+        "gender": "UNDETERMINED",
+        "campaign_id": "23912043113",
+        "impressions": 905,
+        "clicks": 24,
+        "cost_usd": 0.5982
+      },
+      {
+        "date": "2026-06-08",
+        "gender": "MALE",
+        "campaign_id": "23912043113",
+        "impressions": 9396,
+        "clicks": 224,
+        "cost_usd": 12.4917
+      },
+      {
+        "date": "2026-06-08",
+        "gender": "FEMALE",
+        "campaign_id": "23912043113",
+        "impressions": 5795,
+        "clicks": 199,
+        "cost_usd": 7.2353
+      },
+      {
+        "date": "2026-06-08",
+        "gender": "UNDETERMINED",
+        "campaign_id": "23912043113",
+        "impressions": 941,
+        "clicks": 16,
+        "cost_usd": 0.569
+      },
+      {
+        "date": "2026-06-09",
+        "gender": "MALE",
+        "campaign_id": "23912043113",
+        "impressions": 2595,
+        "clicks": 41,
+        "cost_usd": 4.3763
+      },
+      {
+        "date": "2026-06-09",
+        "gender": "FEMALE",
+        "campaign_id": "23912043113",
+        "impressions": 1147,
+        "clicks": 21,
+        "cost_usd": 2.7384
+      },
+      {
+        "date": "2026-06-09",
+        "gender": "UNDETERMINED",
+        "campaign_id": "23912043113",
+        "impressions": 203,
+        "clicks": 5,
+        "cost_usd": 0.1687
+      },
+      {
+        "date": "2026-09-16",
+        "gender": "MALE",
+        "campaign_id": "24255437888",
+        "impressions": 112,
+        "clicks": 10,
+        "cost_usd": 2.36
+      },
+      {
+        "date": "2026-09-16",
+        "gender": "FEMALE",
+        "campaign_id": "24255437888",
+        "impressions": 91,
+        "clicks": 5,
+        "cost_usd": 2.39
+      },
+      {
+        "date": "2026-09-16",
+        "gender": "UNDETERMINED",
+        "campaign_id": "24255437888",
+        "impressions": 49,
+        "clicks": 2,
+        "cost_usd": 0.9
+      },
+      {
+        "date": "2026-09-17",
+        "gender": "MALE",
+        "campaign_id": "24255437888",
+        "impressions": 114,
+        "clicks": 10,
+        "cost_usd": 2.59
+      },
+      {
+        "date": "2026-09-17",
+        "gender": "FEMALE",
+        "campaign_id": "24255437888",
+        "impressions": 86,
+        "clicks": 5,
+        "cost_usd": 1.13
+      },
+      {
+        "date": "2026-09-18",
+        "gender": "MALE",
+        "campaign_id": "24255437888",
+        "impressions": 101,
+        "clicks": 2,
+        "cost_usd": 0.55
+      },
+      {
+        "date": "2026-09-18",
+        "gender": "FEMALE",
+        "campaign_id": "24255437888",
+        "impressions": 70,
+        "clicks": 3,
+        "cost_usd": 1.08
+      },
+      {
+        "date": "2026-09-18",
+        "gender": "UNDETERMINED",
+        "campaign_id": "24255437888",
+        "impressions": 35,
+        "clicks": 2,
+        "cost_usd": 0.63
+      },
+      {
+        "date": "2026-09-19",
+        "gender": "MALE",
+        "campaign_id": "24255437888",
+        "impressions": 94,
+        "clicks": 9,
+        "cost_usd": 3.66
+      },
+      {
+        "date": "2026-09-19",
+        "gender": "FEMALE",
+        "campaign_id": "24255437888",
+        "impressions": 50,
+        "clicks": 1,
+        "cost_usd": 0.5
+      },
+      {
+        "date": "2026-09-20",
+        "gender": "MALE",
+        "campaign_id": "24255437888",
+        "impressions": 101,
+        "clicks": 7,
+        "cost_usd": 1.83
+      },
+      {
+        "date": "2026-09-20",
+        "gender": "FEMALE",
+        "campaign_id": "24255437888",
+        "impressions": 66,
+        "clicks": 4,
+        "cost_usd": 1.23
+      },
+      {
+        "date": "2026-09-20",
+        "gender": "UNDETERMINED",
+        "campaign_id": "24255437888",
+        "impressions": 52,
+        "clicks": 4,
+        "cost_usd": 1.57
+      },
+      {
+        "date": "2026-09-21",
+        "gender": "MALE",
+        "campaign_id": "24255437888",
+        "impressions": 146,
+        "clicks": 12,
+        "cost_usd": 2.4
+      },
+      {
+        "date": "2026-09-21",
+        "gender": "FEMALE",
+        "campaign_id": "24255437888",
+        "impressions": 73,
+        "clicks": 2,
+        "cost_usd": 1.0
+      },
+      {
+        "date": "2026-09-21",
+        "gender": "UNDETERMINED",
+        "campaign_id": "24255437888",
+        "impressions": 53,
+        "clicks": 3,
+        "cost_usd": 0.74
+      },
+      {
+        "date": "2026-09-22",
+        "gender": "MALE",
+        "campaign_id": "24255437888",
+        "impressions": 127,
+        "clicks": 4,
+        "cost_usd": 0.82
+      },
+      {
+        "date": "2026-09-22",
+        "gender": "FEMALE",
+        "campaign_id": "24255437888",
+        "impressions": 85,
+        "clicks": 6,
+        "cost_usd": 2.26
+      },
+      {
+        "date": "2026-09-22",
+        "gender": "UNDETERMINED",
+        "campaign_id": "24255437888",
+        "impressions": 52,
+        "clicks": 1,
+        "cost_usd": 0.49
+      },
+      {
+        "date": "2026-09-23",
+        "gender": "MALE",
+        "campaign_id": "24255437888",
+        "impressions": 96,
+        "clicks": 3,
+        "cost_usd": 1.05
+      },
+      {
+        "date": "2026-09-23",
+        "gender": "FEMALE",
+        "campaign_id": "24255437888",
+        "impressions": 80,
+        "clicks": 3,
+        "cost_usd": 1.31
+      },
+      {
+        "date": "2026-09-23",
+        "gender": "UNDETERMINED",
+        "campaign_id": "24255437888",
+        "impressions": 52,
+        "clicks": 2,
+        "cost_usd": 0.67
+      },
+      {
+        "date": "2026-09-24",
+        "gender": "MALE",
+        "campaign_id": "24255437888",
+        "impressions": 17,
+        "clicks": 2,
+        "cost_usd": 1.0
+      },
+      {
+        "date": "2026-06-26",
+        "gender": "MALE",
+        "campaign_id": "23969066805",
+        "impressions": 2860,
+        "clicks": 69,
+        "cost_usd": 2.936
+      },
+      {
+        "date": "2026-06-26",
+        "gender": "FEMALE",
+        "campaign_id": "23969066805",
+        "impressions": 3936,
+        "clicks": 97,
+        "cost_usd": 4.4195
+      },
+      {
+        "date": "2026-06-26",
+        "gender": "UNDETERMINED",
+        "campaign_id": "23969066805",
+        "impressions": 433,
+        "clicks": 8,
+        "cost_usd": 0.2957
+      },
+      {
+        "date": "2026-06-27",
+        "gender": "MALE",
+        "campaign_id": "23969066805",
+        "impressions": 3439,
+        "clicks": 147,
+        "cost_usd": 5.7663
+      },
+      {
+        "date": "2026-06-27",
+        "gender": "FEMALE",
+        "campaign_id": "23969066805",
+        "impressions": 2645,
+        "clicks": 128,
+        "cost_usd": 3.7283
+      },
+      {
+        "date": "2026-06-27",
+        "gender": "UNDETERMINED",
+        "campaign_id": "23969066805",
+        "impressions": 214,
+        "clicks": 16,
+        "cost_usd": 0.2707
+      },
+      {
+        "date": "2026-06-28",
+        "gender": "MALE",
+        "campaign_id": "23969066805",
+        "impressions": 3249,
+        "clicks": 168,
+        "cost_usd": 5.2512
+      },
+      {
+        "date": "2026-06-28",
+        "gender": "FEMALE",
+        "campaign_id": "23969066805",
+        "impressions": 2882,
+        "clicks": 204,
+        "cost_usd": 4.454
+      },
+      {
+        "date": "2026-06-28",
+        "gender": "UNDETERMINED",
+        "campaign_id": "23969066805",
+        "impressions": 348,
+        "clicks": 20,
+        "cost_usd": 0.2994
+      },
+      {
+        "date": "2026-06-29",
+        "gender": "MALE",
+        "campaign_id": "23969066805",
+        "impressions": 2952,
+        "clicks": 154,
+        "cost_usd": 5.4667
+      },
+      {
+        "date": "2026-06-29",
+        "gender": "FEMALE",
+        "campaign_id": "23969066805",
+        "impressions": 2092,
+        "clicks": 147,
+        "cost_usd": 3.6948
+      },
+      {
+        "date": "2026-06-29",
+        "gender": "UNDETERMINED",
+        "campaign_id": "23969066805",
+        "impressions": 200,
+        "clicks": 8,
+        "cost_usd": 0.1633
+      },
+      {
+        "date": "2026-06-30",
+        "gender": "MALE",
+        "campaign_id": "23969066805",
+        "impressions": 3094,
+        "clicks": 180,
+        "cost_usd": 5.1346
+      },
+      {
+        "date": "2026-06-30",
+        "gender": "FEMALE",
+        "campaign_id": "23969066805",
+        "impressions": 2161,
+        "clicks": 152,
+        "cost_usd": 3.5612
+      },
+      {
+        "date": "2026-06-30",
+        "gender": "UNDETERMINED",
+        "campaign_id": "23969066805",
+        "impressions": 239,
+        "clicks": 20,
+        "cost_usd": 0.208
+      },
+      {
+        "date": "2026-07-01",
+        "gender": "MALE",
+        "campaign_id": "23969066805",
+        "impressions": 2167,
+        "clicks": 108,
+        "cost_usd": 3.1795
+      },
+      {
+        "date": "2026-07-01",
+        "gender": "FEMALE",
+        "campaign_id": "23969066805",
+        "impressions": 1424,
+        "clicks": 84,
+        "cost_usd": 1.5448
+      },
+      {
+        "date": "2026-07-01",
+        "gender": "UNDETERMINED",
+        "campaign_id": "23969066805",
+        "impressions": 144,
+        "clicks": 16,
+        "cost_usd": 0.0885
+      },
+      {
+        "date": "2026-07-02",
+        "gender": "MALE",
+        "campaign_id": "23969066805",
+        "impressions": 2331,
+        "clicks": 134,
+        "cost_usd": 2.6192
+      },
+      {
+        "date": "2026-07-02",
+        "gender": "FEMALE",
+        "campaign_id": "23969066805",
+        "impressions": 1573,
+        "clicks": 107,
+        "cost_usd": 2.124
+      },
+      {
+        "date": "2026-07-02",
+        "gender": "UNDETERMINED",
+        "campaign_id": "23969066805",
+        "impressions": 252,
+        "clicks": 14,
+        "cost_usd": 0.2775
+      },
+      {
+        "date": "2026-07-03",
+        "gender": "MALE",
+        "campaign_id": "23969066805",
+        "impressions": 2142,
+        "clicks": 103,
+        "cost_usd": 2.4661
+      },
+      {
+        "date": "2026-07-03",
+        "gender": "FEMALE",
+        "campaign_id": "23969066805",
+        "impressions": 1730,
+        "clicks": 99,
+        "cost_usd": 2.0568
+      },
+      {
+        "date": "2026-07-03",
+        "gender": "UNDETERMINED",
+        "campaign_id": "23969066805",
+        "impressions": 250,
+        "clicks": 22,
+        "cost_usd": 0.4696
+      },
+      {
+        "date": "2026-07-04",
+        "gender": "MALE",
+        "campaign_id": "23969066805",
+        "impressions": 2283,
+        "clicks": 129,
+        "cost_usd": 2.8258
+      },
+      {
+        "date": "2026-07-04",
+        "gender": "FEMALE",
+        "campaign_id": "23969066805",
+        "impressions": 1638,
+        "clicks": 74,
+        "cost_usd": 1.9016
+      },
+      {
+        "date": "2026-07-04",
+        "gender": "UNDETERMINED",
+        "campaign_id": "23969066805",
+        "impressions": 198,
+        "clicks": 14,
+        "cost_usd": 0.1346
+      },
+      {
+        "date": "2026-07-05",
+        "gender": "MALE",
+        "campaign_id": "23969066805",
+        "impressions": 2666,
+        "clicks": 175,
+        "cost_usd": 3.0686
+      },
+      {
+        "date": "2026-07-05",
+        "gender": "FEMALE",
+        "campaign_id": "23969066805",
+        "impressions": 1668,
+        "clicks": 146,
+        "cost_usd": 1.8989
+      },
+      {
+        "date": "2026-07-05",
+        "gender": "UNDETERMINED",
+        "campaign_id": "23969066805",
+        "impressions": 230,
+        "clicks": 19,
+        "cost_usd": 0.1198
+      },
+      {
+        "date": "2026-07-06",
+        "gender": "MALE",
+        "campaign_id": "23969066805",
+        "impressions": 2325,
+        "clicks": 120,
+        "cost_usd": 3.1074
+      },
+      {
+        "date": "2026-07-06",
+        "gender": "FEMALE",
+        "campaign_id": "23969066805",
+        "impressions": 1281,
+        "clicks": 84,
+        "cost_usd": 1.2526
+      },
+      {
+        "date": "2026-07-06",
+        "gender": "UNDETERMINED",
+        "campaign_id": "23969066805",
+        "impressions": 148,
+        "clicks": 10,
+        "cost_usd": 0.7615
+      },
+      {
+        "date": "2026-07-07",
+        "gender": "MALE",
+        "campaign_id": "23969066805",
+        "impressions": 1804,
+        "clicks": 115,
+        "cost_usd": 1.6163
+      },
+      {
+        "date": "2026-07-07",
+        "gender": "FEMALE",
+        "campaign_id": "23969066805",
+        "impressions": 1031,
+        "clicks": 98,
+        "cost_usd": 1.1764
+      },
+      {
+        "date": "2026-07-07",
+        "gender": "UNDETERMINED",
+        "campaign_id": "23969066805",
+        "impressions": 123,
+        "clicks": 9,
+        "cost_usd": 0.0762
+      },
+      {
+        "date": "2026-06-25",
+        "gender": "MALE",
+        "campaign_id": "23969066805",
+        "impressions": 567,
+        "clicks": 7,
+        "cost_usd": 4.4672
+      },
+      {
+        "date": "2026-06-25",
+        "gender": "FEMALE",
+        "campaign_id": "23969066805",
+        "impressions": 599,
+        "clicks": 12,
+        "cost_usd": 3.569
+      },
+      {
+        "date": "2026-06-25",
+        "gender": "UNDETERMINED",
+        "campaign_id": "23969066805",
+        "impressions": 153,
+        "clicks": 4,
+        "cost_usd": 1.9755
+      },
+      {
+        "date": "2026-06-26",
+        "gender": "MALE",
+        "campaign_id": "23969066805",
+        "impressions": 182,
+        "clicks": 7,
+        "cost_usd": 1.4362
+      },
+      {
+        "date": "2026-06-26",
+        "gender": "FEMALE",
+        "campaign_id": "23969066805",
+        "impressions": 141,
+        "clicks": 5,
+        "cost_usd": 1.2733
+      },
+      {
+        "date": "2026-06-26",
+        "gender": "UNDETERMINED",
+        "campaign_id": "23969066805",
+        "impressions": 24,
+        "clicks": 0,
+        "cost_usd": 0.025
+      },
+      {
+        "date": "2026-06-27",
+        "gender": "MALE",
+        "campaign_id": "23969066805",
+        "impressions": 74,
+        "clicks": 2,
+        "cost_usd": 0.2502
+      },
+      {
+        "date": "2026-06-27",
+        "gender": "FEMALE",
+        "campaign_id": "23969066805",
+        "impressions": 26,
+        "clicks": 1,
+        "cost_usd": 0.2357
+      },
+      {
+        "date": "2026-06-27",
+        "gender": "UNDETERMINED",
+        "campaign_id": "23969066805",
+        "impressions": 5,
+        "clicks": 0,
+        "cost_usd": 0.008
+      },
+      {
+        "date": "2026-06-28",
+        "gender": "MALE",
+        "campaign_id": "23969066805",
+        "impressions": 10,
+        "clicks": 1,
+        "cost_usd": 0.0972
+      },
+      {
+        "date": "2026-06-28",
+        "gender": "FEMALE",
+        "campaign_id": "23969066805",
+        "impressions": 4,
+        "clicks": 0,
+        "cost_usd": 0.0258
+      },
+      {
+        "date": "2026-06-29",
+        "gender": "MALE",
+        "campaign_id": "23969066805",
+        "impressions": 19,
+        "clicks": 1,
+        "cost_usd": 0.3378
+      },
+      {
+        "date": "2026-06-29",
+        "gender": "FEMALE",
+        "campaign_id": "23969066805",
+        "impressions": 6,
+        "clicks": 0,
+        "cost_usd": 0.2805
+      },
+      {
+        "date": "2026-06-29",
+        "gender": "UNDETERMINED",
+        "campaign_id": "23969066805",
+        "impressions": 1,
+        "clicks": 0,
+        "cost_usd": 0.0031
+      },
+      {
+        "date": "2026-06-30",
+        "gender": "MALE",
+        "campaign_id": "23969066805",
+        "impressions": 11,
+        "clicks": 1,
+        "cost_usd": 0.3801
+      },
+      {
+        "date": "2026-06-30",
+        "gender": "FEMALE",
+        "campaign_id": "23969066805",
+        "impressions": 4,
+        "clicks": 0,
+        "cost_usd": 0.0333
+      },
+      {
+        "date": "2026-07-01",
+        "gender": "MALE",
+        "campaign_id": "23969066805",
+        "impressions": 3,
+        "clicks": 0,
+        "cost_usd": 0.0808
+      },
+      {
+        "date": "2026-07-02",
+        "gender": "MALE",
+        "campaign_id": "23969066805",
+        "impressions": 8,
+        "clicks": 1,
+        "cost_usd": 0.0235
+      },
+      {
+        "date": "2026-07-02",
+        "gender": "FEMALE",
+        "campaign_id": "23969066805",
+        "impressions": 2,
+        "clicks": 0,
+        "cost_usd": 0.0008
+      },
+      {
+        "date": "2026-07-02",
+        "gender": "UNDETERMINED",
+        "campaign_id": "23969066805",
+        "impressions": 1,
+        "clicks": 0,
+        "cost_usd": 0.0001
+      },
+      {
+        "date": "2026-07-03",
+        "gender": "MALE",
+        "campaign_id": "23969066805",
+        "impressions": 13,
+        "clicks": 0,
+        "cost_usd": 0.1244
+      },
+      {
+        "date": "2026-07-03",
+        "gender": "FEMALE",
+        "campaign_id": "23969066805",
+        "impressions": 10,
+        "clicks": 0,
+        "cost_usd": 0.1085
+      },
+      {
+        "date": "2026-07-03",
+        "gender": "UNDETERMINED",
+        "campaign_id": "23969066805",
+        "impressions": 2,
+        "clicks": 0,
+        "cost_usd": 0.0023
+      },
+      {
+        "date": "2026-07-04",
+        "gender": "MALE",
+        "campaign_id": "23969066805",
+        "impressions": 8,
+        "clicks": 1,
+        "cost_usd": 0.0381
+      },
+      {
+        "date": "2026-07-04",
+        "gender": "FEMALE",
+        "campaign_id": "23969066805",
+        "impressions": 9,
+        "clicks": 1,
+        "cost_usd": 0.2096
+      },
+      {
+        "date": "2026-07-05",
+        "gender": "MALE",
+        "campaign_id": "23969066805",
+        "impressions": 3,
+        "clicks": 0,
+        "cost_usd": 0.0043
+      },
+      {
+        "date": "2026-07-06",
+        "gender": "FEMALE",
+        "campaign_id": "23969066805",
+        "impressions": 1,
+        "clicks": 0,
+        "cost_usd": 0.0001
+      },
+      {
+        "date": "2026-09-16",
+        "gender": "MALE",
+        "campaign_id": "24249924945",
+        "impressions": 71,
+        "clicks": 11,
+        "cost_usd": 5.31
+      },
+      {
+        "date": "2026-09-16",
+        "gender": "FEMALE",
+        "campaign_id": "24249924945",
+        "impressions": 73,
+        "clicks": 8,
+        "cost_usd": 3.93
+      },
+      {
+        "date": "2026-09-16",
+        "gender": "UNDETERMINED",
+        "campaign_id": "24249924945",
+        "impressions": 53,
+        "clicks": 3,
+        "cost_usd": 1.48
+      },
+      {
+        "date": "2026-09-17",
+        "gender": "MALE",
+        "campaign_id": "24249924945",
+        "impressions": 95,
+        "clicks": 7,
+        "cost_usd": 3.16
+      },
+      {
+        "date": "2026-09-17",
+        "gender": "FEMALE",
+        "campaign_id": "24249924945",
+        "impressions": 116,
+        "clicks": 11,
+        "cost_usd": 5.37
+      },
+      {
+        "date": "2026-09-17",
+        "gender": "UNDETERMINED",
+        "campaign_id": "24249924945",
+        "impressions": 83,
+        "clicks": 6,
+        "cost_usd": 2.96
+      },
+      {
+        "date": "2026-09-18",
+        "gender": "MALE",
+        "campaign_id": "24249924945",
+        "impressions": 85,
+        "clicks": 5,
+        "cost_usd": 2.46
+      },
+      {
+        "date": "2026-09-18",
+        "gender": "FEMALE",
+        "campaign_id": "24249924945",
+        "impressions": 74,
+        "clicks": 13,
+        "cost_usd": 6.11
+      },
+      {
+        "date": "2026-09-18",
+        "gender": "UNDETERMINED",
+        "campaign_id": "24249924945",
+        "impressions": 82,
+        "clicks": 7,
+        "cost_usd": 3.47
+      },
+      {
+        "date": "2026-09-19",
+        "gender": "MALE",
+        "campaign_id": "24249924945",
+        "impressions": 73,
+        "clicks": 7,
+        "cost_usd": 3.47
+      },
+      {
+        "date": "2026-09-19",
+        "gender": "FEMALE",
+        "campaign_id": "24249924945",
+        "impressions": 68,
+        "clicks": 12,
+        "cost_usd": 5.95
+      },
+      {
+        "date": "2026-09-19",
+        "gender": "UNDETERMINED",
+        "campaign_id": "24249924945",
+        "impressions": 57,
+        "clicks": 5,
+        "cost_usd": 2.49
+      },
+      {
+        "date": "2026-09-20",
+        "gender": "MALE",
+        "campaign_id": "24249924945",
+        "impressions": 93,
+        "clicks": 7,
+        "cost_usd": 3.45
+      },
+      {
+        "date": "2026-09-20",
+        "gender": "FEMALE",
+        "campaign_id": "24249924945",
+        "impressions": 93,
+        "clicks": 12,
+        "cost_usd": 5.92
+      },
+      {
+        "date": "2026-09-20",
+        "gender": "UNDETERMINED",
+        "campaign_id": "24249924945",
+        "impressions": 78,
+        "clicks": 5,
+        "cost_usd": 2.48
+      },
+      {
+        "date": "2026-09-21",
+        "gender": "MALE",
+        "campaign_id": "24249924945",
+        "impressions": 119,
+        "clicks": 17,
+        "cost_usd": 8.36
+      },
+      {
+        "date": "2026-09-21",
+        "gender": "FEMALE",
+        "campaign_id": "24249924945",
+        "impressions": 111,
+        "clicks": 14,
+        "cost_usd": 6.56
+      },
+      {
+        "date": "2026-09-21",
+        "gender": "UNDETERMINED",
+        "campaign_id": "24249924945",
+        "impressions": 84,
+        "clicks": 5,
+        "cost_usd": 2.47
+      },
+      {
+        "date": "2026-09-22",
+        "gender": "MALE",
+        "campaign_id": "24249924945",
+        "impressions": 60,
+        "clicks": 5,
+        "cost_usd": 6.06
+      },
+      {
+        "date": "2026-09-22",
+        "gender": "FEMALE",
+        "campaign_id": "24249924945",
+        "impressions": 71,
+        "clicks": 6,
+        "cost_usd": 7.87
+      },
+      {
+        "date": "2026-09-22",
+        "gender": "UNDETERMINED",
+        "campaign_id": "24249924945",
+        "impressions": 51,
+        "clicks": 4,
+        "cost_usd": 3.34
+      },
+      {
+        "date": "2026-09-23",
+        "gender": "MALE",
+        "campaign_id": "24249924945",
+        "impressions": 25,
+        "clicks": 4,
+        "cost_usd": 5.11
+      },
+      {
+        "date": "2026-09-23",
+        "gender": "FEMALE",
+        "campaign_id": "24249924945",
+        "impressions": 49,
+        "clicks": 8,
+        "cost_usd": 11.7
+      },
+      {
+        "date": "2026-09-23",
+        "gender": "UNDETERMINED",
+        "campaign_id": "24249924945",
+        "impressions": 23,
+        "clicks": 1,
+        "cost_usd": 1.22
+      },
+      {
+        "date": "2026-09-24",
+        "gender": "MALE",
+        "campaign_id": "24249924945",
+        "impressions": 4,
+        "clicks": 1,
+        "cost_usd": 1.03
+      },
+      {
+        "date": "2026-09-24",
+        "gender": "FEMALE",
+        "campaign_id": "24249924945",
+        "impressions": 8,
+        "clicks": 1,
+        "cost_usd": 1.39
+      },
+      {
+        "date": "2026-09-24",
+        "gender": "UNDETERMINED",
+        "campaign_id": "24249924945",
+        "impressions": 11,
+        "clicks": 2,
+        "cost_usd": 3.18
+      },
+      {
+        "date": "2026-09-07",
+        "gender": "FEMALE",
+        "campaign_id": "24222306362",
+        "impressions": 3,
+        "clicks": 1,
+        "cost_usd": 0.5
+      },
+      {
+        "date": "2026-09-10",
+        "gender": "MALE",
+        "campaign_id": "24222306362",
+        "impressions": 44,
+        "clicks": 1,
+        "cost_usd": 0.0637
+      },
+      {
+        "date": "2026-09-10",
+        "gender": "FEMALE",
+        "campaign_id": "24222306362",
+        "impressions": 47,
+        "clicks": 2,
+        "cost_usd": 1.7081
+      },
+      {
+        "date": "2026-09-11",
+        "gender": "MALE",
+        "campaign_id": "24222306362",
+        "impressions": 60,
+        "clicks": 2,
+        "cost_usd": 0.6984
+      },
+      {
+        "date": "2026-09-11",
+        "gender": "FEMALE",
+        "campaign_id": "24222306362",
+        "impressions": 96,
+        "clicks": 4,
+        "cost_usd": 4.11
+      },
+      {
+        "date": "2026-09-12",
+        "gender": "MALE",
+        "campaign_id": "24222306362",
+        "impressions": 177,
+        "clicks": 9,
+        "cost_usd": 18.3013
+      },
+      {
+        "date": "2026-09-12",
+        "gender": "FEMALE",
+        "campaign_id": "24222306362",
+        "impressions": 189,
+        "clicks": 11,
+        "cost_usd": 12.197
+      },
+      {
+        "date": "2026-09-13",
+        "gender": "MALE",
+        "campaign_id": "24222306362",
+        "impressions": 265,
+        "clicks": 13,
+        "cost_usd": 11.3005
+      },
+      {
+        "date": "2026-09-13",
+        "gender": "FEMALE",
+        "campaign_id": "24222306362",
+        "impressions": 255,
+        "clicks": 12,
+        "cost_usd": 8.4381
+      },
+      {
+        "date": "2026-09-14",
+        "gender": "MALE",
+        "campaign_id": "24222306362",
+        "impressions": 69,
+        "clicks": 4,
+        "cost_usd": 7.57
+      },
+      {
+        "date": "2026-09-14",
+        "gender": "FEMALE",
+        "campaign_id": "24222306362",
+        "impressions": 77,
+        "clicks": 3,
+        "cost_usd": 1.79
+      },
+      {
+        "date": "2026-09-15",
+        "gender": "MALE",
+        "campaign_id": "24222306362",
+        "impressions": 37,
+        "clicks": 4,
+        "cost_usd": 9.309
+      },
+      {
+        "date": "2026-09-15",
+        "gender": "FEMALE",
+        "campaign_id": "24222306362",
+        "impressions": 42,
+        "clicks": 1,
+        "cost_usd": 0.32
+      },
+      {
+        "date": "2026-09-16",
+        "gender": "MALE",
+        "campaign_id": "24222306362",
+        "impressions": 87,
+        "clicks": 2,
+        "cost_usd": 2.92
+      },
+      {
+        "date": "2026-09-16",
+        "gender": "FEMALE",
+        "campaign_id": "24222306362",
+        "impressions": 56,
+        "clicks": 3,
+        "cost_usd": 0.8389
+      },
+      {
         "date": "2026-07-23",
         "gender": "MALE",
         "campaign_id": "24060696869",
@@ -9394,250 +10201,146 @@
         "cost_usd": 0.222
       },
       {
-        "date": "2026-09-02",
+        "date": "2026-09-08",
         "gender": "MALE",
-        "campaign_id": "24169112079",
-        "impressions": 2,
-        "clicks": 2,
-        "cost_usd": 1.0
-      },
-      {
-        "date": "2026-09-04",
-        "gender": "MALE",
-        "campaign_id": "24169112079",
-        "impressions": 52,
+        "campaign_id": "24216663018",
+        "impressions": 12,
         "clicks": 1,
-        "cost_usd": 0.5
+        "cost_usd": 0.0304
       },
       {
-        "date": "2026-09-04",
+        "date": "2026-09-08",
         "gender": "FEMALE",
-        "campaign_id": "24169112079",
-        "impressions": 28,
-        "clicks": 2,
-        "cost_usd": 0.6
-      },
-      {
-        "date": "2026-09-04",
-        "gender": "UNDETERMINED",
-        "campaign_id": "24169112079",
-        "impressions": 28,
-        "clicks": 1,
-        "cost_usd": 0.5
-      },
-      {
-        "date": "2026-09-04",
-        "gender": "MALE",
-        "campaign_id": "24169112079",
-        "impressions": 60,
-        "clicks": 2,
-        "cost_usd": 0.99
-      },
-      {
-        "date": "2026-09-04",
-        "gender": "FEMALE",
-        "campaign_id": "24169112079",
-        "impressions": 29,
-        "clicks": 2,
-        "cost_usd": 0.57
-      },
-      {
-        "date": "2026-09-04",
-        "gender": "UNDETERMINED",
-        "campaign_id": "24169112079",
-        "impressions": 21,
-        "clicks": 3,
-        "cost_usd": 0.63
-      },
-      {
-        "date": "2026-09-05",
-        "gender": "MALE",
-        "campaign_id": "24169112079",
-        "impressions": 78,
-        "clicks": 8,
-        "cost_usd": 3.96
-      },
-      {
-        "date": "2026-09-05",
-        "gender": "FEMALE",
-        "campaign_id": "24169112079",
-        "impressions": 49,
-        "clicks": 1,
-        "cost_usd": 0.43
-      },
-      {
-        "date": "2026-09-05",
-        "gender": "UNDETERMINED",
-        "campaign_id": "24169112079",
-        "impressions": 51,
-        "clicks": 1,
-        "cost_usd": 0.47
-      },
-      {
-        "date": "2026-09-05",
-        "gender": "MALE",
-        "campaign_id": "24169112079",
-        "impressions": 78,
-        "clicks": 2,
-        "cost_usd": 1.0
-      },
-      {
-        "date": "2026-09-05",
-        "gender": "FEMALE",
-        "campaign_id": "24169112079",
-        "impressions": 42,
-        "clicks": 5,
-        "cost_usd": 2.48
-      },
-      {
-        "date": "2026-09-06",
-        "gender": "MALE",
-        "campaign_id": "24169112079",
-        "impressions": 34,
-        "clicks": 1,
-        "cost_usd": 0.5
-      },
-      {
-        "date": "2026-09-06",
-        "gender": "FEMALE",
-        "campaign_id": "24169112079",
-        "impressions": 31,
-        "clicks": 1,
-        "cost_usd": 0.5
-      },
-      {
-        "date": "2026-09-06",
-        "gender": "UNDETERMINED",
-        "campaign_id": "24169112079",
-        "impressions": 17,
-        "clicks": 1,
-        "cost_usd": 0.5
-      },
-      {
-        "date": "2026-09-06",
-        "gender": "MALE",
-        "campaign_id": "24169112079",
-        "impressions": 55,
-        "clicks": 7,
-        "cost_usd": 1.87
-      },
-      {
-        "date": "2026-09-06",
-        "gender": "FEMALE",
-        "campaign_id": "24169112079",
-        "impressions": 60,
-        "clicks": 6,
-        "cost_usd": 3.0
-      },
-      {
-        "date": "2026-09-06",
-        "gender": "UNDETERMINED",
-        "campaign_id": "24169112079",
-        "impressions": 44,
-        "clicks": 4,
-        "cost_usd": 1.95
-      },
-      {
-        "date": "2026-08-26",
-        "gender": "FEMALE",
-        "campaign_id": "24175048454",
-        "impressions": 3,
-        "clicks": 1,
-        "cost_usd": 0.1
-      },
-      {
-        "date": "2026-08-29",
-        "gender": "FEMALE",
-        "campaign_id": "24175048454",
+        "campaign_id": "24216663018",
         "impressions": 4,
         "clicks": 1,
-        "cost_usd": 0.47
+        "cost_usd": 0.02
       },
       {
-        "date": "2026-08-29",
-        "gender": "UNDETERMINED",
-        "campaign_id": "24175048454",
-        "impressions": 23,
-        "clicks": 1,
-        "cost_usd": 0.49
-      },
-      {
-        "date": "2026-08-30",
+        "date": "2026-09-10",
         "gender": "MALE",
-        "campaign_id": "24175048454",
-        "impressions": 10,
+        "campaign_id": "24216663018",
+        "impressions": 48,
         "clicks": 2,
-        "cost_usd": 0.98
+        "cost_usd": 0.0427
       },
       {
-        "date": "2026-08-30",
-        "gender": "UNDETERMINED",
-        "campaign_id": "24175048454",
-        "impressions": 21,
-        "clicks": 3,
-        "cost_usd": 0.21
-      },
-      {
-        "date": "2026-09-01",
-        "gender": "MALE",
-        "campaign_id": "24175048454",
-        "impressions": 9,
-        "clicks": 1,
-        "cost_usd": 0.48
-      },
-      {
-        "date": "2026-09-01",
+        "date": "2026-09-10",
         "gender": "FEMALE",
-        "campaign_id": "24175048454",
-        "impressions": 5,
+        "campaign_id": "24216663018",
+        "impressions": 29,
         "clicks": 1,
-        "cost_usd": 0.5
+        "cost_usd": 0.22
       },
       {
-        "date": "2026-09-02",
+        "date": "2026-09-11",
         "gender": "MALE",
-        "campaign_id": "24175048454",
-        "impressions": 11,
-        "clicks": 1,
-        "cost_usd": 0.49
+        "campaign_id": "24216663018",
+        "impressions": 120,
+        "clicks": 8,
+        "cost_usd": 3.6115
       },
       {
-        "date": "2026-09-02",
+        "date": "2026-09-11",
         "gender": "FEMALE",
-        "campaign_id": "24175048454",
-        "impressions": 7,
-        "clicks": 1,
-        "cost_usd": 0.5
+        "campaign_id": "24216663018",
+        "impressions": 107,
+        "clicks": 8,
+        "cost_usd": 1.909
       },
       {
-        "date": "2026-09-02",
-        "gender": "UNDETERMINED",
-        "campaign_id": "24175048454",
-        "impressions": 6,
-        "clicks": 1,
-        "cost_usd": 0.49
-      },
-      {
-        "date": "2026-09-04",
+        "date": "2026-09-12",
         "gender": "MALE",
-        "campaign_id": "24175048454",
-        "impressions": 31,
-        "clicks": 5,
-        "cost_usd": 2.49
+        "campaign_id": "24216663018",
+        "impressions": 276,
+        "clicks": 24,
+        "cost_usd": 14.5305
       },
       {
-        "date": "2026-09-04",
+        "date": "2026-09-12",
         "gender": "FEMALE",
-        "campaign_id": "24175048454",
-        "impressions": 22,
+        "campaign_id": "24216663018",
+        "impressions": 252,
+        "clicks": 17,
+        "cost_usd": 11.113
+      },
+      {
+        "date": "2026-09-13",
+        "gender": "MALE",
+        "campaign_id": "24216663018",
+        "impressions": 346,
+        "clicks": 29,
+        "cost_usd": 14.0751
+      },
+      {
+        "date": "2026-09-13",
+        "gender": "FEMALE",
+        "campaign_id": "24216663018",
+        "impressions": 276,
+        "clicks": 20,
+        "cost_usd": 12.7688
+      },
+      {
+        "date": "2026-09-14",
+        "gender": "MALE",
+        "campaign_id": "24216663018",
+        "impressions": 127,
+        "clicks": 8,
+        "cost_usd": 8.2861
+      },
+      {
+        "date": "2026-09-14",
+        "gender": "FEMALE",
+        "campaign_id": "24216663018",
+        "impressions": 81,
+        "clicks": 1,
+        "cost_usd": 4.14
+      },
+      {
+        "date": "2026-09-15",
+        "gender": "MALE",
+        "campaign_id": "24216663018",
+        "impressions": 90,
         "clicks": 6,
-        "cost_usd": 2.99
+        "cost_usd": 0.6614
       },
       {
-        "date": "2026-09-04",
-        "gender": "UNDETERMINED",
-        "campaign_id": "24175048454",
-        "impressions": 21,
+        "date": "2026-09-15",
+        "gender": "FEMALE",
+        "campaign_id": "24216663018",
+        "impressions": 69,
+        "clicks": 8,
+        "cost_usd": 6.9115
+      },
+      {
+        "date": "2026-09-16",
+        "gender": "MALE",
+        "campaign_id": "24216663018",
+        "impressions": 52,
+        "clicks": 6,
+        "cost_usd": 0.6193
+      },
+      {
+        "date": "2026-09-16",
+        "gender": "FEMALE",
+        "campaign_id": "24216663018",
+        "impressions": 32,
+        "clicks": 4,
+        "cost_usd": 2.5668
+      },
+      {
+        "date": "2026-09-23",
+        "gender": "MALE",
+        "campaign_id": "24254001344",
+        "impressions": 4,
+        "clicks": 1,
+        "cost_usd": 0.5
+      },
+      {
+        "date": "2026-09-23",
+        "gender": "FEMALE",
+        "campaign_id": "24254001344",
+        "impressions": 4,
         "clicks": 1,
         "cost_usd": 0.5
       },
@@ -9866,254 +10569,6 @@
         "cost_usd": 1.0
       },
       {
-        "date": "2026-09-08",
-        "gender": "MALE",
-        "campaign_id": "24216663018",
-        "impressions": 12,
-        "clicks": 1,
-        "cost_usd": 0.0304
-      },
-      {
-        "date": "2026-09-08",
-        "gender": "FEMALE",
-        "campaign_id": "24216663018",
-        "impressions": 4,
-        "clicks": 1,
-        "cost_usd": 0.02
-      },
-      {
-        "date": "2026-09-10",
-        "gender": "MALE",
-        "campaign_id": "24216663018",
-        "impressions": 48,
-        "clicks": 2,
-        "cost_usd": 0.0427
-      },
-      {
-        "date": "2026-09-10",
-        "gender": "FEMALE",
-        "campaign_id": "24216663018",
-        "impressions": 29,
-        "clicks": 1,
-        "cost_usd": 0.22
-      },
-      {
-        "date": "2026-09-11",
-        "gender": "MALE",
-        "campaign_id": "24216663018",
-        "impressions": 120,
-        "clicks": 8,
-        "cost_usd": 3.6115
-      },
-      {
-        "date": "2026-09-11",
-        "gender": "FEMALE",
-        "campaign_id": "24216663018",
-        "impressions": 107,
-        "clicks": 8,
-        "cost_usd": 1.909
-      },
-      {
-        "date": "2026-09-12",
-        "gender": "MALE",
-        "campaign_id": "24216663018",
-        "impressions": 276,
-        "clicks": 24,
-        "cost_usd": 14.5305
-      },
-      {
-        "date": "2026-09-12",
-        "gender": "FEMALE",
-        "campaign_id": "24216663018",
-        "impressions": 252,
-        "clicks": 17,
-        "cost_usd": 11.113
-      },
-      {
-        "date": "2026-09-13",
-        "gender": "MALE",
-        "campaign_id": "24216663018",
-        "impressions": 346,
-        "clicks": 29,
-        "cost_usd": 14.0751
-      },
-      {
-        "date": "2026-09-13",
-        "gender": "FEMALE",
-        "campaign_id": "24216663018",
-        "impressions": 276,
-        "clicks": 20,
-        "cost_usd": 12.7688
-      },
-      {
-        "date": "2026-09-14",
-        "gender": "MALE",
-        "campaign_id": "24216663018",
-        "impressions": 127,
-        "clicks": 8,
-        "cost_usd": 8.2861
-      },
-      {
-        "date": "2026-09-14",
-        "gender": "FEMALE",
-        "campaign_id": "24216663018",
-        "impressions": 81,
-        "clicks": 1,
-        "cost_usd": 4.14
-      },
-      {
-        "date": "2026-09-15",
-        "gender": "MALE",
-        "campaign_id": "24216663018",
-        "impressions": 90,
-        "clicks": 6,
-        "cost_usd": 0.6614
-      },
-      {
-        "date": "2026-09-15",
-        "gender": "FEMALE",
-        "campaign_id": "24216663018",
-        "impressions": 69,
-        "clicks": 8,
-        "cost_usd": 6.9115
-      },
-      {
-        "date": "2026-09-16",
-        "gender": "MALE",
-        "campaign_id": "24216663018",
-        "impressions": 52,
-        "clicks": 6,
-        "cost_usd": 0.6193
-      },
-      {
-        "date": "2026-09-16",
-        "gender": "FEMALE",
-        "campaign_id": "24216663018",
-        "impressions": 32,
-        "clicks": 4,
-        "cost_usd": 2.5668
-      },
-      {
-        "date": "2026-09-07",
-        "gender": "FEMALE",
-        "campaign_id": "24222306362",
-        "impressions": 3,
-        "clicks": 1,
-        "cost_usd": 0.5
-      },
-      {
-        "date": "2026-09-10",
-        "gender": "MALE",
-        "campaign_id": "24222306362",
-        "impressions": 44,
-        "clicks": 1,
-        "cost_usd": 0.0637
-      },
-      {
-        "date": "2026-09-10",
-        "gender": "FEMALE",
-        "campaign_id": "24222306362",
-        "impressions": 47,
-        "clicks": 2,
-        "cost_usd": 1.7081
-      },
-      {
-        "date": "2026-09-11",
-        "gender": "MALE",
-        "campaign_id": "24222306362",
-        "impressions": 60,
-        "clicks": 2,
-        "cost_usd": 0.6984
-      },
-      {
-        "date": "2026-09-11",
-        "gender": "FEMALE",
-        "campaign_id": "24222306362",
-        "impressions": 96,
-        "clicks": 4,
-        "cost_usd": 4.11
-      },
-      {
-        "date": "2026-09-12",
-        "gender": "MALE",
-        "campaign_id": "24222306362",
-        "impressions": 177,
-        "clicks": 9,
-        "cost_usd": 18.3013
-      },
-      {
-        "date": "2026-09-12",
-        "gender": "FEMALE",
-        "campaign_id": "24222306362",
-        "impressions": 189,
-        "clicks": 11,
-        "cost_usd": 12.197
-      },
-      {
-        "date": "2026-09-13",
-        "gender": "MALE",
-        "campaign_id": "24222306362",
-        "impressions": 265,
-        "clicks": 13,
-        "cost_usd": 11.3005
-      },
-      {
-        "date": "2026-09-13",
-        "gender": "FEMALE",
-        "campaign_id": "24222306362",
-        "impressions": 255,
-        "clicks": 12,
-        "cost_usd": 8.4381
-      },
-      {
-        "date": "2026-09-14",
-        "gender": "MALE",
-        "campaign_id": "24222306362",
-        "impressions": 69,
-        "clicks": 4,
-        "cost_usd": 7.57
-      },
-      {
-        "date": "2026-09-14",
-        "gender": "FEMALE",
-        "campaign_id": "24222306362",
-        "impressions": 77,
-        "clicks": 3,
-        "cost_usd": 1.79
-      },
-      {
-        "date": "2026-09-15",
-        "gender": "MALE",
-        "campaign_id": "24222306362",
-        "impressions": 37,
-        "clicks": 4,
-        "cost_usd": 9.309
-      },
-      {
-        "date": "2026-09-15",
-        "gender": "FEMALE",
-        "campaign_id": "24222306362",
-        "impressions": 42,
-        "clicks": 1,
-        "cost_usd": 0.32
-      },
-      {
-        "date": "2026-09-16",
-        "gender": "MALE",
-        "campaign_id": "24222306362",
-        "impressions": 87,
-        "clicks": 2,
-        "cost_usd": 2.92
-      },
-      {
-        "date": "2026-09-16",
-        "gender": "FEMALE",
-        "campaign_id": "24222306362",
-        "impressions": 56,
-        "clicks": 3,
-        "cost_usd": 0.8389
-      },
-      {
         "date": "2026-09-10",
         "gender": "MALE",
         "campaign_id": "24227636785",
@@ -10146,14 +10601,6 @@
         "cost_usd": 2.6
       },
       {
-        "date": "2026-09-11",
-        "gender": "FEMALE",
-        "campaign_id": "24227636785",
-        "impressions": 25,
-        "clicks": 4,
-        "cost_usd": 1.2541
-      },
-      {
         "date": "2026-09-12",
         "gender": "MALE",
         "campaign_id": "24227636785",
@@ -10168,22 +10615,6 @@
         "impressions": 259,
         "clicks": 16,
         "cost_usd": 12.4282
-      },
-      {
-        "date": "2026-09-12",
-        "gender": "MALE",
-        "campaign_id": "24227636785",
-        "impressions": 83,
-        "clicks": 2,
-        "cost_usd": 0.1139
-      },
-      {
-        "date": "2026-09-12",
-        "gender": "FEMALE",
-        "campaign_id": "24227636785",
-        "impressions": 75,
-        "clicks": 8,
-        "cost_usd": 6.328
       },
       {
         "date": "2026-09-13",
@@ -10202,22 +10633,6 @@
         "cost_usd": 8.6594
       },
       {
-        "date": "2026-09-13",
-        "gender": "MALE",
-        "campaign_id": "24227636785",
-        "impressions": 99,
-        "clicks": 4,
-        "cost_usd": 0.7559
-      },
-      {
-        "date": "2026-09-13",
-        "gender": "FEMALE",
-        "campaign_id": "24227636785",
-        "impressions": 109,
-        "clicks": 6,
-        "cost_usd": 2.5474
-      },
-      {
         "date": "2026-09-14",
         "gender": "MALE",
         "campaign_id": "24227636785",
@@ -10232,14 +10647,6 @@
         "impressions": 97,
         "clicks": 7,
         "cost_usd": 2.35
-      },
-      {
-        "date": "2026-09-14",
-        "gender": "MALE",
-        "campaign_id": "24227636785",
-        "impressions": 29,
-        "clicks": 1,
-        "cost_usd": 1.31
       },
       {
         "date": "2026-09-15",
@@ -10258,22 +10665,6 @@
         "cost_usd": 0.1675
       },
       {
-        "date": "2026-09-15",
-        "gender": "MALE",
-        "campaign_id": "24227636785",
-        "impressions": 31,
-        "clicks": 3,
-        "cost_usd": 0.3353
-      },
-      {
-        "date": "2026-09-15",
-        "gender": "FEMALE",
-        "campaign_id": "24227636785",
-        "impressions": 19,
-        "clicks": 1,
-        "cost_usd": 1.65
-      },
-      {
         "date": "2026-09-16",
         "gender": "MALE",
         "campaign_id": "24227636785",
@@ -10288,366 +10679,6 @@
         "impressions": 43,
         "clicks": 4,
         "cost_usd": 0.8794
-      },
-      {
-        "date": "2026-09-16",
-        "gender": "MALE",
-        "campaign_id": "24227636785",
-        "impressions": 7,
-        "clicks": 1,
-        "cost_usd": 0.2662
-      },
-      {
-        "date": "2026-09-16",
-        "gender": "FEMALE",
-        "campaign_id": "24227636785",
-        "impressions": 26,
-        "clicks": 3,
-        "cost_usd": 2.7
-      },
-      {
-        "date": "2026-09-16",
-        "gender": "MALE",
-        "campaign_id": "24249924945",
-        "impressions": 71,
-        "clicks": 11,
-        "cost_usd": 5.31
-      },
-      {
-        "date": "2026-09-16",
-        "gender": "FEMALE",
-        "campaign_id": "24249924945",
-        "impressions": 73,
-        "clicks": 8,
-        "cost_usd": 3.93
-      },
-      {
-        "date": "2026-09-16",
-        "gender": "UNDETERMINED",
-        "campaign_id": "24249924945",
-        "impressions": 53,
-        "clicks": 3,
-        "cost_usd": 1.48
-      },
-      {
-        "date": "2026-09-17",
-        "gender": "MALE",
-        "campaign_id": "24249924945",
-        "impressions": 95,
-        "clicks": 7,
-        "cost_usd": 3.16
-      },
-      {
-        "date": "2026-09-17",
-        "gender": "FEMALE",
-        "campaign_id": "24249924945",
-        "impressions": 116,
-        "clicks": 11,
-        "cost_usd": 5.37
-      },
-      {
-        "date": "2026-09-17",
-        "gender": "UNDETERMINED",
-        "campaign_id": "24249924945",
-        "impressions": 83,
-        "clicks": 6,
-        "cost_usd": 2.96
-      },
-      {
-        "date": "2026-09-18",
-        "gender": "MALE",
-        "campaign_id": "24249924945",
-        "impressions": 85,
-        "clicks": 5,
-        "cost_usd": 2.46
-      },
-      {
-        "date": "2026-09-18",
-        "gender": "FEMALE",
-        "campaign_id": "24249924945",
-        "impressions": 74,
-        "clicks": 13,
-        "cost_usd": 6.11
-      },
-      {
-        "date": "2026-09-18",
-        "gender": "UNDETERMINED",
-        "campaign_id": "24249924945",
-        "impressions": 82,
-        "clicks": 7,
-        "cost_usd": 3.47
-      },
-      {
-        "date": "2026-09-19",
-        "gender": "MALE",
-        "campaign_id": "24249924945",
-        "impressions": 73,
-        "clicks": 7,
-        "cost_usd": 3.47
-      },
-      {
-        "date": "2026-09-19",
-        "gender": "FEMALE",
-        "campaign_id": "24249924945",
-        "impressions": 68,
-        "clicks": 12,
-        "cost_usd": 5.95
-      },
-      {
-        "date": "2026-09-19",
-        "gender": "UNDETERMINED",
-        "campaign_id": "24249924945",
-        "impressions": 57,
-        "clicks": 5,
-        "cost_usd": 2.49
-      },
-      {
-        "date": "2026-09-20",
-        "gender": "MALE",
-        "campaign_id": "24249924945",
-        "impressions": 93,
-        "clicks": 7,
-        "cost_usd": 3.45
-      },
-      {
-        "date": "2026-09-20",
-        "gender": "FEMALE",
-        "campaign_id": "24249924945",
-        "impressions": 93,
-        "clicks": 12,
-        "cost_usd": 5.92
-      },
-      {
-        "date": "2026-09-20",
-        "gender": "UNDETERMINED",
-        "campaign_id": "24249924945",
-        "impressions": 78,
-        "clicks": 5,
-        "cost_usd": 2.48
-      },
-      {
-        "date": "2026-09-21",
-        "gender": "MALE",
-        "campaign_id": "24249924945",
-        "impressions": 119,
-        "clicks": 17,
-        "cost_usd": 8.36
-      },
-      {
-        "date": "2026-09-21",
-        "gender": "FEMALE",
-        "campaign_id": "24249924945",
-        "impressions": 111,
-        "clicks": 14,
-        "cost_usd": 6.56
-      },
-      {
-        "date": "2026-09-21",
-        "gender": "UNDETERMINED",
-        "campaign_id": "24249924945",
-        "impressions": 84,
-        "clicks": 5,
-        "cost_usd": 2.47
-      },
-      {
-        "date": "2026-09-22",
-        "gender": "MALE",
-        "campaign_id": "24249924945",
-        "impressions": 60,
-        "clicks": 5,
-        "cost_usd": 6.06
-      },
-      {
-        "date": "2026-09-22",
-        "gender": "FEMALE",
-        "campaign_id": "24249924945",
-        "impressions": 71,
-        "clicks": 6,
-        "cost_usd": 7.87
-      },
-      {
-        "date": "2026-09-22",
-        "gender": "UNDETERMINED",
-        "campaign_id": "24249924945",
-        "impressions": 51,
-        "clicks": 4,
-        "cost_usd": 3.34
-      },
-      {
-        "date": "2026-09-23",
-        "gender": "MALE",
-        "campaign_id": "24249924945",
-        "impressions": 13,
-        "clicks": 2,
-        "cost_usd": 2.39
-      },
-      {
-        "date": "2026-09-23",
-        "gender": "FEMALE",
-        "campaign_id": "24249924945",
-        "impressions": 23,
-        "clicks": 6,
-        "cost_usd": 9.46
-      },
-      {
-        "date": "2026-09-23",
-        "gender": "UNDETERMINED",
-        "campaign_id": "24249924945",
-        "impressions": 13,
-        "clicks": 1,
-        "cost_usd": 1.22
-      },
-      {
-        "date": "2026-09-15",
-        "gender": "UNDETERMINED",
-        "campaign_id": "24254001344",
-        "impressions": 2,
-        "clicks": 1,
-        "cost_usd": 0.11
-      },
-      {
-        "date": "2026-09-16",
-        "gender": "MALE",
-        "campaign_id": "24254001344",
-        "impressions": 4,
-        "clicks": 2,
-        "cost_usd": 0.65
-      },
-      {
-        "date": "2026-09-16",
-        "gender": "FEMALE",
-        "campaign_id": "24254001344",
-        "impressions": 8,
-        "clicks": 1,
-        "cost_usd": 0.5
-      },
-      {
-        "date": "2026-09-18",
-        "gender": "MALE",
-        "campaign_id": "24254001344",
-        "impressions": 16,
-        "clicks": 1,
-        "cost_usd": 0.46
-      },
-      {
-        "date": "2026-09-18",
-        "gender": "FEMALE",
-        "campaign_id": "24254001344",
-        "impressions": 3,
-        "clicks": 1,
-        "cost_usd": 0.14
-      },
-      {
-        "date": "2026-09-18",
-        "gender": "UNDETERMINED",
-        "campaign_id": "24254001344",
-        "impressions": 15,
-        "clicks": 3,
-        "cost_usd": 1.19
-      },
-      {
-        "date": "2026-09-19",
-        "gender": "MALE",
-        "campaign_id": "24254001344",
-        "impressions": 11,
-        "clicks": 2,
-        "cost_usd": 0.98
-      },
-      {
-        "date": "2026-09-19",
-        "gender": "FEMALE",
-        "campaign_id": "24254001344",
-        "impressions": 9,
-        "clicks": 2,
-        "cost_usd": 0.96
-      },
-      {
-        "date": "2026-09-19",
-        "gender": "UNDETERMINED",
-        "campaign_id": "24254001344",
-        "impressions": 10,
-        "clicks": 1,
-        "cost_usd": 0.5
-      },
-      {
-        "date": "2026-09-20",
-        "gender": "MALE",
-        "campaign_id": "24254001344",
-        "impressions": 30,
-        "clicks": 4,
-        "cost_usd": 1.96
-      },
-      {
-        "date": "2026-09-20",
-        "gender": "FEMALE",
-        "campaign_id": "24254001344",
-        "impressions": 14,
-        "clicks": 5,
-        "cost_usd": 2.39
-      },
-      {
-        "date": "2026-09-21",
-        "gender": "MALE",
-        "campaign_id": "24254001344",
-        "impressions": 28,
-        "clicks": 2,
-        "cost_usd": 0.89
-      },
-      {
-        "date": "2026-09-21",
-        "gender": "FEMALE",
-        "campaign_id": "24254001344",
-        "impressions": 8,
-        "clicks": 1,
-        "cost_usd": 0.46
-      },
-      {
-        "date": "2026-09-22",
-        "gender": "MALE",
-        "campaign_id": "24254001344",
-        "impressions": 127,
-        "clicks": 18,
-        "cost_usd": 28.26
-      },
-      {
-        "date": "2026-09-22",
-        "gender": "FEMALE",
-        "campaign_id": "24254001344",
-        "impressions": 23,
-        "clicks": 5,
-        "cost_usd": 9.96
-      },
-      {
-        "date": "2026-09-22",
-        "gender": "UNDETERMINED",
-        "campaign_id": "24254001344",
-        "impressions": 51,
-        "clicks": 2,
-        "cost_usd": 3.78
-      },
-      {
-        "date": "2026-09-23",
-        "gender": "MALE",
-        "campaign_id": "24254001344",
-        "impressions": 62,
-        "clicks": 6,
-        "cost_usd": 15.11
-      },
-      {
-        "date": "2026-09-23",
-        "gender": "FEMALE",
-        "campaign_id": "24254001344",
-        "impressions": 41,
-        "clicks": 4,
-        "cost_usd": 7.46
-      },
-      {
-        "date": "2026-09-23",
-        "gender": "UNDETERMINED",
-        "campaign_id": "24254001344",
-        "impressions": 19,
-        "clicks": 1,
-        "cost_usd": 1.88
       },
       {
         "date": "2026-09-16",
@@ -10821,49 +10852,265 @@
         "date": "2026-09-23",
         "gender": "MALE",
         "campaign_id": "24255437492",
-        "impressions": 50,
-        "clicks": 5,
-        "cost_usd": 6.93
+        "impressions": 65,
+        "clicks": 7,
+        "cost_usd": 9.77
       },
       {
         "date": "2026-09-23",
         "gender": "FEMALE",
         "campaign_id": "24255437492",
-        "impressions": 46,
-        "clicks": 5,
-        "cost_usd": 2.86
+        "impressions": 55,
+        "clicks": 6,
+        "cost_usd": 4.21
       },
       {
         "date": "2026-09-23",
         "gender": "UNDETERMINED",
         "campaign_id": "24255437492",
-        "impressions": 42,
+        "impressions": 46,
+        "clicks": 3,
+        "cost_usd": 3.27
+      },
+      {
+        "date": "2026-09-24",
+        "gender": "MALE",
+        "campaign_id": "24255437492",
+        "impressions": 12,
         "clicks": 2,
-        "cost_usd": 1.87
+        "cost_usd": 1.72
+      },
+      {
+        "date": "2026-09-24",
+        "gender": "FEMALE",
+        "campaign_id": "24255437492",
+        "impressions": 10,
+        "clicks": 4,
+        "cost_usd": 5.64
+      },
+      {
+        "date": "2026-09-15",
+        "gender": "UNDETERMINED",
+        "campaign_id": "24254001344",
+        "impressions": 1,
+        "clicks": 1,
+        "cost_usd": 0.11
       },
       {
         "date": "2026-09-16",
         "gender": "MALE",
-        "campaign_id": "24255437888",
-        "impressions": 112,
-        "clicks": 10,
-        "cost_usd": 2.36
+        "campaign_id": "24254001344",
+        "impressions": 4,
+        "clicks": 2,
+        "cost_usd": 0.65
       },
       {
         "date": "2026-09-16",
         "gender": "FEMALE",
-        "campaign_id": "24255437888",
-        "impressions": 91,
+        "campaign_id": "24254001344",
+        "impressions": 8,
+        "clicks": 1,
+        "cost_usd": 0.5
+      },
+      {
+        "date": "2026-09-18",
+        "gender": "MALE",
+        "campaign_id": "24254001344",
+        "impressions": 16,
+        "clicks": 1,
+        "cost_usd": 0.46
+      },
+      {
+        "date": "2026-09-18",
+        "gender": "FEMALE",
+        "campaign_id": "24254001344",
+        "impressions": 3,
+        "clicks": 1,
+        "cost_usd": 0.14
+      },
+      {
+        "date": "2026-09-18",
+        "gender": "UNDETERMINED",
+        "campaign_id": "24254001344",
+        "impressions": 14,
+        "clicks": 3,
+        "cost_usd": 1.19
+      },
+      {
+        "date": "2026-09-19",
+        "gender": "MALE",
+        "campaign_id": "24254001344",
+        "impressions": 11,
+        "clicks": 2,
+        "cost_usd": 0.98
+      },
+      {
+        "date": "2026-09-19",
+        "gender": "FEMALE",
+        "campaign_id": "24254001344",
+        "impressions": 9,
+        "clicks": 2,
+        "cost_usd": 0.96
+      },
+      {
+        "date": "2026-09-19",
+        "gender": "UNDETERMINED",
+        "campaign_id": "24254001344",
+        "impressions": 10,
+        "clicks": 1,
+        "cost_usd": 0.5
+      },
+      {
+        "date": "2026-09-20",
+        "gender": "MALE",
+        "campaign_id": "24254001344",
+        "impressions": 30,
+        "clicks": 4,
+        "cost_usd": 1.96
+      },
+      {
+        "date": "2026-09-20",
+        "gender": "FEMALE",
+        "campaign_id": "24254001344",
+        "impressions": 14,
         "clicks": 5,
         "cost_usd": 2.39
       },
       {
-        "date": "2026-09-16",
-        "gender": "UNDETERMINED",
-        "campaign_id": "24255437888",
-        "impressions": 49,
+        "date": "2026-09-21",
+        "gender": "MALE",
+        "campaign_id": "24254001344",
+        "impressions": 28,
         "clicks": 2,
-        "cost_usd": 0.9
+        "cost_usd": 0.89
+      },
+      {
+        "date": "2026-09-21",
+        "gender": "FEMALE",
+        "campaign_id": "24254001344",
+        "impressions": 8,
+        "clicks": 1,
+        "cost_usd": 0.46
+      },
+      {
+        "date": "2026-09-22",
+        "gender": "MALE",
+        "campaign_id": "24254001344",
+        "impressions": 127,
+        "clicks": 18,
+        "cost_usd": 28.26
+      },
+      {
+        "date": "2026-09-22",
+        "gender": "FEMALE",
+        "campaign_id": "24254001344",
+        "impressions": 23,
+        "clicks": 5,
+        "cost_usd": 9.96
+      },
+      {
+        "date": "2026-09-22",
+        "gender": "UNDETERMINED",
+        "campaign_id": "24254001344",
+        "impressions": 51,
+        "clicks": 2,
+        "cost_usd": 3.78
+      },
+      {
+        "date": "2026-09-23",
+        "gender": "MALE",
+        "campaign_id": "24254001344",
+        "impressions": 72,
+        "clicks": 7,
+        "cost_usd": 15.47
+      },
+      {
+        "date": "2026-09-23",
+        "gender": "FEMALE",
+        "campaign_id": "24254001344",
+        "impressions": 50,
+        "clicks": 4,
+        "cost_usd": 7.46
+      },
+      {
+        "date": "2026-09-23",
+        "gender": "UNDETERMINED",
+        "campaign_id": "24254001344",
+        "impressions": 27,
+        "clicks": 1,
+        "cost_usd": 1.88
+      },
+      {
+        "date": "2026-09-02",
+        "gender": "MALE",
+        "campaign_id": "24169112079",
+        "impressions": 2,
+        "clicks": 2,
+        "cost_usd": 1.0
+      },
+      {
+        "date": "2026-09-04",
+        "gender": "MALE",
+        "campaign_id": "24169112079",
+        "impressions": 60,
+        "clicks": 2,
+        "cost_usd": 0.99
+      },
+      {
+        "date": "2026-09-04",
+        "gender": "FEMALE",
+        "campaign_id": "24169112079",
+        "impressions": 29,
+        "clicks": 2,
+        "cost_usd": 0.57
+      },
+      {
+        "date": "2026-09-04",
+        "gender": "UNDETERMINED",
+        "campaign_id": "24169112079",
+        "impressions": 21,
+        "clicks": 3,
+        "cost_usd": 0.63
+      },
+      {
+        "date": "2026-09-05",
+        "gender": "MALE",
+        "campaign_id": "24169112079",
+        "impressions": 78,
+        "clicks": 2,
+        "cost_usd": 1.0
+      },
+      {
+        "date": "2026-09-05",
+        "gender": "FEMALE",
+        "campaign_id": "24169112079",
+        "impressions": 42,
+        "clicks": 5,
+        "cost_usd": 2.48
+      },
+      {
+        "date": "2026-09-06",
+        "gender": "MALE",
+        "campaign_id": "24169112079",
+        "impressions": 55,
+        "clicks": 7,
+        "cost_usd": 1.87
+      },
+      {
+        "date": "2026-09-06",
+        "gender": "FEMALE",
+        "campaign_id": "24169112079",
+        "impressions": 60,
+        "clicks": 6,
+        "cost_usd": 3.0
+      },
+      {
+        "date": "2026-09-06",
+        "gender": "UNDETERMINED",
+        "campaign_id": "24169112079",
+        "impressions": 44,
+        "clicks": 4,
+        "cost_usd": 1.95
       },
       {
         "date": "2026-09-16",
@@ -10880,22 +11127,6 @@
         "impressions": 21,
         "clicks": 2,
         "cost_usd": 0.99
-      },
-      {
-        "date": "2026-09-17",
-        "gender": "MALE",
-        "campaign_id": "24255437888",
-        "impressions": 114,
-        "clicks": 10,
-        "cost_usd": 2.59
-      },
-      {
-        "date": "2026-09-17",
-        "gender": "FEMALE",
-        "campaign_id": "24255437888",
-        "impressions": 86,
-        "clicks": 5,
-        "cost_usd": 1.13
       },
       {
         "date": "2026-09-17",
@@ -10923,30 +11154,6 @@
       },
       {
         "date": "2026-09-18",
-        "gender": "MALE",
-        "campaign_id": "24255437888",
-        "impressions": 101,
-        "clicks": 2,
-        "cost_usd": 0.55
-      },
-      {
-        "date": "2026-09-18",
-        "gender": "FEMALE",
-        "campaign_id": "24255437888",
-        "impressions": 70,
-        "clicks": 3,
-        "cost_usd": 1.08
-      },
-      {
-        "date": "2026-09-18",
-        "gender": "UNDETERMINED",
-        "campaign_id": "24255437888",
-        "impressions": 35,
-        "clicks": 2,
-        "cost_usd": 0.63
-      },
-      {
-        "date": "2026-09-18",
         "gender": "FEMALE",
         "campaign_id": "24255437888",
         "impressions": 37,
@@ -10965,22 +11172,6 @@
         "date": "2026-09-19",
         "gender": "MALE",
         "campaign_id": "24255437888",
-        "impressions": 94,
-        "clicks": 9,
-        "cost_usd": 3.66
-      },
-      {
-        "date": "2026-09-19",
-        "gender": "FEMALE",
-        "campaign_id": "24255437888",
-        "impressions": 50,
-        "clicks": 1,
-        "cost_usd": 0.5
-      },
-      {
-        "date": "2026-09-19",
-        "gender": "MALE",
-        "campaign_id": "24255437888",
         "impressions": 29,
         "clicks": 2,
         "cost_usd": 0.6
@@ -10992,30 +11183,6 @@
         "impressions": 27,
         "clicks": 3,
         "cost_usd": 1.07
-      },
-      {
-        "date": "2026-09-20",
-        "gender": "MALE",
-        "campaign_id": "24255437888",
-        "impressions": 101,
-        "clicks": 7,
-        "cost_usd": 1.83
-      },
-      {
-        "date": "2026-09-20",
-        "gender": "FEMALE",
-        "campaign_id": "24255437888",
-        "impressions": 66,
-        "clicks": 4,
-        "cost_usd": 1.23
-      },
-      {
-        "date": "2026-09-20",
-        "gender": "UNDETERMINED",
-        "campaign_id": "24255437888",
-        "impressions": 52,
-        "clicks": 4,
-        "cost_usd": 1.57
       },
       {
         "date": "2026-09-20",
@@ -11045,30 +11212,6 @@
         "date": "2026-09-21",
         "gender": "MALE",
         "campaign_id": "24255437888",
-        "impressions": 146,
-        "clicks": 12,
-        "cost_usd": 2.4
-      },
-      {
-        "date": "2026-09-21",
-        "gender": "FEMALE",
-        "campaign_id": "24255437888",
-        "impressions": 73,
-        "clicks": 2,
-        "cost_usd": 1.0
-      },
-      {
-        "date": "2026-09-21",
-        "gender": "UNDETERMINED",
-        "campaign_id": "24255437888",
-        "impressions": 53,
-        "clicks": 3,
-        "cost_usd": 0.74
-      },
-      {
-        "date": "2026-09-21",
-        "gender": "MALE",
-        "campaign_id": "24255437888",
         "impressions": 72,
         "clicks": 2,
         "cost_usd": 0.19
@@ -11093,30 +11236,6 @@
         "date": "2026-09-22",
         "gender": "MALE",
         "campaign_id": "24255437888",
-        "impressions": 127,
-        "clicks": 4,
-        "cost_usd": 0.82
-      },
-      {
-        "date": "2026-09-22",
-        "gender": "FEMALE",
-        "campaign_id": "24255437888",
-        "impressions": 85,
-        "clicks": 6,
-        "cost_usd": 2.26
-      },
-      {
-        "date": "2026-09-22",
-        "gender": "UNDETERMINED",
-        "campaign_id": "24255437888",
-        "impressions": 52,
-        "clicks": 1,
-        "cost_usd": 0.49
-      },
-      {
-        "date": "2026-09-22",
-        "gender": "MALE",
-        "campaign_id": "24255437888",
         "impressions": 54,
         "clicks": 3,
         "cost_usd": 1.15
@@ -11133,41 +11252,113 @@
         "date": "2026-09-23",
         "gender": "MALE",
         "campaign_id": "24255437888",
-        "impressions": 48,
-        "clicks": 2,
-        "cost_usd": 0.56
+        "impressions": 46,
+        "clicks": 4,
+        "cost_usd": 1.63
       },
       {
         "date": "2026-09-23",
         "gender": "FEMALE",
         "campaign_id": "24255437888",
-        "impressions": 43,
-        "clicks": 1,
-        "cost_usd": 0.44
+        "impressions": 56,
+        "clicks": 3,
+        "cost_usd": 0.76
       },
       {
         "date": "2026-09-23",
         "gender": "UNDETERMINED",
         "campaign_id": "24255437888",
         "impressions": 28,
-        "clicks": 1,
-        "cost_usd": 0.19
-      },
-      {
-        "date": "2026-09-23",
-        "gender": "MALE",
-        "campaign_id": "24255437888",
-        "impressions": 29,
-        "clicks": 3,
-        "cost_usd": 1.13
-      },
-      {
-        "date": "2026-09-23",
-        "gender": "UNDETERMINED",
-        "campaign_id": "24255437888",
-        "impressions": 19,
         "clicks": 2,
         "cost_usd": 0.63
+      },
+      {
+        "date": "2026-09-24",
+        "gender": "MALE",
+        "campaign_id": "24255437888",
+        "impressions": 8,
+        "clicks": 1,
+        "cost_usd": 0.49
+      },
+      {
+        "date": "2026-09-11",
+        "gender": "FEMALE",
+        "campaign_id": "24227636785",
+        "impressions": 25,
+        "clicks": 4,
+        "cost_usd": 1.2541
+      },
+      {
+        "date": "2026-09-12",
+        "gender": "MALE",
+        "campaign_id": "24227636785",
+        "impressions": 83,
+        "clicks": 2,
+        "cost_usd": 0.1139
+      },
+      {
+        "date": "2026-09-12",
+        "gender": "FEMALE",
+        "campaign_id": "24227636785",
+        "impressions": 75,
+        "clicks": 8,
+        "cost_usd": 6.328
+      },
+      {
+        "date": "2026-09-13",
+        "gender": "MALE",
+        "campaign_id": "24227636785",
+        "impressions": 99,
+        "clicks": 4,
+        "cost_usd": 0.7559
+      },
+      {
+        "date": "2026-09-13",
+        "gender": "FEMALE",
+        "campaign_id": "24227636785",
+        "impressions": 109,
+        "clicks": 6,
+        "cost_usd": 2.5474
+      },
+      {
+        "date": "2026-09-14",
+        "gender": "MALE",
+        "campaign_id": "24227636785",
+        "impressions": 29,
+        "clicks": 1,
+        "cost_usd": 1.31
+      },
+      {
+        "date": "2026-09-15",
+        "gender": "MALE",
+        "campaign_id": "24227636785",
+        "impressions": 31,
+        "clicks": 3,
+        "cost_usd": 0.3353
+      },
+      {
+        "date": "2026-09-15",
+        "gender": "FEMALE",
+        "campaign_id": "24227636785",
+        "impressions": 19,
+        "clicks": 1,
+        "cost_usd": 1.65
+      },
+      {
+        "date": "2026-09-16",
+        "gender": "MALE",
+        "campaign_id": "24227636785",
+        "impressions": 7,
+        "clicks": 1,
+        "cost_usd": 0.2662
+      },
+      {
+        "date": "2026-09-16",
+        "gender": "FEMALE",
+        "campaign_id": "24227636785",
+        "impressions": 26,
+        "clicks": 3,
+        "cost_usd": 2.7
       }
     ],
     "age": [
@@ -17597,9 +17788,17 @@
       },
       {
         "date": "2026-09-23",
+        "age": "AGE_RANGE_18_24",
+        "campaign_id": "24249924945",
+        "impressions": 11,
+        "clicks": 1,
+        "cost_usd": 1.21
+      },
+      {
+        "date": "2026-09-23",
         "age": "AGE_RANGE_25_34",
         "campaign_id": "24249924945",
-        "impressions": 7,
+        "impressions": 15,
         "clicks": 3,
         "cost_usd": 3.28
       },
@@ -17607,15 +17806,15 @@
         "date": "2026-09-23",
         "age": "AGE_RANGE_45_54",
         "campaign_id": "24249924945",
-        "impressions": 8,
-        "clicks": 2,
-        "cost_usd": 3.17
+        "impressions": 17,
+        "clicks": 5,
+        "cost_usd": 6.92
       },
       {
         "date": "2026-09-23",
         "age": "AGE_RANGE_55_64",
         "campaign_id": "24249924945",
-        "impressions": 6,
+        "impressions": 17,
         "clicks": 2,
         "cost_usd": 3.63
       },
@@ -17623,7 +17822,7 @@
         "date": "2026-09-23",
         "age": "AGE_RANGE_65_UP",
         "campaign_id": "24249924945",
-        "impressions": 3,
+        "impressions": 7,
         "clicks": 1,
         "cost_usd": 1.77
       },
@@ -17631,15 +17830,31 @@
         "date": "2026-09-23",
         "age": "AGE_RANGE_UNDETERMINED",
         "campaign_id": "24249924945",
-        "impressions": 13,
+        "impressions": 23,
         "clicks": 1,
         "cost_usd": 1.22
+      },
+      {
+        "date": "2026-09-24",
+        "age": "AGE_RANGE_35_44",
+        "campaign_id": "24249924945",
+        "impressions": 3,
+        "clicks": 2,
+        "cost_usd": 2.42
+      },
+      {
+        "date": "2026-09-24",
+        "age": "AGE_RANGE_UNDETERMINED",
+        "campaign_id": "24249924945",
+        "impressions": 11,
+        "clicks": 2,
+        "cost_usd": 3.18
       },
       {
         "date": "2026-09-15",
         "age": "AGE_RANGE_UNDETERMINED",
         "campaign_id": "24254001344",
-        "impressions": 2,
+        "impressions": 1,
         "clicks": 1,
         "cost_usd": 0.11
       },
@@ -17679,7 +17894,7 @@
         "date": "2026-09-18",
         "age": "AGE_RANGE_UNDETERMINED",
         "campaign_id": "24254001344",
-        "impressions": 15,
+        "impressions": 14,
         "clicks": 3,
         "cost_usd": 1.19
       },
@@ -17821,9 +18036,25 @@
       },
       {
         "date": "2026-09-23",
+        "age": "AGE_RANGE_45_54",
+        "campaign_id": "24254001344",
+        "impressions": 2,
+        "clicks": 1,
+        "cost_usd": 0.5
+      },
+      {
+        "date": "2026-09-23",
+        "age": "AGE_RANGE_65_UP",
+        "campaign_id": "24254001344",
+        "impressions": 2,
+        "clicks": 1,
+        "cost_usd": 0.5
+      },
+      {
+        "date": "2026-09-23",
         "age": "AGE_RANGE_18_24",
         "campaign_id": "24254001344",
-        "impressions": 12,
+        "impressions": 16,
         "clicks": 2,
         "cost_usd": 4.33
       },
@@ -17831,15 +18062,15 @@
         "date": "2026-09-23",
         "age": "AGE_RANGE_35_44",
         "campaign_id": "24254001344",
-        "impressions": 27,
-        "clicks": 3,
-        "cost_usd": 6.22
+        "impressions": 32,
+        "clicks": 4,
+        "cost_usd": 6.58
       },
       {
         "date": "2026-09-23",
         "age": "AGE_RANGE_45_54",
         "campaign_id": "24254001344",
-        "impressions": 13,
+        "impressions": 17,
         "clicks": 2,
         "cost_usd": 6.38
       },
@@ -17863,7 +18094,7 @@
         "date": "2026-09-23",
         "age": "AGE_RANGE_UNDETERMINED",
         "campaign_id": "24254001344",
-        "impressions": 20,
+        "impressions": 28,
         "clicks": 1,
         "cost_usd": 1.88
       },
@@ -18231,23 +18462,23 @@
         "date": "2026-09-23",
         "age": "AGE_RANGE_18_24",
         "campaign_id": "24255437492",
-        "impressions": 19,
-        "clicks": 3,
-        "cost_usd": 3.55
+        "impressions": 26,
+        "clicks": 4,
+        "cost_usd": 4.9
       },
       {
         "date": "2026-09-23",
         "age": "AGE_RANGE_25_34",
         "campaign_id": "24255437492",
-        "impressions": 38,
-        "clicks": 4,
-        "cost_usd": 4.26
+        "impressions": 47,
+        "clicks": 5,
+        "cost_usd": 5.69
       },
       {
         "date": "2026-09-23",
         "age": "AGE_RANGE_35_44",
         "campaign_id": "24255437492",
-        "impressions": 15,
+        "impressions": 16,
         "clicks": 1,
         "cost_usd": 0.12
       },
@@ -18255,17 +18486,33 @@
         "date": "2026-09-23",
         "age": "AGE_RANGE_55_64",
         "campaign_id": "24255437492",
-        "impressions": 7,
-        "clicks": 2,
-        "cost_usd": 1.86
+        "impressions": 10,
+        "clicks": 3,
+        "cost_usd": 3.27
       },
       {
         "date": "2026-09-23",
         "age": "AGE_RANGE_UNDETERMINED",
         "campaign_id": "24255437492",
-        "impressions": 42,
-        "clicks": 2,
-        "cost_usd": 1.87
+        "impressions": 46,
+        "clicks": 3,
+        "cost_usd": 3.27
+      },
+      {
+        "date": "2026-09-24",
+        "age": "AGE_RANGE_18_24",
+        "campaign_id": "24255437492",
+        "impressions": 3,
+        "clicks": 1,
+        "cost_usd": 1.43
+      },
+      {
+        "date": "2026-09-24",
+        "age": "AGE_RANGE_25_34",
+        "campaign_id": "24255437492",
+        "impressions": 10,
+        "clicks": 5,
+        "cost_usd": 5.93
       },
       {
         "date": "2026-09-16",
@@ -18741,17 +18988,25 @@
       },
       {
         "date": "2026-09-23",
+        "age": "AGE_RANGE_18_24",
+        "campaign_id": "24255437888",
+        "impressions": 40,
+        "clicks": 1,
+        "cost_usd": 0.49
+      },
+      {
+        "date": "2026-09-23",
         "age": "AGE_RANGE_25_34",
         "campaign_id": "24255437888",
-        "impressions": 35,
-        "clicks": 2,
-        "cost_usd": 0.56
+        "impressions": 66,
+        "clicks": 4,
+        "cost_usd": 1.43
       },
       {
         "date": "2026-09-23",
         "age": "AGE_RANGE_45_54",
         "campaign_id": "24255437888",
-        "impressions": 4,
+        "impressions": 21,
         "clicks": 1,
         "cost_usd": 0.44
       },
@@ -18759,33 +19014,73 @@
         "date": "2026-09-23",
         "age": "AGE_RANGE_UNDETERMINED",
         "campaign_id": "24255437888",
-        "impressions": 28,
+        "impressions": 54,
+        "clicks": 2,
+        "cost_usd": 0.67
+      },
+      {
+        "date": "2026-09-23",
+        "age": "AGE_RANGE_25_34",
+        "campaign_id": "24255437888",
+        "impressions": 27,
         "clicks": 1,
-        "cost_usd": 0.19
+        "cost_usd": 0.04
       },
       {
         "date": "2026-09-23",
         "age": "AGE_RANGE_35_44",
         "campaign_id": "24255437888",
-        "impressions": 14,
-        "clicks": 2,
-        "cost_usd": 0.63
+        "impressions": 22,
+        "clicks": 3,
+        "cost_usd": 1.11
       },
       {
         "date": "2026-09-23",
         "age": "AGE_RANGE_45_54",
         "campaign_id": "24255437888",
-        "impressions": 12,
+        "impressions": 25,
+        "clicks": 2,
+        "cost_usd": 1.0
+      },
+      {
+        "date": "2026-09-23",
+        "age": "AGE_RANGE_65_UP",
+        "campaign_id": "24255437888",
+        "impressions": 2,
         "clicks": 1,
-        "cost_usd": 0.5
+        "cost_usd": 0.24
       },
       {
         "date": "2026-09-23",
         "age": "AGE_RANGE_UNDETERMINED",
         "campaign_id": "24255437888",
-        "impressions": 19,
+        "impressions": 28,
         "clicks": 2,
         "cost_usd": 0.63
+      },
+      {
+        "date": "2026-09-24",
+        "age": "AGE_RANGE_25_34",
+        "campaign_id": "24255437888",
+        "impressions": 16,
+        "clicks": 1,
+        "cost_usd": 0.5
+      },
+      {
+        "date": "2026-09-24",
+        "age": "AGE_RANGE_35_44",
+        "campaign_id": "24255437888",
+        "impressions": 4,
+        "clicks": 1,
+        "cost_usd": 0.5
+      },
+      {
+        "date": "2026-09-24",
+        "age": "AGE_RANGE_45_54",
+        "campaign_id": "24255437888",
+        "impressions": 4,
+        "clicks": 1,
+        "cost_usd": 0.49
       }
     ]
   }
